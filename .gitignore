@@ -1,4 +1,3 @@
-try 2/
 try 1/lucas_data/
 try 1/outputs/cache/*.npy
 try 1/outputs/runs/**/*.pt
