@@ -1,0 +1,12 @@
+# jepa_crop_research.ipynb - Python dependencies
+# 1) Install PyTorch FIRST, with the CUDA build that matches your NVIDIA driver:
+#    use the selector at https://pytorch.org/get-started/locally/ (pip, your OS, CUDA).
+#    Tested minimum: torch>=2.1 (notebook validated with torch 2.14.1 on CPU).
+# 2) Then: pip install -r requirements.txt
+numpy>=1.24
+pandas>=1.5
+scikit-learn>=1.2
+matplotlib>=3.6
+psutil>=5.9
+ipykernel>=6.0
+jupyterlab>=4.0
