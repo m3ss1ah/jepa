@@ -1,0 +1,97 @@
+{
+  "benchmark": {
+    "batch_size": 128,
+    "imgs_per_s": 575.889951754491,
+    "peak_mem_gb": 1.217208832
+  },
+  "flops": {
+    "gflops_per_image": 3.854128128,
+    "predictor_share": 0.3191314515634079,
+    "context_share": 0.3738381745880556,
+    "target_share": 0.3070303738485365
+  },
+  "projected_hours": 1.1395406327210367,
+  "per_run_hours": 0.0810340005490515,
+  "queue": [
+    [
+      "ijepa",
+      0
+    ],
+    [
+      "veg",
+      0
+    ],
+    [
+      "ms",
+      0
+    ],
+    [
+      "veg_ms",
+      0
+    ],
+    [
+      "random_init",
+      0
+    ],
+    [
+      "supervised",
+      0
+    ],
+    [
+      "ijepa",
+      1
+    ],
+    [
+      "veg",
+      1
+    ],
+    [
+      "ms",
+      1
+    ],
+    [
+      "veg_ms",
+      1
+    ],
+    [
+      "random_init",
+      1
+    ],
+    [
+      "supervised",
+      1
+    ],
+    [
+      "ijepa",
+      2
+    ],
+    [
+      "veg",
+      2
+    ],
+    [
+      "ms",
+      2
+    ],
+    [
+      "veg_ms",
+      2
+    ],
+    [
+      "random_init",
+      2
+    ],
+    [
+      "supervised",
+      2
+    ]
+  ],
+  "gpu": {
+    "name": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "vram_gb": 4.0,
+    "capability": "8.6",
+    "bf16": true,
+    "n_gpus": 1
+  },
+  "profile": "laptop_4gb"
+}

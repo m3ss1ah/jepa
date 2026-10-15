@@ -1,0 +1,7 @@
+{
+  "arm": "veg_ms",
+  "seed": 0,
+  "cfg_hash": "9e87551f6d5b",
+  "epochs": 200,
+  "train_minutes": 2.7053401788075764
+}

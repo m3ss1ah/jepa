@@ -1,0 +1,115 @@
+{
+  "profile": "laptop_4gb",
+  "img_size": 160,
+  "patch_size": 16,
+  "enc_dim": 192,
+  "enc_depth": 12,
+  "enc_heads": 3,
+  "pred_dim": 128,
+  "pred_depth": 4,
+  "pred_heads": 4,
+  "grad_ckpt": false,
+  "batch_size": 128,
+  "epochs": 200,
+  "warmup_frac": 0.1,
+  "blr": 0.0005,
+  "min_lr": 1e-06,
+  "wd_start": 0.04,
+  "wd_end": 0.4,
+  "ema_start": 0.996,
+  "ema_end": 1.0,
+  "grad_clip": 3.0,
+  "precision": "bf16",
+  "num_targets": 4,
+  "target_scale": [
+    0.15,
+    0.2
+  ],
+  "target_aspect": [
+    0.75,
+    1.5
+  ],
+  "context_scale": [
+    0.85,
+    1.0
+  ],
+  "min_context": 10,
+  "ms_scales": [
+    [
+      0.04,
+      0.08
+    ],
+    [
+      0.1,
+      0.14
+    ],
+    [
+      0.17,
+      0.23
+    ],
+    [
+      0.28,
+      0.36
+    ]
+  ],
+  "veg_index": "chromatic",
+  "veg_tau": 0.5,
+  "veg_eps": 0.2,
+  "crop_scale": [
+    0.3,
+    1.0
+  ],
+  "hflip": true,
+  "cache_res": 256,
+  "val_frac": 0.15,
+  "test_frac": 0.15,
+  "split_seed": 42,
+  "dedup_hamming": 4,
+  "shots": [
+    1,
+    5,
+    10,
+    25,
+    50,
+    100
+  ],
+  "percents": [
+    10,
+    100
+  ],
+  "n_draws": 5,
+  "probe_C": [
+    0.001,
+    0.01,
+    0.1,
+    1.0,
+    10.0
+  ],
+  "knn_k": 20,
+  "knn_t": 0.07,
+  "eval_batch": 256,
+  "sup_epochs": 100,
+  "sup_blr": 0.0005,
+  "sup_wd": 0.05,
+  "label_smoothing": 0.1,
+  "sup_eval_every": 5,
+  "sup_regimes": [
+    "10pct",
+    "100pct"
+  ],
+  "monitor_n": 512,
+  "knn_monitor_every": 10,
+  "knn_monitor_train": 2000,
+  "ckpt_every": 5,
+  "max_session_hours": 1000000000.0,
+  "eval_reserve_min": 15.0,
+  "bootstrap_B": 1000,
+  "low_label_regimes": [
+    "5shot",
+    "10shot",
+    "25shot"
+  ],
+  "arm": "veg_ms",
+  "seed": 0,
+  "cfg_hash": "9e87551f6d5b"
+}

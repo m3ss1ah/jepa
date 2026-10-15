@@ -1,0 +1,7 @@
+{
+  "arm": "ms",
+  "seed": 0,
+  "cfg_hash": "7e26ea234409",
+  "epochs": 200,
+  "train_minutes": 3.2898614446322125
+}

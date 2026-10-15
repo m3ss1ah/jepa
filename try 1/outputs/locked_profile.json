@@ -1,0 +1,14 @@
+{
+  "profile": "laptop_4gb",
+  "batch_size": 128,
+  "precision": "bf16",
+  "img_size": 160,
+  "enc_dim": 192,
+  "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "benchmark": {
+    "batch_size": 128,
+    "imgs_per_s": 651.4638348613314,
+    "peak_mem_gb": 1.217208832
+  },
+  "locked_at": "2026-10-05T03:18:02.257033"
+}

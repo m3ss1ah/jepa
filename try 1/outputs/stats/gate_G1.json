@@ -1,0 +1,20 @@
+{
+  "low_label_regimes": [
+    "5shot",
+    "10shot",
+    "25shot"
+  ],
+  "veg": {
+    "regimes_won": 0,
+    "regimes_harmed": 0,
+    "mean_diff_pp": 1.0188191850210029
+  },
+  "veg_ms": {
+    "regimes_won": 0,
+    "regimes_harmed": 0,
+    "mean_diff_pp": 1.0520567941180732
+  },
+  "seeds_completed": 3,
+  "decision": "FAIL",
+  "next_step": "Drop ExG from the headline; report Stage A as a controlled-study note; move on to cross-view JEPA."
+}
