@@ -1,0 +1,17 @@
+{
+  "benchmark": {
+    "batch_size": 16,
+    "imgs_per_s": 255.55610956108038,
+    "peak_mem_gb": 0.068397568
+  },
+  "plan": {
+    "batch": 16,
+    "steps_per_epoch": 15,
+    "epochs": 4,
+    "total_steps": 60,
+    "target_steps": 60
+  },
+  "hours_per_run": 0.0011878689111895656,
+  "relative_cost_vs_ijepa_per_image": 2.8749023815258408,
+  "measured_at": "2026-10-23T03:44:58.408598"
+}

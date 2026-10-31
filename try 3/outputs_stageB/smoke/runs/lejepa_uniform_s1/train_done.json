@@ -1,0 +1,12 @@
+{
+  "arm": "ijepa",
+  "label": "lejepa_uniform",
+  "seed": 1,
+  "cfg_hash": "7ba85828733e",
+  "batch": 16,
+  "steps_per_epoch": 15,
+  "epochs": 4,
+  "total_steps": 60,
+  "target_steps": 60,
+  "train_minutes": 0.031596052646636966
+}

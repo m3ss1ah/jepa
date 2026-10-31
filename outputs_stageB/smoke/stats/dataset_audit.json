@@ -1,0 +1,66 @@
+{
+  "dataset_source": "LUCASvision (JRC)",
+  "official_url": "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/DRLL/LUCASvision/",
+  "preparation_date": "2026-10-22T16:22:53.861445",
+  "total_images_discovered": 303,
+  "total_usable_images": 303,
+  "unreadable_or_corrupt_images": 0,
+  "number_of_classes": 6,
+  "class_names": [
+    "crop_0",
+    "crop_1",
+    "crop_2",
+    "crop_3",
+    "crop_4",
+    "crop_5"
+  ],
+  "label_mapping": {
+    "B11": "Common wheat",
+    "B12": "Durum wheat",
+    "B13": "Barley",
+    "B14": "Rye",
+    "B15": "Oats",
+    "B16": "Maize",
+    "B21": "Potatoes",
+    "B22": "Sugar beet",
+    "B31": "Sunflower",
+    "B32": "Rapeseed",
+    "B33": "Soya",
+    "B55": "Temporary grassland"
+  },
+  "images_per_class": {
+    "crop_0": 53,
+    "crop_1": 50,
+    "crop_2": 50,
+    "crop_3": 50,
+    "crop_4": 50,
+    "crop_5": 50
+  },
+  "number_of_unique_groups": 102,
+  "images_per_group_summary": {
+    "count": 102.0,
+    "mean": 2.9705882352941178,
+    "std": 0.29704426289300234,
+    "min": 2.0,
+    "25%": 3.0,
+    "50%": 3.0,
+    "75%": 3.0,
+    "max": 4.0
+  },
+  "groups_with_size_gt_1": 102,
+  "max_group_size": 4,
+  "median_group_size": 3.0,
+  "duplicate_images_removed": 3,
+  "train_images": 196,
+  "val_images": 53,
+  "test_images": 54,
+  "train_groups": 66,
+  "val_groups": 18,
+  "test_groups": 18,
+  "group_overlap_verification": {
+    "train_val_overlap": 0,
+    "train_test_overlap": 0,
+    "val_test_overlap": 0,
+    "verified_zero_leakage": true
+  }
+}

@@ -1,0 +1,21 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Mean ExG under the target blocks by arm.}
+\label{tab:manipulation_check}
+\begin{tabular}{lrrrrrrrrr}
+\toprule
+source & arm & tgt\_exg & tgt\_exg\_z & ctx\_exg & all\_exg & batches & ctx\_tokens & tgt\_tokens & kl\_centres\_vs\_veg\_pos \\
+\midrule
+training logs (mean over epochs and seeds) & ijepa & 0.27 & 0.07 & 0.24 & 0.25 & nan & nan & nan & nan \\
+training logs (mean over epochs and seeds) & veg\_pos & 0.39 & 0.49 & 0.16 & 0.25 & nan & nan & nan & nan \\
+training logs (mean over epochs and seeds) & veg\_neg & 0.15 & -0.36 & 0.34 & 0.25 & nan & nan & nan & nan \\
+training logs (mean over epochs and seeds) & pos\_matched & 0.34 & 0.29 & 0.19 & 0.25 & nan & nan & nan & nan \\
+training logs (mean over epochs and seeds) & attn & 0.20 & -0.20 & 0.30 & 0.25 & nan & nan & nan & nan \\
+pre-training check & ijepa & 0.27 & 0.06 & 0.25 & 0.26 & 12.00 & 18.08 & 46.17 & 0.23 \\
+pre-training check & veg\_pos & 0.39 & 0.49 & 0.16 & 0.26 & 12.00 & 21.17 & 46.17 & 0.00 \\
+pre-training check & veg\_neg & 0.15 & -0.36 & 0.33 & 0.26 & 12.00 & 19.67 & 46.17 & 1.00 \\
+pre-training check & pos\_matched & 0.34 & 0.29 & 0.19 & 0.26 & 12.00 & 19.50 & 46.17 & 0.01 \\
+\bottomrule
+\end{tabular}
+\end{table}

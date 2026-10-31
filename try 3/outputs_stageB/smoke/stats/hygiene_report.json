@@ -1,0 +1,9 @@
+{
+  "images_ok": 363,
+  "duplicate_clusters": 4,
+  "images_in_duplicate_clusters": 8,
+  "duplicate_clusters_with_conflicting_labels": 0,
+  "near_duplicate_check": true,
+  "groups_before": 327,
+  "groups_after": 323
+}

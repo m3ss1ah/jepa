@@ -1,0 +1,48 @@
+[B11] total files: 100
+  LUCAS2006_39482910_Cover.jpg
+  LUCAS2009_31862206_Cover.jpg
+  LUCAS2009_34763420_Cover.jpg
+[B12] total files: 100
+  LUCAS2006_29161706_Cover.jpg
+  LUCAS2006_29221682_Cover.jpg
+  LUCAS2006_29481706_Cover.jpg
+[B13] total files: 100
+  LUCAS2006_30462124_Cover.jpg
+  LUCAS2006_32341990_Cover.jpg
+  LUCAS2006_35382134_Cover.jpg
+[B14] total files: 100
+  LUCAS2006_30002260_Cover.jpg
+  LUCAS2006_31182282_Cover.jpg
+  LUCAS2006_31422118_Cover.jpg
+[B15] total files: 100
+  LUCAS2006_34082074_Cover.jpg
+  LUCAS2006_34302080_Cover.jpg
+  LUCAS2006_35542116_Cover.jpg
+[B16] total files: 100
+  LUCAS2006_29281758_Cover.jpg
+  LUCAS2006_34782102_Cover.jpg
+  LUCAS2006_42742484_Cover.jpg
+[B21] total files: 100
+  LUCAS2006_31342122_Cover.jpg
+  LUCAS2006_38263134_Cover.jpg
+  LUCAS2006_38283078_Cover.jpg
+[B22] total files: 100
+  LUCAS2006_29201674_Cover.jpg
+  LUCAS2006_30101728_Cover.jpg
+  LUCAS2006_44142416_Cover.jpg
+[B31] total files: 100
+  LUCAS2006_29501704_Cover.jpg
+  LUCAS2009_29761736_Cover.jpg
+  LUCAS2009_29981742_Cover.jpg
+[B32] total files: 100
+  LUCAS2006_35162626_Cover.jpg
+  LUCAS2006_36622746_Cover.jpg
+  LUCAS2006_39923056_Cover.jpg
+[B33] total files: 100
+  LUCAS2006_42902442_Cover.jpg
+  LUCAS2006_44262448_Cover.jpg
+  LUCAS2006_44442424_Cover.jpg
+[B55] total files: 100
+  LUCAS2009_28922362_Cover.jpg
+  LUCAS2009_29042352_Cover.jpg
+  LUCAS2009_34983612_Cover.jpg

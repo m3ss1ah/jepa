@@ -1,0 +1,18 @@
+index,eval,comparison,delta (pp),95% CI,n seeds,note
+3,probe,veg_neg - ijepa,-0.46633540363816284,"[-2.30, +0.96]",3,CI includes 0
+4,probe,pos_matched - ijepa,0.23027570270357697,"[-1.01, +1.88]",3,CI includes 0
+5,probe,ijepa - random_init,-0.09975377342626805,"[-1.64, +1.71]",3,"CI includes 0, within margin"
+6,probe,veg_pos - random_init,-0.035184947694359245,"[-1.36, +1.60]",3,"CI includes 0, within margin"
+7,probe,veg_neg - random_init,-0.566089177064431,"[-2.73, +1.17]",3,CI includes 0
+8,probe,pos_matched - random_init,0.13052192927730893,"[-1.23, +2.05]",3,CI includes 0
+34,probe,attn - ijepa,0.3228855260860086,"[-2.16, +2.52]",2,CI includes 0
+35,knn,veg_pos - ijepa,-0.026683149785372562,"[-0.71, +0.66]",3,"CI includes 0, within margin"
+36,knn,veg_pos - pos_matched,0.03472602900894499,"[-0.43, +0.49]",3,"CI includes 0, within margin"
+37,knn,veg_pos - veg_neg,0.24509937193435508,"[-0.43, +0.90]",3,"CI includes 0, within margin"
+38,knn,veg_neg - ijepa,-0.2717825217197276,"[-0.94, +0.45]",3,"CI includes 0, within margin"
+39,knn,pos_matched - ijepa,-0.061409178794317544,"[-0.93, +0.71]",3,"CI includes 0, within margin"
+40,knn,ijepa - random_init,0.2114393785726106,"[-1.17, +1.45]",3,"CI includes 0, within margin"
+41,knn,veg_pos - random_init,0.18475622878723802,"[-1.04, +1.36]",3,"CI includes 0, within margin"
+42,knn,veg_neg - random_init,-0.06034314314711705,"[-1.12, +0.99]",3,"CI includes 0, within margin"
+43,knn,pos_matched - random_init,0.15003019977829307,"[-1.00, +1.33]",3,"CI includes 0, within margin"
+69,knn,attn - ijepa,-0.15617814482388193,"[-1.01, +0.58]",2,"CI includes 0, within margin"

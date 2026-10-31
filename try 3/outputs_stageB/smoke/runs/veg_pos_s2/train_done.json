@@ -1,0 +1,12 @@
+{
+  "arm": "veg_pos",
+  "label": "veg_pos",
+  "seed": 2,
+  "cfg_hash": "e54dd7dd9a6b",
+  "batch": 32,
+  "steps_per_epoch": 7,
+  "epochs": 9,
+  "total_steps": 63,
+  "target_steps": 60,
+  "train_minutes": 0.10153247912724812
+}

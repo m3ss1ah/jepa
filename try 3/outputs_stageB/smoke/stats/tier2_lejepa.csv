@@ -1,0 +1,5 @@
+comparison,diff_pp,ci95_lo_pp,ci95_hi_pp,n_seeds,wilcoxon_p_two_sided
+lejepa_veg_pos - lejepa_uniform,0.19812248786351405,-1.9428844663649703,2.1859728067937527,2,1.0
+lejepa_veg_neg - lejepa_uniform,0.02514442416533813,-2.005577698846272,2.8041402967719002,2,1.0
+lejepa_pos_matched - lejepa_uniform,0.8514592288798417,-1.0858465870930034,3.0884969800260995,2,0.5
+H4: (veg_pos - ijepa) - (lejepa_veg_pos - lejepa_uniform),-0.07820368457641946,-2.9373961183147084,2.790908741000095,2,1.0

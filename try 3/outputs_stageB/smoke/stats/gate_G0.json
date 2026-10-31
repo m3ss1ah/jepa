@@ -1,0 +1,21 @@
+{
+  "pilot_steps": 91,
+  "pilot_epochs": 13,
+  "online_knn_val_f1_first": 0.2518518518518518,
+  "online_knn_val_f1_last": 0.2902734778121774,
+  "online_knn_val_f1_max": 0.2902734778121774,
+  "random_init_online_knn_val_f1": 0.2518518518518518,
+  "knn_gain_over_random_init_pp": 3.842162596032556,
+  "required_gain_pp": 3.0,
+  "rankme_min": 13.16591739654541,
+  "rankme_floor": 4.800000000000001,
+  "rankme_last": 13.433035850524902,
+  "pass_knn": true,
+  "pass_rankme": true,
+  "probe_endpoint_pilot": 0.2922375606753832,
+  "probe_endpoint_random_init": 0.2872073894192169,
+  "knn_endpoint_pilot": 0.16578238380218557,
+  "knn_endpoint_random_init": 0.16261719897641858,
+  "decision": "SMOKE TEST \u2014 pipeline check only, meaningless: PASS",
+  "recommendation": "Training produces usable features. Set RUN_MODE = 'full' to run the core grid (60 steps per run)."
+}

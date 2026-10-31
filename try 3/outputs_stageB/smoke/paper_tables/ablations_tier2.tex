@@ -1,0 +1,23 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Tier-2 ablations (exploratory): differences in pp.}
+\label{tab:ablations_tier2}
+\begin{tabular}{lrrrrrrrrr}
+\toprule
+ablation & tau & diff\_pp & ci95\_lo\_pp & ci95\_hi\_pp & n\_seeds & wilcoxon\_p\_two\_sided & train\_fraction & n\_images & comparison \\
+\midrule
+tau\_sweep & 0.25 & 0.27 & -2.03 & 2.00 & 2 & 1.00 & nan & nan & nan \\
+tau\_sweep & 0.50 & 0.12 & -2.03 & 1.69 & 2 & 1.00 & nan & nan & nan \\
+tau\_sweep & 1.00 & 0.27 & -1.86 & 1.75 & 2 & 1.00 & nan & nan & nan \\
+tau\_sweep & inf & 0.00 & 0.00 & 0.00 & 2 & nan & nan & nan & nan \\
+size\_axis & nan & -0.43 & -1.82 & 0.27 & 2 & 0.50 & 0.10 & 24.00 & nan \\
+size\_axis & nan & -0.08 & -1.63 & 1.80 & 2 & 1.00 & 0.30 & 78.00 & nan \\
+size\_axis & nan & 0.12 & -1.62 & 1.96 & 2 & 1.00 & 1.00 & 254.00 & nan \\
+lejepa & nan & 0.20 & -1.94 & 2.19 & 2 & 1.00 & nan & nan & lejepa\_veg\_pos - lejepa\_uniform \\
+lejepa & nan & 0.03 & -2.01 & 2.80 & 2 & 1.00 & nan & nan & lejepa\_veg\_neg - lejepa\_uniform \\
+lejepa & nan & 0.85 & -1.09 & 3.09 & 2 & 0.50 & nan & nan & lejepa\_pos\_matched - lejepa\_uniform \\
+lejepa & nan & -0.08 & -2.94 & 2.79 & 2 & 1.00 & nan & nan & H4: (veg\_pos - ijepa) - (lejepa\_veg\_pos - lejepa\_uniform) \\
+\bottomrule
+\end{tabular}
+\end{table}

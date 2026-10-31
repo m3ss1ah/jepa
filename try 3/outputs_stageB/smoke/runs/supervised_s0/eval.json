@@ -1,0 +1,40 @@
+{
+  "arm": "supervised",
+  "seed": 0,
+  "profile": "smoke",
+  "classes": [
+    "S01",
+    "S02",
+    "S03",
+    "S04",
+    "S05",
+    "S06"
+  ],
+  "results": [
+    {
+      "eval": "supervised",
+      "regime": "10pct",
+      "draw": 0,
+      "val_macro_f1": 0.06434108527131782,
+      "best_val_epoch": 4,
+      "epochs": 12,
+      "acc": 0.2222222222222222,
+      "macro_f1": 0.11851851851851851,
+      "bal_acc": 0.2222222222222222
+    },
+    {
+      "eval": "supervised",
+      "regime": "100pct",
+      "draw": 0,
+      "val_macro_f1": 0.22429526994744384,
+      "best_val_epoch": 12,
+      "epochs": 12,
+      "acc": 0.18518518518518517,
+      "macro_f1": 0.16253877029739103,
+      "bal_acc": 0.1851851851851852
+    }
+  ],
+  "label": "supervised",
+  "family": "baseline",
+  "note": "upper reference, NOT matched: all weights trained with labels, augmentation, best-validation epoch"
+}

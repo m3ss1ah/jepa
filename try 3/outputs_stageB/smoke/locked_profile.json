@@ -1,0 +1,15 @@
+{
+  "profile": "smoke",
+  "batch_size": 32,
+  "precision": "bf16",
+  "img_size": 64,
+  "enc_dim": 96,
+  "cache_res": 72,
+  "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "benchmark": {
+    "batch_size": 32,
+    "imgs_per_s": 734.6988679906286,
+    "peak_mem_gb": 0.077996544
+  },
+  "locked_at": "2026-10-23T03:41:18.864368"
+}

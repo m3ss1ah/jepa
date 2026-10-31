@@ -1,0 +1,12 @@
+{
+  "arm": "ijepa",
+  "label": "pilot_ijepa",
+  "seed": 0,
+  "cfg_hash": "ece88e5f361a",
+  "batch": 32,
+  "steps_per_epoch": 7,
+  "epochs": 13,
+  "total_steps": 91,
+  "target_steps": 90,
+  "train_minutes": 0.06576467752456665
+}

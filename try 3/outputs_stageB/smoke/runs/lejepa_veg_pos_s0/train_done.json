@@ -1,0 +1,12 @@
+{
+  "arm": "veg_pos",
+  "label": "lejepa_veg_pos",
+  "seed": 0,
+  "cfg_hash": "6d656205c2de",
+  "batch": 16,
+  "steps_per_epoch": 15,
+  "epochs": 4,
+  "total_steps": 60,
+  "target_steps": 60,
+  "train_minutes": 0.0635311206181844
+}

@@ -1,0 +1,105 @@
+{
+  "study": "Crop-JEPA Stage B: greenness-guided target placement in I-JEPA (LUCASVision)",
+  "hypotheses": {
+    "H1": "veg_pos > ijepa on the primary endpoint",
+    "H2": "veg_pos > pos_matched (greenness beyond image position)",
+    "H3": "veg_pos > veg_neg (polarity matters)",
+    "H4 (Tier 2, not in the Holm family)": "the veg_pos effect is smaller under SIGReg/LeJEPA than under EMA I-JEPA"
+  },
+  "primary_endpoint": {
+    "metric": "test macro-F1",
+    "evaluation": "linear probe (logistic regression, C chosen on validation macro-F1) on frozen target-encoder features",
+    "regimes": [
+      "5shot",
+      "10shot",
+      "10pct"
+    ],
+    "aggregation": "mean over the label draws of a regime, then mean over the regimes",
+    "unit_of_analysis": "pretraining seed (label draws are nested within a seed)"
+  },
+  "arms": [
+    "ijepa",
+    "veg_pos",
+    "veg_neg",
+    "pos_matched"
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "baselines": [
+    "random_init",
+    "supervised"
+  ],
+  "training_budget_steps": {
+    "core": 60,
+    "pilot": 90
+  },
+  "placement": {
+    "tau": 0.5,
+    "eps": 0.2,
+    "num_targets": 4,
+    "target_scale": [
+      0.15,
+      0.2
+    ]
+  },
+  "primary_family": [
+    "veg_pos - ijepa",
+    "veg_pos - pos_matched",
+    "veg_pos - veg_neg"
+  ],
+  "multiplicity": "Holm over the primary family (size 3)",
+  "test": {
+    "name": "exact Wilcoxon signed-rank on the seed-level differences (zero differences dropped, exact enumeration)",
+    "alternative": "greater",
+    "alpha": 0.05
+  },
+  "also_reported": [
+    "paired sign-flip permutation p (exact)",
+    "Wilcoxon p for the other alternatives",
+    "hierarchical bootstrap CI: resample seeds -> label draws within seed -> test images (shared by arms)"
+  ],
+  "bootstrap": {
+    "B": 200,
+    "interval": "percentile",
+    "levels": [
+      0.95,
+      0.9
+    ]
+  },
+  "decision_rules": {
+    "A > B (confirmed)": "Holm-adjusted p (greater) < 0.05 AND 95% CI lower bound > 0",
+    "A < B": "95% CI upper bound < 0 (descriptive; not a pre-registered hypothesis)",
+    "A ~ B (equivalent)": "90% CI inside +/- 1.5 pp (TOST, alpha 0.05)",
+    "otherwise": "inconclusive"
+  },
+  "interpretation_table": [
+    "veg_pos beats ijepa, pos_matched and veg_neg -> greenness-guided placement helps (positive result)",
+    "veg_pos ~ pos_matched > ijepa -> the effect is a spatial prior, not greenness",
+    "veg_pos ~ ijepa ~ others (all three equivalent) -> placement does not matter at this scale (negative result)",
+    "veg_pos < ijepa -> greenness-biased placement hurts",
+    "anything else -> mixed / inconclusive (reported as such)"
+  ],
+  "secondary_exploratory": [
+    "each regime separately",
+    "k-NN (same endpoint and per regime)",
+    "veg_neg - ijepa",
+    "pos_matched - ijepa",
+    "attn - ijepa (Tier 2)",
+    "per-class F1 differences at 100 % labels",
+    "tau sweep, data-size axis, LeJEPA arms (Tier 2)"
+  ],
+  "gates": {
+    "G0": "online k-NN val F1 of the pilot >= random_init + 3.0 pp AND min RankMe >= 0.05 x enc_dim",
+    "G1": "interpretation table above, with the decision rules above"
+  },
+  "power_note": {
+    "n_seeds": 3,
+    "min_exact_p": 0.125,
+    "min_attainable_holm_p": 0.375
+  },
+  "created": "2026-10-23T03:41:10.887621",
+  "results_existing_at_registration": 0
+}

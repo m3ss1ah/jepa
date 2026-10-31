@@ -1,0 +1,8 @@
+{
+  "images_before_hygiene": 303,
+  "usable_images": 303,
+  "near_duplicate_pairs_found": 3,
+  "images_in_duplicate_clusters": 3,
+  "original_groups": 105,
+  "final_groups": 102
+}
