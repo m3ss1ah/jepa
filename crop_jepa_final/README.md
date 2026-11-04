@@ -36,6 +36,8 @@ Full interpretation, with all numbers: [`docs/STAGE_C_RESULTS_REPORT.md`](docs/S
 ## Repository layout
 
 ```
+stage_a/
+  Crop_JEPA_StageA.ipynb    2x2 factorial notebook: vegetation-aware x multi-scale targets vs I-JEPA (code, no outputs)
 docs/
   STAGE_C_RESULTS_REPORT.md         detailed results, interpretation, allowed and forbidden claims
   STAGE_C_MASTER_SPEC_proposal.md   the original Stage C proposal (before the final design)
@@ -62,7 +64,7 @@ Mapping to the paths used inside the reports:
 
 | stage | what | outcome |
 |---|---|---|
-| A | early exploration (outputs on the cluster, not included here) | – |
+| A | 2×2 factorial: vegetation-aware × multi-scale targets vs I-JEPA ([`stage_a/Crop_JEPA_StageA.ipynb`](stage_a/Crop_JEPA_StageA.ipynb)) | the study was narrowed to vegetation-guided placement for Stage B (Stage A outputs are on the cluster, not included) |
 | B | pilot: 4 arms × 6 seeds, 9k steps, uncapped context | veg_pos − ijepa +0.89 pp (inconclusive); veg_pos − veg_neg +3.97 pp. Later shown to depend on the protocol. |
 | C | final study: 5 phases, 260 runs, frozen plan, 20-seed core, replication split, ViT-S, bridge to Stage B | decision **P-B**: equivalent to uniform placement |
 | follow-up | 2×2: cap × training length (post hoc, exploratory) | running; separates the two causes of the Stage B → C change |
@@ -89,7 +91,7 @@ The step-by-step guide is [`stage_c/code/STAGE_C_RUN_GUIDE.md`](stage_c/code/STA
 
 - **Model checkpoints** (`*.pt`, ~4.5 GB for Stage B alone) and the **image cache** (`cache/images_192.npy`, 1.6 GB). Both are reproducible: run the pipeline, and `download_lucas.py` fetches the images.
 - **Saved float16 features**, the zip bundles, and the smoke-test or synthetic data.
-- **Stage A outputs**, which are only on the cluster.
+- **Stage A outputs**, which are only on the cluster. The Stage A notebook itself is included, without outputs.
 
 ## Notes
 
