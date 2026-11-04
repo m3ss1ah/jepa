@@ -6,6 +6,14 @@
 
 ---
 
+> **Update after the 2×2 follow-up (2026-11-04).** See [`../followup_2x2/README.md`](../followup_2x2/README.md).
+> - **Neither change alone removes the gain.** Neither the context-token cap nor the longer training, applied on its own, removes veg_pos's small advantage: it stays at about +0.4 pp in both cases, and falls to about 0 only when both are applied.
+> - **Unequal context did not create the Stage B gain.** The suggestion below that veg_pos's ~10% extra context caused it (§6) is not supported.
+> - **The row-crop pattern fades with training.** It is an early-training effect that disappears with longer training.
+> - **New finding: the 12-token cap itself makes I-JEPA better at long training** (+2.87 pp, 10/10 seeds; no effect at 9k steps).
+>
+> All follow-up results are exploratory (post hoc, 10 seeds). The Stage C conclusion (no meaningful benefit from vegetation-guided targets) is unchanged.
+
 ## 0. The short version
 
 1. **Vegetation-guided masking (`veg_pos`) gives no improvement over standard I-JEPA once the experiment is fair.**
@@ -211,7 +219,7 @@ What this shows:
 3. **Under the controlled protocol** (equal context tokens, 3× longer training) **both the average advantage and the row-crop advantage disappear.** The row-crop pattern even reverses slightly.
 4. **Which of the two changes removes the effect cannot be separated.** The bridge differs from core in both context budget and training length. The direct contrast (−0.38 pp [−1.09, +0.32]) is inconclusive, so the paper must say "the effect does not survive matched-budget, longer training" and not blame either factor alone.
    - In the uncapped bridge, veg_pos had **10% more context** tokens than ijepa (31.1 vs 28.2), because vegetation-seeking targets overlap more and leave more patches as context.
-   - **The most plausible explanation is that the extra context was the cause.** It fits the evidence, but the experiment was not designed to prove it.
+   - ~~The most plausible explanation is that the extra context was the cause.~~ **The 2×2 follow-up rules this out.** With equal context at 9k steps, veg_pos still leads by +0.40 pp. The advantage disappears only when the cap and long training are combined.
 
 **Stage B's headline result:**
 - **veg_pos − veg_neg = +3.97 pp** (6/6 seeds, Stage B's only "confirmed" result) **shrinks to +0.42 pp (n.s.)** in Stage C.
@@ -283,8 +291,8 @@ These findings agree with prior general-domain work:
    - Seeking vegetation gives nothing because large uniform target blocks already cover it (target greenness only +12%).
 4. **A methodological warning, with evidence.**
    - A pilot effect (Stage B: +0.89 pp vs ijepa, +3.97 pp vs veg_neg) is fully reproduced under its original protocol: +0.60 pp pooled over 16 seeds, p = 0.017, with the row-crop interaction p = 0.003.
-   - It vanishes once context tokens are equalised and training is lengthened.
-   - Masking papers rarely control the **context-token budget**. This study shows uneven budgets can manufacture effects of exactly the size usually reported.
+   - It vanishes once context tokens are equalised **and** training is lengthened. The 2×2 follow-up shows that neither change does this on its own.
+   - **Training protocol matters more than the heuristic.** The context budget and the training length each move I-JEPA itself by several points: the cap adds +2.87 pp at 26k steps, and longer training adds +5.4 pp. A ~0.5 pp masking effect measured under one protocol need not survive another.
 5. **A reproducibility package.** The analysis plan was frozen by hash before the main runs, with exact tests, a hierarchical bootstrap, and per-run predictions and features saved.
 
 **How to frame it.** "A well-controlled negative result plus a mechanism plus a methodology lesson."
@@ -293,9 +301,9 @@ These findings agree with prior general-domain work:
 
 **Possible titles:**
 - *"Does Masking the Crop Help? A Controlled Study of Vegetation-Guided Targets in I-JEPA"*
-- *"Green Targets Don't Help: Context Budget, Not Content, Explains Vegetation-Guided Masking Gains in JEPA"*
+- *"Green Targets Don't Help: A Controlled Study of Vegetation-Guided Masking in JEPA"*
 
-The second is only acceptable if it's worded carefully, because the cap and training length are confounded.
+(An earlier title idea, "Context Budget, Not Content, Explains…", is ruled out by the 2×2 follow-up.)
 
 ---
 

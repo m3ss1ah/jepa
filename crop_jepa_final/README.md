@@ -52,7 +52,7 @@ stage_c/
              phase0/ (protocol decision, frozen pre-registration + .sha256, power analysis),
              core/ splitB/ vits/ bridge/ (each: stats/, paper_tables/, figures/, runs/), logs/
 followup_2x2/
-  code/      post-hoc 2x2 follow-up (context-token cap x training length); results are added when available
+  code/, results/   post-hoc 2x2 follow-up (context-token cap x training length): pipeline, results, README with conclusions
 ```
 
 Mapping to the paths used inside the reports:
@@ -67,7 +67,7 @@ Mapping to the paths used inside the reports:
 | A | 2×2 factorial: vegetation-aware × multi-scale targets vs I-JEPA ([`stage_a/Crop_JEPA_StageA.ipynb`](stage_a/Crop_JEPA_StageA.ipynb)) | Gate G1 **FAIL** on a 1,200-image laptop run (veg ≈ +1 pp, CIs include 0; multi-scale no effect) → Stage B kept only vegetation placement |
 | B | pilot: 4 arms × 6 seeds, 9k steps, uncapped context | veg_pos − ijepa +0.89 pp (inconclusive); veg_pos − veg_neg +3.97 pp. Later shown to depend on the protocol. |
 | C | final study: 5 phases, 260 runs, frozen plan, 20-seed core, replication split, ViT-S, bridge to Stage B | decision **P-B**: equivalent to uniform placement |
-| follow-up | 2×2: cap × training length (post hoc, exploratory) | running; separates the two causes of the Stage B → C change |
+| follow-up | 2×2: cap × training length (post hoc, exploratory; [`followup_2x2/`](followup_2x2/README.md)) | neither change alone removes the small veg_pos gain (only both together); unequal context did not create it; the 12-token cap itself adds +2.87 pp to I-JEPA at 26k steps (10/10 seeds) |
 
 ## Reproducing
 
