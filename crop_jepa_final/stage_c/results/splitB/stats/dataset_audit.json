@@ -1,0 +1,170 @@
+{
+  "dataset_source": "LUCASVision (JRC)",
+  "official_url": "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/DRLL/LUCASvision/",
+  "prepared": "2026-11-03T20:27:21.351777",
+  "image_count_reported_elsewhere": "\u224815,876 [UNVERIFIED secondary source]; this audit is the measured count",
+  "total_images_discovered": 15876,
+  "total_usable_images": 15876,
+  "unreadable_images": 0,
+  "number_of_classes": 12,
+  "class_names": [
+    "B11",
+    "B12",
+    "B13",
+    "B14",
+    "B15",
+    "B16",
+    "B21",
+    "B22",
+    "B31",
+    "B32",
+    "B33",
+    "B55"
+  ],
+  "label_mapping": {
+    "B11": "Common wheat",
+    "B12": "Durum wheat",
+    "B13": "Barley",
+    "B14": "Rye",
+    "B15": "Oats",
+    "B16": "Maize",
+    "B21": "Potatoes",
+    "B22": "Sugar beet",
+    "B31": "Sunflower",
+    "B32": "Rapeseed",
+    "B33": "Soya",
+    "B55": "Temporary grassland"
+  },
+  "images_per_class": {
+    "B11": 2096,
+    "B12": 485,
+    "B13": 1873,
+    "B14": 1151,
+    "B15": 1032,
+    "B16": 1393,
+    "B21": 1222,
+    "B22": 1067,
+    "B31": 596,
+    "B32": 2163,
+    "B33": 897,
+    "B55": 1901
+  },
+  "class_counts_by_split": {
+    "B11": {
+      "train": 1469,
+      "val": 315,
+      "test": 312,
+      "total": 2096
+    },
+    "B12": {
+      "train": 343,
+      "val": 69,
+      "test": 73,
+      "total": 485
+    },
+    "B13": {
+      "train": 1303,
+      "val": 282,
+      "test": 288,
+      "total": 1873
+    },
+    "B14": {
+      "train": 800,
+      "val": 180,
+      "test": 171,
+      "total": 1151
+    },
+    "B15": {
+      "train": 719,
+      "val": 155,
+      "test": 158,
+      "total": 1032
+    },
+    "B16": {
+      "train": 969,
+      "val": 213,
+      "test": 211,
+      "total": 1393
+    },
+    "B21": {
+      "train": 858,
+      "val": 179,
+      "test": 185,
+      "total": 1222
+    },
+    "B22": {
+      "train": 752,
+      "val": 162,
+      "test": 153,
+      "total": 1067
+    },
+    "B31": {
+      "train": 417,
+      "val": 91,
+      "test": 88,
+      "total": 596
+    },
+    "B32": {
+      "train": 1516,
+      "val": 325,
+      "test": 322,
+      "total": 2163
+    },
+    "B33": {
+      "train": 629,
+      "val": 135,
+      "test": 133,
+      "total": 897
+    },
+    "B55": {
+      "train": 1341,
+      "val": 274,
+      "test": 286,
+      "total": 1901
+    }
+  },
+  "group_parsing": {
+    "source": "pre-built cache /home/vishalraina23/crop_jepa_cluster/outputs_stageB/cache",
+    "unique_points": 14760
+  },
+  "download": {},
+  "hygiene": {
+    "images_ok": 15876,
+    "duplicate_clusters": 16,
+    "images_in_duplicate_clusters": 47,
+    "duplicate_clusters_with_conflicting_labels": 8,
+    "near_duplicate_check": true,
+    "groups_before": 14760,
+    "groups_after": 14729
+  },
+  "leakage_audit": {
+    "grouped_by": "group_final = LUCAS survey-point id (filename regex) merged with near-duplicate clusters",
+    "n_groups": 14729,
+    "max_group_size": 9,
+    "median_group_size": 1.0,
+    "share_images_in_groups_gt1": 0.13920382968002015,
+    "groups_spanning_splits": 0,
+    "survey_points": 14760,
+    "points_with_more_than_one_image": 1053,
+    "points_spanning_several_years": 1053,
+    "max_images_per_point": 4,
+    "groups_with_several_crop_labels": 851
+  },
+  "train_images": 11116,
+  "val_images": 2380,
+  "test_images": 2380,
+  "label_regimes": {
+    "1shot": 10,
+    "5shot": 10,
+    "10shot": 10,
+    "25shot": 10,
+    "50shot": 10,
+    "100shot": 10,
+    "10pct": 10,
+    "100pct": 1
+  },
+  "cache": {
+    "path": "/home/vishalraina23/crop_jepa_cluster/outputs_stageB/cache/images_192.npy",
+    "resolution": 192
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "phase": "bridge",
+  "role": "exploratory: Stage B protocol (no cap, 9,030 steps) on fresh seeds; pooled with Stage B seeds 0-5",
+  "decision": {
+    "primary": "P-C",
+    "polarity": "",
+    "spatial_prior": "",
+    "text": "[bridge: exploratory: Stage B protocol (no cap, 9,030 steps) on fresh seeds; pooled with Stage B seeds 0-5] none of the above -> 'inconclusive; effect bounded to the reported 95% CI' | veg_pos - ijepa = +0.42 pp, 95% CI [-0.27, +1.16], Holm p = 0.1377, 7/10 seeds positive",
+    "primary_text": "none of the above -> 'inconclusive; effect bounded to the reported 95% CI' | veg_pos - ijepa = +0.42 pp, 95% CI [-0.27, +1.16], Holm p = 0.1377, 7/10 seeds positive",
+    "moderation": "H5 confirmed (high - low = +1.25 pp, 95% CI [+0.72, +1.74], p = 0.00293)"
+  },
+  "confirmatory": [
+    {
+      "eval": "probe",
+      "comparison": "veg_pos - ijepa",
+      "a": "veg_pos",
+      "b": "ijepa",
+      "regime": "PRIMARY ENDPOINT",
+      "diff_pp": 0.4165950300723203,
+      "ci95_lo_pp": -0.2671522013212903,
+      "ci95_hi_pp": 1.1577687936400973,
+      "ci90_lo_pp": -0.1747573166448566,
+      "ci90_hi_pp": 1.035968896540215,
+      "n_seeds": 10,
+      "seeds_a_better": 7,
+      "W_plus": 39.0,
+      "wilcoxon_p_greater": 0.1376953125,
+      "wilcoxon_p_less": 0.8837890625,
+      "wilcoxon_p_two_sided": 0.275390625,
+      "perm_p_greater": 0.1064453125,
+      "perm_p_two_sided": 0.212890625,
+      "hypothesis": "H1",
+      "family": "BRIDGE (exploratory; Holm within phase shown for reference)",
+      "holm_p": 0.1376953125,
+      "test_used": "wilcoxon_p_greater",
+      "equivalent": false,
+      "equivalent_95": false,
+      "equivalent_stageB_margin": true,
+      "lower": false,
+      "ci_excludes_0": false,
+      "greater_confirmed": false,
+      "status": "inconclusive"
+    }
+  ],
+  "equivalence": [],
+  "moderation_H5": {
+    "hypothesis": "H5",
+    "comparison": "veg_pos - ijepa",
+    "n_seeds": 10,
+    "delta_low_pp": 0.1384742951907114,
+    "delta_mid_pp": 0.4588477366255139,
+    "delta_high_pp": 1.3885267275097768,
+    "high_minus_low_pp": 1.2500524323190654,
+    "ci95_lo_pp": 0.7195415793695558,
+    "ci95_hi_pp": 1.7424008272414542,
+    "seeds_positive": 9,
+    "wilcoxon_p_greater": 0.0029296875,
+    "family": "moderation (bridge, replication)",
+    "seed_high_minus_low_pp": [
+      1.722,
+      0.127,
+      1.905,
+      0.615,
+      2.334,
+      0.716,
+      -0.208,
+      1.876,
+      2.01,
+      1.403
+    ],
+    "status": "confirmed"
+  },
+  "confirmatory_seed_diffs_pp": {
+    "veg_pos - ijepa": [
+      0.227,
+      0.584,
+      0.898,
+      0.716,
+      -0.598,
+      0.987,
+      -0.976,
+      0.83,
+      2.3,
+      -0.803
+    ]
+  },
+  "seeds_completed": {
+    "ijepa": 10,
+    "veg_pos": 10
+  },
+  "seeds_planned": 10,
+  "ctx_tokens_cap": null,
+  "intervals_computed": 18,
+  "expected_chance_exclusions": 0.9,
+  "preregistration": "./outputs_stageC/phase0/stats/preregistration_stageC.json",
+  "computed_at": "2026-11-04T02:48:15.375772"
+}

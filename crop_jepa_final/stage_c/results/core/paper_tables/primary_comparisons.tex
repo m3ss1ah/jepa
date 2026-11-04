@@ -1,0 +1,16 @@
+\begin{table}[t]
+\centering
+\small
+\caption{[core] PRIMARY (pre-registered, Holm): linear-probe primary endpoint, unit = seed, exact Wilcoxon signed-rank (one-sided), Holm over 4.}
+\label{tab:primary_comparisons}
+\begin{tabular}{lrrrrrrrrr}
+\toprule
+hypothesis & comparison & delta (pp) & 95\% CI & 90\% CI & seeds + & Wilcoxon p (greater) & Holm p & perm. p (2-sided) & result \\
+\midrule
+H1 & veg\_pos - ijepa & -0.09 & [-0.59, +0.47] & [-0.51, +0.37] & 8/20 & 0.83 & 0.83 & 0.73 & equivalent \\
+H2 & veg\_pos - pos\_matched & 0.37 & [-0.14, +0.92] & [-0.07, +0.81] & 14/20 & 0.07 & 0.14 & 0.13 & equivalent \\
+H3 & veg\_pos - veg\_neg & 0.42 & [-0.10, +0.95] & [-0.02, +0.87] & 15/20 & 0.03 & 0.10 & 0.05 & equivalent \\
+H4 & neg\_matched - veg\_neg & 0.52 & [+0.09, +0.97] & [+0.16, +0.89] & 12/20 & 0.01 & 0.02 & 0.01 & greater (confirmed) \\
+\bottomrule
+\end{tabular}
+\end{table}

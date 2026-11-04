@@ -1,0 +1,21 @@
+{
+  "pilot_steps": 26058,
+  "pilot_epochs": 303,
+  "online_knn_val_f1_first": 0.16200231251831632,
+  "online_knn_val_f1_last": 0.528792257129897,
+  "online_knn_val_f1_max": 0.5367091888863108,
+  "random_init_online_knn_val_f1": 0.1612904940816168,
+  "knn_gain_over_random_init_pp": 36.75017630482802,
+  "required_gain_pp": 3.0,
+  "rankme_min": 17.8337345123291,
+  "rankme_floor": 9.600000000000001,
+  "rankme_last": 83.70726013183594,
+  "pass_knn": true,
+  "pass_rankme": true,
+  "probe_endpoint_pilot": 0.49689703397195895,
+  "probe_endpoint_random_init": 0.20509714024973813,
+  "knn_endpoint_pilot": 0.430313836504185,
+  "knn_endpoint_random_init": 0.1450283391146253,
+  "decision": "PASS",
+  "recommendation": "Training produces usable features. Set RUN_MODE = 'full' to run the core grid (9000 steps per run)."
+}

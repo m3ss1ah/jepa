@@ -1,0 +1,68 @@
+{
+  "benchmark": {
+    "batch_size": 128,
+    "imgs_per_s": 2921.595411393697,
+    "peak_mem_gb": 1.34233344
+  },
+  "flops": {
+    "gflops_per_image": 3.801956352,
+    "predictor_share": 0.3187547672299001,
+    "context_share": 0.37000168065054106,
+    "target_share": 0.3112435521195589
+  },
+  "eval_imgs_per_s": 4061.231253658209,
+  "probe_s_per_run": 2.466655969619751,
+  "gpu": {
+    "name": "NVIDIA RTX 6000 Ada Generation",
+    "vram_gb": 47.4,
+    "capability": "8.9",
+    "bf16": true,
+    "n_gpus": 1
+  },
+  "profile": "big_gpu",
+  "measured_at": "2026-11-04T01:43:56.237505",
+  "core_plan": {
+    "batch": 128,
+    "steps_per_epoch": 86,
+    "epochs": 105,
+    "total_steps": 9030,
+    "target_steps": 9000
+  },
+  "pilot_plan": {
+    "batch": 128,
+    "steps_per_epoch": 86,
+    "epochs": 105,
+    "total_steps": 9030,
+    "target_steps": 9000
+  },
+  "projection": [
+    {
+      "item": "SSL runs (arms x seeds), sequential",
+      "runs": 20,
+      "hours_each": 0.11878757866138281,
+      "note": "9030 steps, 105 epochs",
+      "hours_total": 2.375751573227656
+    },
+    {
+      "item": "random_init evaluations",
+      "runs": 0,
+      "hours_each": 0.0017710598022677004,
+      "note": "evaluation only",
+      "hours_total": 0.0
+    },
+    {
+      "item": "supervised baseline (per seed)",
+      "runs": 0,
+      "hours_each": 0.11949738128007287,
+      "note": "100 epochs on ['10pct', '100pct']",
+      "hours_total": 0.0
+    },
+    {
+      "item": "Phase-0 validation run (each of 2)",
+      "runs": 2,
+      "hours_each": 0.11878757866138281,
+      "note": "9030 steps, no test evaluation",
+      "hours_total": 0.23757515732276563
+    }
+  ]
+}

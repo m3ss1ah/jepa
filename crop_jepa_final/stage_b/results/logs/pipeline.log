@@ -1,0 +1,12 @@
+[2026-10-27 15:22:02] ================ JOB 2070 START on hpc.spit.ac.in ================
+[2026-10-27 15:22:02] GPU(s): NVIDIA RTX 6000 Ada Generation, 49140 MiB, 610.57.04;
+[2026-10-27 15:22:05] PHASE 1/4  smoke test (generated data, a few minutes)
+[2026-10-27 15:23:37] smoke test PASSED
+[2026-10-27 15:23:37] PHASE 2/4  pilot (Gate 0): 26000 steps; downloads/caches data on first run; budget 35.223 h
+[2026-10-27 15:45:02] GATE 0 decision: PASS
+[2026-10-27 15:45:02] PHASE 3/4  core grid with 3 worker(s) on one GPU; budget 34.866 h
+[2026-10-27 17:26:06] grid workers finished: FINISHED 36/36 expected runs
+[2026-10-27 17:26:06] PHASE 4/4  report: statistics, figures, paper tables, bundle; budget 33.182 h
+FINISHED 36/36 expected runs
+[2026-10-27 17:27:41] ALL DONE. Everything is in ./outputs_stageB (start with ./outputs_stageB/results_bundle.zip)
+[2026-10-27 17:27:41] ================ JOB 2070 END ================

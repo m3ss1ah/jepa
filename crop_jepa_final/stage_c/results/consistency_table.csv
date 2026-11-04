@@ -1,0 +1,19 @@
+phase,family,hypothesis,comparison,n_seeds,delta_pp,ci95_lo_pp,ci95_hi_pp,holm_p,status
+core,"PRIMARY (pre-registered, Holm)",H1,veg_pos - ijepa,20,-0.08556817108895665,-0.5851131864603223,0.4676086574971821,0.8255949020385742,equivalent
+core,"PRIMARY (pre-registered, Holm)",H2,veg_pos - pos_matched,20,0.37160380441996377,-0.13756097054902242,0.9189909601683998,0.14290618896484375,equivalent
+core,"PRIMARY (pre-registered, Holm)",H3,veg_pos - veg_neg,20,0.41842748850527967,-0.1009875342539529,0.953451186376259,0.09558391571044922,equivalent
+core,"PRIMARY (pre-registered, Holm)",H4,neg_matched - veg_neg,20,0.5215993018364151,0.09026583479335687,0.9722684914037681,0.024158477783203125,greater (confirmed)
+core,EQUIVALENCE (pre-registered),E1,pos_matched - ijepa,20,-0.4571719755089204,-0.8744192466116943,-0.07341169934633136,,equivalent
+core,EQUIVALENCE (pre-registered),E2,neg_matched - ijepa,20,0.017603642242178807,-0.3895173816456915,0.42593308039707783,,equivalent
+core,MODERATION (pre-registered),H5,(veg_pos - ijepa) high - low,20,-0.8982123822434996,-1.3822395856981937,-0.36044878821884063,0.997889518737793,not confirmed
+splitB,"REPLICATION R1 (pre-registered, Holm within phase)",H1,veg_pos - ijepa,10,-0.20236032144790084,-0.9685002214873765,0.5689494245754185,0.75390625,equivalent
+splitB,"REPLICATION R1 (pre-registered, Holm within phase)",H2,veg_pos - pos_matched,10,0.22398835900098946,-0.41245578321035786,0.8579044824132286,0.625,equivalent
+splitB,"REPLICATION R1 (pre-registered, Holm within phase)",H3,veg_pos - veg_neg,10,0.36683018588889893,-0.27944482637237616,0.9729452156003326,0.3486328125,equivalent
+splitB,"REPLICATION R1 (pre-registered, Holm within phase)",H4,neg_matched - veg_neg,10,0.646448204461022,0.07860649522574482,1.2038823321340757,0.12890625,inconclusive
+splitB,"EQUIVALENCE (splitB, replication)",E1,pos_matched - ijepa,10,-0.4263486804488903,-0.90235591334932,0.04202083283835463,,equivalent
+splitB,"EQUIVALENCE (splitB, replication)",E2,neg_matched - ijepa,10,0.07725769712422226,-0.5627275471018484,0.7147320901531707,,equivalent
+splitB,"moderation (splitB, replication)",H5,(veg_pos - ijepa) high - low,10,-1.0101580251150177,-1.4512523518693181,-0.5430523878049702,0.9970703125,not confirmed
+vits,"REPLICATION R3 (pre-registered, Holm within phase)",H1,veg_pos - ijepa,10,-1.5405294419573645,-2.2610874447146596,-0.8585068520787796,1.0,lower
+vits,"moderation (vits, replication)",H5,(veg_pos - ijepa) high - low,10,-1.717056827985235,-2.159764424833668,-1.255785730733552,1.0,not confirmed
+bridge,BRIDGE (exploratory; Holm within phase shown for reference),H1,veg_pos - ijepa,10,0.4165950300723203,-0.2671522013212903,1.1577687936400973,0.1376953125,inconclusive
+bridge,"moderation (bridge, replication)",H5,(veg_pos - ijepa) high - low,10,1.2500524323190654,0.7195415793695558,1.7424008272414542,0.0029296875,confirmed

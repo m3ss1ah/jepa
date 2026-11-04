@@ -1,0 +1,46 @@
+{
+  "arm": "supervised",
+  "seed": 0,
+  "profile": "big_gpu",
+  "classes": [
+    "B11",
+    "B12",
+    "B13",
+    "B14",
+    "B15",
+    "B16",
+    "B21",
+    "B22",
+    "B31",
+    "B32",
+    "B33",
+    "B55"
+  ],
+  "results": [
+    {
+      "eval": "supervised",
+      "regime": "10pct",
+      "draw": 0,
+      "val_macro_f1": 0.5479198155051075,
+      "best_val_epoch": 100,
+      "epochs": 100,
+      "acc": 0.5921881562368753,
+      "macro_f1": 0.5582861241167266,
+      "bal_acc": 0.5599497040618197
+    },
+    {
+      "eval": "supervised",
+      "regime": "100pct",
+      "draw": 0,
+      "val_macro_f1": 0.7512859086457322,
+      "best_val_epoch": 85,
+      "epochs": 100,
+      "acc": 0.7744645107097858,
+      "macro_f1": 0.7394885533904656,
+      "bal_acc": 0.7374589316772293
+    }
+  ],
+  "label": "supervised",
+  "family": "baseline",
+  "note": "upper reference, NOT matched: all weights trained with labels, augmentation, best-validation epoch"
+}

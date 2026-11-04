@@ -1,0 +1,32 @@
+\begin{table}[t]
+\centering
+\small
+\caption{[splitB] Exploratory comparisons on the primary endpoint (no multiplicity correction; no claims).}
+\label{tab:exploratory_comparisons}
+\begin{tabular}{lrrrrrr}
+\toprule
+index & eval & comparison & delta (pp) & 95\% CI & n seeds & note \\
+\midrule
+6 & probe & veg\_neg - ijepa & -0.57 & [-1.20, +0.04] & 10 & CI includes 0 \\
+7 & probe & veg\_pos - neg\_matched & -0.28 & [-1.16, +0.60] & 10 & CI includes 0 \\
+8 & probe & ijepa - random\_init & 31.79 & [+30.56, +32.92] & 10 & CI above 0 \\
+9 & probe & veg\_pos - random\_init & 31.59 & [+30.38, +32.75] & 10 & CI above 0 \\
+10 & probe & veg\_neg - random\_init & 31.22 & [+30.01, +32.35] & 10 & CI above 0 \\
+11 & probe & pos\_matched - random\_init & 31.37 & [+30.15, +32.52] & 10 & CI above 0 \\
+12 & probe & neg\_matched - random\_init & 31.87 & [+30.61, +33.02] & 10 & CI above 0 \\
+77 & knn & veg\_pos - ijepa & 0.13 & [-0.98, +1.26] & 10 & CI includes 0 \\
+78 & knn & veg\_pos - pos\_matched & 0.75 & [-0.11, +1.67] & 10 & CI includes 0 \\
+79 & knn & veg\_pos - veg\_neg & 0.60 & [-0.10, +1.32] & 10 & CI includes 0 \\
+80 & knn & neg\_matched - veg\_neg & 0.66 & [-0.14, +1.50] & 10 & CI includes 0 \\
+81 & knn & pos\_matched - ijepa & -0.62 & [-1.08, -0.16] & 10 & CI below 0 \\
+82 & knn & neg\_matched - ijepa & 0.19 & [-0.71, +1.07] & 10 & CI includes 0, within margin \\
+83 & knn & veg\_neg - ijepa & -0.47 & [-1.34, +0.41] & 10 & CI includes 0 \\
+84 & knn & veg\_pos - neg\_matched & -0.06 & [-1.26, +1.15] & 10 & CI includes 0 \\
+85 & knn & ijepa - random\_init & 32.56 & [+31.27, +33.76] & 10 & CI above 0 \\
+86 & knn & veg\_pos - random\_init & 32.69 & [+31.53, +33.91] & 10 & CI above 0 \\
+87 & knn & veg\_neg - random\_init & 32.09 & [+30.97, +33.20] & 10 & CI above 0 \\
+88 & knn & pos\_matched - random\_init & 31.94 & [+30.77, +33.06] & 10 & CI above 0 \\
+89 & knn & neg\_matched - random\_init & 32.75 & [+31.43, +33.97] & 10 & CI above 0 \\
+\bottomrule
+\end{tabular}
+\end{table}

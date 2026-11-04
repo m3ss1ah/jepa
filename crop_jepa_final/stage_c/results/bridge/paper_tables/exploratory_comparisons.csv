@@ -1,0 +1,2 @@
+eval,comparison,delta (pp),95% CI,n seeds,note
+knn,veg_pos - ijepa,-0.39445187010175903,"[-1.23, +0.45]",10,CI includes 0

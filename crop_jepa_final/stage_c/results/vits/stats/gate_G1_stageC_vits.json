@@ -1,0 +1,97 @@
+{
+  "phase": "vits",
+  "role": "replication R3: H1 with ViT-S/16 at 160 px",
+  "decision": {
+    "primary": "P-D",
+    "polarity": "",
+    "spatial_prior": "",
+    "text": "[vits: replication R3: H1 with ViT-S/16 at 160 px] veg_pos - ijepa 95% CI upper bound < 0 AND exact Wilcoxon p (less) < 0.05 -> 'vegetation guidance is harmful' | veg_pos - ijepa = -1.54 pp, 95% CI [-2.26, -0.86], Holm p = 1, 0/10 seeds positive",
+    "primary_text": "veg_pos - ijepa 95% CI upper bound < 0 AND exact Wilcoxon p (less) < 0.05 -> 'vegetation guidance is harmful' | veg_pos - ijepa = -1.54 pp, 95% CI [-2.26, -0.86], Holm p = 1, 0/10 seeds positive",
+    "moderation": "H5 not confirmed (high - low = -1.72 pp, 95% CI [-2.16, -1.26], p = 1)"
+  },
+  "confirmatory": [
+    {
+      "eval": "probe",
+      "comparison": "veg_pos - ijepa",
+      "a": "veg_pos",
+      "b": "ijepa",
+      "regime": "PRIMARY ENDPOINT",
+      "diff_pp": -1.5405294419573645,
+      "ci95_lo_pp": -2.2610874447146596,
+      "ci95_hi_pp": -0.8585068520787796,
+      "ci90_lo_pp": -2.1540609534231736,
+      "ci90_hi_pp": -0.9480361262489834,
+      "n_seeds": 10,
+      "seeds_a_better": 0,
+      "W_plus": 0.0,
+      "wilcoxon_p_greater": 1.0,
+      "wilcoxon_p_less": 0.0009765625,
+      "wilcoxon_p_two_sided": 0.001953125,
+      "perm_p_greater": 1.0,
+      "perm_p_two_sided": 0.001953125,
+      "hypothesis": "H1",
+      "family": "REPLICATION R3 (pre-registered, Holm within phase)",
+      "holm_p": 1.0,
+      "test_used": "wilcoxon_p_greater",
+      "equivalent": false,
+      "equivalent_95": false,
+      "equivalent_stageB_margin": false,
+      "lower": true,
+      "ci_excludes_0": true,
+      "greater_confirmed": false,
+      "status": "lower"
+    }
+  ],
+  "equivalence": [],
+  "moderation_H5": {
+    "hypothesis": "H5",
+    "comparison": "veg_pos - ijepa",
+    "n_seeds": 10,
+    "delta_low_pp": -0.4950248756218912,
+    "delta_mid_pp": -1.6131687242798347,
+    "delta_high_pp": -2.2120817036071263,
+    "high_minus_low_pp": -1.717056827985235,
+    "ci95_lo_pp": -2.159764424833668,
+    "ci95_hi_pp": -1.255785730733552,
+    "seeds_positive": 0,
+    "wilcoxon_p_greater": 1.0,
+    "family": "moderation (vits, replication)",
+    "seed_high_minus_low_pp": [
+      -0.727,
+      -1.757,
+      -2.6,
+      -2.174,
+      -1.797,
+      -0.54,
+      -1.244,
+      -2.607,
+      -2.529,
+      -1.196
+    ],
+    "status": "not confirmed"
+  },
+  "confirmatory_seed_diffs_pp": {
+    "veg_pos - ijepa": [
+      -0.956,
+      -1.532,
+      -2.339,
+      -3.08,
+      -1.835,
+      -0.783,
+      -0.226,
+      -3.317,
+      -0.276,
+      -1.061
+    ]
+  },
+  "seeds_completed": {
+    "ijepa": 10,
+    "veg_pos": 10
+  },
+  "seeds_planned": 10,
+  "ctx_tokens_cap": 12,
+  "intervals_computed": 22,
+  "expected_chance_exclusions": 1.1,
+  "preregistration": "./outputs_stageC/phase0/stats/preregistration_stageC.json",
+  "computed_at": "2026-11-04T01:43:33.159014"
+}

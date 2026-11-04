@@ -1,0 +1,12 @@
+{
+  "arm": "pos_matched",
+  "label": "pos_matched",
+  "seed": 3,
+  "cfg_hash": "91d7e385fee8",
+  "batch": 128,
+  "steps_per_epoch": 86,
+  "epochs": 105,
+  "total_steps": 9030,
+  "target_steps": 9000,
+  "train_minutes": 7.472154045104981
+}

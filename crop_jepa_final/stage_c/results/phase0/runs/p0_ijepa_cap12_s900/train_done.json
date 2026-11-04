@@ -1,0 +1,12 @@
+{
+  "arm": "ijepa",
+  "label": "p0_ijepa_cap12_s900",
+  "seed": 900,
+  "cfg_hash": "643779acb79d",
+  "batch": 128,
+  "steps_per_epoch": 86,
+  "epochs": 105,
+  "total_steps": 9030,
+  "target_steps": 9000,
+  "train_minutes": 6.946024342377981
+}

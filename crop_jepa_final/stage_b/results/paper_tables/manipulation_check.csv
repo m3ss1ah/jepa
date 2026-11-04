@@ -1,0 +1,9 @@
+source,arm,tgt_exg,tgt_exg_z,ctx_exg,all_exg,batches,ctx_tokens,tgt_tokens,kl_centres_vs_veg_pos
+training logs (mean over epochs and seeds),ijepa,0.2435,0.0282,0.2367,0.2397,,,,
+training logs (mean over epochs and seeds),veg_pos,0.2742,0.424,0.2159,0.2397,,,,
+training logs (mean over epochs and seeds),veg_neg,0.2099,-0.3831,0.2614,0.2397,,,,
+training logs (mean over epochs and seeds),pos_matched,0.2437,0.0348,0.2364,0.2397,,,,
+pre-training check,ijepa,0.2437,0.0277,0.237,0.2399,200.0,28.52,70.72,0.0485
+pre-training check,veg_pos,0.2744,0.4243,0.2163,0.2399,200.0,31.625,70.72,0.0
+pre-training check,veg_neg,0.2101,-0.3819,0.2615,0.2399,200.0,30.92,70.72,0.0526
+pre-training check,pos_matched,0.2437,0.0348,0.2369,0.2399,200.0,27.18,70.72,0.0006

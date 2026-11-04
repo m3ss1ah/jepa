@@ -1,0 +1,96 @@
+{
+  "benchmark": {
+    "batch_size": 128,
+    "imgs_per_s": 3020.258243539446,
+    "peak_mem_gb": 1.342332928
+  },
+  "flops": {
+    "gflops_per_image": 3.801956352,
+    "predictor_share": 0.3187547672299001,
+    "context_share": 0.37000168065054106,
+    "target_share": 0.3112435521195589
+  },
+  "eval_imgs_per_s": 2577.635612572716,
+  "probe_s_per_run": 1.1690425872802734,
+  "gpu": {
+    "name": "NVIDIA RTX 6000 Ada Generation",
+    "vram_gb": 47.4,
+    "capability": "8.9",
+    "bf16": true,
+    "n_gpus": 1
+  },
+  "profile": "big_gpu",
+  "measured_at": "2026-10-27T15:25:37.790260",
+  "core_plan": {
+    "batch": 128,
+    "steps_per_epoch": 86,
+    "epochs": 105,
+    "total_steps": 9030,
+    "target_steps": 9000
+  },
+  "pilot_plan": {
+    "batch": 128,
+    "steps_per_epoch": 86,
+    "epochs": 303,
+    "total_steps": 26058,
+    "target_steps": 26000
+  },
+  "projection": [
+    {
+      "item": "Gate 0 pilot (ijepa seed 0)",
+      "runs": 1.0,
+      "hours_each": 0.3243789669904961,
+      "note": "26058 steps, 303 epochs",
+      "hours_total": 0.3243789669904961
+    },
+    {
+      "item": "core SSL runs (arms x seeds)",
+      "runs": 24.0,
+      "hours_each": 0.11956150389082419,
+      "note": "9030 steps, 105 epochs",
+      "hours_total": 2.8694760933797805
+    },
+    {
+      "item": "random_init evaluations",
+      "runs": 6.0,
+      "hours_each": 0.0020356042690885564,
+      "note": "evaluation only",
+      "hours_total": 0.012213625614531338
+    },
+    {
+      "item": "supervised baseline (per seed)",
+      "runs": 6.0,
+      "hours_each": 0.11757398830054121,
+      "note": "100 epochs on ['10pct', '100pct']",
+      "hours_total": 0.7054439298032472
+    },
+    {
+      "item": "Tier 2: attn arm",
+      "runs": 3.0,
+      "hours_each": 0.11956150389082419,
+      "note": "if ENABLE_ATTN_ARM",
+      "hours_total": 0.35868451167247256
+    },
+    {
+      "item": "Tier 2: tau sweep",
+      "runs": 6.0,
+      "hours_each": 0.11956150389082419,
+      "note": "if ENABLE_TAU_SWEEP",
+      "hours_total": 0.7173690233449451
+    },
+    {
+      "item": "Tier 2: size axis",
+      "runs": 12.0,
+      "hours_each": 0.12415919257505098,
+      "note": "if ENABLE_SIZE_AXIS",
+      "hours_total": 1.4899103109006118
+    },
+    {
+      "item": "Tier 2: LeJEPA arms [UNMEASURED: x3 guess]",
+      "runs": 12.0,
+      "hours_each": 0.35868451167247256,
+      "note": "measured in section 15d before it runs",
+      "hours_total": 4.3042141400696705
+    }
+  ]
+}

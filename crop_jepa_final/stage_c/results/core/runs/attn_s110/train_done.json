@@ -1,0 +1,12 @@
+{
+  "arm": "attn",
+  "label": "attn",
+  "seed": 110,
+  "cfg_hash": "8a78728a261e",
+  "batch": 128,
+  "steps_per_epoch": 86,
+  "epochs": 303,
+  "total_steps": 26058,
+  "target_steps": 26000,
+  "train_minutes": 22.2759673277537
+}

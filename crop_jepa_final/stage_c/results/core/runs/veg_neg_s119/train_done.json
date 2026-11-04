@@ -1,0 +1,12 @@
+{
+  "arm": "veg_neg",
+  "label": "veg_neg",
+  "seed": 119,
+  "cfg_hash": "f2eb3c39f25c",
+  "batch": 128,
+  "steps_per_epoch": 86,
+  "epochs": 303,
+  "total_steps": 26058,
+  "target_steps": 26000,
+  "train_minutes": 22.634874165058136
+}

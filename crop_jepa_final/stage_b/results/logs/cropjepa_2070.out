@@ -1,0 +1,1407 @@
+[2026-10-27 15:22:02] ================ JOB 2070 START on hpc.spit.ac.in ================
+[2026-10-27 15:22:02] GPU(s): NVIDIA RTX 6000 Ada Generation, 49140 MiB, 610.57.04;
+torch 2.8.0+cu128 | cuda available: True | device: NVIDIA RTX 6000 Ada Generation
+GPU matmul ok: 262144.0
+[2026-10-27 15:22:05] PHASE 1/4  smoke test (generated data, a few minutes)
+Python 3.11.14 | PyTorch 2.8.0+cu128 | torchvision 0.23.0+cu128 | numpy 2.4.6 | pandas 3.1.0 | scikit-learn 1.9.1 | scipy 1.17.1
+Platform: Linux | Kaggle: False | Device: cuda:0
+GPU: NVIDIA RTX 6000 Ada Generation | VRAM 47.4 GB | compute capability 8.9 | bf16: True | GPUs visible: 1
+System RAM: 251.0 GiB | free disk here (/home/vishalraina23/crop_jepa_cluster): 12457.0 GiB
+Mode: smoke | profile: smoke | precision: bf16 | output: /home/vishalraina23/crop_jepa_cluster/outputs_stageB/smoke
+Encoder: ViT dim 96 x depth 4, patch 8, 64px -> 8x8 tokens | predictor dim 64 x depth 2 | batch 32
+Budget: 60 optimizer steps per core run, 90 for the Gate-0 pilot (epochs derived from the data size)
+Seeds: [0, 1, 2] | arms: ['ijepa', 'veg_pos', 'veg_neg', 'pos_matched'] | baselines: ['random_init', 'supervised'] | Tier-2 seeds: [0, 1] | shard 0/1
+Tier 2: attn=True tau_sweep=True size_axis=True lejepa=True (smoke mode exercises all of them)
+Utilities ready.
+(smoke mode, 3 seeds: the Holm-adjusted test cannot reach alpha here; that is expected for a pipeline check)
+Pre-registration written to outputs_stageB/smoke/stats/preregistration.json (0 finished runs existed at registration).
+
+First 30 file names per class (check the naming pattern the group regex relies on):
+[S01] 63 files; first 30:
+   LUCAS2006_10000007_Cover.jpg   LUCAS2006_10000015_Cover.jpg   LUCAS2006_10000021_Cover.jpg
+   LUCAS2006_10000023_Cover.jpg   LUCAS2006_10000027_Cover.jpg   LUCAS2006_10000029_Cover.jpg
+   LUCAS2006_10000033_Cover.jpg   LUCAS2006_10000034_Cover.jpg   LUCAS2006_10000035_Cover.jpg
+   LUCAS2006_10000036_Cover.jpg   LUCAS2006_10000049_Cover.jpg   LUCAS2006_10000052_Cover.jpg
+   LUCAS2009_10000001_Cover.jpg   LUCAS2009_10000010_Cover.jpg   LUCAS2009_10000016_Cover.jpg
+   LUCAS2009_10000017_Cover.jpg   LUCAS2009_10000024_Cover.jpg   LUCAS2009_10000028_Cover.jpg
+   LUCAS2009_10000032_Cover.jpg   LUCAS2009_10000039_Cover.jpg   LUCAS2009_10000042_Cover.jpg
+   LUCAS2009_10000054_Cover.jpg   LUCAS2012_10000009_Cover.jpg   LUCAS2012_10000011_Cover.jpg
+   LUCAS2012_10000012_Cover.jpg   LUCAS2012_10000020_Cover.jpg   LUCAS2012_10000031_Cover.jpg
+   LUCAS2012_10000038_Cover.jpg   LUCAS2012_10000041_Cover.jpg   LUCAS2015_10000004_Cover.jpg
+[S02] 60 files; first 30:
+   LUCAS2006_10000056_Cover.jpg   LUCAS2006_10000058_Cover.jpg   LUCAS2006_10000060_Cover.jpg
+   LUCAS2006_10000066_Cover.jpg   LUCAS2006_10000068_Cover.jpg   LUCAS2006_10000084_Cover.jpg
+   LUCAS2006_10000093_Cover.jpg   LUCAS2006_10000096_Cover.jpg   LUCAS2006_10000106_Cover.jpg
+   LUCAS2009_10000055_Cover.jpg   LUCAS2009_10000063_Cover.jpg   LUCAS2009_10000071_Cover.jpg
+   LUCAS2009_10000076_Cover.jpg   LUCAS2009_10000080_Cover.jpg   LUCAS2009_10000082_Cover.jpg
+   LUCAS2009_10000085_Cover.jpg   LUCAS2009_10000087_Cover.jpg   LUCAS2009_10000097_Cover.jpg
+   LUCAS2009_10000099_Cover.jpg   LUCAS2012_10000064_Cover.jpg   LUCAS2012_10000065_Cover.jpg
+   LUCAS2012_10000069_Cover.jpg   LUCAS2012_10000070_Cover.jpg   LUCAS2012_10000075_Cover.jpg
+   LUCAS2012_10000086_Cover.jpg   LUCAS2012_10000089_Cover.jpg   LUCAS2012_10000090_Cover.jpg
+   LUCAS2012_10000092_Cover.jpg   LUCAS2012_10000098_Cover.jpg   LUCAS2012_10000100_Cover.jpg
+[S03] 60 files; first 30:
+   LUCAS2006_10000113_Cover.jpg   LUCAS2006_10000114_Cover.jpg   LUCAS2006_10000117_Cover.jpg
+   LUCAS2006_10000124_Cover.jpg   LUCAS2006_10000132_Cover.jpg   LUCAS2006_10000135_Cover.jpg
+   LUCAS2006_10000142_Cover.jpg   LUCAS2006_10000148_Cover.jpg   LUCAS2006_10000154_Cover.jpg
+   LUCAS2006_10000157_Cover.jpg   LUCAS2006_10000160_Cover.jpg   LUCAS2006_10000161_Cover.jpg
+   LUCAS2009_10000109_Cover.jpg   LUCAS2009_10000111_Cover.jpg   LUCAS2009_10000121_Cover.jpg
+   LUCAS2009_10000134_Cover.jpg   LUCAS2009_10000137_Cover.jpg   LUCAS2009_10000140_Cover.jpg
+   LUCAS2009_10000141_Cover.jpg   LUCAS2009_10000147_Cover.jpg   LUCAS2009_10000150_Cover.jpg
+   LUCAS2009_10000153_Cover.jpg   LUCAS2009_10000162_Cover.jpg   LUCAS2012_10000110_Cover.jpg
+   LUCAS2012_10000115_Cover.jpg   LUCAS2012_10000118_Cover.jpg   LUCAS2012_10000125_Cover.jpg
+   LUCAS2012_10000128_Cover.jpg   LUCAS2012_10000129_Cover.jpg   LUCAS2012_10000131_Cover.jpg
+[S04] 60 files; first 30:
+   LUCAS2006_10000165_Cover.jpg   LUCAS2006_10000166_Cover.jpg   LUCAS2006_10000168_Cover.jpg
+   LUCAS2006_10000170_Cover.jpg   LUCAS2006_10000173_Cover.jpg   LUCAS2006_10000177_Cover.jpg
+   LUCAS2006_10000181_Cover.jpg   LUCAS2006_10000182_Cover.jpg   LUCAS2006_10000184_Cover.jpg
+   LUCAS2006_10000188_Cover.jpg   LUCAS2006_10000191_Cover.jpg   LUCAS2006_10000196_Cover.jpg
+   LUCAS2006_10000204_Cover.jpg   LUCAS2006_10000210_Cover.jpg   LUCAS2006_10000213_Cover.jpg
+   LUCAS2006_10000214_Cover.jpg   LUCAS2009_10000163_Cover.jpg   LUCAS2009_10000164_Cover.jpg
+   LUCAS2009_10000167_Cover.jpg   LUCAS2009_10000175_Cover.jpg   LUCAS2009_10000183_Cover.jpg
+   LUCAS2009_10000193_Cover.jpg   LUCAS2009_10000194_Cover.jpg   LUCAS2009_10000195_Cover.jpg
+   LUCAS2009_10000198_Cover.jpg   LUCAS2009_10000203_Cover.jpg   LUCAS2009_10000205_Cover.jpg
+   LUCAS2009_10000207_Cover.jpg   LUCAS2009_10000211_Cover.jpg   LUCAS2009_10000215_Cover.jpg
+[S05] 60 files; first 30:
+   LUCAS2006_10000221_Cover.jpg   LUCAS2006_10000225_Cover.jpg   LUCAS2006_10000228_Cover.jpg
+   LUCAS2006_10000239_Cover.jpg   LUCAS2006_10000246_Cover.jpg   LUCAS2006_10000249_Cover.jpg
+   LUCAS2006_10000252_Cover.jpg   LUCAS2006_10000258_Cover.jpg   LUCAS2006_10000260_Cover.jpg
+   LUCAS2009_10000227_Cover.jpg   LUCAS2009_10000233_Cover.jpg   LUCAS2009_10000241_Cover.jpg
+   LUCAS2009_10000248_Cover.jpg   LUCAS2009_10000251_Cover.jpg   LUCAS2009_10000254_Cover.jpg
+   LUCAS2009_10000262_Cover.jpg   LUCAS2009_10000266_Cover.jpg   LUCAS2012_10000219_Cover.jpg
+   LUCAS2012_10000220_Cover.jpg   LUCAS2012_10000223_Cover.jpg   LUCAS2012_10000226_Cover.jpg
+   LUCAS2012_10000229_Cover.jpg   LUCAS2012_10000234_Cover.jpg   LUCAS2012_10000238_Cover.jpg
+   LUCAS2012_10000245_Cover.jpg   LUCAS2012_10000250_Cover.jpg   LUCAS2012_10000256_Cover.jpg
+   LUCAS2012_10000259_Cover.jpg   LUCAS2015_10000217_Cover.jpg   LUCAS2015_10000222_Cover.jpg
+[S06] 60 files; first 30:
+   LUCAS2006_10000279_Cover.jpg   LUCAS2006_10000280_Cover.jpg   LUCAS2006_10000285_Cover.jpg
+   LUCAS2006_10000287_Cover.jpg   LUCAS2006_10000294_Cover.jpg   LUCAS2006_10000295_Cover.jpg
+   LUCAS2006_10000304_Cover.jpg   LUCAS2006_10000307_Cover.jpg   LUCAS2006_10000310_Cover.jpg
+   LUCAS2006_10000313_Cover.jpg   LUCAS2006_10000321_Cover.jpg   LUCAS2006_10000323_Cover.jpg
+   LUCAS2009_10000271_Cover.jpg   LUCAS2009_10000278_Cover.jpg   LUCAS2009_10000282_Cover.jpg
+   LUCAS2009_10000284_Cover.jpg   LUCAS2009_10000311_Cover.jpg   LUCAS2009_10000317_Cover.jpg
+   LUCAS2012_10000272_Cover.jpg   LUCAS2012_10000273_Cover.jpg   LUCAS2012_10000283_Cover.jpg
+   LUCAS2012_10000286_Cover.jpg   LUCAS2012_10000296_Cover.jpg   LUCAS2012_10000305_Cover.jpg
+   LUCAS2012_10000308_Cover.jpg   LUCAS2012_10000314_Cover.jpg   LUCAS2012_10000315_Cover.jpg
+   LUCAS2015_10000275_Cover.jpg   LUCAS2015_10000277_Cover.jpg   LUCAS2015_10000289_Cover.jpg
+Group id regex '^LUCAS\\d{4}_(\\d+)_[A-Za-z0-9]+\\.jpg$' matched 361/363 file names (99.45 %).
+  2 names did not match (second '_' token used instead); examples: ['LUCAS2022_10000054_Cover_copy.jpg', 'LUCAS2022_10000108_Cover_copy.jpg']
+Building the image cache: 363 images at 72px ≈ 0.01 GiB (free disk 12457.0 GiB)
+  cached 36/363 images (0s)
+  cached 72/363 images (0s)
+  cached 108/363 images (0s)
+  cached 144/363 images (0s)
+  cached 180/363 images (0s)
+  cached 216/363 images (0s)
+  cached 252/363 images (0s)
+  cached 288/363 images (0s)
+  cached 324/363 images (0s)
+  cached 360/363 images (0s)
+Image cache written: outputs_stageB/smoke/cache/images_72.npy | unreadable images: 0
+Hygiene: {'images_ok': 363, 'duplicate_clusters': 4, 'images_in_duplicate_clusters': 8, 'duplicate_clusters_with_conflicting_labels': 0, 'near_duplicate_check': True, 'groups_before': 327, 'groups_after': 323}
+PASS: zero group / survey-point overlap across train, val and test.
+Splits written to outputs_stageB/smoke/splits.csv
+Training images per class: {'S01': 45, 'S02': 41, 'S03': 42, 'S04': 42, 'S05': 42, 'S06': 42}
+Label draws written to outputs_stageB/smoke/label_draws.json; skipped regimes: none
+Split is grouped by `group_final` (survey point + duplicate merges): 323 groups; max group size 2; median 1; 22.0 % of images are in groups of size > 1; groups spanning splits: 0
+Survey points: 327 | appearing more than once: 36 | spanning several years: 36 | max images per point: 2 | groups with more than one crop label (rotation): 0
+
+6 classes | train 254 | val 55 | test 54 | chance = 16.7%
+Label regimes (draws): {'1shot': 2, '5shot': 2, '10shot': 2, '10pct': 2, '100pct': 1}
+Images per class and split:
+split crop  train  val  test  total
+label                              
+S01    S01     45    9     9     63
+S02    S02     41   10     9     60
+S03    S03     42    9     9     60
+S04    S04     42    9     9     60
+S05    S05     42    9     9     60
+S06    S06     42    9     9     60
+Test set: 54 images (Stage A had 180), per class: {'S01': 9, 'S02': 9, 'S03': 9, 'S04': 9, 'S05': 9, 'S06': 9}
+WARNING: 0.55 % of file names used the fallback group id — check the examples above.
+Gate -1 data checks passed (the ExG-position analysis follows).
+ExG vs row: Pearson +0.91, Spearman +0.93 | vs column: Pearson +0.00, Spearman -0.01
+Share of ExG variance explained by patch position: raw 47.0 % | within image 50.2 % | z-scored 53.3 %
+WARNING: patch position explains 53.3 % (> 10 %) of the z-scored greenness. veg_pos is then partly a spatial prior; the pos_matched arm is what separates the two.
+Gate -1: PASS
+Image cache: (363, 72, 72, 3), 0.01 GiB vs 35 % of 251.0 GiB RAM = 87.86 GiB -> loaded into RAM
+Encoder parameters: 0.47 M | predictor: 0.11 M
+Position prior (target) estimated from 128 training crops for 4 block sizes [(3, 3), (3, 4), (4, 3), (4, 4)] in 0.5s; hash 35919980ddea
+Mask-generator unit tests:
+  [PASS] ijepa: shapes and index ranges ctx (32, 19), targets [(32, 12), (32, 12), (32, 12), (32, 12)]
+  [PASS] ijepa: context indices sorted and unique 
+  [PASS] ijepa: no context/target overlap (rows with overlap 0, degenerate all-token fallbacks 0)
+  [PASS] ijepa: deterministic for a fixed seed 
+  [PASS] veg_pos: shapes and index ranges ctx (32, 22), targets [(32, 12), (32, 12), (32, 12), (32, 12)]
+  [PASS] veg_pos: context indices sorted and unique 
+  [PASS] veg_pos: no context/target overlap (rows with overlap 0, degenerate all-token fallbacks 0)
+  [PASS] veg_pos: deterministic for a fixed seed 
+  [PASS] veg_neg: shapes and index ranges ctx (32, 25), targets [(32, 12), (32, 12), (32, 12), (32, 12)]
+  [PASS] veg_neg: context indices sorted and unique 
+  [PASS] veg_neg: no context/target overlap (rows with overlap 0, degenerate all-token fallbacks 0)
+  [PASS] veg_neg: deterministic for a fixed seed 
+  [PASS] pos_matched: shapes and index ranges ctx (32, 23), targets [(32, 12), (32, 12), (32, 12), (32, 12)]
+  [PASS] pos_matched: context indices sorted and unique 
+  [PASS] pos_matched: no context/target overlap (rows with overlap 0, degenerate all-token fallbacks 0)
+  [PASS] pos_matched: deterministic for a fixed seed 
+  [PASS] attn: shapes and index ranges ctx (32, 22), targets [(32, 12), (32, 12), (32, 12), (32, 12)]
+  [PASS] attn: context indices sorted and unique 
+  [PASS] attn: no context/target overlap (rows with overlap 0, degenerate all-token fallbacks 0)
+  [PASS] attn: deterministic for a fixed seed 
+  [PASS] placement probabilities sum to 1 (veg_pos and veg_neg) (max |sum-1| = 1.19e-07)
+  [PASS] pos_matched prior maps sum to 1 (max |sum-1| = 2.22e-16)
+  [PASS] prior covers every block size drawn in 20,000 samples (missing [])
+
+pos_matched acceptance check (12 training batches, same crops for every arm):
+               source          arm  batches  tgt_exg  tgt_exg_z  ctx_exg  all_exg  ctx_tokens  tgt_tokens  kl_centres_vs_veg_pos
+0  pre-training check        ijepa       12   0.2725     0.0615   0.2458   0.2553     18.0833     46.1667                 0.2331
+1  pre-training check      veg_pos       12   0.3923     0.4904   0.1559   0.2553     21.1667     46.1667                 0.0000
+2  pre-training check      veg_neg       12   0.1528    -0.3564   0.3313   0.2553     19.6667     46.1667                 1.0003
+3  pre-training check  pos_matched       12   0.3369     0.2947   0.1851   0.2553     19.5000     46.1667                 0.0138
+KL(centres veg_pos || pos_matched) = 0.0138 (should be ~0; threshold 0.05) | for reference KL(veg_pos || ijepa) = 0.2331
+Mean z-scored ExG under the targets: ijepa +0.062, veg_pos +0.490, veg_neg -0.356, pos_matched +0.295  (expected order veg_pos > ijepa > veg_neg: OK)
+pos_matched recovers 54 % of veg_pos's target-greenness gain over ijepa through position alone (0 % = position carries no greenness; 100 % = position and greenness are collinear).
+All hard mask-generator unit tests passed.
+  interrupted: 254 training images | batch 32 | 7 steps/epoch x 3 epochs = 21 steps (target 21) | peak lr 2.50e-04 | monitors every 1 ep, k-NN every 2 ep, checkpoint every 1 ep
+  resumed interrupted at epoch 1/3 (step 7)
+  interrupted: 254 training images | batch 32 | 7 steps/epoch x 3 epochs = 21 steps (target 21) | peak lr 2.50e-04 | monitors every 1 ep, k-NN every 2 ep, checkpoint every 1 ep
+  straight: 254 training images | batch 32 | 7 steps/epoch x 3 epochs = 21 steps (target 21) | peak lr 2.50e-04 | monitors every 1 ep, k-NN every 2 ep, checkpoint every 1 ep
+Resume self-test: stopped=True, resumed at epoch 1, log rows 3/3, max |weight difference| vs uninterrupted run = 0.00e+00 -> PASS
+Batch 32 | 1585 img/s (short benchmark; long runs are usually faster) | peak GPU memory 0.10 GB of 47.4 GB | evaluation forward 2088 img/s
+FLOPs per training image: 0.3 G | predictor share 42%
+Core run: 7 steps/epoch x 9 epochs = 63 steps | pilot: 13 epochs = 91 steps | evaluation ≈ 0.1 min per run (probe part is a rough estimate)
+                                         item  runs  hours_each                                    note  hours_total
+0                 Gate 0 pilot (ijepa seed 0)   1.0        0.00                     91 steps, 13 epochs         0.00
+1                core SSL runs (arms x seeds)  12.0        0.00                      63 steps, 9 epochs         0.03
+2                     random_init evaluations   3.0        0.00                         evaluation only         0.01
+3              supervised baseline (per seed)   3.0        0.00        12 epochs on ['10pct', '100pct']         0.00
+4                            Tier 2: attn arm   2.0        0.00                      if ENABLE_ATTN_ARM         0.01
+5                           Tier 2: tau sweep   4.0        0.00                     if ENABLE_TAU_SWEEP         0.01
+6                           Tier 2: size axis   8.0        0.00                     if ENABLE_SIZE_AXIS         0.03
+7  Tier 2: LeJEPA arms [UNMEASURED: x3 guess]   8.0        0.01  measured in section 15d before it runs         0.06
+Projected: Gate 0 ≈ 0.0 h | core grid incl. baselines on this shard ≈ 0.0 h | Tier 2 (only the sections you enable) up to ≈ 0.1 h
+[1/2] random_init_s0: starting (no session limit)
+[2/2] pilot_ijepa_s0: starting (no session limit)
+  pilot_ijepa_s0: 254 training images | batch 32 | 7 steps/epoch x 13 epochs = 91 steps (target 90) | peak lr 2.50e-04 | monitors every 1 ep, k-NN every 2 ep, checkpoint every 1 ep
+  pilot_ijepa_s0 ep    1/13 step 7 loss 0.4500 val kNN-F1 25.2% rank 13.2 std 0.0053 | 1743 img/s, 0.07 GB ctx 19 tgt 45 tok, tgt ExG z +0.05
+  pilot_ijepa_s0 ep    2/13 step 14 loss 0.3949 val kNN-F1 25.2% rank 13.2 std 0.0053 | 1873 img/s, 0.07 GB ctx 17 tgt 46 tok, tgt ExG z +0.05
+  pilot_ijepa_s0 ep    3/13 step 21 loss 0.3335 rank 13.2 std 0.0053 | 1849 img/s, 0.07 GB ctx 22 tgt 42 tok, tgt ExG z +0.08
+  pilot_ijepa_s0 ep    4/13 step 28 loss 0.2861 val kNN-F1 25.4% rank 13.3 std 0.0053 | 1867 img/s, 0.07 GB ctx 20 tgt 46 tok, tgt ExG z +0.09
+  pilot_ijepa_s0 ep    5/13 step 35 loss 0.2498 rank 13.3 std 0.0053 | 1864 img/s, 0.07 GB ctx 22 tgt 42 tok, tgt ExG z +0.06
+  pilot_ijepa_s0 ep    6/13 step 42 loss 0.2208 val kNN-F1 27.1% rank 13.3 std 0.0052 | 1865 img/s, 0.07 GB ctx 23 tgt 46 tok, tgt ExG z +0.10
+  pilot_ijepa_s0 ep    7/13 step 49 loss 0.2021 rank 13.4 std 0.0052 | 1867 img/s, 0.07 GB ctx 21 tgt 47 tok, tgt ExG z +0.05
+  pilot_ijepa_s0 ep    8/13 step 56 loss 0.1875 val kNN-F1 29.0% rank 13.4 std 0.0052 | 1863 img/s, 0.07 GB ctx 20 tgt 45 tok, tgt ExG z +0.09
+  pilot_ijepa_s0 ep    9/13 step 63 loss 0.1790 rank 13.4 std 0.0052 | 1859 img/s, 0.07 GB ctx 24 tgt 45 tok, tgt ExG z +0.07
+  pilot_ijepa_s0 ep   10/13 step 70 loss 0.1735 val kNN-F1 29.0% rank 13.4 std 0.0051 | 1863 img/s, 0.07 GB ctx 19 tgt 44 tok, tgt ExG z +0.08
+  pilot_ijepa_s0 ep   11/13 step 77 loss 0.1705 rank 13.4 std 0.0051 | 1860 img/s, 0.07 GB ctx 23 tgt 45 tok, tgt ExG z +0.08
+  pilot_ijepa_s0 ep   12/13 step 84 loss 0.1697 val kNN-F1 29.0% rank 13.4 std 0.0051 | 1866 img/s, 0.08 GB ctx 19 tgt 44 tok, tgt ExG z +0.12
+  pilot_ijepa_s0 ep   13/13 step 91 loss 0.1691 val kNN-F1 29.0% rank 13.4 std 0.0051 | 1858 img/s, 0.08 GB ctx 22 tgt 43 tok, tgt ExG z +0.08
+Gate 0 pilot: queue pass finished in 0.1 min
+{
+  "pilot_steps": 91,
+  "pilot_epochs": 13,
+  "online_knn_val_f1_first": 0.2519,
+  "online_knn_val_f1_last": 0.2903,
+  "online_knn_val_f1_max": 0.2903,
+  "random_init_online_knn_val_f1": 0.2519,
+  "knn_gain_over_random_init_pp": 3.8422,
+  "required_gain_pp": 3.0,
+  "rankme_min": 13.1657,
+  "rankme_floor": 4.8,
+  "rankme_last": 13.4339,
+  "pass_knn": true,
+  "pass_rankme": true,
+  "probe_endpoint_pilot": 0.3022,
+  "probe_endpoint_random_init": 0.2872,
+  "knn_endpoint_pilot": 0.1702,
+  "knn_endpoint_random_init": 0.1626,
+  "decision": "SMOKE TEST \u2014 pipeline check only, meaningless: PASS",
+  "recommendation": "Training produces usable features. Set RUN_MODE = 'full' to run the core grid (60 steps per run)."
+}
+
+GATE 0: SMOKE TEST — pipeline check only, meaningless: PASS
+Training produces usable features. Set RUN_MODE = 'full' to run the core grid (60 steps per run).
+[1/18] ijepa_s0: starting (no session limit)
+  ijepa_s0: 254 training images | batch 32 | 7 steps/epoch x 9 epochs = 63 steps (target 60) | peak lr 2.50e-04 | monitors every 1 ep, k-NN every 2 ep, checkpoint every 1 ep
+  ijepa_s0 ep    1/9 step 7 loss 0.4451 val kNN-F1 25.2% rank 13.2 std 0.0053 | 1798 img/s, 0.07 GB ctx 19 tgt 45 tok, tgt ExG z +0.05
+  ijepa_s0 ep    2/9 step 14 loss 0.3807 val kNN-F1 25.2% rank 13.2 std 0.0053 | 1873 img/s, 0.07 GB ctx 17 tgt 46 tok, tgt ExG z +0.05
+  ijepa_s0 ep    3/9 step 21 loss 0.3240 rank 13.2 std 0.0053 | 1858 img/s, 0.07 GB ctx 22 tgt 42 tok, tgt ExG z +0.08
+  ijepa_s0 ep    4/9 step 28 loss 0.2824 val kNN-F1 25.4% rank 13.2 std 0.0053 | 1862 img/s, 0.07 GB ctx 20 tgt 46 tok, tgt ExG z +0.09
+  ijepa_s0 ep    5/9 step 35 loss 0.2537 rank 13.3 std 0.0053 | 1863 img/s, 0.07 GB ctx 22 tgt 42 tok, tgt ExG z +0.06
+  ijepa_s0 ep    6/9 step 42 loss 0.2333 val kNN-F1 25.4% rank 13.3 std 0.0052 | 1865 img/s, 0.07 GB ctx 23 tgt 46 tok, tgt ExG z +0.10
+  ijepa_s0 ep    7/9 step 49 loss 0.2231 rank 13.3 std 0.0052 | 1855 img/s, 0.07 GB ctx 21 tgt 47 tok, tgt ExG z +0.05
+  ijepa_s0 ep    8/9 step 56 loss 0.2170 val kNN-F1 27.1% rank 13.3 std 0.0052 | 1836 img/s, 0.07 GB ctx 20 tgt 45 tok, tgt ExG z +0.09
+  ijepa_s0 ep    9/9 step 63 loss 0.2157 val kNN-F1 27.1% rank 13.3 std 0.0052 | 1858 img/s, 0.07 GB ctx 24 tgt 45 tok, tgt ExG z +0.07
+[2/18] veg_pos_s0: starting (no session limit)
+  veg_pos_s0: 254 training images | batch 32 | 7 steps/epoch x 9 epochs = 63 steps (target 60) | peak lr 2.50e-04 | monitors every 1 ep, k-NN every 2 ep, checkpoint every 1 ep
+  veg_pos_s0 ep    1/9 step 7 loss 0.4362 val kNN-F1 25.2% rank 13.2 std 0.0053 | 1708 img/s, 0.08 GB ctx 22 tgt 45 tok, tgt ExG z +0.50
+  veg_pos_s0 ep    2/9 step 14 loss 0.3728 val kNN-F1 25.2% rank 13.2 std 0.0053 | 1788 img/s, 0.07 GB ctx 19 tgt 46 tok, tgt ExG z +0.46
+  veg_pos_s0 ep    3/9 step 21 loss 0.3153 rank 13.2 std 0.0053 | 1774 img/s, 0.08 GB ctx 26 tgt 42 tok, tgt ExG z +0.50
+  veg_pos_s0 ep    4/9 step 28 loss 0.2743 val kNN-F1 25.4% rank 13.3 std 0.0053 | 1778 img/s, 0.07 GB ctx 24 tgt 46 tok, tgt ExG z +0.51
+  veg_pos_s0 ep    5/9 step 35 loss 0.2458 rank 13.3 std 0.0053 | 1788 img/s, 0.07 GB ctx 24 tgt 42 tok, tgt ExG z +0.54
+  veg_pos_s0 ep    6/9 step 42 loss 0.2263 val kNN-F1 27.1% rank 13.3 std 0.0052 | 1781 img/s, 0.08 GB ctx 24 tgt 46 tok, tgt ExG z +0.48
+  veg_pos_s0 ep    7/9 step 49 loss 0.2165 rank 13.3 std 0.0052 | 1782 img/s, 0.07 GB ctx 23 tgt 47 tok, tgt ExG z +0.49
+  veg_pos_s0 ep    8/9 step 56 loss 0.2101 val kNN-F1 27.1% rank 13.3 std 0.0052 | 1792 img/s, 0.07 GB ctx 21 tgt 45 tok, tgt ExG z +0.50
+  veg_pos_s0 ep    9/9 step 63 loss 0.2096 val kNN-F1 27.1% rank 13.3 std 0.0052 | 1784 img/s, 0.08 GB ctx 27 tgt 45 tok, tgt ExG z +0.49
+[3/18] veg_neg_s0: starting (no session limit)
+  veg_neg_s0: 254 training images | batch 32 | 7 steps/epoch x 9 epochs = 63 steps (target 60) | peak lr 2.50e-04 | monitors every 1 ep, k-NN every 2 ep, checkpoint every 1 ep
+  veg_neg_s0 ep    1/9 step 7 loss 0.4522 val kNN-F1 25.2% rank 13.2 std 0.0053 | 1718 img/s, 0.07 GB ctx 20 tgt 45 tok, tgt ExG z -0.38
+  veg_neg_s0 ep    2/9 step 14 loss 0.3869 val kNN-F1 25.2% rank 13.2 std 0.0053 | 1778 img/s, 0.08 GB ctx 20 tgt 46 tok, tgt ExG z -0.35
+  veg_neg_s0 ep    3/9 step 21 loss 0.3275 rank 13.2 std 0.0053 | 1784 img/s, 0.08 GB ctx 24 tgt 42 tok, tgt ExG z -0.36
+  veg_neg_s0 ep    4/9 step 28 loss 0.2849 val kNN-F1 25.4% rank 13.2 std 0.0053 | 1780 img/s, 0.07 GB ctx 23 tgt 46 tok, tgt ExG z -0.36
+  veg_neg_s0 ep    5/9 step 35 loss 0.2537 rank 13.3 std 0.0053 | 1778 img/s, 0.08 GB ctx 23 tgt 42 tok, tgt ExG z -0.37
+  veg_neg_s0 ep    6/9 step 42 loss 0.2341 val kNN-F1 25.4% rank 13.3 std 0.0053 | 1783 img/s, 0.07 GB ctx 22 tgt 46 tok, tgt ExG z -0.34
+  veg_neg_s0 ep    7/9 step 49 loss 0.2222 rank 13.3 std 0.0053 | 1780 img/s, 0.07 GB ctx 24 tgt 47 tok, tgt ExG z -0.39
+  veg_neg_s0 ep    8/9 step 56 loss 0.2172 val kNN-F1 25.4% rank 13.3 std 0.0053 | 1782 img/s, 0.07 GB ctx 21 tgt 45 tok, tgt ExG z -0.34
+  veg_neg_s0 ep    9/9 step 63 loss 0.2157 val kNN-F1 25.4% rank 13.3 std 0.0052 | 1779 img/s, 0.07 GB ctx 24 tgt 45 tok, tgt ExG z -0.36
+[4/18] pos_matched_s0: starting (no session limit)
+  pos_matched_s0: 254 training images | batch 32 | 7 steps/epoch x 9 epochs = 63 steps (target 60) | peak lr 2.50e-04 | monitors every 1 ep, k-NN every 2 ep, checkpoint every 1 ep
+  pos_matched_s0 ep    1/9 step 7 loss 0.4381 val kNN-F1 25.2% rank 13.2 std 0.0053 | 1745 img/s, 0.07 GB ctx 21 tgt 45 tok, tgt ExG z +0.29
+  pos_matched_s0 ep    2/9 step 14 loss 0.3742 val kNN-F1 25.2% rank 13.2 std 0.0053 | 1809 img/s, 0.07 GB ctx 17 tgt 46 tok, tgt ExG z +0.25
+  pos_matched_s0 ep    3/9 step 21 loss 0.3157 rank 13.2 std 0.0053 | 1811 img/s, 0.07 GB ctx 22 tgt 42 tok, tgt ExG z +0.29
+  pos_matched_s0 ep    4/9 step 28 loss 0.2737 val kNN-F1 25.4% rank 13.3 std 0.0053 | 1811 img/s, 0.07 GB ctx 24 tgt 46 tok, tgt ExG z +0.32
+  pos_matched_s0 ep    5/9 step 35 loss 0.2454 rank 13.3 std 0.0052 | 1812 img/s, 0.07 GB ctx 22 tgt 42 tok, tgt ExG z +0.31
+  pos_matched_s0 ep    6/9 step 42 loss 0.2256 val kNN-F1 27.1% rank 13.3 std 0.0052 | 1818 img/s, 0.07 GB ctx 22 tgt 46 tok, tgt ExG z +0.27
+  pos_matched_s0 ep    7/9 step 49 loss 0.2153 rank 13.3 std 0.0052 | 1816 img/s, 0.07 GB ctx 22 tgt 47 tok, tgt ExG z +0.30
+  pos_matched_s0 ep    8/9 step 56 loss 0.2095 val kNN-F1 27.1% rank 13.3 std 0.0052 | 1819 img/s, 0.07 GB ctx 21 tgt 45 tok, tgt ExG z +0.32
+  pos_matched_s0 ep    9/9 step 63 loss 0.2086 val kNN-F1 27.1% rank 13.3 std 0.0052 | 1802 img/s, 0.07 GB ctx 25 tgt 45 tok, tgt ExG z +0.30
+[5/18] random_init_s0: done, skipping
+[6/18] supervised_s0: starting (no session limit)
+[7/18] ijepa_s1: starting (no session limit)
+  ijepa_s1: 254 training images | batch 32 | 7 steps/epoch x 9 epochs = 63 steps (target 60) | peak lr 2.50e-04 | monitors every 1 ep, k-NN every 2 ep, checkpoint every 1 ep
+  ijepa_s1 ep    1/9 step 7 loss 0.4339 val kNN-F1 21.5% rank 13.6 std 0.0050 | 1793 img/s, 0.07 GB ctx 20 tgt 45 tok, tgt ExG z +0.08
+  ijepa_s1 ep    2/9 step 14 loss 0.3700 val kNN-F1 21.5% rank 13.6 std 0.0050 | 1866 img/s, 0.07 GB ctx 21 tgt 45 tok, tgt ExG z +0.07
+  ijepa_s1 ep    3/9 step 21 loss 0.3123 rank 13.6 std 0.0050 | 1863 img/s, 0.07 GB ctx 23 tgt 44 tok, tgt ExG z +0.08
+  ijepa_s1 ep    4/9 step 28 loss 0.2699 val kNN-F1 21.3% rank 13.7 std 0.0049 | 1861 img/s, 0.08 GB ctx 20 tgt 45 tok, tgt ExG z +0.08
+  ijepa_s1 ep    5/9 step 35 loss 0.2394 rank 13.7 std 0.0049 | 1866 img/s, 0.07 GB ctx 20 tgt 45 tok, tgt ExG z +0.07
+  ijepa_s1 ep    6/9 step 42 loss 0.2198 val kNN-F1 21.3% rank 13.7 std 0.0049 | 1868 img/s, 0.07 GB ctx 21 tgt 45 tok, tgt ExG z +0.10
+  ijepa_s1 ep    7/9 step 49 loss 0.2080 rank 13.7 std 0.0049 | 1864 img/s, 0.07 GB ctx 21 tgt 45 tok, tgt ExG z +0.06
+  ijepa_s1 ep    8/9 step 56 loss 0.2034 val kNN-F1 21.3% rank 13.8 std 0.0048 | 1872 img/s, 0.07 GB ctx 21 tgt 46 tok, tgt ExG z +0.07
+  ijepa_s1 ep    9/9 step 63 loss 0.2005 val kNN-F1 21.3% rank 13.8 std 0.0048 | 1875 img/s, 0.07 GB ctx 20 tgt 45 tok, tgt ExG z +0.08
+[8/18] veg_pos_s1: starting (no session limit)
+  veg_pos_s1: 254 training images | batch 32 | 7 steps/epoch x 9 epochs = 63 steps (target 60) | peak lr 2.50e-04 | monitors every 1 ep, k-NN every 2 ep, checkpoint every 1 ep
+  veg_pos_s1 ep    1/9 step 7 loss 0.4338 val kNN-F1 21.4% rank 13.6 std 0.0050 | 1715 img/s, 0.07 GB ctx 21 tgt 45 tok, tgt ExG z +0.48
+  veg_pos_s1 ep    2/9 step 14 loss 0.3679 val kNN-F1 21.5% rank 13.6 std 0.0050 | 1775 img/s, 0.08 GB ctx 24 tgt 45 tok, tgt ExG z +0.51
+  veg_pos_s1 ep    3/9 step 21 loss 0.3068 rank 13.6 std 0.0050 | 1776 img/s, 0.08 GB ctx 26 tgt 44 tok, tgt ExG z +0.53
+  veg_pos_s1 ep    4/9 step 28 loss 0.2646 val kNN-F1 21.3% rank 13.7 std 0.0049 | 1780 img/s, 0.08 GB ctx 23 tgt 45 tok, tgt ExG z +0.51
+  veg_pos_s1 ep    5/9 step 35 loss 0.2326 rank 13.7 std 0.0049 | 1779 img/s, 0.08 GB ctx 24 tgt 45 tok, tgt ExG z +0.48
+  veg_pos_s1 ep    6/9 step 42 loss 0.2127 val kNN-F1 21.3% rank 13.7 std 0.0049 | 1784 img/s, 0.07 GB ctx 23 tgt 45 tok, tgt ExG z +0.50
+  veg_pos_s1 ep    7/9 step 49 loss 0.2005 rank 13.7 std 0.0049 | 1786 img/s, 0.07 GB ctx 21 tgt 45 tok, tgt ExG z +0.52
+  veg_pos_s1 ep    8/9 step 56 loss 0.1956 val kNN-F1 23.5% rank 13.8 std 0.0048 | 1784 img/s, 0.07 GB ctx 24 tgt 46 tok, tgt ExG z +0.49
+  veg_pos_s1 ep    9/9 step 63 loss 0.1942 val kNN-F1 23.5% rank 13.8 std 0.0048 | 1782 img/s, 0.08 GB ctx 24 tgt 45 tok, tgt ExG z +0.49
+[9/18] veg_neg_s1: starting (no session limit)
+  veg_neg_s1: 254 training images | batch 32 | 7 steps/epoch x 9 epochs = 63 steps (target 60) | peak lr 2.50e-04 | monitors every 1 ep, k-NN every 2 ep, checkpoint every 1 ep
+  veg_neg_s1 ep    1/9 step 7 loss 0.4346 val kNN-F1 21.4% rank 13.6 std 0.0050 | 1714 img/s, 0.07 GB ctx 21 tgt 45 tok, tgt ExG z -0.38
+  veg_neg_s1 ep    2/9 step 14 loss 0.3727 val kNN-F1 21.5% rank 13.6 std 0.0050 | 1784 img/s, 0.07 GB ctx 22 tgt 45 tok, tgt ExG z -0.35
+  veg_neg_s1 ep    3/9 step 21 loss 0.3159 rank 13.6 std 0.0050 | 1780 img/s, 0.07 GB ctx 24 tgt 44 tok, tgt ExG z -0.38
+  veg_neg_s1 ep    4/9 step 28 loss 0.2758 val kNN-F1 21.5% rank 13.6 std 0.0050 | 1783 img/s, 0.07 GB ctx 22 tgt 45 tok, tgt ExG z -0.35
+  veg_neg_s1 ep    5/9 step 35 loss 0.2458 rank 13.7 std 0.0049 | 1773 img/s, 0.08 GB ctx 23 tgt 45 tok, tgt ExG z -0.37
+  veg_neg_s1 ep    6/9 step 42 loss 0.2278 val kNN-F1 21.3% rank 13.7 std 0.0049 | 1780 img/s, 0.07 GB ctx 23 tgt 45 tok, tgt ExG z -0.38
+  veg_neg_s1 ep    7/9 step 49 loss 0.2166 rank 13.7 std 0.0049 | 1780 img/s, 0.07 GB ctx 22 tgt 45 tok, tgt ExG z -0.36
+  veg_neg_s1 ep    8/9 step 56 loss 0.2119 val kNN-F1 21.3% rank 13.7 std 0.0049 | 1779 img/s, 0.08 GB ctx 23 tgt 46 tok, tgt ExG z -0.37
+  veg_neg_s1 ep    9/9 step 63 loss 0.2100 val kNN-F1 21.3% rank 13.7 std 0.0049 | 1779 img/s, 0.08 GB ctx 22 tgt 45 tok, tgt ExG z -0.35
+[10/18] pos_matched_s1: starting (no session limit)
+  pos_matched_s1: 254 training images | batch 32 | 7 steps/epoch x 9 epochs = 63 steps (target 60) | peak lr 2.50e-04 | monitors every 1 ep, k-NN every 2 ep, checkpoint every 1 ep
+  pos_matched_s1 ep    1/9 step 7 loss 0.4336 val kNN-F1 21.4% rank 13.6 std 0.0050 | 1746 img/s, 0.07 GB ctx 21 tgt 45 tok, tgt ExG z +0.28
+  pos_matched_s1 ep    2/9 step 14 loss 0.3676 val kNN-F1 21.5% rank 13.6 std 0.0050 | 1810 img/s, 0.07 GB ctx 23 tgt 45 tok, tgt ExG z +0.27
+  pos_matched_s1 ep    3/9 step 21 loss 0.3068 rank 13.6 std 0.0050 | 1811 img/s, 0.07 GB ctx 23 tgt 44 tok, tgt ExG z +0.30
+  pos_matched_s1 ep    4/9 step 28 loss 0.2644 val kNN-F1 21.3% rank 13.7 std 0.0049 | 1816 img/s, 0.07 GB ctx 22 tgt 45 tok, tgt ExG z +0.28
+  pos_matched_s1 ep    5/9 step 35 loss 0.2320 rank 13.7 std 0.0049 | 1806 img/s, 0.07 GB ctx 22 tgt 45 tok, tgt ExG z +0.27
+  pos_matched_s1 ep    6/9 step 42 loss 0.2120 val kNN-F1 21.3% rank 13.7 std 0.0049 | 1754 img/s, 0.07 GB ctx 22 tgt 45 tok, tgt ExG z +0.28
+  pos_matched_s1 ep    7/9 step 49 loss 0.2002 rank 13.8 std 0.0048 | 1810 img/s, 0.07 GB ctx 20 tgt 45 tok, tgt ExG z +0.28
+  pos_matched_s1 ep    8/9 step 56 loss 0.1954 val kNN-F1 23.5% rank 13.8 std 0.0048 | 1815 img/s, 0.07 GB ctx 23 tgt 46 tok, tgt ExG z +0.29
+  pos_matched_s1 ep    9/9 step 63 loss 0.1934 val kNN-F1 23.5% rank 13.8 std 0.0048 | 1816 img/s, 0.08 GB ctx 22 tgt 45 tok, tgt ExG z +0.29
+[11/18] random_init_s1: starting (no session limit)
+[12/18] supervised_s1: starting (no session limit)
+[13/18] ijepa_s2: starting (no session limit)
+  ijepa_s2: 254 training images | batch 32 | 7 steps/epoch x 9 epochs = 63 steps (target 60) | peak lr 2.50e-04 | monitors every 1 ep, k-NN every 2 ep, checkpoint every 1 ep
+  ijepa_s2 ep    1/9 step 7 loss 0.4341 val kNN-F1 24.0% rank 14.3 std 0.0048 | 1778 img/s, 0.07 GB ctx 21 tgt 45 tok, tgt ExG z +0.07
+  ijepa_s2 ep    2/9 step 14 loss 0.3695 val kNN-F1 24.0% rank 14.3 std 0.0048 | 1853 img/s, 0.07 GB ctx 22 tgt 45 tok, tgt ExG z +0.08
+  ijepa_s2 ep    3/9 step 21 loss 0.3115 rank 14.3 std 0.0048 | 1855 img/s, 0.07 GB ctx 21 tgt 44 tok, tgt ExG z +0.07
+  ijepa_s2 ep    4/9 step 28 loss 0.2701 val kNN-F1 23.9% rank 14.4 std 0.0048 | 1859 img/s, 0.07 GB ctx 17 tgt 46 tok, tgt ExG z +0.07
+  ijepa_s2 ep    5/9 step 35 loss 0.2425 rank 14.5 std 0.0047 | 1847 img/s, 0.08 GB ctx 22 tgt 42 tok, tgt ExG z +0.06
+  ijepa_s2 ep    6/9 step 42 loss 0.2225 val kNN-F1 23.9% rank 14.5 std 0.0047 | 1854 img/s, 0.07 GB ctx 21 tgt 46 tok, tgt ExG z +0.09
+  ijepa_s2 ep    7/9 step 49 loss 0.2117 rank 14.5 std 0.0047 | 1856 img/s, 0.07 GB ctx 17 tgt 46 tok, tgt ExG z +0.08
+  ijepa_s2 ep    8/9 step 56 loss 0.2074 val kNN-F1 23.9% rank 14.5 std 0.0047 | 1854 img/s, 0.07 GB ctx 19 tgt 46 tok, tgt ExG z +0.08
+  ijepa_s2 ep    9/9 step 63 loss 0.2066 val kNN-F1 23.9% rank 14.5 std 0.0047 | 1848 img/s, 0.07 GB ctx 22 tgt 46 tok, tgt ExG z +0.08
+[14/18] veg_pos_s2: starting (no session limit)
+  veg_pos_s2: 254 training images | batch 32 | 7 steps/epoch x 9 epochs = 63 steps (target 60) | peak lr 2.50e-04 | monitors every 1 ep, k-NN every 2 ep, checkpoint every 1 ep
+  veg_pos_s2 ep    1/9 step 7 loss 0.4323 val kNN-F1 24.0% rank 14.3 std 0.0048 | 1702 img/s, 0.08 GB ctx 23 tgt 45 tok, tgt ExG z +0.47
+  veg_pos_s2 ep    2/9 step 14 loss 0.3665 val kNN-F1 24.0% rank 14.3 std 0.0048 | 1761 img/s, 0.08 GB ctx 25 tgt 45 tok, tgt ExG z +0.48
+  veg_pos_s2 ep    3/9 step 21 loss 0.3059 rank 14.4 std 0.0048 | 1766 img/s, 0.08 GB ctx 26 tgt 44 tok, tgt ExG z +0.49
+  veg_pos_s2 ep    4/9 step 28 loss 0.2647 val kNN-F1 23.9% rank 14.4 std 0.0047 | 1769 img/s, 0.08 GB ctx 19 tgt 46 tok, tgt ExG z +0.48
+  veg_pos_s2 ep    5/9 step 35 loss 0.2353 rank 14.4 std 0.0047 | 1766 img/s, 0.08 GB ctx 26 tgt 42 tok, tgt ExG z +0.49
+  veg_pos_s2 ep    6/9 step 42 loss 0.2171 val kNN-F1 23.9% rank 14.5 std 0.0047 | 1770 img/s, 0.08 GB ctx 23 tgt 46 tok, tgt ExG z +0.46
+  veg_pos_s2 ep    7/9 step 49 loss 0.2053 rank 14.5 std 0.0047 | 1770 img/s, 0.08 GB ctx 20 tgt 46 tok, tgt ExG z +0.48
+  veg_pos_s2 ep    8/9 step 56 loss 0.2002 val kNN-F1 23.9% rank 14.5 std 0.0047 | 1773 img/s, 0.08 GB ctx 21 tgt 46 tok, tgt ExG z +0.49
+  veg_pos_s2 ep    9/9 step 63 loss 0.1996 val kNN-F1 23.9% rank 14.5 std 0.0047 | 1764 img/s, 0.07 GB ctx 23 tgt 46 tok, tgt ExG z +0.48
+[15/18] veg_neg_s2: starting (no session limit)
+  veg_neg_s2: 254 training images | batch 32 | 7 steps/epoch x 9 epochs = 63 steps (target 60) | peak lr 2.50e-04 | monitors every 1 ep, k-NN every 2 ep, checkpoint every 1 ep
+  veg_neg_s2 ep    1/9 step 7 loss 0.4362 val kNN-F1 24.0% rank 14.3 std 0.0048 | 1698 img/s, 0.08 GB ctx 23 tgt 45 tok, tgt ExG z -0.35
+  veg_neg_s2 ep    2/9 step 14 loss 0.3729 val kNN-F1 24.0% rank 14.3 std 0.0048 | 1770 img/s, 0.08 GB ctx 24 tgt 45 tok, tgt ExG z -0.37
+  veg_neg_s2 ep    3/9 step 21 loss 0.3150 rank 14.3 std 0.0048 | 1770 img/s, 0.08 GB ctx 22 tgt 44 tok, tgt ExG z -0.37
+  veg_neg_s2 ep    4/9 step 28 loss 0.2734 val kNN-F1 23.9% rank 14.4 std 0.0048 | 1774 img/s, 0.07 GB ctx 19 tgt 46 tok, tgt ExG z -0.37
+  veg_neg_s2 ep    5/9 step 35 loss 0.2451 rank 14.4 std 0.0048 | 1767 img/s, 0.08 GB ctx 25 tgt 42 tok, tgt ExG z -0.40
+  veg_neg_s2 ep    6/9 step 42 loss 0.2263 val kNN-F1 23.9% rank 14.4 std 0.0048 | 1771 img/s, 0.07 GB ctx 22 tgt 46 tok, tgt ExG z -0.36
+  veg_neg_s2 ep    7/9 step 49 loss 0.2169 rank 14.4 std 0.0048 | 1772 img/s, 0.08 GB ctx 21 tgt 46 tok, tgt ExG z -0.39
+  veg_neg_s2 ep    8/9 step 56 loss 0.2128 val kNN-F1 23.9% rank 14.4 std 0.0047 | 1777 img/s, 0.08 GB ctx 21 tgt 46 tok, tgt ExG z -0.34
+  veg_neg_s2 ep    9/9 step 63 loss 0.2108 val kNN-F1 23.9% rank 14.5 std 0.0047 | 1768 img/s, 0.07 GB ctx 22 tgt 46 tok, tgt ExG z -0.37
+[16/18] pos_matched_s2: starting (no session limit)
+  pos_matched_s2: 254 training images | batch 32 | 7 steps/epoch x 9 epochs = 63 steps (target 60) | peak lr 2.50e-04 | monitors every 1 ep, k-NN every 2 ep, checkpoint every 1 ep
+  pos_matched_s2 ep    1/9 step 7 loss 0.4320 val kNN-F1 24.0% rank 14.3 std 0.0048 | 1731 img/s, 0.07 GB ctx 22 tgt 45 tok, tgt ExG z +0.30
+  pos_matched_s2 ep    2/9 step 14 loss 0.3663 val kNN-F1 24.0% rank 14.3 std 0.0048 | 1800 img/s, 0.08 GB ctx 23 tgt 45 tok, tgt ExG z +0.29
+  pos_matched_s2 ep    3/9 step 21 loss 0.3060 rank 14.4 std 0.0048 | 1799 img/s, 0.07 GB ctx 23 tgt 44 tok, tgt ExG z +0.30
+  pos_matched_s2 ep    4/9 step 28 loss 0.2643 val kNN-F1 23.9% rank 14.4 std 0.0047 | 1804 img/s, 0.07 GB ctx 17 tgt 46 tok, tgt ExG z +0.27
+  pos_matched_s2 ep    5/9 step 35 loss 0.2358 rank 14.5 std 0.0047 | 1800 img/s, 0.08 GB ctx 23 tgt 42 tok, tgt ExG z +0.29
+  pos_matched_s2 ep    6/9 step 42 loss 0.2165 val kNN-F1 23.8% rank 14.5 std 0.0047 | 1803 img/s, 0.07 GB ctx 22 tgt 46 tok, tgt ExG z +0.28
+  pos_matched_s2 ep    7/9 step 49 loss 0.2055 rank 14.5 std 0.0047 | 1804 img/s, 0.07 GB ctx 20 tgt 46 tok, tgt ExG z +0.27
+  pos_matched_s2 ep    8/9 step 56 loss 0.1996 val kNN-F1 23.9% rank 14.5 std 0.0047 | 1803 img/s, 0.07 GB ctx 20 tgt 46 tok, tgt ExG z +0.29
+  pos_matched_s2 ep    9/9 step 63 loss 0.1992 val kNN-F1 23.9% rank 14.5 std 0.0047 | 1804 img/s, 0.07 GB ctx 23 tgt 46 tok, tgt ExG z +0.29
+[17/18] random_init_s2: starting (no session limit)
+[18/18] supervised_s2: starting (no session limit)
+Core grid: queue pass finished in 0.4 min
+Pairing check: 15 runs compared — same seed => identical initial weights, image order and first-batch crops.
+15a. attn arm — AttMask-style stand-in: targets placed on tokens far from the image's mean target-encoder token (no CLS attention exists in this ViT).
+[1/2] attn_s0: starting (no session limit)
+  attn_s0: 254 training images | batch 32 | 7 steps/epoch x 9 epochs = 63 steps (target 60) | peak lr 2.50e-04 | monitors every 1 ep, k-NN every 2 ep, checkpoint every 1 ep
+  attn_s0 ep    1/9 step 7 loss 0.4488 val kNN-F1 25.2% rank 13.2 std 0.0053 | 1704 img/s, 0.07 GB ctx 19 tgt 45 tok, tgt ExG z -0.13
+  attn_s0 ep    2/9 step 14 loss 0.3872 val kNN-F1 25.2% rank 13.2 std 0.0053 | 1770 img/s, 0.07 GB ctx 16 tgt 46 tok, tgt ExG z -0.13
+  attn_s0 ep    3/9 step 21 loss 0.3312 rank 13.2 std 0.0053 | 1757 img/s, 0.08 GB ctx 23 tgt 42 tok, tgt ExG z -0.11
+  attn_s0 ep    4/9 step 28 loss 0.2898 val kNN-F1 25.6% rank 13.2 std 0.0053 | 1768 img/s, 0.07 GB ctx 21 tgt 46 tok, tgt ExG z -0.16
+  attn_s0 ep    5/9 step 35 loss 0.2626 rank 13.2 std 0.0053 | 1765 img/s, 0.07 GB ctx 21 tgt 42 tok, tgt ExG z -0.05
+  attn_s0 ep    6/9 step 42 loss 0.2435 val kNN-F1 25.4% rank 13.3 std 0.0053 | 1766 img/s, 0.07 GB ctx 21 tgt 46 tok, tgt ExG z -0.10
+  attn_s0 ep    7/9 step 49 loss 0.2328 rank 13.3 std 0.0053 | 1770 img/s, 0.07 GB ctx 20 tgt 47 tok, tgt ExG z -0.11
+  attn_s0 ep    8/9 step 56 loss 0.2284 val kNN-F1 25.4% rank 13.3 std 0.0053 | 1770 img/s, 0.07 GB ctx 20 tgt 45 tok, tgt ExG z -0.08
+  attn_s0 ep    9/9 step 63 loss 0.2272 val kNN-F1 25.4% rank 13.3 std 0.0053 | 1768 img/s, 0.07 GB ctx 22 tgt 45 tok, tgt ExG z -0.10
+[2/2] attn_s1: starting (no session limit)
+  attn_s1: 254 training images | batch 32 | 7 steps/epoch x 9 epochs = 63 steps (target 60) | peak lr 2.50e-04 | monitors every 1 ep, k-NN every 2 ep, checkpoint every 1 ep
+  attn_s1 ep    1/9 step 7 loss 0.4393 val kNN-F1 21.4% rank 13.6 std 0.0050 | 1704 img/s, 0.07 GB ctx 20 tgt 45 tok, tgt ExG z -0.31
+  attn_s1 ep    2/9 step 14 loss 0.3777 val kNN-F1 21.5% rank 13.6 std 0.0050 | 1773 img/s, 0.07 GB ctx 20 tgt 45 tok, tgt ExG z -0.32
+  attn_s1 ep    3/9 step 21 loss 0.3229 rank 13.6 std 0.0050 | 1764 img/s, 0.07 GB ctx 24 tgt 44 tok, tgt ExG z -0.32
+  attn_s1 ep    4/9 step 28 loss 0.2839 val kNN-F1 19.3% rank 13.6 std 0.0050 | 1760 img/s, 0.08 GB ctx 21 tgt 45 tok, tgt ExG z -0.29
+  attn_s1 ep    5/9 step 35 loss 0.2544 rank 13.6 std 0.0050 | 1768 img/s, 0.07 GB ctx 21 tgt 45 tok, tgt ExG z -0.30
+  attn_s1 ep    6/9 step 42 loss 0.2371 val kNN-F1 19.3% rank 13.6 std 0.0050 | 1766 img/s, 0.07 GB ctx 22 tgt 45 tok, tgt ExG z -0.30
+  attn_s1 ep    7/9 step 49 loss 0.2263 rank 13.6 std 0.0050 | 1766 img/s, 0.08 GB ctx 21 tgt 45 tok, tgt ExG z -0.30
+  attn_s1 ep    8/9 step 56 loss 0.2221 val kNN-F1 19.3% rank 13.6 std 0.0050 | 1764 img/s, 0.07 GB ctx 22 tgt 46 tok, tgt ExG z -0.28
+  attn_s1 ep    9/9 step 63 loss 0.2203 val kNN-F1 19.3% rank 13.6 std 0.0050 | 1767 img/s, 0.08 GB ctx 22 tgt 45 tok, tgt ExG z -0.27
+Tier 2 attn: queue pass finished in 0.1 min
+15b. tau sweep for veg_pos: new runs at tau [0.25, 1.0]; tau 0.5 = core veg_pos, tau inf = core ijepa.
+[1/4] veg_pos_tau0.25_s0: starting (no session limit)
+  veg_pos_tau0.25_s0: 254 training images | batch 32 | 7 steps/epoch x 9 epochs = 63 steps (target 60) | peak lr 2.50e-04 | monitors every 1 ep, k-NN every 2 ep, checkpoint every 1 ep
+  veg_pos_tau0.25_s0 ep    1/9 step 7 loss 0.4357 val kNN-F1 25.2% rank 13.2 std 0.0053 | 1694 img/s, 0.08 GB ctx 23 tgt 45 tok, tgt ExG z +0.55
+  veg_pos_tau0.25_s0 ep    2/9 step 14 loss 0.3719 val kNN-F1 25.2% rank 13.2 std 0.0053 | 1772 img/s, 0.07 GB ctx 20 tgt 46 tok, tgt ExG z +0.54
+  veg_pos_tau0.25_s0 ep    3/9 step 21 loss 0.3141 rank 13.2 std 0.0053 | 1761 img/s, 0.08 GB ctx 26 tgt 42 tok, tgt ExG z +0.57
+  veg_pos_tau0.25_s0 ep    4/9 step 28 loss 0.2739 val kNN-F1 25.4% rank 13.2 std 0.0053 | 1767 img/s, 0.08 GB ctx 25 tgt 46 tok, tgt ExG z +0.57
+  veg_pos_tau0.25_s0 ep    5/9 step 35 loss 0.2450 rank 13.3 std 0.0053 | 1756 img/s, 0.08 GB ctx 26 tgt 42 tok, tgt ExG z +0.61
+  veg_pos_tau0.25_s0 ep    6/9 step 42 loss 0.2257 val kNN-F1 27.1% rank 13.3 std 0.0052 | 1766 img/s, 0.08 GB ctx 25 tgt 46 tok, tgt ExG z +0.57
+  veg_pos_tau0.25_s0 ep    7/9 step 49 loss 0.2158 rank 13.3 std 0.0052 | 1764 img/s, 0.08 GB ctx 24 tgt 47 tok, tgt ExG z +0.56
+  veg_pos_tau0.25_s0 ep    8/9 step 56 loss 0.2097 val kNN-F1 27.1% rank 13.3 std 0.0052 | 1769 img/s, 0.08 GB ctx 24 tgt 45 tok, tgt ExG z +0.58
+  veg_pos_tau0.25_s0 ep    9/9 step 63 loss 0.2084 val kNN-F1 27.1% rank 13.3 std 0.0052 | 1760 img/s, 0.08 GB ctx 28 tgt 45 tok, tgt ExG z +0.58
+[2/4] veg_pos_tau1_s0: starting (no session limit)
+  veg_pos_tau1_s0: 254 training images | batch 32 | 7 steps/epoch x 9 epochs = 63 steps (target 60) | peak lr 2.50e-04 | monitors every 1 ep, k-NN every 2 ep, checkpoint every 1 ep
+  veg_pos_tau1_s0 ep    1/9 step 7 loss 0.4389 val kNN-F1 25.2% rank 13.2 std 0.0053 | 1703 img/s, 0.07 GB ctx 22 tgt 45 tok, tgt ExG z +0.35
+  veg_pos_tau1_s0 ep    2/9 step 14 loss 0.3749 val kNN-F1 25.2% rank 13.2 std 0.0053 | 1772 img/s, 0.07 GB ctx 19 tgt 46 tok, tgt ExG z +0.33
+  veg_pos_tau1_s0 ep    3/9 step 21 loss 0.3176 rank 13.2 std 0.0053 | 1767 img/s, 0.08 GB ctx 22 tgt 42 tok, tgt ExG z +0.37
+  veg_pos_tau1_s0 ep    4/9 step 28 loss 0.2763 val kNN-F1 25.4% rank 13.3 std 0.0053 | 1773 img/s, 0.08 GB ctx 24 tgt 46 tok, tgt ExG z +0.39
+  veg_pos_tau1_s0 ep    5/9 step 35 loss 0.2482 rank 13.3 std 0.0053 | 1767 img/s, 0.07 GB ctx 24 tgt 42 tok, tgt ExG z +0.40
+  veg_pos_tau1_s0 ep    6/9 step 42 loss 0.2286 val kNN-F1 27.1% rank 13.3 std 0.0052 | 1770 img/s, 0.07 GB ctx 23 tgt 46 tok, tgt ExG z +0.35
+  veg_pos_tau1_s0 ep    7/9 step 49 loss 0.2185 rank 13.3 std 0.0052 | 1772 img/s, 0.07 GB ctx 21 tgt 47 tok, tgt ExG z +0.36
+  veg_pos_tau1_s0 ep    8/9 step 56 loss 0.2123 val kNN-F1 27.1% rank 13.3 std 0.0052 | 1770 img/s, 0.08 GB ctx 22 tgt 45 tok, tgt ExG z +0.38
+  veg_pos_tau1_s0 ep    9/9 step 63 loss 0.2115 val kNN-F1 27.1% rank 13.3 std 0.0052 | 1765 img/s, 0.08 GB ctx 26 tgt 45 tok, tgt ExG z +0.38
+[3/4] veg_pos_tau0.25_s1: starting (no session limit)
+  veg_pos_tau0.25_s1: 254 training images | batch 32 | 7 steps/epoch x 9 epochs = 63 steps (target 60) | peak lr 2.50e-04 | monitors every 1 ep, k-NN every 2 ep, checkpoint every 1 ep
+  veg_pos_tau0.25_s1 ep    1/9 step 7 loss 0.4335 val kNN-F1 21.4% rank 13.6 std 0.0050 | 1701 img/s, 0.08 GB ctx 25 tgt 45 tok, tgt ExG z +0.55
+  veg_pos_tau0.25_s1 ep    2/9 step 14 loss 0.3677 val kNN-F1 21.5% rank 13.6 std 0.0050 | 1768 img/s, 0.08 GB ctx 24 tgt 45 tok, tgt ExG z +0.57
+  veg_pos_tau0.25_s1 ep    3/9 step 21 loss 0.3060 rank 13.6 std 0.0050 | 1765 img/s, 0.08 GB ctx 26 tgt 44 tok, tgt ExG z +0.62
+  veg_pos_tau0.25_s1 ep    4/9 step 28 loss 0.2642 val kNN-F1 21.3% rank 13.7 std 0.0049 | 1773 img/s, 0.08 GB ctx 23 tgt 45 tok, tgt ExG z +0.58
+  veg_pos_tau0.25_s1 ep    5/9 step 35 loss 0.2322 rank 13.7 std 0.0049 | 1772 img/s, 0.08 GB ctx 24 tgt 45 tok, tgt ExG z +0.56
+  veg_pos_tau0.25_s1 ep    6/9 step 42 loss 0.2121 val kNN-F1 21.3% rank 13.7 std 0.0049 | 1768 img/s, 0.07 GB ctx 24 tgt 45 tok, tgt ExG z +0.58
+  veg_pos_tau0.25_s1 ep    7/9 step 49 loss 0.1998 rank 13.7 std 0.0049 | 1768 img/s, 0.08 GB ctx 24 tgt 45 tok, tgt ExG z +0.61
+  veg_pos_tau0.25_s1 ep    8/9 step 56 loss 0.1947 val kNN-F1 23.5% rank 13.8 std 0.0048 | 1766 img/s, 0.08 GB ctx 23 tgt 46 tok, tgt ExG z +0.57
+  veg_pos_tau0.25_s1 ep    9/9 step 63 loss 0.1934 val kNN-F1 23.5% rank 13.8 std 0.0048 | 1766 img/s, 0.08 GB ctx 24 tgt 45 tok, tgt ExG z +0.56
+[4/4] veg_pos_tau1_s1: starting (no session limit)
+  veg_pos_tau1_s1: 254 training images | batch 32 | 7 steps/epoch x 9 epochs = 63 steps (target 60) | peak lr 2.50e-04 | monitors every 1 ep, k-NN every 2 ep, checkpoint every 1 ep
+  veg_pos_tau1_s1 ep    1/9 step 7 loss 0.4339 val kNN-F1 21.4% rank 13.6 std 0.0050 | 1706 img/s, 0.07 GB ctx 21 tgt 45 tok, tgt ExG z +0.35
+  veg_pos_tau1_s1 ep    2/9 step 14 loss 0.3687 val kNN-F1 21.5% rank 13.6 std 0.0050 | 1766 img/s, 0.07 GB ctx 23 tgt 45 tok, tgt ExG z +0.36
+  veg_pos_tau1_s1 ep    3/9 step 21 loss 0.3079 rank 13.6 std 0.0050 | 1769 img/s, 0.07 GB ctx 24 tgt 44 tok, tgt ExG z +0.38
+  veg_pos_tau1_s1 ep    4/9 step 28 loss 0.2664 val kNN-F1 21.3% rank 13.7 std 0.0049 | 1770 img/s, 0.07 GB ctx 21 tgt 45 tok, tgt ExG z +0.36
+  veg_pos_tau1_s1 ep    5/9 step 35 loss 0.2347 rank 13.7 std 0.0049 | 1764 img/s, 0.07 GB ctx 22 tgt 45 tok, tgt ExG z +0.34
+  veg_pos_tau1_s1 ep    6/9 step 42 loss 0.2147 val kNN-F1 21.3% rank 13.7 std 0.0049 | 1773 img/s, 0.07 GB ctx 22 tgt 45 tok, tgt ExG z +0.36
+  veg_pos_tau1_s1 ep    7/9 step 49 loss 0.2023 rank 13.7 std 0.0049 | 1770 img/s, 0.07 GB ctx 21 tgt 45 tok, tgt ExG z +0.39
+  veg_pos_tau1_s1 ep    8/9 step 56 loss 0.1975 val kNN-F1 23.5% rank 13.8 std 0.0048 | 1768 img/s, 0.07 GB ctx 23 tgt 46 tok, tgt ExG z +0.37
+  veg_pos_tau1_s1 ep    9/9 step 63 loss 0.1958 val kNN-F1 23.5% rank 13.8 std 0.0048 | 1768 img/s, 0.08 GB ctx 22 tgt 45 tok, tgt ExG z +0.36
+Tier 2 tau sweep: queue pass finished in 0.1 min
+15c. data-size axis at a fixed budget of 60 steps: fractions [0.1, 0.3] ({'0.1': 24, '0.3': 78} images); 100 % = core runs.
+[1/8] ijepa_frac0.1_s0: starting (no session limit)
+  ijepa_frac0.1_s0: 24 training images | batch 24 | 1 steps/epoch x 60 epochs = 60 steps (target 60) | peak lr 1.88e-04 | monitors every 1 ep, k-NN every 3 ep, checkpoint every 3 ep
+  ijepa_frac0.1_s0 ep    1/60 step 1 loss 0.4600 val kNN-F1 25.2% rank 13.2 std 0.0053 | 1125 img/s, 0.05 GB ctx 19 tgt 48 tok, tgt ExG z +0.04
+  ijepa_frac0.1_s0 ep    6/60 step 6 loss 0.4422 val kNN-F1 25.2% rank 13.2 std 0.0053 | 1407 img/s, 0.05 GB ctx 19 tgt 45 tok, tgt ExG z -0.01
+  ijepa_frac0.1_s0 ep   12/60 step 12 loss 0.3910 val kNN-F1 25.2% rank 13.2 std 0.0053 | 1391 img/s, 0.05 GB ctx 9 tgt 48 tok, tgt ExG z +0.12
+  ijepa_frac0.1_s0 ep   18/60 step 18 loss 0.3509 val kNN-F1 25.2% rank 13.2 std 0.0053 | 1408 img/s, 0.05 GB ctx 12 tgt 48 tok, tgt ExG z +0.10
+  ijepa_frac0.1_s0 ep   24/60 step 24 loss 0.3186 val kNN-F1 25.6% rank 13.2 std 0.0053 | 1400 img/s, 0.05 GB ctx 17 tgt 49 tok, tgt ExG z +0.12
+  ijepa_frac0.1_s0 ep   30/60 step 30 loss 0.2959 val kNN-F1 25.4% rank 13.2 std 0.0053 | 1411 img/s, 0.06 GB ctx 24 tgt 45 tok, tgt ExG z +0.08
+  ijepa_frac0.1_s0 ep   36/60 step 36 loss 0.2816 val kNN-F1 25.4% rank 13.3 std 0.0053 | 1412 img/s, 0.06 GB ctx 24 tgt 45 tok, tgt ExG z +0.04
+  ijepa_frac0.1_s0 ep   42/60 step 42 loss 0.2713 val kNN-F1 25.4% rank 13.3 std 0.0053 | 1268 img/s, 0.06 GB ctx 22 tgt 48 tok, tgt ExG z -0.04
+  ijepa_frac0.1_s0 ep   48/60 step 48 loss 0.2652 val kNN-F1 25.4% rank 13.3 std 0.0053 | 1257 img/s, 0.06 GB ctx 25 tgt 42 tok, tgt ExG z +0.05
+  ijepa_frac0.1_s0 ep   54/60 step 54 loss 0.2617 val kNN-F1 25.4% rank 13.3 std 0.0053 | 1236 img/s, 0.05 GB ctx 13 tgt 48 tok, tgt ExG z +0.07
+  ijepa_frac0.1_s0 ep   60/60 step 60 loss 0.2610 val kNN-F1 25.4% rank 13.3 std 0.0053 | 1235 img/s, 0.06 GB ctx 25 tgt 45 tok, tgt ExG z +0.09
+[2/8] veg_pos_frac0.1_s0: starting (no session limit)
+  veg_pos_frac0.1_s0: 24 training images | batch 24 | 1 steps/epoch x 60 epochs = 60 steps (target 60) | peak lr 1.88e-04 | monitors every 1 ep, k-NN every 3 ep, checkpoint every 3 ep
+  veg_pos_frac0.1_s0 ep    1/60 step 1 loss 0.4526 val kNN-F1 25.2% rank 13.2 std 0.0053 | 971 img/s, 0.06 GB ctx 26 tgt 48 tok, tgt ExG z +0.46
+  veg_pos_frac0.1_s0 ep    6/60 step 6 loss 0.4302 val kNN-F1 25.2% rank 13.2 std 0.0053 | 1196 img/s, 0.06 GB ctx 25 tgt 45 tok, tgt ExG z +0.49
+  veg_pos_frac0.1_s0 ep   12/60 step 12 loss 0.3834 val kNN-F1 25.2% rank 13.2 std 0.0053 | 1189 img/s, 0.05 GB ctx 7 tgt 48 tok, tgt ExG z +0.51
+  veg_pos_frac0.1_s0 ep   18/60 step 18 loss 0.3412 val kNN-F1 25.2% rank 13.2 std 0.0053 | 1196 img/s, 0.05 GB ctx 18 tgt 48 tok, tgt ExG z +0.60
+  veg_pos_frac0.1_s0 ep   24/60 step 24 loss 0.3133 val kNN-F1 25.2% rank 13.2 std 0.0053 | 1202 img/s, 0.06 GB ctx 26 tgt 49 tok, tgt ExG z +0.42
+  veg_pos_frac0.1_s0 ep   30/60 step 30 loss 0.2908 val kNN-F1 25.6% rank 13.2 std 0.0053 | 1196 img/s, 0.06 GB ctx 25 tgt 45 tok, tgt ExG z +0.52
+  veg_pos_frac0.1_s0 ep   36/60 step 36 loss 0.2735 val kNN-F1 25.4% rank 13.3 std 0.0053 | 1204 img/s, 0.06 GB ctx 21 tgt 45 tok, tgt ExG z +0.45
+  veg_pos_frac0.1_s0 ep   42/60 step 42 loss 0.2630 val kNN-F1 25.4% rank 13.3 std 0.0053 | 1200 img/s, 0.06 GB ctx 25 tgt 48 tok, tgt ExG z +0.45
+  veg_pos_frac0.1_s0 ep   48/60 step 48 loss 0.2552 val kNN-F1 27.1% rank 13.3 std 0.0052 | 1195 img/s, 0.06 GB ctx 29 tgt 42 tok, tgt ExG z +0.57
+  veg_pos_frac0.1_s0 ep   54/60 step 54 loss 0.2536 val kNN-F1 25.4% rank 13.3 std 0.0052 | 1205 img/s, 0.05 GB ctx 18 tgt 48 tok, tgt ExG z +0.49
+  veg_pos_frac0.1_s0 ep   60/60 step 60 loss 0.2552 val kNN-F1 27.1% rank 13.3 std 0.0052 | 1193 img/s, 0.06 GB ctx 25 tgt 45 tok, tgt ExG z +0.46
+[3/8] ijepa_frac0.3_s0: starting (no session limit)
+  ijepa_frac0.3_s0: 78 training images | batch 32 | 2 steps/epoch x 30 epochs = 60 steps (target 60) | peak lr 2.50e-04 | monitors every 1 ep, k-NN every 2 ep, checkpoint every 2 ep
+  ijepa_frac0.3_s0 ep    1/30 step 2 loss 0.4584 val kNN-F1 25.2% rank 13.2 std 0.0053 | 1456 img/s, 0.07 GB ctx 20 tgt 45 tok, tgt ExG z +0.05
+  ijepa_frac0.3_s0 ep    3/30 step 6 loss 0.4372 rank 13.2 std 0.0053 | 1600 img/s, 0.07 GB ctx 22 tgt 45 tok, tgt ExG z +0.05
+  ijepa_frac0.3_s0 ep    6/30 step 12 loss 0.3749 val kNN-F1 25.2% rank 13.2 std 0.0053 | 1658 img/s, 0.06 GB ctx 14 tgt 50 tok, tgt ExG z +0.10
+  ijepa_frac0.3_s0 ep    9/30 step 18 loss 0.3268 rank 13.2 std 0.0053 | 1625 img/s, 0.06 GB ctx 14 tgt 44 tok, tgt ExG z +0.07
+  ijepa_frac0.3_s0 ep   12/30 step 24 loss 0.2908 val kNN-F1 25.4% rank 13.2 std 0.0053 | 1651 img/s, 0.06 GB ctx 18 tgt 47 tok, tgt ExG z +0.08
+  ijepa_frac0.3_s0 ep   15/30 step 30 loss 0.2635 rank 13.3 std 0.0053 | 1619 img/s, 0.07 GB ctx 22 tgt 45 tok, tgt ExG z +0.08
+  ijepa_frac0.3_s0 ep   18/30 step 36 loss 0.2442 val kNN-F1 25.4% rank 13.3 std 0.0053 | 1655 img/s, 0.07 GB ctx 20 tgt 44 tok, tgt ExG z +0.04
+  ijepa_frac0.3_s0 ep   21/30 step 42 loss 0.2314 rank 13.3 std 0.0053 | 1613 img/s, 0.07 GB ctx 22 tgt 48 tok, tgt ExG z +0.06
+  ijepa_frac0.3_s0 ep   24/30 step 48 loss 0.2254 val kNN-F1 27.1% rank 13.3 std 0.0052 | 1651 img/s, 0.07 GB ctx 24 tgt 44 tok, tgt ExG z +0.07
+  ijepa_frac0.3_s0 ep   27/30 step 54 loss 0.2220 rank 13.3 std 0.0052 | 1620 img/s, 0.07 GB ctx 16 tgt 46 tok, tgt ExG z +0.09
+  ijepa_frac0.3_s0 ep   30/30 step 60 loss 0.2210 val kNN-F1 27.1% rank 13.3 std 0.0052 | 1641 img/s, 0.07 GB ctx 22 tgt 46 tok, tgt ExG z +0.12
+[4/8] veg_pos_frac0.3_s0: starting (no session limit)
+  veg_pos_frac0.3_s0: 78 training images | batch 32 | 2 steps/epoch x 30 epochs = 60 steps (target 60) | peak lr 2.50e-04 | monitors every 1 ep, k-NN every 2 ep, checkpoint every 2 ep
+  veg_pos_frac0.3_s0 ep    1/30 step 2 loss 0.4508 val kNN-F1 25.2% rank 13.2 std 0.0053 | 1531 img/s, 0.07 GB ctx 26 tgt 45 tok, tgt ExG z +0.47
+  veg_pos_frac0.3_s0 ep    3/30 step 6 loss 0.4278 rank 13.2 std 0.0053 | 1735 img/s, 0.07 GB ctx 24 tgt 45 tok, tgt ExG z +0.45
+  veg_pos_frac0.3_s0 ep    6/30 step 12 loss 0.3671 val kNN-F1 25.2% rank 13.2 std 0.0053 | 1785 img/s, 0.07 GB ctx 20 tgt 50 tok, tgt ExG z +0.48
+  veg_pos_frac0.3_s0 ep    9/30 step 18 loss 0.3182 rank 13.2 std 0.0053 | 1749 img/s, 0.06 GB ctx 15 tgt 44 tok, tgt ExG z +0.47
+  veg_pos_frac0.3_s0 ep   12/30 step 24 loss 0.2813 val kNN-F1 25.6% rank 13.2 std 0.0053 | 1771 img/s, 0.08 GB ctx 28 tgt 47 tok, tgt ExG z +0.54
+  veg_pos_frac0.3_s0 ep   15/30 step 30 loss 0.2545 rank 13.3 std 0.0053 | 1730 img/s, 0.08 GB ctx 26 tgt 45 tok, tgt ExG z +0.54
+  veg_pos_frac0.3_s0 ep   18/30 step 36 loss 0.2369 val kNN-F1 25.4% rank 13.3 std 0.0053 | 1773 img/s, 0.07 GB ctx 18 tgt 44 tok, tgt ExG z +0.52
+  veg_pos_frac0.3_s0 ep   21/30 step 42 loss 0.2235 rank 13.3 std 0.0052 | 1728 img/s, 0.07 GB ctx 26 tgt 48 tok, tgt ExG z +0.51
+  veg_pos_frac0.3_s0 ep   24/30 step 48 loss 0.2205 val kNN-F1 27.1% rank 13.3 std 0.0052 | 1768 img/s, 0.07 GB ctx 27 tgt 44 tok, tgt ExG z +0.47
+  veg_pos_frac0.3_s0 ep   27/30 step 54 loss 0.2135 rank 13.3 std 0.0052 | 1737 img/s, 0.07 GB ctx 20 tgt 46 tok, tgt ExG z +0.54
+  veg_pos_frac0.3_s0 ep   30/30 step 60 loss 0.2153 val kNN-F1 27.1% rank 13.3 std 0.0052 | 1769 img/s, 0.07 GB ctx 24 tgt 46 tok, tgt ExG z +0.51
+[5/8] ijepa_frac0.1_s1: starting (no session limit)
+  ijepa_frac0.1_s1: 24 training images | batch 24 | 1 steps/epoch x 60 epochs = 60 steps (target 60) | peak lr 1.88e-04 | monitors every 1 ep, k-NN every 3 ep, checkpoint every 3 ep
+  ijepa_frac0.1_s1 ep    1/60 step 1 loss 0.4490 val kNN-F1 21.4% rank 13.6 std 0.0050 | 1122 img/s, 0.05 GB ctx 23 tgt 45 tok, tgt ExG z +0.06
+  ijepa_frac0.1_s1 ep    6/60 step 6 loss 0.4268 val kNN-F1 21.4% rank 13.6 std 0.0050 | 1402 img/s, 0.06 GB ctx 23 tgt 48 tok, tgt ExG z +0.06
+  ijepa_frac0.1_s1 ep   12/60 step 12 loss 0.3807 val kNN-F1 21.5% rank 13.6 std 0.0050 | 1405 img/s, 0.06 GB ctx 26 tgt 45 tok, tgt ExG z +0.11
+  ijepa_frac0.1_s1 ep   18/60 step 18 loss 0.3399 val kNN-F1 21.5% rank 13.6 std 0.0050 | 1408 img/s, 0.06 GB ctx 21 tgt 48 tok, tgt ExG z +0.03
+  ijepa_frac0.1_s1 ep   24/60 step 24 loss 0.3107 val kNN-F1 21.5% rank 13.6 std 0.0050 | 1364 img/s, 0.06 GB ctx 30 tgt 39 tok, tgt ExG z +0.03
+  ijepa_frac0.1_s1 ep   30/60 step 30 loss 0.2833 val kNN-F1 21.3% rank 13.6 std 0.0049 | 1402 img/s, 0.06 GB ctx 23 tgt 45 tok, tgt ExG z +0.16
+  ijepa_frac0.1_s1 ep   36/60 step 36 loss 0.2711 val kNN-F1 21.3% rank 13.7 std 0.0049 | 1411 img/s, 0.06 GB ctx 22 tgt 48 tok, tgt ExG z +0.05
+  ijepa_frac0.1_s1 ep   42/60 step 42 loss 0.2584 val kNN-F1 21.3% rank 13.7 std 0.0049 | 1404 img/s, 0.06 GB ctx 24 tgt 42 tok, tgt ExG z +0.10
+  ijepa_frac0.1_s1 ep   48/60 step 48 loss 0.2497 val kNN-F1 21.3% rank 13.7 std 0.0049 | 1399 img/s, 0.05 GB ctx 13 tgt 45 tok, tgt ExG z +0.09
+  ijepa_frac0.1_s1 ep   54/60 step 54 loss 0.2481 val kNN-F1 21.3% rank 13.7 std 0.0049 | 1399 img/s, 0.06 GB ctx 21 tgt 52 tok, tgt ExG z +0.02
+  ijepa_frac0.1_s1 ep   60/60 step 60 loss 0.2483 val kNN-F1 21.3% rank 13.7 std 0.0049 | 1410 img/s, 0.06 GB ctx 27 tgt 42 tok, tgt ExG z +0.02
+[6/8] veg_pos_frac0.1_s1: starting (no session limit)
+  veg_pos_frac0.1_s1: 24 training images | batch 24 | 1 steps/epoch x 60 epochs = 60 steps (target 60) | peak lr 1.88e-04 | monitors every 1 ep, k-NN every 3 ep, checkpoint every 3 ep
+  veg_pos_frac0.1_s1 ep    1/60 step 1 loss 0.4482 val kNN-F1 21.4% rank 13.6 std 0.0050 | 1051 img/s, 0.06 GB ctx 25 tgt 45 tok, tgt ExG z +0.53
+  veg_pos_frac0.1_s1 ep    6/60 step 6 loss 0.4272 val kNN-F1 21.4% rank 13.6 std 0.0050 | 1345 img/s, 0.06 GB ctx 26 tgt 48 tok, tgt ExG z +0.67
+  veg_pos_frac0.1_s1 ep   12/60 step 12 loss 0.3786 val kNN-F1 21.5% rank 13.6 std 0.0050 | 1338 img/s, 0.06 GB ctx 28 tgt 45 tok, tgt ExG z +0.52
+  veg_pos_frac0.1_s1 ep   18/60 step 18 loss 0.3366 val kNN-F1 21.5% rank 13.6 std 0.0050 | 1345 img/s, 0.06 GB ctx 25 tgt 48 tok, tgt ExG z +0.52
+  veg_pos_frac0.1_s1 ep   24/60 step 24 loss 0.3033 val kNN-F1 21.3% rank 13.6 std 0.0050 | 1278 img/s, 0.07 GB ctx 34 tgt 39 tok, tgt ExG z +0.60
+  veg_pos_frac0.1_s1 ep   30/60 step 30 loss 0.2805 val kNN-F1 21.3% rank 13.6 std 0.0050 | 1336 img/s, 0.06 GB ctx 25 tgt 45 tok, tgt ExG z +0.46
+  veg_pos_frac0.1_s1 ep   36/60 step 36 loss 0.2624 val kNN-F1 21.3% rank 13.7 std 0.0049 | 1345 img/s, 0.06 GB ctx 27 tgt 48 tok, tgt ExG z +0.47
+  veg_pos_frac0.1_s1 ep   42/60 step 42 loss 0.2512 val kNN-F1 21.3% rank 13.7 std 0.0049 | 1340 img/s, 0.06 GB ctx 26 tgt 42 tok, tgt ExG z +0.57
+  veg_pos_frac0.1_s1 ep   48/60 step 48 loss 0.2451 val kNN-F1 21.3% rank 13.7 std 0.0049 | 1339 img/s, 0.05 GB ctx 17 tgt 45 tok, tgt ExG z +0.46
+  veg_pos_frac0.1_s1 ep   54/60 step 54 loss 0.2407 val kNN-F1 21.3% rank 13.7 std 0.0049 | 1347 img/s, 0.06 GB ctx 24 tgt 52 tok, tgt ExG z +0.47
+  veg_pos_frac0.1_s1 ep   60/60 step 60 loss 0.2415 val kNN-F1 21.3% rank 13.7 std 0.0049 | 1342 img/s, 0.06 GB ctx 28 tgt 42 tok, tgt ExG z +0.48
+[7/8] ijepa_frac0.3_s1: starting (no session limit)
+  ijepa_frac0.3_s1: 78 training images | batch 32 | 2 steps/epoch x 30 epochs = 60 steps (target 60) | peak lr 2.50e-04 | monitors every 1 ep, k-NN every 2 ep, checkpoint every 2 ep
+  ijepa_frac0.3_s1 ep    1/30 step 2 loss 0.4482 val kNN-F1 21.4% rank 13.6 std 0.0050 | 1613 img/s, 0.07 GB ctx 22 tgt 46 tok, tgt ExG z +0.06
+  ijepa_frac0.3_s1 ep    3/30 step 6 loss 0.4247 rank 13.6 std 0.0050 | 1777 img/s, 0.07 GB ctx 24 tgt 45 tok, tgt ExG z +0.08
+  ijepa_frac0.3_s1 ep    6/30 step 12 loss 0.3655 val kNN-F1 21.4% rank 13.6 std 0.0050 | 1858 img/s, 0.07 GB ctx 23 tgt 45 tok, tgt ExG z +0.08
+  ijepa_frac0.3_s1 ep    9/30 step 18 loss 0.3150 rank 13.6 std 0.0050 | 1823 img/s, 0.07 GB ctx 19 tgt 45 tok, tgt ExG z +0.06
+  ijepa_frac0.3_s1 ep   12/30 step 24 loss 0.2794 val kNN-F1 21.3% rank 13.6 std 0.0050 | 1829 img/s, 0.08 GB ctx 26 tgt 42 tok, tgt ExG z +0.08
+  ijepa_frac0.3_s1 ep   15/30 step 30 loss 0.2507 rank 13.7 std 0.0049 | 1805 img/s, 0.07 GB ctx 26 tgt 42 tok, tgt ExG z +0.09
+  ijepa_frac0.3_s1 ep   18/30 step 36 loss 0.2308 val kNN-F1 21.3% rank 13.7 std 0.0049 | 1864 img/s, 0.07 GB ctx 17 tgt 46 tok, tgt ExG z +0.09
+  ijepa_frac0.3_s1 ep   21/30 step 42 loss 0.2183 rank 13.7 std 0.0049 | 1812 img/s, 0.07 GB ctx 24 tgt 44 tok, tgt ExG z +0.07
+  ijepa_frac0.3_s1 ep   24/30 step 48 loss 0.2090 val kNN-F1 21.3% rank 13.7 std 0.0049 | 1858 img/s, 0.07 GB ctx 18 tgt 45 tok, tgt ExG z +0.09
+  ijepa_frac0.3_s1 ep   27/30 step 54 loss 0.2096 rank 13.7 std 0.0049 | 1819 img/s, 0.07 GB ctx 21 tgt 48 tok, tgt ExG z +0.05
+  ijepa_frac0.3_s1 ep   30/30 step 60 loss 0.2072 val kNN-F1 21.3% rank 13.7 std 0.0049 | 1860 img/s, 0.07 GB ctx 24 tgt 44 tok, tgt ExG z +0.01
+[8/8] veg_pos_frac0.3_s1: starting (no session limit)
+  veg_pos_frac0.3_s1: 78 training images | batch 32 | 2 steps/epoch x 30 epochs = 60 steps (target 60) | peak lr 2.50e-04 | monitors every 1 ep, k-NN every 2 ep, checkpoint every 2 ep
+  veg_pos_frac0.3_s1 ep    1/30 step 2 loss 0.4477 val kNN-F1 21.4% rank 13.6 std 0.0050 | 1528 img/s, 0.08 GB ctx 26 tgt 46 tok, tgt ExG z +0.48
+  veg_pos_frac0.3_s1 ep    3/30 step 6 loss 0.4245 rank 13.6 std 0.0050 | 1736 img/s, 0.07 GB ctx 26 tgt 45 tok, tgt ExG z +0.56
+  veg_pos_frac0.3_s1 ep    6/30 step 12 loss 0.3619 val kNN-F1 21.5% rank 13.6 std 0.0050 | 1766 img/s, 0.08 GB ctx 24 tgt 45 tok, tgt ExG z +0.54
+  veg_pos_frac0.3_s1 ep    9/30 step 18 loss 0.3096 rank 13.6 std 0.0050 | 1735 img/s, 0.08 GB ctx 22 tgt 45 tok, tgt ExG z +0.52
+  veg_pos_frac0.3_s1 ep   12/30 step 24 loss 0.2717 val kNN-F1 21.3% rank 13.6 std 0.0050 | 1768 img/s, 0.07 GB ctx 28 tgt 42 tok, tgt ExG z +0.53
+  veg_pos_frac0.3_s1 ep   15/30 step 30 loss 0.2416 rank 13.7 std 0.0049 | 1731 img/s, 0.08 GB ctx 28 tgt 42 tok, tgt ExG z +0.55
+  veg_pos_frac0.3_s1 ep   18/30 step 36 loss 0.2218 val kNN-F1 21.3% rank 13.7 std 0.0049 | 1767 img/s, 0.08 GB ctx 22 tgt 46 tok, tgt ExG z +0.52
+  veg_pos_frac0.3_s1 ep   21/30 step 42 loss 0.2114 rank 13.7 std 0.0049 | 1733 img/s, 0.07 GB ctx 26 tgt 44 tok, tgt ExG z +0.53
+  veg_pos_frac0.3_s1 ep   24/30 step 48 loss 0.2030 val kNN-F1 23.5% rank 13.7 std 0.0049 | 1772 img/s, 0.07 GB ctx 20 tgt 45 tok, tgt ExG z +0.54
+  veg_pos_frac0.3_s1 ep   27/30 step 54 loss 0.2010 rank 13.7 std 0.0049 | 1732 img/s, 0.08 GB ctx 26 tgt 48 tok, tgt ExG z +0.51
+  veg_pos_frac0.3_s1 ep   30/30 step 60 loss 0.2000 val kNN-F1 23.5% rank 13.7 std 0.0049 | 1760 img/s, 0.08 GB ctx 28 tgt 44 tok, tgt ExG z +0.49
+Tier 2 size axis: queue pass finished in 0.3 min
+[UNVERIFIED] LeJEPA / SIGReg settings in use — check them against the paper (arXiv 2511.08544) and the official rbalestr-lab/lejepa code before reporting:
+{'lejepa_lambda': 0.02, 'lejepa_slices': 64, 'lejepa_knots': 17, 'lejepa_tmax': 3.0, 'lejepa_n_global': 2, 'lejepa_n_local': 2, 'lejepa_local_size': 32, 'lejepa_global_scale': (0.3, 1.0), 'lejepa_local_scale': (0.05, 0.3), 'lejepa_proj_hidden': 128, 'lejepa_proj_dim': 32, 'lejepa_batch_size': 16, 'lejepa_blr': 0.0005, 'lejepa_wd': 0.05}
+Position prior (lejepa_local) estimated from 128 training images for 11 block sizes [(2, 2), (2, 3), (3, 2), (3, 3), (3, 4), (3, 5), (4, 3), (4, 4), (4, 5), (5, 3), (5, 4)] in 0.0s; hash 9aad7fbcdc56
+LeJEPA: batch 16 | 1268 img/s (1.3x the I-JEPA cost per image) | peak 0.07 GB | ≈0.00 h per run, ≈0.0 h for 8 runs
+[1/8] lejepa_uniform_s0: starting (no session limit)
+  lejepa_uniform_s0: 254 training images | batch 16 | 15 steps/epoch x 4 epochs = 60 steps (target 60) | peak lr 3.13e-05 | monitors every 1 ep, k-NN every 2 ep, checkpoint every 1 ep
+  lejepa_uniform_s0 ep    1/4 step 15 loss 0.1769 val kNN-F1 25.7% rank 13.0 std 0.0055 | 1276 img/s, 0.07 GB inv 0.0801 sigreg 4.9213, local-crop ExG z +0.12
+  lejepa_uniform_s0 ep    2/4 step 30 loss 0.1584 val kNN-F1 25.6% rank 12.9 std 0.0056 | 1305 img/s, 0.07 GB inv 0.0552 sigreg 5.2161, local-crop ExG z +0.15
+  lejepa_uniform_s0 ep    3/4 step 45 loss 0.1541 rank 12.8 std 0.0057 | 1305 img/s, 0.07 GB inv 0.0491 sigreg 5.2972, local-crop ExG z +0.05
+  lejepa_uniform_s0 ep    4/4 step 60 loss 0.1523 val kNN-F1 25.6% rank 12.8 std 0.0057 | 1305 img/s, 0.07 GB inv 0.0471 sigreg 5.3030, local-crop ExG z +0.08
+[2/8] lejepa_veg_pos_s0: starting (no session limit)
+  lejepa_veg_pos_s0: 254 training images | batch 16 | 15 steps/epoch x 4 epochs = 60 steps (target 60) | peak lr 3.13e-05 | monitors every 1 ep, k-NN every 2 ep, checkpoint every 1 ep
+  lejepa_veg_pos_s0 ep    1/4 step 15 loss 0.1765 val kNN-F1 25.7% rank 13.0 std 0.0055 | 1233 img/s, 0.07 GB inv 0.0818 sigreg 4.8190, local-crop ExG z +0.64
+  lejepa_veg_pos_s0 ep    2/4 step 30 loss 0.1608 val kNN-F1 25.7% rank 12.8 std 0.0056 | 1261 img/s, 0.07 GB inv 0.0611 sigreg 5.0453, local-crop ExG z +0.65
+  lejepa_veg_pos_s0 ep    3/4 step 45 loss 0.1542 rank 12.8 std 0.0057 | 1263 img/s, 0.07 GB inv 0.0541 sigreg 5.0583, local-crop ExG z +0.73
+  lejepa_veg_pos_s0 ep    4/4 step 60 loss 0.1538 val kNN-F1 27.4% rank 12.7 std 0.0057 | 1263 img/s, 0.07 GB inv 0.0524 sigreg 5.1225, local-crop ExG z +0.72
+[3/8] lejepa_veg_neg_s0: starting (no session limit)
+  lejepa_veg_neg_s0: 254 training images | batch 16 | 15 steps/epoch x 4 epochs = 60 steps (target 60) | peak lr 3.13e-05 | monitors every 1 ep, k-NN every 2 ep, checkpoint every 1 ep
+  lejepa_veg_neg_s0 ep    1/4 step 15 loss 0.1783 val kNN-F1 27.0% rank 13.1 std 0.0054 | 1238 img/s, 0.07 GB inv 0.0793 sigreg 5.0311, local-crop ExG z -0.45
+  lejepa_veg_neg_s0 ep    2/4 step 30 loss 0.1594 val kNN-F1 27.3% rank 12.9 std 0.0056 | 1263 img/s, 0.07 GB inv 0.0545 sigreg 5.3007, local-crop ExG z -0.48
+  lejepa_veg_neg_s0 ep    3/4 step 45 loss 0.1531 rank 12.8 std 0.0056 | 1263 img/s, 0.07 GB inv 0.0461 sigreg 5.3939, local-crop ExG z -0.50
+  lejepa_veg_neg_s0 ep    4/4 step 60 loss 0.1523 val kNN-F1 27.3% rank 12.8 std 0.0056 | 1263 img/s, 0.07 GB inv 0.0447 sigreg 5.4227, local-crop ExG z -0.47
+[4/8] lejepa_pos_matched_s0: starting (no session limit)
+  lejepa_pos_matched_s0: 254 training images | batch 16 | 15 steps/epoch x 4 epochs = 60 steps (target 60) | peak lr 3.13e-05 | monitors every 1 ep, k-NN every 2 ep, checkpoint every 1 ep
+  lejepa_pos_matched_s0 ep    1/4 step 15 loss 0.1755 val kNN-F1 27.4% rank 13.0 std 0.0055 | 1249 img/s, 0.07 GB inv 0.0805 sigreg 4.8316, local-crop ExG z +0.48
+  lejepa_pos_matched_s0 ep    2/4 step 30 loss 0.1582 val kNN-F1 25.7% rank 12.8 std 0.0056 | 1279 img/s, 0.07 GB inv 0.0571 sigreg 5.1090, local-crop ExG z +0.49
+  lejepa_pos_matched_s0 ep    3/4 step 45 loss 0.1516 rank 12.7 std 0.0057 | 1279 img/s, 0.07 GB inv 0.0507 sigreg 5.0960, local-crop ExG z +0.51
+  lejepa_pos_matched_s0 ep    4/4 step 60 loss 0.1513 val kNN-F1 25.5% rank 12.7 std 0.0058 | 1279 img/s, 0.07 GB inv 0.0494 sigreg 5.1413, local-crop ExG z +0.50
+[5/8] lejepa_uniform_s1: starting (no session limit)
+  lejepa_uniform_s1: 254 training images | batch 16 | 15 steps/epoch x 4 epochs = 60 steps (target 60) | peak lr 3.13e-05 | monitors every 1 ep, k-NN every 2 ep, checkpoint every 1 ep
+  lejepa_uniform_s1 ep    1/4 step 15 loss 0.1705 val kNN-F1 21.4% rank 13.4 std 0.0051 | 1277 img/s, 0.07 GB inv 0.0756 sigreg 4.8193, local-crop ExG z +0.08
+  lejepa_uniform_s1 ep    2/4 step 30 loss 0.1573 val kNN-F1 23.6% rank 13.2 std 0.0052 | 1305 img/s, 0.07 GB inv 0.0574 sigreg 5.0536, local-crop ExG z +0.14
+  lejepa_uniform_s1 ep    3/4 step 45 loss 0.1491 rank 13.1 std 0.0053 | 1305 img/s, 0.07 GB inv 0.0496 sigreg 5.0262, local-crop ExG z +0.04
+  lejepa_uniform_s1 ep    4/4 step 60 loss 0.1504 val kNN-F1 23.2% rank 13.1 std 0.0053 | 1305 img/s, 0.07 GB inv 0.0498 sigreg 5.0774, local-crop ExG z +0.18
+[6/8] lejepa_veg_pos_s1: starting (no session limit)
+  lejepa_veg_pos_s1: 254 training images | batch 16 | 15 steps/epoch x 4 epochs = 60 steps (target 60) | peak lr 3.13e-05 | monitors every 1 ep, k-NN every 2 ep, checkpoint every 1 ep
+  lejepa_veg_pos_s1 ep    1/4 step 15 loss 0.1766 val kNN-F1 21.1% rank 13.4 std 0.0051 | 1238 img/s, 0.07 GB inv 0.0830 sigreg 4.7644, local-crop ExG z +0.66
+  lejepa_veg_pos_s1 ep    2/4 step 30 loss 0.1637 val kNN-F1 23.2% rank 13.2 std 0.0052 | 1265 img/s, 0.07 GB inv 0.0671 sigreg 4.8960, local-crop ExG z +0.70
+  lejepa_veg_pos_s1 ep    3/4 step 45 loss 0.1552 rank 13.1 std 0.0053 | 1264 img/s, 0.07 GB inv 0.0587 sigreg 4.8835, local-crop ExG z +0.67
+  lejepa_veg_pos_s1 ep    4/4 step 60 loss 0.1524 val kNN-F1 23.2% rank 13.1 std 0.0053 | 1266 img/s, 0.07 GB inv 0.0538 sigreg 4.9820, local-crop ExG z +0.68
+[7/8] lejepa_veg_neg_s1: starting (no session limit)
+  lejepa_veg_neg_s1: 254 training images | batch 16 | 15 steps/epoch x 4 epochs = 60 steps (target 60) | peak lr 3.13e-05 | monitors every 1 ep, k-NN every 2 ep, checkpoint every 1 ep
+  lejepa_veg_neg_s1 ep    1/4 step 15 loss 0.1677 val kNN-F1 21.3% rank 13.4 std 0.0051 | 1236 img/s, 0.07 GB inv 0.0703 sigreg 4.9388, local-crop ExG z -0.42
+  lejepa_veg_neg_s1 ep    2/4 step 30 loss 0.1555 val kNN-F1 23.2% rank 13.2 std 0.0052 | 1263 img/s, 0.07 GB inv 0.0533 sigreg 5.1633, local-crop ExG z -0.48
+  lejepa_veg_neg_s1 ep    3/4 step 45 loss 0.1496 rank 13.1 std 0.0053 | 1262 img/s, 0.07 GB inv 0.0482 sigreg 5.1154, local-crop ExG z -0.45
+  lejepa_veg_neg_s1 ep    4/4 step 60 loss 0.1475 val kNN-F1 23.3% rank 13.1 std 0.0053 | 1263 img/s, 0.07 GB inv 0.0453 sigreg 5.1560, local-crop ExG z -0.53
+[8/8] lejepa_pos_matched_s1: starting (no session limit)
+  lejepa_pos_matched_s1: 254 training images | batch 16 | 15 steps/epoch x 4 epochs = 60 steps (target 60) | peak lr 3.13e-05 | monitors every 1 ep, k-NN every 2 ep, checkpoint every 1 ep
+  lejepa_pos_matched_s1 ep    1/4 step 15 loss 0.1749 val kNN-F1 21.1% rank 13.4 std 0.0051 | 1249 img/s, 0.07 GB inv 0.0819 sigreg 4.7315, local-crop ExG z +0.49
+  lejepa_pos_matched_s1 ep    2/4 step 30 loss 0.1610 val kNN-F1 23.3% rank 13.2 std 0.0053 | 1279 img/s, 0.07 GB inv 0.0650 sigreg 4.8605, local-crop ExG z +0.51
+  lejepa_pos_matched_s1 ep    3/4 step 45 loss 0.1514 rank 13.1 std 0.0053 | 1280 img/s, 0.07 GB inv 0.0555 sigreg 4.8502, local-crop ExG z +0.47
+  lejepa_pos_matched_s1 ep    4/4 step 60 loss 0.1501 val kNN-F1 23.2% rank 13.0 std 0.0054 | 1280 img/s, 0.07 GB inv 0.0516 sigreg 4.9751, local-crop ExG z +0.47
+Tier 2 LeJEPA: queue pass finished in 0.2 min
+Pairing check: 8 runs compared — same seed => identical initial weights, image order and first-batch crops.
+DINOv2 reference: not run (add "dinov2" to BASELINES in full mode; it needs internet access).
+Finished runs: {'attn': 2, 'ijepa': 3, 'ijepa@frac=0.1': 2, 'ijepa@frac=0.3': 2, 'lejepa_pos_matched': 2, 'lejepa_uniform': 2, 'lejepa_veg_neg': 2, 'lejepa_veg_pos': 2, 'pilot_ijepa': 1, 'pos_matched': 3, 'random_init': 3, 'supervised': 3, 'veg_neg': 3, 'veg_pos': 3, 'veg_pos@frac=0.1': 2, 'veg_pos@frac=0.3': 2, 'veg_pos@tau=0.25': 2, 'veg_pos@tau=1': 2}
+Primary endpoint = mean over ['5shot', '10shot', '10pct'] of the mean over label draws; cells: mean ± sd over SEEDS (n = seeds).
+
+Test macro-F1 (%), linear probe — core arms and baselines
+regime                  1shot             5shot            10shot             10pct            100pct  PRIMARY ENDPOINT
+label                                                                                                                  
+ijepa        14.4 ± 1.2 (n=3)  26.0 ± 1.3 (n=3)  41.2 ± 5.1 (n=3)  23.6 ± 1.8 (n=3)  51.8 ± 2.7 (n=3)  30.3 ± 1.5 (n=3)
+veg_pos      14.4 ± 1.2 (n=3)  26.9 ± 1.7 (n=3)  41.1 ± 4.7 (n=3)  22.7 ± 0.9 (n=3)  51.2 ± 2.5 (n=3)  30.2 ± 1.2 (n=3)
+veg_neg      14.2 ± 1.7 (n=3)  25.5 ± 1.5 (n=3)  40.3 ± 5.0 (n=3)  22.9 ± 1.2 (n=3)  51.3 ± 5.1 (n=3)  29.6 ± 1.7 (n=3)
+pos_matched  14.4 ± 1.2 (n=3)  26.5 ± 1.6 (n=3)  41.7 ± 4.9 (n=3)  22.5 ± 1.6 (n=3)  51.2 ± 2.5 (n=3)  30.2 ± 1.4 (n=3)
+attn         15.3 ± 2.0 (n=2)  26.6 ± 3.3 (n=2)  40.8 ± 5.4 (n=2)  23.3 ± 0.4 (n=2)  53.5 ± 0.4 (n=2)  30.2 ± 0.8 (n=2)
+random_init  14.1 ± 1.3 (n=3)  26.9 ± 2.5 (n=3)  40.4 ± 5.4 (n=3)  23.5 ± 1.0 (n=3)  50.8 ± 2.3 (n=3)  30.3 ± 1.3 (n=3)
+
+Test macro-F1 (%), k-NN — core arms and baselines
+regime                  1shot             5shot            10shot             10pct            100pct  PRIMARY ENDPOINT
+label                                                                                                                  
+ijepa        15.5 ± 2.4 (n=3)  15.7 ± 0.9 (n=3)  18.4 ± 1.9 (n=3)  18.1 ± 2.1 (n=3)  24.5 ± 2.5 (n=3)  17.4 ± 1.6 (n=3)
+veg_pos      15.5 ± 2.4 (n=3)  16.4 ± 1.6 (n=3)  17.9 ± 1.7 (n=3)  18.1 ± 2.1 (n=3)  24.0 ± 1.9 (n=3)  17.5 ± 1.7 (n=3)
+veg_neg      14.9 ± 2.3 (n=3)  15.5 ± 0.6 (n=3)  18.2 ± 2.3 (n=3)  18.0 ± 2.2 (n=3)  24.1 ± 2.7 (n=3)  17.2 ± 1.6 (n=3)
+pos_matched  15.2 ± 2.1 (n=3)  16.1 ± 1.6 (n=3)  18.1 ± 2.1 (n=3)  18.1 ± 2.1 (n=3)  25.4 ± 3.1 (n=3)  17.4 ± 1.9 (n=3)
+attn         16.0 ± 1.7 (n=2)  15.3 ± 0.7 (n=2)  17.6 ± 1.0 (n=2)  16.7 ± 0.3 (n=2)  22.6 ± 1.1 (n=2)  16.5 ± 0.7 (n=2)
+random_init  14.9 ± 2.2 (n=3)  14.5 ± 0.8 (n=3)  18.9 ± 1.5 (n=3)  18.4 ± 1.9 (n=3)  25.5 ± 3.2 (n=3)  17.3 ± 1.3 (n=3)
+
+Supervised ViT-Tiny from scratch (draw 0) — UPPER REFERENCE, NOT MATCHED (all weights trained with labels, augmentation, epoch chosen on validation):
+        macro_f1_mean  macro_f1_sd  seeds  best_val_epoch_mean  val_macro_f1_mean
+regime                                                                           
+100pct           17.7          1.3      3                 10.7               18.5
+10pct            11.2          7.2      3                  6.7                8.5
+
+Gate-0 pilot — linear probe macro-F1 (%)
+regime                  1shot             5shot            10shot             10pct            100pct  PRIMARY ENDPOINT
+label                                                                                                                  
+pilot_ijepa  15.7 ± 0.0 (n=1)  26.0 ± 0.0 (n=1)  39.9 ± 0.0 (n=1)  24.7 ± 0.0 (n=1)  55.2 ± 0.0 (n=1)  30.2 ± 0.0 (n=1)
+
+Tier 2 tau sweep — linear probe macro-F1 (%)
+regime                       1shot             5shot            10shot             10pct            100pct  PRIMARY ENDPOINT
+label                                                                                                                       
+ijepa             14.4 ± 1.2 (n=3)  26.0 ± 1.3 (n=3)  41.2 ± 5.1 (n=3)  23.6 ± 1.8 (n=3)  51.8 ± 2.7 (n=3)  30.3 ± 1.5 (n=3)
+veg_pos           14.4 ± 1.2 (n=3)  26.9 ± 1.7 (n=3)  41.1 ± 4.7 (n=3)  22.7 ± 0.9 (n=3)  51.2 ± 2.5 (n=3)  30.2 ± 1.2 (n=3)
+veg_pos@tau=0.25  14.9 ± 1.4 (n=2)  27.4 ± 3.4 (n=2)  40.8 ± 6.6 (n=2)  22.8 ± 0.9 (n=2)  52.3 ± 1.7 (n=2)  30.3 ± 1.4 (n=2)
+veg_pos@tau=1     14.9 ± 1.4 (n=2)  27.4 ± 3.6 (n=2)  40.8 ± 6.5 (n=2)  23.2 ± 1.5 (n=2)  51.7 ± 2.9 (n=2)  30.5 ± 1.5 (n=2)
+
+Tier 2 data-size axis — linear probe macro-F1 (%)
+regime                       1shot             5shot            10shot             10pct            100pct  PRIMARY ENDPOINT
+label                                                                                                                       
+ijepa             14.4 ± 1.2 (n=3)  26.0 ± 1.3 (n=3)  41.2 ± 5.1 (n=3)  23.6 ± 1.8 (n=3)  51.8 ± 2.7 (n=3)  30.3 ± 1.5 (n=3)
+veg_pos           14.4 ± 1.2 (n=3)  26.9 ± 1.7 (n=3)  41.1 ± 4.7 (n=3)  22.7 ± 0.9 (n=3)  51.2 ± 2.5 (n=3)  30.2 ± 1.2 (n=3)
+ijepa@frac=0.1    14.8 ± 1.3 (n=2)  25.8 ± 1.3 (n=2)  39.9 ± 7.8 (n=2)  23.8 ± 2.4 (n=2)  52.4 ± 0.9 (n=2)  29.8 ± 3.0 (n=2)
+veg_pos@frac=0.1  14.8 ± 1.3 (n=2)  26.6 ± 2.4 (n=2)  39.3 ± 7.0 (n=2)  22.3 ± 0.2 (n=2)  53.2 ± 0.4 (n=2)  29.4 ± 1.6 (n=2)
+ijepa@frac=0.3    14.3 ± 0.6 (n=2)  26.2 ± 1.8 (n=2)  40.5 ± 7.1 (n=2)  23.7 ± 1.1 (n=2)  53.5 ± 0.4 (n=2)  30.2 ± 2.1 (n=2)
+veg_pos@frac=0.3  14.3 ± 0.6 (n=2)  27.6 ± 3.8 (n=2)  40.4 ± 7.1 (n=2)  22.3 ± 0.2 (n=2)  52.5 ± 1.3 (n=2)  30.1 ± 1.2 (n=2)
+
+Tier 2 LeJEPA — linear probe macro-F1 (%)
+regime                         1shot             5shot            10shot             10pct            100pct  PRIMARY ENDPOINT
+label                                                                                                                         
+lejepa_uniform      14.5 ± 2.2 (n=2)  28.9 ± 4.4 (n=2)  39.2 ± 3.5 (n=2)  21.1 ± 1.2 (n=2)  53.8 ± 0.7 (n=2)  29.7 ± 0.1 (n=2)
+lejepa_veg_pos      14.7 ± 1.8 (n=2)  30.3 ± 3.1 (n=2)  38.6 ± 2.4 (n=2)  20.4 ± 1.2 (n=2)  52.5 ± 1.1 (n=2)  29.8 ± 0.2 (n=2)
+lejepa_veg_neg      14.4 ± 0.2 (n=2)  30.2 ± 5.3 (n=2)  38.1 ± 5.8 (n=2)  21.6 ± 1.4 (n=2)  52.7 ± 0.8 (n=2)  30.0 ± 0.3 (n=2)
+lejepa_pos_matched  14.6 ± 1.8 (n=2)  30.2 ± 3.5 (n=2)  39.5 ± 3.9 (n=2)  23.0 ± 3.4 (n=2)  54.8 ± 0.0 (n=2)  30.9 ± 1.3 (n=2)
+
+Logistic-regression convergence warnings across all runs: 0 (max_iter = 2000)
+
+Mean tokens per image (context differs across arms when targets overlap more or less; CTX_TOKENS_CAP equalises it):
+             ctx_tokens  tgt_tokens  ctx_tokens_min_epoch
+label                                                    
+ijepa              20.7        45.0                  17.0
+veg_pos            23.3        45.0                  18.6
+veg_neg            22.3        45.0                  18.7
+pos_matched        21.7        45.0                  16.7
+attn               20.8        45.0                  16.4
+Manipulation check — mean ExG under the target blocks (z = relative to the image's own patches):
+                                       source          arm  tgt_exg  tgt_exg_z  ctx_exg  all_exg  batches  ctx_tokens  tgt_tokens  kl_centres_vs_veg_pos
+0  training logs (mean over epochs and seeds)        ijepa   0.2749     0.0737   0.2374   0.2543      NaN         NaN         NaN                    NaN
+1  training logs (mean over epochs and seeds)      veg_pos   0.3928     0.4928   0.1586   0.2543      NaN         NaN         NaN                    NaN
+2  training logs (mean over epochs and seeds)      veg_neg   0.1508    -0.3640   0.3357   0.2543      NaN         NaN         NaN                    NaN
+3  training logs (mean over epochs and seeds)  pos_matched   0.3351     0.2872   0.1894   0.2543      NaN         NaN         NaN                    NaN
+4  training logs (mean over epochs and seeds)         attn   0.1976    -0.2027   0.2964   0.2534      NaN         NaN         NaN                    NaN
+5                          pre-training check        ijepa   0.2725     0.0615   0.2458   0.2553     12.0     18.0833     46.1667                 0.2331
+6                          pre-training check      veg_pos   0.3923     0.4904   0.1559   0.2553     12.0     21.1667     46.1667                 0.0000
+7                          pre-training check      veg_neg   0.1528    -0.3564   0.3313   0.2553     12.0     19.6667     46.1667                 1.0003
+8                          pre-training check  pos_matched   0.3369     0.2947   0.1851   0.2553     12.0     19.5000     46.1667                 0.0138
+Exact Wilcoxon implementation agrees with scipy on a tie-free example.
+Hierarchical bootstrap (B = 200) for the core arms + random_init:
+  bootstrap probe: 5 arms x 5 regimes x 3 seeds, B = 200, 0s
+  bootstrap knn: 5 arms x 5 regimes x 3 seeds, B = 200, 0s
+  bootstrap probe: 2 arms x 3 regimes x 2 seeds, B = 200, 0s
+  bootstrap knn: 2 arms x 3 regimes x 2 seeds, B = 200, 0s
+
+PRIMARY ANALYSIS (pre-registered): linear-probe macro-F1 averaged over ['5shot', '10shot', '10pct'], unit = seed, Holm over 3 comparisons, test = exact Wilcoxon (greater), alpha = 0.05, equivalence margin ±1.5 pp (90% CI)
+              comparison  diff_pp  ci95_lo_pp  ci95_hi_pp  ci90_lo_pp  ci90_hi_pp  n_seeds  seeds_a_better  wilcoxon_p_greater  wilcoxon_p_two_sided  holm_p  perm_p_two_sided        status
+0        veg_pos - ijepa  -0.0537     -1.3270      1.4463     -1.0458      1.3283        3               2               0.625                   1.0    1.00               1.0    equivalent
+1  veg_pos - pos_matched  -0.0186     -1.2922      1.1710     -0.9017      0.9503        3               2               0.625                   1.0    1.00               1.0    equivalent
+2      veg_pos - veg_neg   0.6364     -0.6670      2.5729     -0.4883      2.3741        3               2               0.250                   0.5    0.75               0.5  inconclusive
+
+Exploratory, primary endpoint (no claims):
+     eval                 comparison  diff_pp  ci95_lo_pp  ci95_hi_pp  ci90_lo_pp  ci90_hi_pp  n_seeds  seeds_a_better  wilcoxon_p_greater  wilcoxon_p_two_sided                        status
+3   probe            veg_neg - ijepa   -0.690      -2.140       0.500      -1.998       0.295        3               0               1.000                  0.25                 CI includes 0
+4   probe        pos_matched - ijepa   -0.035      -1.265       1.610      -1.042       1.349        3               1               0.750                  0.75  CI includes 0, within margin
+5   probe        ijepa - random_init    0.001      -1.802       1.725      -1.615       1.577        3               2               0.625                  1.00                 CI includes 0
+6   probe      veg_pos - random_init   -0.053      -1.531       1.663      -1.441       1.163        3               2               0.625                  1.00  CI includes 0, within margin
+7   probe      veg_neg - random_init   -0.689      -2.912       1.410      -2.589       0.824        3               1               0.750                  0.75                 CI includes 0
+8   probe  pos_matched - random_init   -0.034      -1.768       1.985      -1.549       1.805        3               2               0.625                  1.00                 CI includes 0
+34  probe               attn - ijepa   -0.200      -2.422       1.884      -2.103       1.463        2               1               0.750                  1.00                 CI includes 0
+35    knn            veg_pos - ijepa    0.053      -0.516       0.708      -0.434       0.579        3               1               0.500                  1.00  CI includes 0, within margin
+36    knn      veg_pos - pos_matched    0.026      -0.438       0.460      -0.325       0.390        3               1               0.500                  1.00  CI includes 0, within margin
+37    knn          veg_pos - veg_neg    0.236      -0.443       0.872      -0.363       0.765        3               3               0.125                  0.25  CI includes 0, within margin
+38    knn            veg_neg - ijepa   -0.183      -0.795       0.446      -0.689       0.356        3               0               1.000                  0.25  CI includes 0, within margin
+39    knn        pos_matched - ijepa    0.027      -0.776       0.736      -0.628       0.656        3               1               0.500                  1.00  CI includes 0, within margin
+40    knn        ijepa - random_init    0.135      -1.161       1.293      -0.848       1.172        3               2               0.625                  1.00  CI includes 0, within margin
+41    knn      veg_pos - random_init    0.188      -0.984       1.363      -0.851       1.029        3               2               0.625                  1.00  CI includes 0, within margin
+42    knn      veg_neg - random_init   -0.048      -1.070       1.003      -0.934       0.839        3               2               0.625                  1.00  CI includes 0, within margin
+43    knn  pos_matched - random_init    0.162      -0.959       1.333      -0.832       1.189        3               2               0.375                  0.75  CI includes 0, within margin
+69    knn               attn - ijepa   -0.023      -0.513       0.655      -0.420       0.428        2               0               1.000                  0.50  CI includes 0, within margin
+
+70 confidence intervals were computed in total (3 confirmatory). At 95 % about 3.5 of them are expected to exclude zero by chance alone when there is no effect; 0 do.
+
+====================================================================================================
+INTERPRETATION (pre-registered table, row 5): SMOKE TEST — generated data, meaningless: No row of the pre-registered table applies cleanly (mixed / inconclusive). veg_pos - ijepa: equivalent (-0.05 pp, 95% CI [-1.33, +1.45]); veg_pos - pos_matched: equivalent (-0.02 pp, 95% CI [-1.29, +1.17]); veg_pos - veg_neg: inconclusive (+0.64 pp, 95% CI [-0.67, +2.57])
+====================================================================================================
+  bootstrap probe: 4 arms x 3 regimes x 2 seeds, B = 200, 0s
+  bootstrap probe: 6 arms x 3 regimes x 2 seeds, B = 200, 0s
+
+Tier 2 (tau_sweep), exploratory — linear-probe primary endpoint, differences in pp:
+    tau  diff_pp  ci95_lo_pp  ci95_hi_pp  n_seeds  wilcoxon_p_two_sided
+0  0.25   -0.103      -2.278       1.667        2                   1.0
+2  0.50   -0.321      -2.065       1.165        2                   1.0
+1  1.00    0.069      -1.821       1.712        2                   1.0
+3   inf    0.000       0.000       0.000        2                   NaN
+
+Tier 2 (size_axis), exploratory — linear-probe primary endpoint, differences in pp:
+   train_fraction  n_images  diff_pp  ci95_lo_pp  ci95_hi_pp  n_seeds  wilcoxon_p_two_sided
+0             0.1        24   -0.437      -2.430       1.090        2                   1.0
+1             0.3        78   -0.053      -1.696       2.140        2                   1.0
+2             1.0       254   -0.321      -1.865       1.372        2                   1.0
+
+Tier 2 (lejepa), exploratory — linear-probe primary endpoint, differences in pp:
+                                                  comparison  diff_pp  ci95_lo_pp  ci95_hi_pp  n_seeds  wilcoxon_p_two_sided
+0                            lejepa_veg_pos - lejepa_uniform    0.032      -2.003       2.067        2                   1.0
+1                            lejepa_veg_neg - lejepa_uniform    0.263      -1.542       2.779        2                   1.0
+2                        lejepa_pos_matched - lejepa_uniform    1.172      -0.773       3.434        2                   0.5
+3  H4: (veg_pos - ijepa) - (lejepa_veg_pos - lejepa_uniform)   -0.353      -2.736       1.784        2                   1.0
+Figures saved to /home/vishalraina23/crop_jepa_cluster/outputs_stageB/smoke/figures : ['confusion_best.png', 'exg_position_heatmap.png', 'feature_spectrum.png', 'gate0_curves.png', 'label_efficiency_knn.png', 'label_efficiency_probe.png', 'manipulation_check.png', 'per_class_delta.png', 'primary_endpoint_forest.png', 'seed_level_dots.png', 'size_axis.png', 'tau_sweep.png', 'training_curves.png']
+Paper tables: ['ablations_tier2.csv', 'ablations_tier2.tex', 'exploratory_comparisons.csv', 'exploratory_comparisons.tex', 'main_results_knn.csv', 'main_results_knn.tex', 'main_results_probe.csv', 'main_results_probe.tex', 'manipulation_check.csv', 'manipulation_check.tex', 'primary_comparisons.csv', 'primary_comparisons.tex', 'token_budget.csv', 'token_budget.tex']
+Bundle: outputs_stageB/smoke/results_bundle.zip (1.9 MB) | finished runs in this folder: 41
+Session time used: 0.02 h | free disk: 12456.6 GiB
+[2026-10-27 15:23:37] smoke test PASSED
+[2026-10-27 15:23:37] PHASE 2/4  pilot (Gate 0): 26000 steps; downloads/caches data on first run; budget 35.223 h
+Python 3.11.14 | PyTorch 2.8.0+cu128 | torchvision 0.23.0+cu128 | numpy 2.4.6 | pandas 3.1.0 | scikit-learn 1.9.1 | scipy 1.17.1
+Platform: Linux | Kaggle: False | Device: cuda:0
+GPU: NVIDIA RTX 6000 Ada Generation | VRAM 47.4 GB | compute capability 8.9 | bf16: True | GPUs visible: 1
+System RAM: 251.0 GiB | free disk here (/home/vishalraina23/crop_jepa_cluster): 12456.6 GiB
+Mode: pilot | profile: big_gpu | precision: bf16 | output: /home/vishalraina23/crop_jepa_cluster/outputs_stageB
+Encoder: ViT dim 192 x depth 12, patch 16, 160px -> 10x10 tokens | predictor dim 128 x depth 4 | batch 128
+Budget: 9000 optimizer steps per core run, 26000 for the Gate-0 pilot (epochs derived from the data size)
+Seeds: [0, 1, 2, 3, 4, 5] | arms: ['ijepa', 'veg_pos', 'veg_neg', 'pos_matched'] | baselines: ['random_init', 'supervised'] | Tier-2 seeds: [0, 1, 2] | shard 0/1
+Tier 2: attn=False tau_sweep=False size_axis=False lejepa=False (smoke mode exercises all of them)
+Utilities ready.
+Smallest attainable Holm-adjusted p with 6 seeds (greater): 0.0469 (< alpha 0.05; requires every seed to agree in sign for the strongest comparison).
+Pre-registration written to outputs_stageB/stats/preregistration.json (0 finished runs existed at registration).
+Data root: /home/vishalraina23/crop_jepa_cluster/lucas_data
+LUCASVision: 15876 images listed | 15876 already on disk | 0 to download (≈0.0 GiB at 0.70 MB/image) | free disk 12456.6 GiB (cache ≈1.6 GiB + ≈4 GiB checkpoints also needed)
+Per-class counts (listed / on disk): {'B11': '2096/2096', 'B12': '485/485', 'B13': '1873/1873', 'B14': '1151/1151', 'B15': '1032/1032', 'B16': '1393/1393', 'B21': '1222/1222', 'B22': '1067/1067', 'B31': '596/596', 'B32': '2163/2163', 'B33': '897/897', 'B55': '1901/1901'}
+Metadata written: lucas_data/metadata_stageB.csv (15876 images)
+
+First 30 file names per class (check the naming pattern the group regex relies on):
+[B11] 2096 files; first 30:
+   LUCAS2006_29361704_Cover.jpg   LUCAS2006_29821836_Cover.jpg   LUCAS2006_30142144_Cover.jpg
+   LUCAS2006_31982136_Cover.jpg   LUCAS2006_32062140_Cover.jpg   LUCAS2006_32682268_Cover.jpg
+   LUCAS2006_33002144_Cover.jpg   LUCAS2006_33162126_Cover.jpg   LUCAS2006_33162144_Cover.jpg
+   LUCAS2006_33222144_Cover.jpg   LUCAS2006_33502068_Cover.jpg   LUCAS2006_34081942_Cover.jpg
+   LUCAS2006_34282898_Cover.jpg   LUCAS2006_34582046_Cover.jpg   LUCAS2006_35202796_Cover.jpg
+   LUCAS2006_35302132_Cover.jpg   LUCAS2006_35502606_Cover.jpg   LUCAS2006_35562108_Cover.jpg
+   LUCAS2006_35882108_Cover.jpg   LUCAS2006_35902416_Cover.jpg   LUCAS2006_35922098_Cover.jpg
+   LUCAS2006_36402458_Cover.jpg   LUCAS2006_36402864_Cover.jpg   LUCAS2006_37862956_Cover.jpg
+   LUCAS2006_39202450_Cover.jpg   LUCAS2006_39262664_Cover.jpg   LUCAS2006_39482910_Cover.jpg
+   LUCAS2006_39523080_Cover.jpg   LUCAS2006_39643084_Cover.jpg   LUCAS2006_39702808_Cover.jpg
+[B12] 485 files; first 30:
+   LUCAS2006_29161706_Cover.jpg   LUCAS2006_29221682_Cover.jpg   LUCAS2006_29301672_Cover.jpg
+   LUCAS2006_29341684_Cover.jpg   LUCAS2006_29381706_Cover.jpg   LUCAS2006_29481706_Cover.jpg
+   LUCAS2006_29601756_Cover.jpg   LUCAS2006_29761718_Cover.jpg   LUCAS2006_29801730_Cover.jpg
+   LUCAS2006_29821702_Cover.jpg   LUCAS2006_29821704_Cover.jpg   LUCAS2006_29821728_Cover.jpg
+   LUCAS2006_29841720_Cover.jpg   LUCAS2006_29881712_Cover.jpg   LUCAS2006_29901710_Cover.jpg
+   LUCAS2006_29941718_Cover.jpg   LUCAS2006_29941856_Cover.jpg   LUCAS2006_29961728_Cover.jpg
+   LUCAS2006_29981724_Cover.jpg   LUCAS2006_30021850_Cover.jpg   LUCAS2006_30101732_Cover.jpg
+   LUCAS2006_30201766_Cover.jpg   LUCAS2006_30381774_Cover.jpg   LUCAS2006_30461764_Cover.jpg
+   LUCAS2006_30462228_Cover.jpg   LUCAS2006_31061998_Cover.jpg   LUCAS2006_33642082_Cover.jpg
+   LUCAS2006_34402106_Cover.jpg   LUCAS2006_34602030_Cover.jpg   LUCAS2006_34702066_Cover.jpg
+[B13] 1873 files; first 30:
+   LUCAS2006_28781614_Cover.jpg   LUCAS2006_28881660_Cover.jpg   LUCAS2006_29522090_Cover.jpg
+   LUCAS2006_30261692_Cover.jpg   LUCAS2006_30462124_Cover.jpg   LUCAS2006_30562156_Cover.jpg
+   LUCAS2006_30822012_Cover.jpg   LUCAS2006_30982194_Cover.jpg   LUCAS2006_31182196_Cover.jpg
+   LUCAS2006_31221858_Cover.jpg   LUCAS2006_31241914_Cover.jpg   LUCAS2006_31261948_Cover.jpg
+   LUCAS2006_31561862_Cover.jpg   LUCAS2006_31642166_Cover.jpg   LUCAS2006_32341990_Cover.jpg
+   LUCAS2006_32501954_Cover.jpg   LUCAS2006_32822136_Cover.jpg   LUCAS2006_32881998_Cover.jpg
+   LUCAS2006_33242092_Cover.jpg   LUCAS2006_33342220_Cover.jpg   LUCAS2006_33542064_Cover.jpg
+   LUCAS2006_33642042_Cover.jpg   LUCAS2006_33702076_Cover.jpg   LUCAS2006_34142754_Cover.jpg
+   LUCAS2006_34662678_Cover.jpg   LUCAS2006_34722784_Cover.jpg   LUCAS2006_34942610_Cover.jpg
+   LUCAS2006_35162698_Cover.jpg   LUCAS2006_35202144_Cover.jpg   LUCAS2006_35322354_Cover.jpg
+[B14] 1151 files; first 30:
+   LUCAS2006_28441748_Cover.jpg   LUCAS2006_28961628_Cover.jpg   LUCAS2006_28981840_Cover.jpg
+   LUCAS2006_29102082_Cover.jpg   LUCAS2006_29522116_Cover.jpg   LUCAS2006_29762162_Cover.jpg
+   LUCAS2006_29942258_Cover.jpg   LUCAS2006_30002260_Cover.jpg   LUCAS2006_30322152_Cover.jpg
+   LUCAS2006_30342124_Cover.jpg   LUCAS2006_30342126_Cover.jpg   LUCAS2006_30521982_Cover.jpg
+   LUCAS2006_30782290_Cover.jpg   LUCAS2006_30921958_Cover.jpg   LUCAS2006_30981956_Cover.jpg
+   LUCAS2006_31002286_Cover.jpg   LUCAS2006_31182282_Cover.jpg   LUCAS2006_31202284_Cover.jpg
+   LUCAS2006_31202288_Cover.jpg   LUCAS2006_31422118_Cover.jpg   LUCAS2006_31442136_Cover.jpg
+   LUCAS2006_31642148_Cover.jpg   LUCAS2006_31742262_Cover.jpg   LUCAS2006_31902274_Cover.jpg
+   LUCAS2006_32641874_Cover.jpg   LUCAS2006_33322068_Cover.jpg   LUCAS2006_33402192_Cover.jpg
+   LUCAS2006_33442914_Cover.jpg   LUCAS2006_33582064_Cover.jpg   LUCAS2006_33602062_Cover.jpg
+[B15] 1032 files; first 30:
+   LUCAS2006_28401850_Cover.jpg   LUCAS2006_28661886_Cover.jpg   LUCAS2006_28861618_Cover.jpg
+   LUCAS2006_29041902_Cover.jpg   LUCAS2006_29721672_Cover.jpg   LUCAS2006_30161874_Cover.jpg
+   LUCAS2006_30162080_Cover.jpg   LUCAS2006_30221682_Cover.jpg   LUCAS2006_30261916_Cover.jpg
+   LUCAS2006_30461980_Cover.jpg   LUCAS2006_30502134_Cover.jpg   LUCAS2006_30601928_Cover.jpg
+   LUCAS2006_30601972_Cover.jpg   LUCAS2006_30902002_Cover.jpg   LUCAS2006_30921870_Cover.jpg
+   LUCAS2006_30962000_Cover.jpg   LUCAS2006_31081900_Cover.jpg   LUCAS2006_31281824_Cover.jpg
+   LUCAS2006_31361828_Cover.jpg   LUCAS2006_32321866_Cover.jpg   LUCAS2006_32841756_Cover.jpg
+   LUCAS2006_32902896_Cover.jpg   LUCAS2006_33041746_Cover.jpg   LUCAS2006_33381766_Cover.jpg
+   LUCAS2006_34082074_Cover.jpg   LUCAS2006_34302080_Cover.jpg   LUCAS2006_34581952_Cover.jpg
+   LUCAS2006_35162324_Cover.jpg   LUCAS2006_35542116_Cover.jpg   LUCAS2006_35922426_Cover.jpg
+[B16] 1393 files; first 30:
+   LUCAS2006_29281758_Cover.jpg   LUCAS2006_29481756_Cover.jpg   LUCAS2006_34442104_Cover.jpg
+   LUCAS2006_34782102_Cover.jpg   LUCAS2006_39623158_Cover.jpg   LUCAS2006_39883170_Cover.jpg
+   LUCAS2006_40083190_Cover.jpg   LUCAS2006_40103196_Cover.jpg   LUCAS2006_40803250_Cover.jpg
+   LUCAS2006_41103364_Cover.jpg   LUCAS2006_41502480_Cover.jpg   LUCAS2006_42742484_Cover.jpg
+   LUCAS2006_44422444_Cover.jpg   LUCAS2006_44422446_Cover.jpg   LUCAS2006_44782472_Cover.jpg
+   LUCAS2006_44822486_Cover.jpg   LUCAS2006_44862146_Cover.jpg   LUCAS2006_48162634_Cover.jpg
+   LUCAS2006_49722634_Cover.jpg   LUCAS2009_27482038_Cover.jpg   LUCAS2009_27742226_Cover.jpg
+   LUCAS2009_27802206_Cover.jpg   LUCAS2009_27822228_Cover.jpg   LUCAS2009_28042144_Cover.jpg
+   LUCAS2009_28182138_Cover.jpg   LUCAS2009_29241756_Cover.jpg   LUCAS2009_30342234_Cover.jpg
+   LUCAS2009_32423108_Cover.jpg   LUCAS2009_32863152_Cover.jpg   LUCAS2009_33142862_Cover.jpg
+[B21] 1222 files; first 30:
+   LUCAS2006_28661684_Cover.jpg   LUCAS2006_28881658_Cover.jpg   LUCAS2006_29021656_Cover.jpg
+   LUCAS2006_29021734_Cover.jpg   LUCAS2006_29941766_Cover.jpg   LUCAS2006_30901684_Cover.jpg
+   LUCAS2006_30941776_Cover.jpg   LUCAS2006_30961684_Cover.jpg   LUCAS2006_30981772_Cover.jpg
+   LUCAS2006_31002378_Cover.jpg   LUCAS2006_31022182_Cover.jpg   LUCAS2006_31221678_Cover.jpg
+   LUCAS2006_31342122_Cover.jpg   LUCAS2006_31682008_Cover.jpg   LUCAS2006_32181760_Cover.jpg
+   LUCAS2006_32782928_Cover.jpg   LUCAS2006_32922910_Cover.jpg   LUCAS2006_33581694_Cover.jpg
+   LUCAS2006_34362106_Cover.jpg   LUCAS2006_34402064_Cover.jpg   LUCAS2006_34782070_Cover.jpg
+   LUCAS2006_35502418_Cover.jpg   LUCAS2006_35562098_Cover.jpg   LUCAS2006_37262782_Cover.jpg
+   LUCAS2006_37503032_Cover.jpg   LUCAS2006_37543002_Cover.jpg   LUCAS2006_37603036_Cover.jpg
+   LUCAS2006_37782910_Cover.jpg   LUCAS2006_37783024_Cover.jpg   LUCAS2006_37822968_Cover.jpg
+[B22] 1067 files; first 30:
+   LUCAS2006_28621676_Cover.jpg   LUCAS2006_28661666_Cover.jpg   LUCAS2006_28801616_Cover.jpg
+   LUCAS2006_28801658_Cover.jpg   LUCAS2006_28821686_Cover.jpg   LUCAS2006_28841660_Cover.jpg
+   LUCAS2006_28841688_Cover.jpg   LUCAS2006_28881694_Cover.jpg   LUCAS2006_28901686_Cover.jpg
+   LUCAS2006_28901692_Cover.jpg   LUCAS2006_28901694_Cover.jpg   LUCAS2006_28901698_Cover.jpg
+   LUCAS2006_28921702_Cover.jpg   LUCAS2006_28941694_Cover.jpg   LUCAS2006_28941698_Cover.jpg
+   LUCAS2006_29021712_Cover.jpg   LUCAS2006_29061692_Cover.jpg   LUCAS2006_29061710_Cover.jpg
+   LUCAS2006_29081694_Cover.jpg   LUCAS2006_29121708_Cover.jpg   LUCAS2006_29201674_Cover.jpg
+   LUCAS2006_29261674_Cover.jpg   LUCAS2006_29661724_Cover.jpg   LUCAS2006_29961732_Cover.jpg
+   LUCAS2006_30001738_Cover.jpg   LUCAS2006_30101728_Cover.jpg   LUCAS2006_30302132_Cover.jpg
+   LUCAS2006_38042978_Cover.jpg   LUCAS2006_38463118_Cover.jpg   LUCAS2006_39323060_Cover.jpg
+[B31] 596 files; first 30:
+   LUCAS2006_28941662_Cover.jpg   LUCAS2006_29181686_Cover.jpg   LUCAS2006_29501704_Cover.jpg
+   LUCAS2006_30481754_Cover.jpg   LUCAS2009_27641832_Cover.jpg   LUCAS2009_28421754_Cover.jpg
+   LUCAS2009_28481750_Cover.jpg   LUCAS2009_28961668_Cover.jpg   LUCAS2009_29001758_Cover.jpg
+   LUCAS2009_29361704_Cover.jpg   LUCAS2009_29381732_Cover.jpg   LUCAS2009_29681736_Cover.jpg
+   LUCAS2009_29761736_Cover.jpg   LUCAS2009_29941744_Cover.jpg   LUCAS2009_29981742_Cover.jpg
+   LUCAS2009_30001692_Cover.jpg   LUCAS2009_30101756_Cover.jpg   LUCAS2009_35442438_Cover.jpg
+   LUCAS2009_35522424_Cover.jpg   LUCAS2009_35562414_Cover.jpg   LUCAS2009_35562634_Cover.jpg
+   LUCAS2009_35622564_Cover.jpg   LUCAS2009_35842442_Cover.jpg   LUCAS2009_35882420_Cover.jpg
+   LUCAS2009_35922382_Cover.jpg   LUCAS2009_36122362_Cover.jpg   LUCAS2009_36162384_Cover.jpg
+   LUCAS2009_36242392_Cover.jpg   LUCAS2009_36302686_Cover.jpg   LUCAS2009_36442728_Cover.jpg
+[B32] 2163 files; first 30:
+   LUCAS2006_33182140_Cover.jpg   LUCAS2006_34122882_Cover.jpg   LUCAS2006_34682622_Cover.jpg
+   LUCAS2006_34882860_Cover.jpg   LUCAS2006_35162626_Cover.jpg   LUCAS2006_35282584_Cover.jpg
+   LUCAS2006_35282642_Cover.jpg   LUCAS2006_35562966_Cover.jpg   LUCAS2006_35602662_Cover.jpg
+   LUCAS2006_36622682_Cover.jpg   LUCAS2006_36622746_Cover.jpg   LUCAS2006_36642692_Cover.jpg
+   LUCAS2006_36722126_Cover.jpg   LUCAS2006_36822134_Cover.jpg   LUCAS2006_36822872_Cover.jpg
+   LUCAS2006_37102680_Cover.jpg   LUCAS2006_37102888_Cover.jpg   LUCAS2006_37142920_Cover.jpg
+   LUCAS2006_37162702_Cover.jpg   LUCAS2006_37403008_Cover.jpg   LUCAS2006_37503000_Cover.jpg
+   LUCAS2006_37602676_Cover.jpg   LUCAS2006_37602700_Cover.jpg   LUCAS2006_37602708_Cover.jpg
+   LUCAS2006_37622678_Cover.jpg   LUCAS2006_37782708_Cover.jpg   LUCAS2006_37862928_Cover.jpg
+   LUCAS2006_37902692_Cover.jpg   LUCAS2006_37902808_Cover.jpg   LUCAS2006_38022916_Cover.jpg
+[B33] 897 files; first 30:
+   LUCAS2006_35842316_Cover.jpg   LUCAS2006_35862324_Cover.jpg   LUCAS2006_35882334_Cover.jpg
+   LUCAS2006_35942304_Cover.jpg   LUCAS2006_35942340_Cover.jpg   LUCAS2006_36042326_Cover.jpg
+   LUCAS2006_36162280_Cover.jpg   LUCAS2006_36322292_Cover.jpg   LUCAS2006_36482290_Cover.jpg
+   LUCAS2006_39502872_Cover.jpg   LUCAS2006_39642696_Cover.jpg   LUCAS2006_41462416_Cover.jpg
+   LUCAS2006_42262426_Cover.jpg   LUCAS2006_42422506_Cover.jpg   LUCAS2006_42542468_Cover.jpg
+   LUCAS2006_42902442_Cover.jpg   LUCAS2006_43182474_Cover.jpg   LUCAS2006_43962448_Cover.jpg
+   LUCAS2006_44002448_Cover.jpg   LUCAS2006_44022444_Cover.jpg   LUCAS2006_44162406_Cover.jpg
+   LUCAS2006_44162442_Cover.jpg   LUCAS2006_44202424_Cover.jpg   LUCAS2006_44202442_Cover.jpg
+   LUCAS2006_44202444_Cover.jpg   LUCAS2006_44222430_Cover.jpg   LUCAS2006_44242426_Cover.jpg
+   LUCAS2006_44242446_Cover.jpg   LUCAS2006_44262442_Cover.jpg   LUCAS2006_44262448_Cover.jpg
+[B55] 1901 files; first 30:
+   LUCAS2009_26681804_Cover.jpg   LUCAS2009_27701952_Cover.jpg   LUCAS2009_27842146_Cover.jpg
+   LUCAS2009_27842160_Cover.jpg   LUCAS2009_27941882_Cover.jpg   LUCAS2009_28002238_Cover.jpg
+   LUCAS2009_28021882_Cover.jpg   LUCAS2009_28022128_Cover.jpg   LUCAS2009_28022278_Cover.jpg
+   LUCAS2009_28041960_Cover.jpg   LUCAS2009_28261864_Cover.jpg   LUCAS2009_28262386_Cover.jpg
+   LUCAS2009_28782366_Cover.jpg   LUCAS2009_28862406_Cover.jpg   LUCAS2009_28862424_Cover.jpg
+   LUCAS2009_28902342_Cover.jpg   LUCAS2009_28922362_Cover.jpg   LUCAS2009_28982368_Cover.jpg
+   LUCAS2009_29022398_Cover.jpg   LUCAS2009_29042352_Cover.jpg   LUCAS2009_29102350_Cover.jpg
+   LUCAS2009_29102386_Cover.jpg   LUCAS2009_29142402_Cover.jpg   LUCAS2009_29182366_Cover.jpg
+   LUCAS2009_29222204_Cover.jpg   LUCAS2009_29222388_Cover.jpg   LUCAS2009_29282394_Cover.jpg
+   LUCAS2009_29282404_Cover.jpg   LUCAS2009_31042164_Cover.jpg   LUCAS2009_31682318_Cover.jpg
+Group id regex '^LUCAS\\d{4}_(\\d+)_[A-Za-z0-9]+\\.jpg$' matched 15876/15876 file names (100.00 %).
+Building the image cache: 15876 images at 192px ≈ 1.64 GiB (free disk 12456.6 GiB)
+  cached 1587/15876 images (11s)
+  cached 3174/15876 images (21s)
+  cached 4761/15876 images (28s)
+  cached 6348/15876 images (36s)
+  cached 7935/15876 images (43s)
+/home/vishalraina23/crop_jepa_cluster/venv/lib/python3.11/site-packages/PIL/TiffImagePlugin.py:946: UserWarning: Tag data larger than file. Skipping tag 0
+  warnings.warn(f"Tag data larger than file. Skipping tag {tag}")
+  cached 9522/15876 images (50s)
+  cached 11109/15876 images (56s)
+  cached 12696/15876 images (64s)
+  cached 14283/15876 images (70s)
+  cached 15870/15876 images (77s)
+Image cache written: outputs_stageB/cache/images_192.npy | unreadable images: 0
+Hygiene: {'images_ok': 15876, 'duplicate_clusters': 16, 'images_in_duplicate_clusters': 47, 'duplicate_clusters_with_conflicting_labels': 8, 'near_duplicate_check': True, 'groups_before': 14760, 'groups_after': 14729}
+PASS: zero group / survey-point overlap across train, val and test.
+Splits written to outputs_stageB/splits.csv
+Training images per class: {'B11': 1464, 'B12': 337, 'B13': 1313, 'B14': 807, 'B15': 722, 'B16': 978, 'B21': 861, 'B22': 748, 'B31': 419, 'B32': 1511, 'B33': 623, 'B55': 1332}
+Label draws written to outputs_stageB/label_draws.json; skipped regimes: none
+Split is grouped by `group_final` (survey point + duplicate merges): 14729 groups; max group size 9; median 1; 13.9 % of images are in groups of size > 1; groups spanning splits: 0
+Survey points: 14760 | appearing more than once: 1053 | spanning several years: 1053 | max images per point: 4 | groups with more than one crop label (rotation): 851
+
+12 classes | train 11115 | val 2380 | test 2381 | chance = 8.3%
+Label regimes (draws): {'1shot': 5, '5shot': 5, '10shot': 5, '25shot': 5, '50shot': 5, '100shot': 5, '10pct': 5, '100pct': 1}
+Images per class and split:
+split                 crop  train  val  test  total
+label                                              
+B11           Common wheat   1464  319   313   2096
+B12            Durum wheat    337   75    73    485
+B13                 Barley   1313  273   287   1873
+B14                    Rye    807  174   170   1151
+B15                   Oats    722  149   161   1032
+B16                  Maize    978  209   206   1393
+B21               Potatoes    861  188   173   1222
+B22             Sugar beet    748  156   163   1067
+B31              Sunflower    419   84    93    596
+B32               Rapeseed   1511  328   324   2163
+B33                   Soya    623  140   134    897
+B55    Temporary grassland   1332  285   284   1901
+Test set: 2381 images (Stage A had 180), per class: {'B11': 313, 'B12': 73, 'B13': 287, 'B14': 170, 'B15': 161, 'B16': 206, 'B21': 173, 'B22': 163, 'B31': 93, 'B32': 324, 'B33': 134, 'B55': 284}
+Gate -1 data checks passed (the ExG-position analysis follows).
+ExG vs row: Pearson +0.61, Spearman +0.46 | vs column: Pearson -0.03, Spearman -0.05
+Share of ExG variance explained by patch position: raw 1.1 % | within image 3.8 % | z-scored 3.9 %
+Gate -1: PASS
+Image cache: (15876, 192, 192, 3), 1.64 GiB vs 35 % of 251.0 GiB RAM = 87.86 GiB -> loaded into RAM
+Encoder parameters: 5.49 M | predictor: 0.84 M
+Position prior (target) estimated from 4000 training crops for 7 block sizes [(3, 4), (3, 5), (4, 3), (4, 4), (4, 5), (5, 3), (5, 4)] in 0.2s; hash b41633a1dd62
+Mask-generator unit tests:
+  [PASS] ijepa: shapes and index ranges ctx (128, 32), targets [(128, 20), (128, 20), (128, 12), (128, 20)]
+  [PASS] ijepa: context indices sorted and unique 
+  [PASS] ijepa: no context/target overlap (rows with overlap 0, degenerate all-token fallbacks 0)
+  [PASS] ijepa: deterministic for a fixed seed 
+  [PASS] veg_pos: shapes and index ranges ctx (128, 32), targets [(128, 20), (128, 20), (128, 12), (128, 20)]
+  [PASS] veg_pos: context indices sorted and unique 
+  [PASS] veg_pos: no context/target overlap (rows with overlap 0, degenerate all-token fallbacks 0)
+  [PASS] veg_pos: deterministic for a fixed seed 
+  [PASS] veg_neg: shapes and index ranges ctx (128, 28), targets [(128, 20), (128, 20), (128, 12), (128, 20)]
+  [PASS] veg_neg: context indices sorted and unique 
+  [PASS] veg_neg: no context/target overlap (rows with overlap 0, degenerate all-token fallbacks 0)
+  [PASS] veg_neg: deterministic for a fixed seed 
+  [PASS] pos_matched: shapes and index ranges ctx (128, 28), targets [(128, 20), (128, 20), (128, 12), (128, 20)]
+  [PASS] pos_matched: context indices sorted and unique 
+  [PASS] pos_matched: no context/target overlap (rows with overlap 0, degenerate all-token fallbacks 0)
+  [PASS] pos_matched: deterministic for a fixed seed 
+  [PASS] attn: shapes and index ranges ctx (128, 35), targets [(128, 20), (128, 20), (128, 12), (128, 20)]
+  [PASS] attn: context indices sorted and unique 
+  [PASS] attn: no context/target overlap (rows with overlap 0, degenerate all-token fallbacks 0)
+  [PASS] attn: deterministic for a fixed seed 
+  [PASS] placement probabilities sum to 1 (veg_pos and veg_neg) (max |sum-1| = 2.38e-07)
+  [PASS] pos_matched prior maps sum to 1 (max |sum-1| = 1.11e-16)
+  [PASS] prior covers every block size drawn in 20,000 samples (missing [])
+
+pos_matched acceptance check (200 training batches, same crops for every arm):
+               source          arm  batches  tgt_exg  tgt_exg_z  ctx_exg  all_exg  ctx_tokens  tgt_tokens  kl_centres_vs_veg_pos
+0  pre-training check        ijepa      200   0.2437     0.0277   0.2370   0.2399      28.520       70.72                 0.0485
+1  pre-training check      veg_pos      200   0.2744     0.4243   0.2163   0.2399      31.625       70.72                 0.0000
+2  pre-training check      veg_neg      200   0.2101    -0.3819   0.2615   0.2399      30.920       70.72                 0.0526
+3  pre-training check  pos_matched      200   0.2437     0.0348   0.2369   0.2399      27.180       70.72                 0.0006
+KL(centres veg_pos || pos_matched) = 0.0006 (should be ~0; threshold 0.01) | for reference KL(veg_pos || ijepa) = 0.0485
+Mean z-scored ExG under the targets: ijepa +0.028, veg_pos +0.424, veg_neg -0.382, pos_matched +0.035  (expected order veg_pos > ijepa > veg_neg: OK)
+pos_matched recovers 2 % of veg_pos's target-greenness gain over ijepa through position alone (0 % = position carries no greenness; 100 % = position and greenness are collinear).
+All hard mask-generator unit tests passed.
+Batch 128 | 3020 img/s (short benchmark; long runs are usually faster) | peak GPU memory 1.34 GB of 47.4 GB | evaluation forward 2578 img/s
+FLOPs per training image: 3.8 G | predictor share 32%
+Core run: 86 steps/epoch x 105 epochs = 9030 steps | pilot: 303 epochs = 26058 steps | evaluation ≈ 0.1 min per run (probe part is a rough estimate)
+                                         item  runs  hours_each                                    note  hours_total
+0                 Gate 0 pilot (ijepa seed 0)   1.0        0.32                 26058 steps, 303 epochs         0.32
+1                core SSL runs (arms x seeds)  24.0        0.12                  9030 steps, 105 epochs         2.87
+2                     random_init evaluations   6.0        0.00                         evaluation only         0.01
+3              supervised baseline (per seed)   6.0        0.12       100 epochs on ['10pct', '100pct']         0.71
+4                            Tier 2: attn arm   3.0        0.12                      if ENABLE_ATTN_ARM         0.36
+5                           Tier 2: tau sweep   6.0        0.12                     if ENABLE_TAU_SWEEP         0.72
+6                           Tier 2: size axis  12.0        0.12                     if ENABLE_SIZE_AXIS         1.49
+7  Tier 2: LeJEPA arms [UNMEASURED: x3 guess]  12.0        0.36  measured in section 15d before it runs         4.30
+Projected: Gate 0 ≈ 0.3 h | core grid incl. baselines on this shard ≈ 3.6 h | Tier 2 (only the sections you enable) up to ≈ 6.9 h
+[1/2] random_init_s0: starting (35.2 h left in session budget)
+[2/2] pilot_ijepa_s0: starting (35.2 h left in session budget)
+  pilot_ijepa_s0: 11115 training images | batch 128 | 86 steps/epoch x 303 epochs = 26058 steps (target 26000) | peak lr 2.50e-04 | monitors every 3 ep, k-NN every 15 ep, checkpoint every 15 ep
+  pilot_ijepa_s0 ep    1/303 step 86 loss 0.4349 val kNN-F1 16.2% rank 34.4 std 0.0254 | 2852 img/s, 1.32 GB ctx 28 tgt 71 tok, tgt ExG z +0.03
+  pilot_ijepa_s0 ep   30/303 step 2580 loss 0.0677 val kNN-F1 30.9% | 2968 img/s, 1.31 GB ctx 28 tgt 71 tok, tgt ExG z +0.03
+  pilot_ijepa_s0 ep   60/303 step 5160 loss 0.1179 val kNN-F1 43.1% | 2974 img/s, 1.28 GB ctx 28 tgt 71 tok, tgt ExG z +0.03
+  pilot_ijepa_s0 ep   90/303 step 7740 loss 0.1380 val kNN-F1 49.7% | 2979 img/s, 1.32 GB ctx 28 tgt 71 tok, tgt ExG z +0.03
+  pilot_ijepa_s0 ep  120/303 step 10320 loss 0.1428 val kNN-F1 51.2% | 2974 img/s, 1.31 GB ctx 28 tgt 71 tok, tgt ExG z +0.03
+  pilot_ijepa_s0 ep  150/303 step 12900 loss 0.1428 val kNN-F1 53.1% | 3002 img/s, 1.34 GB ctx 28 tgt 71 tok, tgt ExG z +0.03
+  pilot_ijepa_s0 ep  180/303 step 15480 loss 0.1412 val kNN-F1 53.1% | 3006 img/s, 1.33 GB ctx 28 tgt 71 tok, tgt ExG z +0.03
+  pilot_ijepa_s0 ep  210/303 step 18060 loss 0.1396 val kNN-F1 53.6% | 2990 img/s, 1.33 GB ctx 28 tgt 71 tok, tgt ExG z +0.03
+  pilot_ijepa_s0 ep  240/303 step 20640 loss 0.1374 val kNN-F1 53.4% | 2981 img/s, 1.34 GB ctx 28 tgt 71 tok, tgt ExG z +0.03
+  pilot_ijepa_s0 ep  270/303 step 23220 loss 0.1335 val kNN-F1 52.8% | 2977 img/s, 1.32 GB ctx 28 tgt 71 tok, tgt ExG z +0.03
+  pilot_ijepa_s0 ep  300/303 step 25800 loss 0.1327 val kNN-F1 52.9% | 2979 img/s, 1.27 GB ctx 27 tgt 71 tok, tgt ExG z +0.02
+  pilot_ijepa_s0 ep  303/303 step 26058 loss 0.1314 val kNN-F1 52.9% rank 83.7 std 0.0621 | 2980 img/s, 1.32 GB ctx 29 tgt 71 tok, tgt ExG z +0.03
+Gate 0 pilot: queue pass finished in 19.4 min
+{
+  "pilot_steps": 26058,
+  "pilot_epochs": 303,
+  "online_knn_val_f1_first": 0.162,
+  "online_knn_val_f1_last": 0.5288,
+  "online_knn_val_f1_max": 0.5367,
+  "random_init_online_knn_val_f1": 0.1613,
+  "knn_gain_over_random_init_pp": 36.7502,
+  "required_gain_pp": 3.0,
+  "rankme_min": 17.8337,
+  "rankme_floor": 9.6,
+  "rankme_last": 83.7073,
+  "pass_knn": true,
+  "pass_rankme": true,
+  "probe_endpoint_pilot": 0.4969,
+  "probe_endpoint_random_init": 0.2051,
+  "knn_endpoint_pilot": 0.4303,
+  "knn_endpoint_random_init": 0.145,
+  "decision": "PASS",
+  "recommendation": "Training produces usable features. Set RUN_MODE = 'full' to run the core grid (9000 steps per run)."
+}
+
+GATE 0: PASS
+Training produces usable features. Set RUN_MODE = 'full' to run the core grid (9000 steps per run).
+RUN_MODE = 'pilot': the core grid is not run. Set RUN_MODE = 'full' to run it.
+Tier 2 sections are not run in this mode.
+Tier 2 SIGReg / LeJEPA: not run (ENABLE_LEJEPA = False).
+DINOv2 reference: not run (add "dinov2" to BASELINES in full mode; it needs internet access).
+CJ_SKIP_REPORT=1: queue pass finished; reporting cells are skipped in this process.
+[2026-10-27 15:45:02] GATE 0 decision: PASS
+[2026-10-27 15:45:02] PHASE 3/4  core grid with 3 worker(s) on one GPU; budget 34.866 h
+[2026-10-27 17:26:06] grid workers finished: FINISHED 36/36 expected runs
+[2026-10-27 17:26:06] PHASE 4/4  report: statistics, figures, paper tables, bundle; budget 33.182 h
+Python 3.11.14 | PyTorch 2.8.0+cu128 | torchvision 0.23.0+cu128 | numpy 2.4.6 | pandas 3.1.0 | scikit-learn 1.9.1 | scipy 1.17.1
+Platform: Linux | Kaggle: False | Device: cuda:0
+GPU: NVIDIA RTX 6000 Ada Generation | VRAM 47.4 GB | compute capability 8.9 | bf16: True | GPUs visible: 1
+System RAM: 251.0 GiB | free disk here (/home/vishalraina23/crop_jepa_cluster): 12451.2 GiB
+Mode: full | profile: big_gpu | precision: bf16 | output: /home/vishalraina23/crop_jepa_cluster/outputs_stageB
+Encoder: ViT dim 192 x depth 12, patch 16, 160px -> 10x10 tokens | predictor dim 128 x depth 4 | batch 128
+Budget: 9000 optimizer steps per core run, 26000 for the Gate-0 pilot (epochs derived from the data size)
+Seeds: [0, 1, 2, 3, 4, 5] | arms: ['ijepa', 'veg_pos', 'veg_neg', 'pos_matched'] | baselines: ['random_init', 'supervised'] | Tier-2 seeds: [0, 1, 2] | shard 0/1
+Tier 2: attn=False tau_sweep=False size_axis=False lejepa=False (smoke mode exercises all of them)
+Utilities ready.
+Smallest attainable Holm-adjusted p with 6 seeds (greater): 0.0469 (< alpha 0.05; requires every seed to agree in sign for the strongest comparison).
+Pre-registration unchanged (registered 2026-10-27T15:23:40.994504, 0 results existed then).
+Data root: /home/vishalraina23/crop_jepa_cluster/lucas_data
+LUCASVision: 15876 images listed | 15876 already on disk | 0 to download (≈0.0 GiB at 0.70 MB/image) | free disk 12451.2 GiB (cache ≈1.6 GiB + ≈4 GiB checkpoints also needed)
+Per-class counts (listed / on disk): {'B11': '2096/2096', 'B12': '485/485', 'B13': '1873/1873', 'B14': '1151/1151', 'B15': '1032/1032', 'B16': '1393/1393', 'B21': '1222/1222', 'B22': '1067/1067', 'B31': '596/596', 'B32': '2163/2163', 'B33': '897/897', 'B55': '1901/1901'}
+Metadata written: lucas_data/metadata_stageB.csv (15876 images)
+
+First 30 file names per class (check the naming pattern the group regex relies on):
+[B11] 2096 files; first 30:
+   LUCAS2006_29361704_Cover.jpg   LUCAS2006_29821836_Cover.jpg   LUCAS2006_30142144_Cover.jpg
+   LUCAS2006_31982136_Cover.jpg   LUCAS2006_32062140_Cover.jpg   LUCAS2006_32682268_Cover.jpg
+   LUCAS2006_33002144_Cover.jpg   LUCAS2006_33162126_Cover.jpg   LUCAS2006_33162144_Cover.jpg
+   LUCAS2006_33222144_Cover.jpg   LUCAS2006_33502068_Cover.jpg   LUCAS2006_34081942_Cover.jpg
+   LUCAS2006_34282898_Cover.jpg   LUCAS2006_34582046_Cover.jpg   LUCAS2006_35202796_Cover.jpg
+   LUCAS2006_35302132_Cover.jpg   LUCAS2006_35502606_Cover.jpg   LUCAS2006_35562108_Cover.jpg
+   LUCAS2006_35882108_Cover.jpg   LUCAS2006_35902416_Cover.jpg   LUCAS2006_35922098_Cover.jpg
+   LUCAS2006_36402458_Cover.jpg   LUCAS2006_36402864_Cover.jpg   LUCAS2006_37862956_Cover.jpg
+   LUCAS2006_39202450_Cover.jpg   LUCAS2006_39262664_Cover.jpg   LUCAS2006_39482910_Cover.jpg
+   LUCAS2006_39523080_Cover.jpg   LUCAS2006_39643084_Cover.jpg   LUCAS2006_39702808_Cover.jpg
+[B12] 485 files; first 30:
+   LUCAS2006_29161706_Cover.jpg   LUCAS2006_29221682_Cover.jpg   LUCAS2006_29301672_Cover.jpg
+   LUCAS2006_29341684_Cover.jpg   LUCAS2006_29381706_Cover.jpg   LUCAS2006_29481706_Cover.jpg
+   LUCAS2006_29601756_Cover.jpg   LUCAS2006_29761718_Cover.jpg   LUCAS2006_29801730_Cover.jpg
+   LUCAS2006_29821702_Cover.jpg   LUCAS2006_29821704_Cover.jpg   LUCAS2006_29821728_Cover.jpg
+   LUCAS2006_29841720_Cover.jpg   LUCAS2006_29881712_Cover.jpg   LUCAS2006_29901710_Cover.jpg
+   LUCAS2006_29941718_Cover.jpg   LUCAS2006_29941856_Cover.jpg   LUCAS2006_29961728_Cover.jpg
+   LUCAS2006_29981724_Cover.jpg   LUCAS2006_30021850_Cover.jpg   LUCAS2006_30101732_Cover.jpg
+   LUCAS2006_30201766_Cover.jpg   LUCAS2006_30381774_Cover.jpg   LUCAS2006_30461764_Cover.jpg
+   LUCAS2006_30462228_Cover.jpg   LUCAS2006_31061998_Cover.jpg   LUCAS2006_33642082_Cover.jpg
+   LUCAS2006_34402106_Cover.jpg   LUCAS2006_34602030_Cover.jpg   LUCAS2006_34702066_Cover.jpg
+[B13] 1873 files; first 30:
+   LUCAS2006_28781614_Cover.jpg   LUCAS2006_28881660_Cover.jpg   LUCAS2006_29522090_Cover.jpg
+   LUCAS2006_30261692_Cover.jpg   LUCAS2006_30462124_Cover.jpg   LUCAS2006_30562156_Cover.jpg
+   LUCAS2006_30822012_Cover.jpg   LUCAS2006_30982194_Cover.jpg   LUCAS2006_31182196_Cover.jpg
+   LUCAS2006_31221858_Cover.jpg   LUCAS2006_31241914_Cover.jpg   LUCAS2006_31261948_Cover.jpg
+   LUCAS2006_31561862_Cover.jpg   LUCAS2006_31642166_Cover.jpg   LUCAS2006_32341990_Cover.jpg
+   LUCAS2006_32501954_Cover.jpg   LUCAS2006_32822136_Cover.jpg   LUCAS2006_32881998_Cover.jpg
+   LUCAS2006_33242092_Cover.jpg   LUCAS2006_33342220_Cover.jpg   LUCAS2006_33542064_Cover.jpg
+   LUCAS2006_33642042_Cover.jpg   LUCAS2006_33702076_Cover.jpg   LUCAS2006_34142754_Cover.jpg
+   LUCAS2006_34662678_Cover.jpg   LUCAS2006_34722784_Cover.jpg   LUCAS2006_34942610_Cover.jpg
+   LUCAS2006_35162698_Cover.jpg   LUCAS2006_35202144_Cover.jpg   LUCAS2006_35322354_Cover.jpg
+[B14] 1151 files; first 30:
+   LUCAS2006_28441748_Cover.jpg   LUCAS2006_28961628_Cover.jpg   LUCAS2006_28981840_Cover.jpg
+   LUCAS2006_29102082_Cover.jpg   LUCAS2006_29522116_Cover.jpg   LUCAS2006_29762162_Cover.jpg
+   LUCAS2006_29942258_Cover.jpg   LUCAS2006_30002260_Cover.jpg   LUCAS2006_30322152_Cover.jpg
+   LUCAS2006_30342124_Cover.jpg   LUCAS2006_30342126_Cover.jpg   LUCAS2006_30521982_Cover.jpg
+   LUCAS2006_30782290_Cover.jpg   LUCAS2006_30921958_Cover.jpg   LUCAS2006_30981956_Cover.jpg
+   LUCAS2006_31002286_Cover.jpg   LUCAS2006_31182282_Cover.jpg   LUCAS2006_31202284_Cover.jpg
+   LUCAS2006_31202288_Cover.jpg   LUCAS2006_31422118_Cover.jpg   LUCAS2006_31442136_Cover.jpg
+   LUCAS2006_31642148_Cover.jpg   LUCAS2006_31742262_Cover.jpg   LUCAS2006_31902274_Cover.jpg
+   LUCAS2006_32641874_Cover.jpg   LUCAS2006_33322068_Cover.jpg   LUCAS2006_33402192_Cover.jpg
+   LUCAS2006_33442914_Cover.jpg   LUCAS2006_33582064_Cover.jpg   LUCAS2006_33602062_Cover.jpg
+[B15] 1032 files; first 30:
+   LUCAS2006_28401850_Cover.jpg   LUCAS2006_28661886_Cover.jpg   LUCAS2006_28861618_Cover.jpg
+   LUCAS2006_29041902_Cover.jpg   LUCAS2006_29721672_Cover.jpg   LUCAS2006_30161874_Cover.jpg
+   LUCAS2006_30162080_Cover.jpg   LUCAS2006_30221682_Cover.jpg   LUCAS2006_30261916_Cover.jpg
+   LUCAS2006_30461980_Cover.jpg   LUCAS2006_30502134_Cover.jpg   LUCAS2006_30601928_Cover.jpg
+   LUCAS2006_30601972_Cover.jpg   LUCAS2006_30902002_Cover.jpg   LUCAS2006_30921870_Cover.jpg
+   LUCAS2006_30962000_Cover.jpg   LUCAS2006_31081900_Cover.jpg   LUCAS2006_31281824_Cover.jpg
+   LUCAS2006_31361828_Cover.jpg   LUCAS2006_32321866_Cover.jpg   LUCAS2006_32841756_Cover.jpg
+   LUCAS2006_32902896_Cover.jpg   LUCAS2006_33041746_Cover.jpg   LUCAS2006_33381766_Cover.jpg
+   LUCAS2006_34082074_Cover.jpg   LUCAS2006_34302080_Cover.jpg   LUCAS2006_34581952_Cover.jpg
+   LUCAS2006_35162324_Cover.jpg   LUCAS2006_35542116_Cover.jpg   LUCAS2006_35922426_Cover.jpg
+[B16] 1393 files; first 30:
+   LUCAS2006_29281758_Cover.jpg   LUCAS2006_29481756_Cover.jpg   LUCAS2006_34442104_Cover.jpg
+   LUCAS2006_34782102_Cover.jpg   LUCAS2006_39623158_Cover.jpg   LUCAS2006_39883170_Cover.jpg
+   LUCAS2006_40083190_Cover.jpg   LUCAS2006_40103196_Cover.jpg   LUCAS2006_40803250_Cover.jpg
+   LUCAS2006_41103364_Cover.jpg   LUCAS2006_41502480_Cover.jpg   LUCAS2006_42742484_Cover.jpg
+   LUCAS2006_44422444_Cover.jpg   LUCAS2006_44422446_Cover.jpg   LUCAS2006_44782472_Cover.jpg
+   LUCAS2006_44822486_Cover.jpg   LUCAS2006_44862146_Cover.jpg   LUCAS2006_48162634_Cover.jpg
+   LUCAS2006_49722634_Cover.jpg   LUCAS2009_27482038_Cover.jpg   LUCAS2009_27742226_Cover.jpg
+   LUCAS2009_27802206_Cover.jpg   LUCAS2009_27822228_Cover.jpg   LUCAS2009_28042144_Cover.jpg
+   LUCAS2009_28182138_Cover.jpg   LUCAS2009_29241756_Cover.jpg   LUCAS2009_30342234_Cover.jpg
+   LUCAS2009_32423108_Cover.jpg   LUCAS2009_32863152_Cover.jpg   LUCAS2009_33142862_Cover.jpg
+[B21] 1222 files; first 30:
+   LUCAS2006_28661684_Cover.jpg   LUCAS2006_28881658_Cover.jpg   LUCAS2006_29021656_Cover.jpg
+   LUCAS2006_29021734_Cover.jpg   LUCAS2006_29941766_Cover.jpg   LUCAS2006_30901684_Cover.jpg
+   LUCAS2006_30941776_Cover.jpg   LUCAS2006_30961684_Cover.jpg   LUCAS2006_30981772_Cover.jpg
+   LUCAS2006_31002378_Cover.jpg   LUCAS2006_31022182_Cover.jpg   LUCAS2006_31221678_Cover.jpg
+   LUCAS2006_31342122_Cover.jpg   LUCAS2006_31682008_Cover.jpg   LUCAS2006_32181760_Cover.jpg
+   LUCAS2006_32782928_Cover.jpg   LUCAS2006_32922910_Cover.jpg   LUCAS2006_33581694_Cover.jpg
+   LUCAS2006_34362106_Cover.jpg   LUCAS2006_34402064_Cover.jpg   LUCAS2006_34782070_Cover.jpg
+   LUCAS2006_35502418_Cover.jpg   LUCAS2006_35562098_Cover.jpg   LUCAS2006_37262782_Cover.jpg
+   LUCAS2006_37503032_Cover.jpg   LUCAS2006_37543002_Cover.jpg   LUCAS2006_37603036_Cover.jpg
+   LUCAS2006_37782910_Cover.jpg   LUCAS2006_37783024_Cover.jpg   LUCAS2006_37822968_Cover.jpg
+[B22] 1067 files; first 30:
+   LUCAS2006_28621676_Cover.jpg   LUCAS2006_28661666_Cover.jpg   LUCAS2006_28801616_Cover.jpg
+   LUCAS2006_28801658_Cover.jpg   LUCAS2006_28821686_Cover.jpg   LUCAS2006_28841660_Cover.jpg
+   LUCAS2006_28841688_Cover.jpg   LUCAS2006_28881694_Cover.jpg   LUCAS2006_28901686_Cover.jpg
+   LUCAS2006_28901692_Cover.jpg   LUCAS2006_28901694_Cover.jpg   LUCAS2006_28901698_Cover.jpg
+   LUCAS2006_28921702_Cover.jpg   LUCAS2006_28941694_Cover.jpg   LUCAS2006_28941698_Cover.jpg
+   LUCAS2006_29021712_Cover.jpg   LUCAS2006_29061692_Cover.jpg   LUCAS2006_29061710_Cover.jpg
+   LUCAS2006_29081694_Cover.jpg   LUCAS2006_29121708_Cover.jpg   LUCAS2006_29201674_Cover.jpg
+   LUCAS2006_29261674_Cover.jpg   LUCAS2006_29661724_Cover.jpg   LUCAS2006_29961732_Cover.jpg
+   LUCAS2006_30001738_Cover.jpg   LUCAS2006_30101728_Cover.jpg   LUCAS2006_30302132_Cover.jpg
+   LUCAS2006_38042978_Cover.jpg   LUCAS2006_38463118_Cover.jpg   LUCAS2006_39323060_Cover.jpg
+[B31] 596 files; first 30:
+   LUCAS2006_28941662_Cover.jpg   LUCAS2006_29181686_Cover.jpg   LUCAS2006_29501704_Cover.jpg
+   LUCAS2006_30481754_Cover.jpg   LUCAS2009_27641832_Cover.jpg   LUCAS2009_28421754_Cover.jpg
+   LUCAS2009_28481750_Cover.jpg   LUCAS2009_28961668_Cover.jpg   LUCAS2009_29001758_Cover.jpg
+   LUCAS2009_29361704_Cover.jpg   LUCAS2009_29381732_Cover.jpg   LUCAS2009_29681736_Cover.jpg
+   LUCAS2009_29761736_Cover.jpg   LUCAS2009_29941744_Cover.jpg   LUCAS2009_29981742_Cover.jpg
+   LUCAS2009_30001692_Cover.jpg   LUCAS2009_30101756_Cover.jpg   LUCAS2009_35442438_Cover.jpg
+   LUCAS2009_35522424_Cover.jpg   LUCAS2009_35562414_Cover.jpg   LUCAS2009_35562634_Cover.jpg
+   LUCAS2009_35622564_Cover.jpg   LUCAS2009_35842442_Cover.jpg   LUCAS2009_35882420_Cover.jpg
+   LUCAS2009_35922382_Cover.jpg   LUCAS2009_36122362_Cover.jpg   LUCAS2009_36162384_Cover.jpg
+   LUCAS2009_36242392_Cover.jpg   LUCAS2009_36302686_Cover.jpg   LUCAS2009_36442728_Cover.jpg
+[B32] 2163 files; first 30:
+   LUCAS2006_33182140_Cover.jpg   LUCAS2006_34122882_Cover.jpg   LUCAS2006_34682622_Cover.jpg
+   LUCAS2006_34882860_Cover.jpg   LUCAS2006_35162626_Cover.jpg   LUCAS2006_35282584_Cover.jpg
+   LUCAS2006_35282642_Cover.jpg   LUCAS2006_35562966_Cover.jpg   LUCAS2006_35602662_Cover.jpg
+   LUCAS2006_36622682_Cover.jpg   LUCAS2006_36622746_Cover.jpg   LUCAS2006_36642692_Cover.jpg
+   LUCAS2006_36722126_Cover.jpg   LUCAS2006_36822134_Cover.jpg   LUCAS2006_36822872_Cover.jpg
+   LUCAS2006_37102680_Cover.jpg   LUCAS2006_37102888_Cover.jpg   LUCAS2006_37142920_Cover.jpg
+   LUCAS2006_37162702_Cover.jpg   LUCAS2006_37403008_Cover.jpg   LUCAS2006_37503000_Cover.jpg
+   LUCAS2006_37602676_Cover.jpg   LUCAS2006_37602700_Cover.jpg   LUCAS2006_37602708_Cover.jpg
+   LUCAS2006_37622678_Cover.jpg   LUCAS2006_37782708_Cover.jpg   LUCAS2006_37862928_Cover.jpg
+   LUCAS2006_37902692_Cover.jpg   LUCAS2006_37902808_Cover.jpg   LUCAS2006_38022916_Cover.jpg
+[B33] 897 files; first 30:
+   LUCAS2006_35842316_Cover.jpg   LUCAS2006_35862324_Cover.jpg   LUCAS2006_35882334_Cover.jpg
+   LUCAS2006_35942304_Cover.jpg   LUCAS2006_35942340_Cover.jpg   LUCAS2006_36042326_Cover.jpg
+   LUCAS2006_36162280_Cover.jpg   LUCAS2006_36322292_Cover.jpg   LUCAS2006_36482290_Cover.jpg
+   LUCAS2006_39502872_Cover.jpg   LUCAS2006_39642696_Cover.jpg   LUCAS2006_41462416_Cover.jpg
+   LUCAS2006_42262426_Cover.jpg   LUCAS2006_42422506_Cover.jpg   LUCAS2006_42542468_Cover.jpg
+   LUCAS2006_42902442_Cover.jpg   LUCAS2006_43182474_Cover.jpg   LUCAS2006_43962448_Cover.jpg
+   LUCAS2006_44002448_Cover.jpg   LUCAS2006_44022444_Cover.jpg   LUCAS2006_44162406_Cover.jpg
+   LUCAS2006_44162442_Cover.jpg   LUCAS2006_44202424_Cover.jpg   LUCAS2006_44202442_Cover.jpg
+   LUCAS2006_44202444_Cover.jpg   LUCAS2006_44222430_Cover.jpg   LUCAS2006_44242426_Cover.jpg
+   LUCAS2006_44242446_Cover.jpg   LUCAS2006_44262442_Cover.jpg   LUCAS2006_44262448_Cover.jpg
+[B55] 1901 files; first 30:
+   LUCAS2009_26681804_Cover.jpg   LUCAS2009_27701952_Cover.jpg   LUCAS2009_27842146_Cover.jpg
+   LUCAS2009_27842160_Cover.jpg   LUCAS2009_27941882_Cover.jpg   LUCAS2009_28002238_Cover.jpg
+   LUCAS2009_28021882_Cover.jpg   LUCAS2009_28022128_Cover.jpg   LUCAS2009_28022278_Cover.jpg
+   LUCAS2009_28041960_Cover.jpg   LUCAS2009_28261864_Cover.jpg   LUCAS2009_28262386_Cover.jpg
+   LUCAS2009_28782366_Cover.jpg   LUCAS2009_28862406_Cover.jpg   LUCAS2009_28862424_Cover.jpg
+   LUCAS2009_28902342_Cover.jpg   LUCAS2009_28922362_Cover.jpg   LUCAS2009_28982368_Cover.jpg
+   LUCAS2009_29022398_Cover.jpg   LUCAS2009_29042352_Cover.jpg   LUCAS2009_29102350_Cover.jpg
+   LUCAS2009_29102386_Cover.jpg   LUCAS2009_29142402_Cover.jpg   LUCAS2009_29182366_Cover.jpg
+   LUCAS2009_29222204_Cover.jpg   LUCAS2009_29222388_Cover.jpg   LUCAS2009_29282394_Cover.jpg
+   LUCAS2009_29282404_Cover.jpg   LUCAS2009_31042164_Cover.jpg   LUCAS2009_31682318_Cover.jpg
+Group id regex '^LUCAS\\d{4}_(\\d+)_[A-Za-z0-9]+\\.jpg$' matched 15876/15876 file names (100.00 %).
+Image cache found: outputs_stageB/cache/images_192.npy (15876 images)
+Hygiene: {'images_ok': 15876, 'duplicate_clusters': 16, 'images_in_duplicate_clusters': 47, 'duplicate_clusters_with_conflicting_labels': 8, 'near_duplicate_check': True, 'groups_before': 14760, 'groups_after': 14729}
+Splits loaded from outputs_stageB/splits.csv
+PASS: zero group / survey-point overlap across train, val and test.
+Training images per class: {'B11': 1464, 'B12': 337, 'B13': 1313, 'B14': 807, 'B15': 722, 'B16': 978, 'B21': 861, 'B22': 748, 'B31': 419, 'B32': 1511, 'B33': 623, 'B55': 1332}
+Label draws loaded from outputs_stageB/label_draws.json; skipped regimes: none
+Split is grouped by `group_final` (survey point + duplicate merges): 14729 groups; max group size 9; median 1; 13.9 % of images are in groups of size > 1; groups spanning splits: 0
+Survey points: 14760 | appearing more than once: 1053 | spanning several years: 1053 | max images per point: 4 | groups with more than one crop label (rotation): 851
+
+12 classes | train 11115 | val 2380 | test 2381 | chance = 8.3%
+Label regimes (draws): {'1shot': 5, '5shot': 5, '10shot': 5, '25shot': 5, '50shot': 5, '100shot': 5, '10pct': 5, '100pct': 1}
+Images per class and split:
+split                 crop  train  val  test  total
+label                                              
+B11           Common wheat   1464  319   313   2096
+B12            Durum wheat    337   75    73    485
+B13                 Barley   1313  273   287   1873
+B14                    Rye    807  174   170   1151
+B15                   Oats    722  149   161   1032
+B16                  Maize    978  209   206   1393
+B21               Potatoes    861  188   173   1222
+B22             Sugar beet    748  156   163   1067
+B31              Sunflower    419   84    93    596
+B32               Rapeseed   1511  328   324   2163
+B33                   Soya    623  140   134    897
+B55    Temporary grassland   1332  285   284   1901
+Test set: 2381 images (Stage A had 180), per class: {'B11': 313, 'B12': 73, 'B13': 287, 'B14': 170, 'B15': 161, 'B16': 206, 'B21': 173, 'B22': 163, 'B31': 93, 'B32': 324, 'B33': 134, 'B55': 284}
+Gate -1 data checks passed (the ExG-position analysis follows).
+ExG vs row: Pearson +0.61, Spearman +0.46 | vs column: Pearson -0.03, Spearman -0.05
+Share of ExG variance explained by patch position: raw 1.1 % | within image 3.8 % | z-scored 3.9 %
+Gate -1: PASS
+Image cache: (15876, 192, 192, 3), 1.64 GiB vs 35 % of 251.0 GiB RAM = 87.86 GiB -> loaded into RAM
+Encoder parameters: 5.49 M | predictor: 0.84 M
+Position prior (target) loaded: 7 block sizes, hash b41633a1dd62
+Mask-generator unit tests:
+  [PASS] ijepa: shapes and index ranges ctx (128, 32), targets [(128, 20), (128, 20), (128, 12), (128, 20)]
+  [PASS] ijepa: context indices sorted and unique 
+  [PASS] ijepa: no context/target overlap (rows with overlap 0, degenerate all-token fallbacks 0)
+  [PASS] ijepa: deterministic for a fixed seed 
+  [PASS] veg_pos: shapes and index ranges ctx (128, 32), targets [(128, 20), (128, 20), (128, 12), (128, 20)]
+  [PASS] veg_pos: context indices sorted and unique 
+  [PASS] veg_pos: no context/target overlap (rows with overlap 0, degenerate all-token fallbacks 0)
+  [PASS] veg_pos: deterministic for a fixed seed 
+  [PASS] veg_neg: shapes and index ranges ctx (128, 28), targets [(128, 20), (128, 20), (128, 12), (128, 20)]
+  [PASS] veg_neg: context indices sorted and unique 
+  [PASS] veg_neg: no context/target overlap (rows with overlap 0, degenerate all-token fallbacks 0)
+  [PASS] veg_neg: deterministic for a fixed seed 
+  [PASS] pos_matched: shapes and index ranges ctx (128, 28), targets [(128, 20), (128, 20), (128, 12), (128, 20)]
+  [PASS] pos_matched: context indices sorted and unique 
+  [PASS] pos_matched: no context/target overlap (rows with overlap 0, degenerate all-token fallbacks 0)
+  [PASS] pos_matched: deterministic for a fixed seed 
+  [PASS] attn: shapes and index ranges ctx (128, 35), targets [(128, 20), (128, 20), (128, 12), (128, 20)]
+  [PASS] attn: context indices sorted and unique 
+  [PASS] attn: no context/target overlap (rows with overlap 0, degenerate all-token fallbacks 0)
+  [PASS] attn: deterministic for a fixed seed 
+  [PASS] placement probabilities sum to 1 (veg_pos and veg_neg) (max |sum-1| = 2.38e-07)
+  [PASS] pos_matched prior maps sum to 1 (max |sum-1| = 1.11e-16)
+  [PASS] prior covers every block size drawn in 20,000 samples (missing [])
+
+pos_matched acceptance check (200 training batches, same crops for every arm):
+               source          arm  batches  tgt_exg  tgt_exg_z  ctx_exg  all_exg  ctx_tokens  tgt_tokens  kl_centres_vs_veg_pos
+0  pre-training check        ijepa      200   0.2437     0.0277   0.2370   0.2399      28.520       70.72                 0.0485
+1  pre-training check      veg_pos      200   0.2744     0.4243   0.2163   0.2399      31.625       70.72                 0.0000
+2  pre-training check      veg_neg      200   0.2101    -0.3819   0.2615   0.2399      30.920       70.72                 0.0526
+3  pre-training check  pos_matched      200   0.2437     0.0348   0.2369   0.2399      27.180       70.72                 0.0006
+KL(centres veg_pos || pos_matched) = 0.0006 (should be ~0; threshold 0.01) | for reference KL(veg_pos || ijepa) = 0.0485
+Mean z-scored ExG under the targets: ijepa +0.028, veg_pos +0.424, veg_neg -0.382, pos_matched +0.035  (expected order veg_pos > ijepa > veg_neg: OK)
+pos_matched recovers 2 % of veg_pos's target-greenness gain over ijepa through position alone (0 % = position carries no greenness; 100 % = position and greenness are collinear).
+All hard mask-generator unit tests passed.
+Re-using the benchmark from 2026-10-27T15:25:37.790260 (set RUN_MODE = 'benchmark' to re-measure).
+Batch 128 | 3020 img/s (short benchmark; long runs are usually faster) | peak GPU memory 1.34 GB of 47.4 GB | evaluation forward 2578 img/s
+FLOPs per training image: 3.8 G | predictor share 32%
+Core run: 86 steps/epoch x 105 epochs = 9030 steps | pilot: 303 epochs = 26058 steps | evaluation ≈ 0.1 min per run (probe part is a rough estimate)
+                                         item  runs  hours_each                                    note  hours_total
+0                 Gate 0 pilot (ijepa seed 0)   1.0        0.32                 26058 steps, 303 epochs         0.32
+1                core SSL runs (arms x seeds)  24.0        0.12                  9030 steps, 105 epochs         2.87
+2                     random_init evaluations   6.0        0.00                         evaluation only         0.01
+3              supervised baseline (per seed)   6.0        0.12       100 epochs on ['10pct', '100pct']         0.71
+4                            Tier 2: attn arm   3.0        0.12                      if ENABLE_ATTN_ARM         0.36
+5                           Tier 2: tau sweep   6.0        0.12                     if ENABLE_TAU_SWEEP         0.72
+6                           Tier 2: size axis  12.0        0.12                     if ENABLE_SIZE_AXIS         1.49
+7  Tier 2: LeJEPA arms [UNMEASURED: x3 guess]  12.0        0.36  measured in section 15d before it runs         4.30
+Projected: Gate 0 ≈ 0.3 h | core grid incl. baselines on this shard ≈ 3.6 h | Tier 2 (only the sections you enable) up to ≈ 6.9 h
+Gate 0 (from outputs_stageB/stats/gate_G0.json): PASS
+[1/36] ijepa_s0: done, skipping
+[2/36] veg_pos_s0: done, skipping
+[3/36] veg_neg_s0: done, skipping
+[4/36] pos_matched_s0: done, skipping
+[5/36] random_init_s0: done, skipping
+[6/36] supervised_s0: done, skipping
+[7/36] ijepa_s1: done, skipping
+[8/36] veg_pos_s1: done, skipping
+[9/36] veg_neg_s1: done, skipping
+[10/36] pos_matched_s1: done, skipping
+[11/36] random_init_s1: done, skipping
+[12/36] supervised_s1: done, skipping
+[13/36] ijepa_s2: done, skipping
+[14/36] veg_pos_s2: done, skipping
+[15/36] veg_neg_s2: done, skipping
+[16/36] pos_matched_s2: done, skipping
+[17/36] random_init_s2: done, skipping
+[18/36] supervised_s2: done, skipping
+[19/36] ijepa_s3: done, skipping
+[20/36] veg_pos_s3: done, skipping
+[21/36] veg_neg_s3: done, skipping
+[22/36] pos_matched_s3: done, skipping
+[23/36] random_init_s3: done, skipping
+[24/36] supervised_s3: done, skipping
+[25/36] ijepa_s4: done, skipping
+[26/36] veg_pos_s4: done, skipping
+[27/36] veg_neg_s4: done, skipping
+[28/36] pos_matched_s4: done, skipping
+[29/36] random_init_s4: done, skipping
+[30/36] supervised_s4: done, skipping
+[31/36] ijepa_s5: done, skipping
+[32/36] veg_pos_s5: done, skipping
+[33/36] veg_neg_s5: done, skipping
+[34/36] pos_matched_s5: done, skipping
+[35/36] random_init_s5: done, skipping
+[36/36] supervised_s5: done, skipping
+Core grid: queue pass finished in 0.0 min
+Pairing check: 30 runs compared — same seed => identical initial weights, image order and first-batch crops.
+Tier 2 attn / tau sweep / size axis: all switched off (see the Quick configuration).
+Tier 2 SIGReg / LeJEPA: not run (ENABLE_LEJEPA = False).
+DINOv2 reference: not run (add "dinov2" to BASELINES in full mode; it needs internet access).
+Finished runs: {'ijepa': 6, 'pilot_ijepa': 1, 'pos_matched': 6, 'random_init': 6, 'supervised': 6, 'veg_neg': 6, 'veg_pos': 6}
+Primary endpoint = mean over ['10shot', '25shot', '10pct'] of the mean over label draws; cells: mean ± sd over SEEDS (n = seeds).
+
+Test macro-F1 (%), linear probe — core arms and baselines
+regime                  1shot             5shot            10shot            25shot            50shot           100shot             10pct            100pct  PRIMARY ENDPOINT
+label                                                                                                                                                                        
+ijepa        18.6 ± 0.7 (n=6)  32.3 ± 0.8 (n=6)  38.5 ± 0.6 (n=6)  44.3 ± 0.6 (n=6)  48.8 ± 0.7 (n=6)  50.4 ± 0.7 (n=6)  51.1 ± 0.6 (n=6)  58.1 ± 0.9 (n=6)  44.6 ± 0.6 (n=6)
+veg_pos      18.6 ± 0.8 (n=6)  32.8 ± 1.2 (n=6)  39.2 ± 1.0 (n=6)  45.5 ± 1.0 (n=6)  49.4 ± 1.0 (n=6)  51.8 ± 0.9 (n=6)  51.8 ± 1.0 (n=6)  58.7 ± 1.4 (n=6)  45.5 ± 1.0 (n=6)
+veg_neg      16.7 ± 0.7 (n=6)  30.9 ± 0.9 (n=6)  35.0 ± 0.6 (n=6)  41.4 ± 0.9 (n=6)  45.6 ± 0.8 (n=6)  47.4 ± 0.7 (n=6)  48.2 ± 0.7 (n=6)  55.8 ± 1.4 (n=6)  41.5 ± 0.6 (n=6)
+pos_matched  18.3 ± 0.6 (n=6)  32.5 ± 0.6 (n=6)  38.3 ± 0.2 (n=6)  44.2 ± 0.6 (n=6)  48.5 ± 0.4 (n=6)  50.6 ± 0.6 (n=6)  50.9 ± 0.6 (n=6)  57.7 ± 0.6 (n=6)  44.5 ± 0.4 (n=6)
+random_init  11.0 ± 0.2 (n=6)  16.6 ± 0.3 (n=6)  17.9 ± 0.2 (n=6)  20.4 ± 0.4 (n=6)  22.1 ± 0.2 (n=6)  22.7 ± 0.6 (n=6)  22.9 ± 0.2 (n=6)  29.9 ± 0.9 (n=6)  20.4 ± 0.2 (n=6)
+
+Test macro-F1 (%), k-NN — core arms and baselines
+regime                  1shot             5shot            10shot            25shot            50shot           100shot             10pct            100pct  PRIMARY ENDPOINT
+label                                                                                                                                                                        
+ijepa        17.7 ± 0.5 (n=6)  29.4 ± 0.9 (n=6)  34.6 ± 1.2 (n=6)  38.1 ± 1.0 (n=6)  42.7 ± 0.6 (n=6)  44.8 ± 0.7 (n=6)  45.5 ± 0.4 (n=6)  52.6 ± 0.7 (n=6)  39.4 ± 0.8 (n=6)
+veg_pos      17.2 ± 0.7 (n=6)  28.8 ± 1.2 (n=6)  34.4 ± 1.2 (n=6)  38.6 ± 1.4 (n=6)  42.7 ± 1.6 (n=6)  44.9 ± 1.6 (n=6)  45.8 ± 1.3 (n=6)  53.7 ± 1.3 (n=6)  39.6 ± 1.3 (n=6)
+veg_neg      16.2 ± 0.7 (n=6)  27.6 ± 0.4 (n=6)  31.3 ± 0.5 (n=6)  35.5 ± 0.5 (n=6)  39.7 ± 0.8 (n=6)  41.6 ± 0.6 (n=6)  42.8 ± 0.7 (n=6)  50.4 ± 1.0 (n=6)  36.5 ± 0.5 (n=6)
+pos_matched  17.5 ± 0.5 (n=6)  29.1 ± 0.8 (n=6)  34.3 ± 0.8 (n=6)  38.1 ± 1.1 (n=6)  42.6 ± 0.9 (n=6)  44.6 ± 1.0 (n=6)  45.5 ± 0.7 (n=6)  52.4 ± 0.7 (n=6)  39.3 ± 0.7 (n=6)
+random_init   9.6 ± 0.1 (n=6)  12.4 ± 0.2 (n=6)  13.4 ± 0.1 (n=6)  14.3 ± 0.2 (n=6)  15.9 ± 0.1 (n=6)  16.1 ± 0.3 (n=6)  16.0 ± 0.2 (n=6)  19.8 ± 0.7 (n=6)  14.6 ± 0.1 (n=6)
+
+Supervised ViT-Tiny from scratch (draw 0) — UPPER REFERENCE, NOT MATCHED (all weights trained with labels, augmentation, epoch chosen on validation):
+        macro_f1_mean  macro_f1_sd  seeds  best_val_epoch_mean  val_macro_f1_mean
+regime                                                                           
+100pct           74.2          0.6      6                 90.0               75.1
+10pct            55.0          0.9      6                 94.2               54.3
+
+Gate-0 pilot — linear probe macro-F1 (%)
+regime                  1shot             5shot            10shot            25shot            50shot           100shot             10pct            100pct  PRIMARY ENDPOINT
+label                                                                                                                                                                        
+pilot_ijepa  22.0 ± 0.0 (n=1)  36.4 ± 0.0 (n=1)  43.5 ± 0.0 (n=1)  49.4 ± 0.0 (n=1)  54.1 ± 0.0 (n=1)  56.4 ± 0.0 (n=1)  56.2 ± 0.0 (n=1)  64.1 ± 0.0 (n=1)  49.7 ± 0.0 (n=1)
+
+Logistic-regression convergence warnings across all runs: 0 (max_iter = 2000)
+
+Mean tokens per image (context differs across arms when targets overlap more or less; CTX_TOKENS_CAP equalises it):
+             ctx_tokens  tgt_tokens  ctx_tokens_min_epoch
+label                                                    
+ijepa              28.2        70.9                  26.1
+veg_pos            31.1        70.9                  28.9
+veg_neg            30.6        70.9                  28.4
+pos_matched        27.0        70.9                  24.7
+Manipulation check — mean ExG under the target blocks (z = relative to the image's own patches):
+                                       source          arm  tgt_exg  tgt_exg_z  ctx_exg  all_exg  batches  ctx_tokens  tgt_tokens  kl_centres_vs_veg_pos
+0  training logs (mean over epochs and seeds)        ijepa   0.2435     0.0282   0.2367   0.2397      NaN         NaN         NaN                    NaN
+1  training logs (mean over epochs and seeds)      veg_pos   0.2742     0.4240   0.2159   0.2397      NaN         NaN         NaN                    NaN
+2  training logs (mean over epochs and seeds)      veg_neg   0.2099    -0.3831   0.2614   0.2397      NaN         NaN         NaN                    NaN
+3  training logs (mean over epochs and seeds)  pos_matched   0.2437     0.0348   0.2364   0.2397      NaN         NaN         NaN                    NaN
+4                          pre-training check        ijepa   0.2437     0.0277   0.2370   0.2399    200.0      28.520       70.72                 0.0485
+5                          pre-training check      veg_pos   0.2744     0.4243   0.2163   0.2399    200.0      31.625       70.72                 0.0000
+6                          pre-training check      veg_neg   0.2101    -0.3819   0.2615   0.2399    200.0      30.920       70.72                 0.0526
+7                          pre-training check  pos_matched   0.2437     0.0348   0.2369   0.2399    200.0      27.180       70.72                 0.0006
+Exact Wilcoxon implementation agrees with scipy on a tie-free example.
+Hierarchical bootstrap (B = 2000) for the core arms + random_init:
+  bootstrap probe: 5 arms x 8 regimes x 6 seeds, B = 2000, 25s
+  bootstrap knn: 5 arms x 8 regimes x 6 seeds, B = 2000, 25s
+
+PRIMARY ANALYSIS (pre-registered): linear-probe macro-F1 averaged over ['10shot', '25shot', '10pct'], unit = seed, Holm over 3 comparisons, test = exact Wilcoxon (greater), alpha = 0.05, equivalence margin ±1.5 pp (90% CI)
+              comparison  diff_pp  ci95_lo_pp  ci95_hi_pp  ci90_lo_pp  ci90_hi_pp  n_seeds  seeds_a_better  wilcoxon_p_greater  wilcoxon_p_two_sided  holm_p  perm_p_two_sided               status
+0        veg_pos - ijepa   0.8934     -0.0078      1.9031      0.1099      1.7319        6               5              0.0312                0.0625  0.0625            0.0625         inconclusive
+1  veg_pos - pos_matched   1.0273     -0.0056      2.0048      0.1411      1.8551        6               4              0.0781                0.1562  0.0781            0.1250         inconclusive
+2      veg_pos - veg_neg   3.9660      2.9557      4.8503      3.1462      4.7124        6               6              0.0156                0.0312  0.0469            0.0312  greater (confirmed)
+
+Exploratory, primary endpoint (no claims):
+     eval                 comparison  diff_pp  ci95_lo_pp  ci95_hi_pp  ci90_lo_pp  ci90_hi_pp  n_seeds  seeds_a_better  wilcoxon_p_greater  wilcoxon_p_two_sided                        status
+3   probe            veg_neg - ijepa   -3.073      -3.789      -2.321      -3.658      -2.439        6               0               1.000                 0.031                    CI below 0
+4   probe        pos_matched - ijepa   -0.134      -0.886       0.594      -0.743       0.506        6               3               0.578                 1.000  CI includes 0, within margin
+5   probe        ijepa - random_init   24.237      22.908      25.455      23.142      25.262        6               6               0.016                 0.031                    CI above 0
+6   probe      veg_pos - random_init   25.131      23.791      26.474      23.958      26.249        6               6               0.016                 0.031                    CI above 0
+7   probe      veg_neg - random_init   21.165      19.918      22.369      20.107      22.201        6               6               0.016                 0.031                    CI above 0
+8   probe  pos_matched - random_init   24.103      22.879      25.206      23.091      25.074        6               6               0.016                 0.031                    CI above 0
+49    knn            veg_pos - ijepa    0.195      -0.958       1.468      -0.760       1.269        6               3               0.500                 1.000  CI includes 0, within margin
+50    knn      veg_pos - pos_matched    0.264      -1.002       1.426      -0.756       1.239        6               4               0.344                 0.688  CI includes 0, within margin
+51    knn          veg_pos - veg_neg    3.054       1.976       4.142       2.161       3.961        6               6               0.016                 0.031                    CI above 0
+52    knn            veg_neg - ijepa   -2.859      -3.843      -1.957      -3.682      -2.067        6               0               1.000                 0.031                    CI below 0
+53    knn        pos_matched - ijepa   -0.068      -1.015       0.826      -0.883       0.694        6               3               0.422                 0.844  CI includes 0, within margin
+54    knn        ijepa - random_init   24.786      23.584      26.024      23.741      25.769        6               6               0.016                 0.031                    CI above 0
+55    knn      veg_pos - random_init   24.981      23.556      26.438      23.760      26.202        6               6               0.016                 0.031                    CI above 0
+56    knn      veg_neg - random_init   21.927      20.782      23.032      20.925      22.874        6               6               0.016                 0.031                    CI above 0
+57    knn  pos_matched - random_init   24.717      23.479      25.911      23.666      25.700        6               6               0.016                 0.031                    CI above 0
+
+98 confidence intervals were computed in total (3 confirmatory). At 95 % about 4.9 of them are expected to exclude zero by chance alone when there is no effect; 46 do.
+
+====================================================================================================
+INTERPRETATION (pre-registered table, row 5): No row of the pre-registered table applies cleanly (mixed / inconclusive). veg_pos - ijepa: inconclusive (+0.89 pp, 95% CI [-0.01, +1.90]); veg_pos - pos_matched: inconclusive (+1.03 pp, 95% CI [-0.01, +2.00]); veg_pos - veg_neg: greater (confirmed) (+3.97 pp, 95% CI [+2.96, +4.85])
+====================================================================================================
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers). Got range [0.0005001958..1.0000001].
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers). Got range [0.0005001958..1.0000001].
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers). Got range [0.0005001958..1.0000001].
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers). Got range [0.0005001958..1.0000001].
+Figures saved to /home/vishalraina23/crop_jepa_cluster/outputs_stageB/figures : ['confusion_best.png', 'exg_position_heatmap.png', 'feature_spectrum.png', 'gate0_curves.png', 'label_efficiency_knn.png', 'label_efficiency_probe.png', 'manipulation_check.png', 'per_class_delta.png', 'primary_endpoint_forest.png', 'seed_level_dots.png', 'training_curves.png']
+Paper tables: ['exploratory_comparisons.csv', 'exploratory_comparisons.tex', 'main_results_knn.csv', 'main_results_knn.tex', 'main_results_probe.csv', 'main_results_probe.tex', 'manipulation_check.csv', 'manipulation_check.tex', 'primary_comparisons.csv', 'primary_comparisons.tex', 'token_budget.csv', 'token_budget.tex']
+Bundle: outputs_stageB/results_bundle.zip (13.0 MB) | finished runs in this folder: 37
+Session time used: 0.03 h | free disk: 12451.2 GiB
+FINISHED 36/36 expected runs
+[2026-10-27 17:27:41] ALL DONE. Everything is in ./outputs_stageB (start with ./outputs_stageB/results_bundle.zip)
+[2026-10-27 17:27:41] ================ JOB 2070 END ================

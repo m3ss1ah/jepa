@@ -1,0 +1,231 @@
+{
+  "dataset_source": "LUCASVision (JRC)",
+  "official_url": "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/DRLL/LUCASvision/",
+  "prepared": "2026-10-27T17:26:41.920210",
+  "image_count_reported_elsewhere": "\u224815,876 [UNVERIFIED secondary source]; this audit is the measured count",
+  "total_images_discovered": 15876,
+  "total_usable_images": 15876,
+  "unreadable_images": 0,
+  "number_of_classes": 12,
+  "class_names": [
+    "B11",
+    "B12",
+    "B13",
+    "B14",
+    "B15",
+    "B16",
+    "B21",
+    "B22",
+    "B31",
+    "B32",
+    "B33",
+    "B55"
+  ],
+  "label_mapping": {
+    "B11": "Common wheat",
+    "B12": "Durum wheat",
+    "B13": "Barley",
+    "B14": "Rye",
+    "B15": "Oats",
+    "B16": "Maize",
+    "B21": "Potatoes",
+    "B22": "Sugar beet",
+    "B31": "Sunflower",
+    "B32": "Rapeseed",
+    "B33": "Soya",
+    "B55": "Temporary grassland"
+  },
+  "images_per_class": {
+    "B11": 2096,
+    "B12": 485,
+    "B13": 1873,
+    "B14": 1151,
+    "B15": 1032,
+    "B16": 1393,
+    "B21": 1222,
+    "B22": 1067,
+    "B31": 596,
+    "B32": 2163,
+    "B33": 897,
+    "B55": 1901
+  },
+  "class_counts_by_split": {
+    "B11": {
+      "train": 1464,
+      "val": 319,
+      "test": 313,
+      "total": 2096
+    },
+    "B12": {
+      "train": 337,
+      "val": 75,
+      "test": 73,
+      "total": 485
+    },
+    "B13": {
+      "train": 1313,
+      "val": 273,
+      "test": 287,
+      "total": 1873
+    },
+    "B14": {
+      "train": 807,
+      "val": 174,
+      "test": 170,
+      "total": 1151
+    },
+    "B15": {
+      "train": 722,
+      "val": 149,
+      "test": 161,
+      "total": 1032
+    },
+    "B16": {
+      "train": 978,
+      "val": 209,
+      "test": 206,
+      "total": 1393
+    },
+    "B21": {
+      "train": 861,
+      "val": 188,
+      "test": 173,
+      "total": 1222
+    },
+    "B22": {
+      "train": 748,
+      "val": 156,
+      "test": 163,
+      "total": 1067
+    },
+    "B31": {
+      "train": 419,
+      "val": 84,
+      "test": 93,
+      "total": 596
+    },
+    "B32": {
+      "train": 1511,
+      "val": 328,
+      "test": 324,
+      "total": 2163
+    },
+    "B33": {
+      "train": 623,
+      "val": 140,
+      "test": 134,
+      "total": 897
+    },
+    "B55": {
+      "train": 1332,
+      "val": 285,
+      "test": 284,
+      "total": 1901
+    }
+  },
+  "group_parsing": {
+    "regex": "^LUCAS\\d{4}_(\\d+)_[A-Za-z0-9]+\\.jpg$",
+    "files": 15876,
+    "matched": 15876,
+    "match_rate": 1.0,
+    "fallback_examples": [],
+    "unique_points": 14760
+  },
+  "download": {
+    "listed_total": 15876,
+    "downloaded_now": 0,
+    "failed": 0,
+    "listing_errors": {},
+    "per_class": {
+      "B11": {
+        "listed": 2096,
+        "on_disk": 2096
+      },
+      "B12": {
+        "listed": 485,
+        "on_disk": 485
+      },
+      "B13": {
+        "listed": 1873,
+        "on_disk": 1873
+      },
+      "B14": {
+        "listed": 1151,
+        "on_disk": 1151
+      },
+      "B15": {
+        "listed": 1032,
+        "on_disk": 1032
+      },
+      "B16": {
+        "listed": 1393,
+        "on_disk": 1393
+      },
+      "B21": {
+        "listed": 1222,
+        "on_disk": 1222
+      },
+      "B22": {
+        "listed": 1067,
+        "on_disk": 1067
+      },
+      "B31": {
+        "listed": 596,
+        "on_disk": 596
+      },
+      "B32": {
+        "listed": 2163,
+        "on_disk": 2163
+      },
+      "B33": {
+        "listed": 897,
+        "on_disk": 897
+      },
+      "B55": {
+        "listed": 1901,
+        "on_disk": 1901
+      }
+    },
+    "mean_file_mb": 0.6996197816764133,
+    "time": "2026-10-27T17:26:32.435844"
+  },
+  "hygiene": {
+    "images_ok": 15876,
+    "duplicate_clusters": 16,
+    "images_in_duplicate_clusters": 47,
+    "duplicate_clusters_with_conflicting_labels": 8,
+    "near_duplicate_check": true,
+    "groups_before": 14760,
+    "groups_after": 14729
+  },
+  "leakage_audit": {
+    "grouped_by": "group_final = LUCAS survey-point id (filename regex) merged with near-duplicate clusters",
+    "n_groups": 14729,
+    "max_group_size": 9,
+    "median_group_size": 1.0,
+    "share_images_in_groups_gt1": 0.13920382968002015,
+    "groups_spanning_splits": 0,
+    "survey_points": 14760,
+    "points_with_more_than_one_image": 1053,
+    "points_spanning_several_years": 1053,
+    "max_images_per_point": 4,
+    "groups_with_several_crop_labels": 851
+  },
+  "train_images": 11115,
+  "val_images": 2380,
+  "test_images": 2381,
+  "label_regimes": {
+    "1shot": 5,
+    "5shot": 5,
+    "10shot": 5,
+    "25shot": 5,
+    "50shot": 5,
+    "100shot": 5,
+    "10pct": 5,
+    "100pct": 1
+  },
+  "cache": {
+    "path": "outputs_stageB/cache/images_192.npy",
+    "resolution": 192
+  }
+}

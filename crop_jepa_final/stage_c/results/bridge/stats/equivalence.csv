@@ -1,0 +1,3 @@
+eval,comparison,family,diff_pp,ci90_lo_pp,ci90_hi_pp,ci95_lo_pp,ci95_hi_pp,equivalent,equivalent_95,equivalent_stageB_margin,margin_pp
+probe,veg_pos - ijepa,BRIDGE (exploratory; Holm within phase shown for reference),0.4165950300723203,-0.1747573166448566,1.035968896540215,-0.2671522013212903,1.1577687936400973,False,False,True,1.0
+knn,veg_pos - ijepa,exploratory,-0.39445187010175903,-1.1037558209913532,0.31219540003579915,-1.2252538713574932,0.4460403661069577,False,False,True,1.0

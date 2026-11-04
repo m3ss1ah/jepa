@@ -1,0 +1,168 @@
+{
+  "profile": "big_gpu",
+  "img_size": 160,
+  "patch_size": 16,
+  "enc_dim": 192,
+  "enc_depth": 12,
+  "enc_heads": 3,
+  "pred_dim": 128,
+  "pred_depth": 4,
+  "pred_heads": 4,
+  "grad_ckpt": false,
+  "batch_size": 128,
+  "target_steps": 26000,
+  "pilot_steps": 26000,
+  "warmup_frac": 0.1,
+  "blr": 0.0005,
+  "min_lr": 1e-06,
+  "wd_start": 0.04,
+  "wd_end": 0.4,
+  "ema_start": 0.996,
+  "ema_end": 1.0,
+  "grad_clip": 3.0,
+  "precision": "bf16",
+  "num_targets": 4,
+  "target_scale": [
+    0.15,
+    0.2
+  ],
+  "target_aspect": [
+    0.75,
+    1.5
+  ],
+  "context_scale": [
+    0.85,
+    1.0
+  ],
+  "min_context": 10,
+  "veg_index": "chromatic",
+  "veg_tau": 0.5,
+  "veg_eps": 0.2,
+  "ctx_tokens_cap": 12,
+  "prior_images": 4000,
+  "prior_seed": 424242,
+  "accept_batches": 200,
+  "crop_scale": [
+    0.3,
+    1.0
+  ],
+  "hflip": true,
+  "cache_res": 192,
+  "val_frac": 0.15,
+  "test_frac": 0.15,
+  "split_seed": 20261102,
+  "dedup_hamming": 4,
+  "draw_seed": 1234,
+  "shots": [
+    1,
+    5,
+    10,
+    25,
+    50,
+    100
+  ],
+  "percents": [
+    10,
+    100
+  ],
+  "n_draws": 10,
+  "probe_C": [
+    0.001,
+    0.01,
+    0.1,
+    1.0,
+    10.0
+  ],
+  "probe_max_iter": 2000,
+  "knn_k": 20,
+  "knn_t": 0.07,
+  "eval_batch": 256,
+  "sup_epochs": 100,
+  "sup_blr": 0.0005,
+  "sup_wd": 0.05,
+  "label_smoothing": 0.1,
+  "sup_eval_every": 5,
+  "sup_crop_scale": [
+    0.35,
+    1.0
+  ],
+  "sup_regimes": [
+    "1pct",
+    "10pct",
+    "100pct"
+  ],
+  "monitor_n": 512,
+  "knn_monitor_every": 10,
+  "knn_monitor_train": 2000,
+  "ckpt_every": 5,
+  "max_session_hours": 54.818,
+  "eval_reserve_min": 15.0,
+  "bootstrap_B": 2000,
+  "primary_regimes": [
+    "10shot",
+    "25shot",
+    "10pct"
+  ],
+  "equiv_margin_pp": 1.0,
+  "equiv_ci": 0.9,
+  "alpha": 0.05,
+  "primary_alternative": "greater",
+  "rankme_floor_frac": 0.05,
+  "g0_knn_margin_pp": 3.0,
+  "pos_var_warn": 0.1,
+  "tau_sweep": [
+    0.25,
+    1.0
+  ],
+  "size_fracs": [
+    0.1,
+    0.3
+  ],
+  "lejepa_lambda": 0.02,
+  "lejepa_slices": 256,
+  "lejepa_knots": 17,
+  "lejepa_tmax": 3.0,
+  "lejepa_n_global": 2,
+  "lejepa_n_local": 6,
+  "lejepa_local_size": 96,
+  "lejepa_global_scale": [
+    0.3,
+    1.0
+  ],
+  "lejepa_local_scale": [
+    0.05,
+    0.3
+  ],
+  "lejepa_proj_hidden": 1024,
+  "lejepa_proj_dim": 128,
+  "lejepa_batch_size": 64,
+  "lejepa_blr": 0.0005,
+  "lejepa_wd": 0.05,
+  "lejepa_steps": 0,
+  "arm": "veg_pos",
+  "label": "veg_pos",
+  "family": "core",
+  "variant": null,
+  "seed": 106,
+  "kind": "ijepa",
+  "tau": 0.5,
+  "eps": 0.2,
+  "cfg_hash": "a320aeeeb095",
+  "plan": {
+    "batch": 128,
+    "steps_per_epoch": 86,
+    "epochs": 303,
+    "total_steps": 26058,
+    "target_steps": 26000
+  },
+  "prior_hash": null,
+  "n_train_rows": 11116,
+  "pairing": {
+    "seed": 106,
+    "init_hash": "25b5445877a6186e",
+    "first_batch_idx_hash": "e4dfa4351419",
+    "first_batch_mean": 0.4359434247016907,
+    "first_batch_std": 0.21362480521202087
+  },
+  "phase": "splitB"
+}

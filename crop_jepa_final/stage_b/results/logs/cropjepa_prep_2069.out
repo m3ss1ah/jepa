@@ -1,0 +1,32 @@
+=== PREP START Tue Oct 27 02:45:11 PM IST 2026 on hpc.spit.ac.in ===
+[setup_env] installing: torch==2.8.0 torchvision==0.23.0 numpy pandas scikit-learn scipy matplotlib pillow psutil
+[setup_env] torch 2.8.0+cu128 | torchvision 0.23.0+cu128
+[setup_env] done.
+--- internet check (JRC dataset server) ---
+JRC server reachable, HTTP 200
+Downloading LUCASVision into /home/vishalraina23/crop_jepa_cluster/lucas_data (free disk 12467.4 GiB)
+LUCASVision: 15876 images listed | 5 already on disk | 15871 to download (≈17.8 GiB at 1.21 MB/image) | free disk 12467.4 GiB (cache ≈1.6 GiB + ≈4 GiB checkpoints also needed)
+  793/15871 processed (10.2 files/s, 0 failed, ≈25 min left)
+  1586/15871 processed (10.4 files/s, 0 failed, ≈23 min left)
+  2379/15871 processed (10.7 files/s, 0 failed, ≈21 min left)
+  3172/15871 processed (10.8 files/s, 0 failed, ≈20 min left)
+  3965/15871 processed (9.9 files/s, 0 failed, ≈20 min left)
+  4758/15871 processed (10.2 files/s, 0 failed, ≈18 min left)
+  5551/15871 processed (9.8 files/s, 0 failed, ≈17 min left)
+  6344/15871 processed (9.3 files/s, 0 failed, ≈17 min left)
+  7137/15871 processed (9.1 files/s, 0 failed, ≈16 min left)
+  7930/15871 processed (8.7 files/s, 0 failed, ≈15 min left)
+  8723/15871 processed (8.7 files/s, 0 failed, ≈14 min left)
+  9516/15871 processed (8.4 files/s, 0 failed, ≈13 min left)
+  10309/15871 processed (8.5 files/s, 0 failed, ≈11 min left)
+  11102/15871 processed (8.5 files/s, 0 failed, ≈9 min left)
+  11895/15871 processed (8.6 files/s, 0 failed, ≈8 min left)
+  12688/15871 processed (8.1 files/s, 0 failed, ≈7 min left)
+  13481/15871 processed (8.0 files/s, 0 failed, ≈5 min left)
+  14274/15871 processed (8.1 files/s, 0 failed, ≈3 min left)
+  15067/15871 processed (8.1 files/s, 0 failed, ≈2 min left)
+  15860/15871 processed (8.1 files/s, 0 failed, ≈0 min left)
+  15871/15871 processed (8.1 files/s, 0 failed, ≈0 min left)
+Per-class counts (listed / on disk): {'B11': '2096/2096', 'B12': '485/485', 'B13': '1873/1873', 'B14': '1151/1151', 'B15': '1032/1032', 'B16': '1393/1393', 'B21': '1222/1222', 'B22': '1067/1067', 'B31': '596/596', 'B32': '2163/2163', 'B33': '897/897', 'B55': '1901/1901'}
+COMPLETE: 15876/15876 images on disk, 0 failures.
+=== PREP OK Tue Oct 27 03:22:01 PM IST 2026 ===

@@ -1,0 +1,35 @@
+[2026-11-02 20:48:49] ================ Stage C JOB 2146 START on hpc.spit.ac.in ================
+[2026-11-02 20:48:49] GPU(s): 0, NVIDIA RTX 6000 Ada Generation, 49140 MiB;
+torch 2.8.0+cu128 | cuda: True | devices: ['NVIDIA RTX 6000 Ada Generation']
+[2026-11-02 20:48:50] workers: 3 (3 per GPU on GPUs 0), 8 CPU threads each
+[2026-11-02 20:48:50] STEP 1  smoke test (generated data)
+[2026-11-02 20:49:55] smoke test PASSED
+[2026-11-02 20:49:55] STEP 2  Phase 0 (validation only): token audit, capped vs uncapped ijepa, cut points, power, pre-registration
+[2026-11-02 21:04:24] Phase 0 done: protocol C (fixed K) | cap 12
+[2026-11-02 21:04:24] Phase-0 sanity gate
+  protocol C (fixed K) | cap 12 | k-NN uncapped 0.4685 capped 0.4562 | RankMe uncapped 50.8
+  gate passed
+[2026-11-02 21:04:24] pre-registration frozen internally (sha256 c6774dac49cc7f3d29036d4f7e4a8ec5f54ff4d9012adcaa6dee5b19ff539343) - main phases released
+[2026-11-02 21:04:24] STEP 3  phase core: prepare pass (budget 70.99 h)
+[2026-11-02 21:04:45]         phase core: 3 workers (budget 70.984 h)
+[2026-11-03 13:00:41]         phase core workers finished: [core] FINISHED 150/150 expected runs | dinov2 reference: done
+[2026-11-03 13:00:41]         phase core: report pass (finishes leftovers, statistics, figures, tables; budget 55.052 h)
+[2026-11-03 13:14:24] phase core DONE
+[2026-11-03 13:14:24] STEP 3  phase splitB: prepare pass (budget 54.823 h)
+[2026-11-03 13:14:45]         phase splitB: 3 workers (budget 54.818 h)
+[2026-11-03 20:27:08]         phase splitB workers finished: [splitB] FINISHED 60/60 expected runs
+[2026-11-03 20:27:08]         phase splitB: report pass (finishes leftovers, statistics, figures, tables; budget 47.611 h)
+[2026-11-03 20:31:40] phase splitB DONE
+[2026-11-03 20:31:40] STEP 3  phase vits: prepare pass (budget 47.536 h)
+[2026-11-03 20:32:00]         phase vits: 3 workers (budget 47.53 h)
+[2026-11-04 01:41:10]         phase vits workers finished: [vits] FINISHED 30/30 expected runs
+[2026-11-04 01:41:10]         phase vits: report pass (finishes leftovers, statistics, figures, tables; budget 42.377 h)
+[2026-11-04 01:43:37] phase vits DONE
+[2026-11-04 01:43:38] STEP 3  phase bridge: prepare pass (budget 42.336 h)
+[2026-11-04 01:43:57]         phase bridge: 3 workers (budget 42.331 h)
+[2026-11-04 02:46:51]         phase bridge workers finished: [bridge] FINISHED 20/20 expected runs
+[2026-11-04 02:46:51]         phase bridge: report pass (finishes leftovers, statistics, figures, tables; budget 41.282 h)
+[2026-11-04 02:48:19] phase bridge DONE
+[2026-11-04 02:48:19] STEP 4  final cross-phase report
+[2026-11-04 02:48:20] ALL DONE. Read ./outputs_stageC/FINAL_REPORT.md; package with: bash package_results.sh
+[2026-11-04 02:48:20] ================ Stage C JOB 2146 END ================

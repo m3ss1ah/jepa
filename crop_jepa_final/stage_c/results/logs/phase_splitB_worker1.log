@@ -1,0 +1,534 @@
+Python 3.11.14 | PyTorch 2.8.0+cu128 | torchvision 0.23.0+cu128 | numpy 2.4.6 | pandas 3.1.0 | scikit-learn 1.9.1 | scipy 1.17.1
+Platform: Linux | Kaggle: False | Device: cuda:0
+GPU: NVIDIA RTX 6000 Ada Generation | VRAM 47.4 GB | compute capability 8.9 | bf16: True | GPUs visible: 1
+System RAM: 251.0 GiB | free disk here (/home/vishalraina23/crop_jepa_stageC): 12455.7 GiB
+Mode: full | profile: big_gpu | precision: bf16 | output: /home/vishalraina23/crop_jepa_stageC/outputs_stageC/splitB
+Encoder: ViT dim 192 x depth 12, patch 16, 160px -> 10x10 tokens | predictor dim 128 x depth 4 | batch 128
+Stage C phase: splitB | budget: 26000 optimizer steps per run (epochs derived from the data size) | context-token cap: 12 | label draws: 10 | split seed: 20261102
+Seeds: [100, 101, 102, 103, 104, 105, 106, 107, 108, 109] | supervised seeds: [] | arms: ['ijepa', 'veg_pos', 'veg_neg', 'pos_matched', 'neg_matched'] | baselines: ['random_init'] | shard 1/3
+Utilities ready.
+Phase 'splitB' configuration matches the pre-registered plan (replication R1: H1-H4 on a new group-aware split (Holm within phase)).
+Pre-registration verified: preregistration_stageC.json (sha256 c6774dac49cc), registered: INTERNAL FREEZE - not externally registered (no OSF registration).
+pre-registration ./outputs_stageC/phase0/stats/prereg
+Pre-registration unchanged (registered 2026-11-03T13:14:27.723207, 0 results existed then).
+Pre-built image cache: /home/vishalraina23/crop_jepa_cluster/outputs_stageB/cache/images_192.npy (15876 images)
+[B11] 2096 files; first 30:
+   LUCAS2006_29361704_Cover.jpg   LUCAS2006_29821836_Cover.jpg   LUCAS2006_30142144_Cover.jpg
+   LUCAS2006_31982136_Cover.jpg   LUCAS2006_32062140_Cover.jpg   LUCAS2006_32682268_Cover.jpg
+   LUCAS2006_33002144_Cover.jpg   LUCAS2006_33162126_Cover.jpg   LUCAS2006_33162144_Cover.jpg
+   LUCAS2006_33222144_Cover.jpg   LUCAS2006_33502068_Cover.jpg   LUCAS2006_34081942_Cover.jpg
+   LUCAS2006_34282898_Cover.jpg   LUCAS2006_34582046_Cover.jpg   LUCAS2006_35202796_Cover.jpg
+   LUCAS2006_35302132_Cover.jpg   LUCAS2006_35502606_Cover.jpg   LUCAS2006_35562108_Cover.jpg
+   LUCAS2006_35882108_Cover.jpg   LUCAS2006_35902416_Cover.jpg   LUCAS2006_35922098_Cover.jpg
+   LUCAS2006_36402458_Cover.jpg   LUCAS2006_36402864_Cover.jpg   LUCAS2006_37862956_Cover.jpg
+   LUCAS2006_39202450_Cover.jpg   LUCAS2006_39262664_Cover.jpg   LUCAS2006_39482910_Cover.jpg
+   LUCAS2006_39523080_Cover.jpg   LUCAS2006_39643084_Cover.jpg   LUCAS2006_39702808_Cover.jpg
+[B12] 485 files; first 30:
+   LUCAS2006_29161706_Cover.jpg   LUCAS2006_29221682_Cover.jpg   LUCAS2006_29301672_Cover.jpg
+   LUCAS2006_29341684_Cover.jpg   LUCAS2006_29381706_Cover.jpg   LUCAS2006_29481706_Cover.jpg
+   LUCAS2006_29601756_Cover.jpg   LUCAS2006_29761718_Cover.jpg   LUCAS2006_29801730_Cover.jpg
+   LUCAS2006_29821702_Cover.jpg   LUCAS2006_29821704_Cover.jpg   LUCAS2006_29821728_Cover.jpg
+   LUCAS2006_29841720_Cover.jpg   LUCAS2006_29881712_Cover.jpg   LUCAS2006_29901710_Cover.jpg
+   LUCAS2006_29941718_Cover.jpg   LUCAS2006_29941856_Cover.jpg   LUCAS2006_29961728_Cover.jpg
+   LUCAS2006_29981724_Cover.jpg   LUCAS2006_30021850_Cover.jpg   LUCAS2006_30101732_Cover.jpg
+   LUCAS2006_30201766_Cover.jpg   LUCAS2006_30381774_Cover.jpg   LUCAS2006_30461764_Cover.jpg
+   LUCAS2006_30462228_Cover.jpg   LUCAS2006_31061998_Cover.jpg   LUCAS2006_33642082_Cover.jpg
+   LUCAS2006_34402106_Cover.jpg   LUCAS2006_34602030_Cover.jpg   LUCAS2006_34702066_Cover.jpg
+[B13] 1873 files; first 30:
+   LUCAS2006_28781614_Cover.jpg   LUCAS2006_28881660_Cover.jpg   LUCAS2006_29522090_Cover.jpg
+   LUCAS2006_30261692_Cover.jpg   LUCAS2006_30462124_Cover.jpg   LUCAS2006_30562156_Cover.jpg
+   LUCAS2006_30822012_Cover.jpg   LUCAS2006_30982194_Cover.jpg   LUCAS2006_31182196_Cover.jpg
+   LUCAS2006_31221858_Cover.jpg   LUCAS2006_31241914_Cover.jpg   LUCAS2006_31261948_Cover.jpg
+   LUCAS2006_31561862_Cover.jpg   LUCAS2006_31642166_Cover.jpg   LUCAS2006_32341990_Cover.jpg
+   LUCAS2006_32501954_Cover.jpg   LUCAS2006_32822136_Cover.jpg   LUCAS2006_32881998_Cover.jpg
+   LUCAS2006_33242092_Cover.jpg   LUCAS2006_33342220_Cover.jpg   LUCAS2006_33542064_Cover.jpg
+   LUCAS2006_33642042_Cover.jpg   LUCAS2006_33702076_Cover.jpg   LUCAS2006_34142754_Cover.jpg
+   LUCAS2006_34662678_Cover.jpg   LUCAS2006_34722784_Cover.jpg   LUCAS2006_34942610_Cover.jpg
+   LUCAS2006_35162698_Cover.jpg   LUCAS2006_35202144_Cover.jpg   LUCAS2006_35322354_Cover.jpg
+[B14] 1151 files; first 30:
+   LUCAS2006_28441748_Cover.jpg   LUCAS2006_28961628_Cover.jpg   LUCAS2006_28981840_Cover.jpg
+   LUCAS2006_29102082_Cover.jpg   LUCAS2006_29522116_Cover.jpg   LUCAS2006_29762162_Cover.jpg
+   LUCAS2006_29942258_Cover.jpg   LUCAS2006_30002260_Cover.jpg   LUCAS2006_30322152_Cover.jpg
+   LUCAS2006_30342124_Cover.jpg   LUCAS2006_30342126_Cover.jpg   LUCAS2006_30521982_Cover.jpg
+   LUCAS2006_30782290_Cover.jpg   LUCAS2006_30921958_Cover.jpg   LUCAS2006_30981956_Cover.jpg
+   LUCAS2006_31002286_Cover.jpg   LUCAS2006_31182282_Cover.jpg   LUCAS2006_31202284_Cover.jpg
+   LUCAS2006_31202288_Cover.jpg   LUCAS2006_31422118_Cover.jpg   LUCAS2006_31442136_Cover.jpg
+   LUCAS2006_31642148_Cover.jpg   LUCAS2006_31742262_Cover.jpg   LUCAS2006_31902274_Cover.jpg
+   LUCAS2006_32641874_Cover.jpg   LUCAS2006_33322068_Cover.jpg   LUCAS2006_33402192_Cover.jpg
+   LUCAS2006_33442914_Cover.jpg   LUCAS2006_33582064_Cover.jpg   LUCAS2006_33602062_Cover.jpg
+[B15] 1032 files; first 30:
+   LUCAS2006_28401850_Cover.jpg   LUCAS2006_28661886_Cover.jpg   LUCAS2006_28861618_Cover.jpg
+   LUCAS2006_29041902_Cover.jpg   LUCAS2006_29721672_Cover.jpg   LUCAS2006_30161874_Cover.jpg
+   LUCAS2006_30162080_Cover.jpg   LUCAS2006_30221682_Cover.jpg   LUCAS2006_30261916_Cover.jpg
+   LUCAS2006_30461980_Cover.jpg   LUCAS2006_30502134_Cover.jpg   LUCAS2006_30601928_Cover.jpg
+   LUCAS2006_30601972_Cover.jpg   LUCAS2006_30902002_Cover.jpg   LUCAS2006_30921870_Cover.jpg
+   LUCAS2006_30962000_Cover.jpg   LUCAS2006_31081900_Cover.jpg   LUCAS2006_31281824_Cover.jpg
+   LUCAS2006_31361828_Cover.jpg   LUCAS2006_32321866_Cover.jpg   LUCAS2006_32841756_Cover.jpg
+   LUCAS2006_32902896_Cover.jpg   LUCAS2006_33041746_Cover.jpg   LUCAS2006_33381766_Cover.jpg
+   LUCAS2006_34082074_Cover.jpg   LUCAS2006_34302080_Cover.jpg   LUCAS2006_34581952_Cover.jpg
+   LUCAS2006_35162324_Cover.jpg   LUCAS2006_35542116_Cover.jpg   LUCAS2006_35922426_Cover.jpg
+[B16] 1393 files; first 30:
+   LUCAS2006_29281758_Cover.jpg   LUCAS2006_29481756_Cover.jpg   LUCAS2006_34442104_Cover.jpg
+   LUCAS2006_34782102_Cover.jpg   LUCAS2006_39623158_Cover.jpg   LUCAS2006_39883170_Cover.jpg
+   LUCAS2006_40083190_Cover.jpg   LUCAS2006_40103196_Cover.jpg   LUCAS2006_40803250_Cover.jpg
+   LUCAS2006_41103364_Cover.jpg   LUCAS2006_41502480_Cover.jpg   LUCAS2006_42742484_Cover.jpg
+   LUCAS2006_44422444_Cover.jpg   LUCAS2006_44422446_Cover.jpg   LUCAS2006_44782472_Cover.jpg
+   LUCAS2006_44822486_Cover.jpg   LUCAS2006_44862146_Cover.jpg   LUCAS2006_48162634_Cover.jpg
+   LUCAS2006_49722634_Cover.jpg   LUCAS2009_27482038_Cover.jpg   LUCAS2009_27742226_Cover.jpg
+   LUCAS2009_27802206_Cover.jpg   LUCAS2009_27822228_Cover.jpg   LUCAS2009_28042144_Cover.jpg
+   LUCAS2009_28182138_Cover.jpg   LUCAS2009_29241756_Cover.jpg   LUCAS2009_30342234_Cover.jpg
+   LUCAS2009_32423108_Cover.jpg   LUCAS2009_32863152_Cover.jpg   LUCAS2009_33142862_Cover.jpg
+[B21] 1222 files; first 30:
+   LUCAS2006_28661684_Cover.jpg   LUCAS2006_28881658_Cover.jpg   LUCAS2006_29021656_Cover.jpg
+   LUCAS2006_29021734_Cover.jpg   LUCAS2006_29941766_Cover.jpg   LUCAS2006_30901684_Cover.jpg
+   LUCAS2006_30941776_Cover.jpg   LUCAS2006_30961684_Cover.jpg   LUCAS2006_30981772_Cover.jpg
+   LUCAS2006_31002378_Cover.jpg   LUCAS2006_31022182_Cover.jpg   LUCAS2006_31221678_Cover.jpg
+   LUCAS2006_31342122_Cover.jpg   LUCAS2006_31682008_Cover.jpg   LUCAS2006_32181760_Cover.jpg
+   LUCAS2006_32782928_Cover.jpg   LUCAS2006_32922910_Cover.jpg   LUCAS2006_33581694_Cover.jpg
+   LUCAS2006_34362106_Cover.jpg   LUCAS2006_34402064_Cover.jpg   LUCAS2006_34782070_Cover.jpg
+   LUCAS2006_35502418_Cover.jpg   LUCAS2006_35562098_Cover.jpg   LUCAS2006_37262782_Cover.jpg
+   LUCAS2006_37503032_Cover.jpg   LUCAS2006_37543002_Cover.jpg   LUCAS2006_37603036_Cover.jpg
+   LUCAS2006_37782910_Cover.jpg   LUCAS2006_37783024_Cover.jpg   LUCAS2006_37822968_Cover.jpg
+[B22] 1067 files; first 30:
+   LUCAS2006_28621676_Cover.jpg   LUCAS2006_28661666_Cover.jpg   LUCAS2006_28801616_Cover.jpg
+   LUCAS2006_28801658_Cover.jpg   LUCAS2006_28821686_Cover.jpg   LUCAS2006_28841660_Cover.jpg
+   LUCAS2006_28841688_Cover.jpg   LUCAS2006_28881694_Cover.jpg   LUCAS2006_28901686_Cover.jpg
+   LUCAS2006_28901692_Cover.jpg   LUCAS2006_28901694_Cover.jpg   LUCAS2006_28901698_Cover.jpg
+   LUCAS2006_28921702_Cover.jpg   LUCAS2006_28941694_Cover.jpg   LUCAS2006_28941698_Cover.jpg
+   LUCAS2006_29021712_Cover.jpg   LUCAS2006_29061692_Cover.jpg   LUCAS2006_29061710_Cover.jpg
+   LUCAS2006_29081694_Cover.jpg   LUCAS2006_29121708_Cover.jpg   LUCAS2006_29201674_Cover.jpg
+   LUCAS2006_29261674_Cover.jpg   LUCAS2006_29661724_Cover.jpg   LUCAS2006_29961732_Cover.jpg
+   LUCAS2006_30001738_Cover.jpg   LUCAS2006_30101728_Cover.jpg   LUCAS2006_30302132_Cover.jpg
+   LUCAS2006_38042978_Cover.jpg   LUCAS2006_38463118_Cover.jpg   LUCAS2006_39323060_Cover.jpg
+[B31] 596 files; first 30:
+   LUCAS2006_28941662_Cover.jpg   LUCAS2006_29181686_Cover.jpg   LUCAS2006_29501704_Cover.jpg
+   LUCAS2006_30481754_Cover.jpg   LUCAS2009_27641832_Cover.jpg   LUCAS2009_28421754_Cover.jpg
+   LUCAS2009_28481750_Cover.jpg   LUCAS2009_28961668_Cover.jpg   LUCAS2009_29001758_Cover.jpg
+   LUCAS2009_29361704_Cover.jpg   LUCAS2009_29381732_Cover.jpg   LUCAS2009_29681736_Cover.jpg
+   LUCAS2009_29761736_Cover.jpg   LUCAS2009_29941744_Cover.jpg   LUCAS2009_29981742_Cover.jpg
+   LUCAS2009_30001692_Cover.jpg   LUCAS2009_30101756_Cover.jpg   LUCAS2009_35442438_Cover.jpg
+   LUCAS2009_35522424_Cover.jpg   LUCAS2009_35562414_Cover.jpg   LUCAS2009_35562634_Cover.jpg
+   LUCAS2009_35622564_Cover.jpg   LUCAS2009_35842442_Cover.jpg   LUCAS2009_35882420_Cover.jpg
+   LUCAS2009_35922382_Cover.jpg   LUCAS2009_36122362_Cover.jpg   LUCAS2009_36162384_Cover.jpg
+   LUCAS2009_36242392_Cover.jpg   LUCAS2009_36302686_Cover.jpg   LUCAS2009_36442728_Cover.jpg
+[B32] 2163 files; first 30:
+   LUCAS2006_33182140_Cover.jpg   LUCAS2006_34122882_Cover.jpg   LUCAS2006_34682622_Cover.jpg
+   LUCAS2006_34882860_Cover.jpg   LUCAS2006_35162626_Cover.jpg   LUCAS2006_35282584_Cover.jpg
+   LUCAS2006_35282642_Cover.jpg   LUCAS2006_35562966_Cover.jpg   LUCAS2006_35602662_Cover.jpg
+   LUCAS2006_36622682_Cover.jpg   LUCAS2006_36622746_Cover.jpg   LUCAS2006_36642692_Cover.jpg
+   LUCAS2006_36722126_Cover.jpg   LUCAS2006_36822134_Cover.jpg   LUCAS2006_36822872_Cover.jpg
+   LUCAS2006_37102680_Cover.jpg   LUCAS2006_37102888_Cover.jpg   LUCAS2006_37142920_Cover.jpg
+   LUCAS2006_37162702_Cover.jpg   LUCAS2006_37403008_Cover.jpg   LUCAS2006_37503000_Cover.jpg
+   LUCAS2006_37602676_Cover.jpg   LUCAS2006_37602700_Cover.jpg   LUCAS2006_37602708_Cover.jpg
+   LUCAS2006_37622678_Cover.jpg   LUCAS2006_37782708_Cover.jpg   LUCAS2006_37862928_Cover.jpg
+   LUCAS2006_37902692_Cover.jpg   LUCAS2006_37902808_Cover.jpg   LUCAS2006_38022916_Cover.jpg
+[B33] 897 files; first 30:
+   LUCAS2006_35842316_Cover.jpg   LUCAS2006_35862324_Cover.jpg   LUCAS2006_35882334_Cover.jpg
+   LUCAS2006_35942304_Cover.jpg   LUCAS2006_35942340_Cover.jpg   LUCAS2006_36042326_Cover.jpg
+   LUCAS2006_36162280_Cover.jpg   LUCAS2006_36322292_Cover.jpg   LUCAS2006_36482290_Cover.jpg
+   LUCAS2006_39502872_Cover.jpg   LUCAS2006_39642696_Cover.jpg   LUCAS2006_41462416_Cover.jpg
+   LUCAS2006_42262426_Cover.jpg   LUCAS2006_42422506_Cover.jpg   LUCAS2006_42542468_Cover.jpg
+   LUCAS2006_42902442_Cover.jpg   LUCAS2006_43182474_Cover.jpg   LUCAS2006_43962448_Cover.jpg
+   LUCAS2006_44002448_Cover.jpg   LUCAS2006_44022444_Cover.jpg   LUCAS2006_44162406_Cover.jpg
+   LUCAS2006_44162442_Cover.jpg   LUCAS2006_44202424_Cover.jpg   LUCAS2006_44202442_Cover.jpg
+   LUCAS2006_44202444_Cover.jpg   LUCAS2006_44222430_Cover.jpg   LUCAS2006_44242426_Cover.jpg
+   LUCAS2006_44242446_Cover.jpg   LUCAS2006_44262442_Cover.jpg   LUCAS2006_44262448_Cover.jpg
+[B55] 1901 files; first 30:
+   LUCAS2009_26681804_Cover.jpg   LUCAS2009_27701952_Cover.jpg   LUCAS2009_27842146_Cover.jpg
+   LUCAS2009_27842160_Cover.jpg   LUCAS2009_27941882_Cover.jpg   LUCAS2009_28002238_Cover.jpg
+   LUCAS2009_28021882_Cover.jpg   LUCAS2009_28022128_Cover.jpg   LUCAS2009_28022278_Cover.jpg
+   LUCAS2009_28041960_Cover.jpg   LUCAS2009_28261864_Cover.jpg   LUCAS2009_28262386_Cover.jpg
+   LUCAS2009_28782366_Cover.jpg   LUCAS2009_28862406_Cover.jpg   LUCAS2009_28862424_Cover.jpg
+   LUCAS2009_28902342_Cover.jpg   LUCAS2009_28922362_Cover.jpg   LUCAS2009_28982368_Cover.jpg
+   LUCAS2009_29022398_Cover.jpg   LUCAS2009_29042352_Cover.jpg   LUCAS2009_29102350_Cover.jpg
+   LUCAS2009_29102386_Cover.jpg   LUCAS2009_29142402_Cover.jpg   LUCAS2009_29182366_Cover.jpg
+   LUCAS2009_29222204_Cover.jpg   LUCAS2009_29222388_Cover.jpg   LUCAS2009_29282394_Cover.jpg
+   LUCAS2009_29282404_Cover.jpg   LUCAS2009_31042164_Cover.jpg   LUCAS2009_31682318_Cover.jpg
+Hygiene: {'images_ok': 15876, 'duplicate_clusters': 16, 'images_in_duplicate_clusters': 47, 'duplicate_clusters_with_conflicting_labels': 8, 'near_duplicate_check': True, 'groups_before': 14760, 'groups_after': 14729}
+Splits loaded from outputs_stageC/splitB/splits.csv
+PASS: zero group / survey-point overlap across train, val and test.
+Training images per class: {'B11': 1469, 'B12': 343, 'B13': 1303, 'B14': 800, 'B15': 719, 'B16': 969, 'B21': 858, 'B22': 752, 'B31': 417, 'B32': 1516, 'B33': 629, 'B55': 1341}
+Label draws loaded from outputs_stageC/splitB/label_draws.json; skipped regimes: none
+Split is grouped by `group_final` (survey point + duplicate merges): 14729 groups; max group size 9; median 1; 13.9 % of images are in groups of size > 1; groups spanning splits: 0
+Survey points: 14760 | appearing more than once: 1053 | spanning several years: 1053 | max images per point: 4 | groups with more than one crop label (rotation): 851
+
+12 classes | train 11116 | val 2380 | test 2380 | chance = 8.3%
+Label regimes (draws): {'1shot': 10, '5shot': 10, '10shot': 10, '25shot': 10, '50shot': 10, '100shot': 10, '10pct': 10, '100pct': 1}
+Images per class and split:
+split                 crop  train  val  test  total
+label                                              
+B11           Common wheat   1469  315   312   2096
+B12            Durum wheat    343   69    73    485
+B13                 Barley   1303  282   288   1873
+B14                    Rye    800  180   171   1151
+B15                   Oats    719  155   158   1032
+B16                  Maize    969  213   211   1393
+B21               Potatoes    858  179   185   1222
+B22             Sugar beet    752  162   153   1067
+B31              Sunflower    417   91    88    596
+B32               Rapeseed   1516  325   322   2163
+B33                   Soya    629  135   133    897
+B55    Temporary grassland   1341  274   286   1901
+Test set: 2380 images (Stage A had 180), per class: {'B11': 312, 'B12': 73, 'B13': 288, 'B14': 171, 'B15': 158, 'B16': 211, 'B21': 185, 'B22': 153, 'B31': 88, 'B32': 322, 'B33': 133, 'B55': 286}
+Gate -1 data checks passed (the ExG-position analysis follows).
+ExG vs row: Pearson +0.62, Spearman +0.47 | vs column: Pearson -0.03, Spearman -0.04
+Share of ExG variance explained by patch position: raw 1.1 % | within image 3.8 % | z-scored 3.9 %
+Gate -1: PASS
+Image cache: (15876, 192, 192, 3), 1.64 GiB vs 35 % of 251.0 GiB RAM = 87.86 GiB -> loaded into RAM
+Encoder parameters: 5.49 M | predictor: 0.84 M
+Position prior (target) loaded: 7 block sizes, hash 7d9525efb530
+Position prior (target_neg) loaded: 7 block sizes, hash 5e1c26f51823
+Mask-generator unit tests:
+  [PASS] ijepa: shapes and index ranges ctx (128, 12), targets [(128, 20), (128, 20), (128, 12), (128, 20)]
+  [PASS] ijepa: context indices sorted and unique 
+  [PASS] ijepa: context tokens never exceed the cap (12 <= 12)
+  [PASS] ijepa: no context/target overlap (rows with overlap 0, degenerate all-token fallbacks 0)
+  [PASS] ijepa: deterministic for a fixed seed 
+  [PASS] ijepa: different seeds give different masks 
+  [PASS] veg_pos: shapes and index ranges ctx (128, 12), targets [(128, 20), (128, 20), (128, 12), (128, 20)]
+  [PASS] veg_pos: context indices sorted and unique 
+  [PASS] veg_pos: context tokens never exceed the cap (12 <= 12)
+  [PASS] veg_pos: no context/target overlap (rows with overlap 0, degenerate all-token fallbacks 0)
+  [PASS] veg_pos: deterministic for a fixed seed 
+  [PASS] veg_pos: different seeds give different masks 
+  [PASS] veg_neg: shapes and index ranges ctx (128, 12), targets [(128, 20), (128, 20), (128, 12), (128, 20)]
+  [PASS] veg_neg: context indices sorted and unique 
+  [PASS] veg_neg: context tokens never exceed the cap (12 <= 12)
+  [PASS] veg_neg: no context/target overlap (rows with overlap 0, degenerate all-token fallbacks 0)
+  [PASS] veg_neg: deterministic for a fixed seed 
+  [PASS] veg_neg: different seeds give different masks 
+  [PASS] pos_matched: shapes and index ranges ctx (128, 12), targets [(128, 20), (128, 20), (128, 12), (128, 20)]
+  [PASS] pos_matched: context indices sorted and unique 
+  [PASS] pos_matched: context tokens never exceed the cap (12 <= 12)
+  [PASS] pos_matched: no context/target overlap (rows with overlap 0, degenerate all-token fallbacks 0)
+  [PASS] pos_matched: deterministic for a fixed seed 
+  [PASS] pos_matched: different seeds give different masks 
+  [PASS] neg_matched: shapes and index ranges ctx (128, 12), targets [(128, 20), (128, 20), (128, 12), (128, 20)]
+  [PASS] neg_matched: context indices sorted and unique 
+  [PASS] neg_matched: context tokens never exceed the cap (12 <= 12)
+  [PASS] neg_matched: no context/target overlap (rows with overlap 0, degenerate all-token fallbacks 0)
+  [PASS] neg_matched: deterministic for a fixed seed 
+  [PASS] neg_matched: different seeds give different masks 
+  [PASS] attn: shapes and index ranges ctx (128, 12), targets [(128, 20), (128, 20), (128, 12), (128, 20)]
+  [PASS] attn: context indices sorted and unique 
+  [PASS] attn: context tokens never exceed the cap (12 <= 12)
+  [PASS] attn: no context/target overlap (rows with overlap 0, degenerate all-token fallbacks 0)
+  [PASS] attn: deterministic for a fixed seed 
+  [PASS] attn: different seeds give different masks 
+  [PASS] placement probabilities sum to 1 (veg_pos and veg_neg) (max |sum-1| = 2.38e-07)
+  [PASS] pos_matched prior maps sum to 1 (max |sum-1| = 2.22e-16)
+  [PASS] pos_matched prior covers every block size drawn in 20,000 samples (missing [])
+  [PASS] neg_matched prior maps sum to 1 (max |sum-1| = 2.22e-16)
+  [PASS] neg_matched prior covers every block size drawn in 20,000 samples (missing [])
+  [PASS] pos and neg priors differ 
+
+Spatial-control acceptance check (200 training batches, same crops for every arm):
+               source          arm  batches  tgt_exg  tgt_exg_z  ctx_exg  all_exg  ctx_tokens  tgt_tokens  tgt_union  kl_centres_vs_veg_pos  kl_centres_vs_veg_neg
+0  pre-training check        ijepa      200   0.2424     0.0269   0.2354   0.2385       12.00       70.72    49.2254                 0.0496                 0.0842
+1  pre-training check      veg_pos      200   0.2731     0.4240   0.2148   0.2385       12.00       70.72    42.2461                 0.0000                 0.0594
+2  pre-training check      veg_neg      200   0.2088    -0.3817   0.2598   0.2385       11.99       70.72    42.7760                 0.0527                 0.0000
+3  pre-training check  pos_matched      200   0.2427     0.0361   0.2351   0.2385       12.00       70.72    50.6557                 0.0009                 0.0652
+4  pre-training check  neg_matched      200   0.2404     0.0083   0.2374   0.2385       12.00       70.72    51.3409                 0.0528                 0.0005
+KL(centres veg_pos || pos_matched) = 0.0009 (should be ~0; threshold 0.005) | for reference KL(veg_pos || ijepa) = 0.0496
+KL(centres veg_neg || neg_matched) = 0.0005 (should be ~0; threshold 0.005) | for reference KL(veg_neg || ijepa) = 0.0842
+Mean z-scored ExG under the targets: ijepa +0.027, veg_pos +0.424, veg_neg -0.382, pos_matched +0.036, neg_matched +0.008  (expected order veg_pos > ijepa > veg_neg: OK)
+pos_matched recovers 2 % of veg_pos's target-greenness shift through position alone.
+neg_matched recovers 5 % of veg_neg's target-greenness shift through position alone.
+  [PASS] veg_pos target ExG z >= +0.30
+  [PASS] veg_neg target ExG z <= -0.25
+  [PASS] |ijepa target ExG z| <= 0.10
+All hard mask-generator unit tests and acceptance checks passed.
+Re-using the benchmark from 2026-11-03T13:14:44.758195 (set RUN_MODE = 'benchmark' to re-measure).
+Batch 128 | 3354 img/s (short benchmark; long runs are usually faster) | peak GPU memory 0.72 GB of 47.4 GB | evaluation forward 3676 img/s
+FLOPs per training image: 2.3 G | predictor share 27%
+Run: 86 steps/epoch x 303 epochs = 26058 steps | Phase-0 runs: 105 epochs = 9030 steps | evaluation ≈ 0.1 min per run (probe part is a rough estimate)
+                                  item  runs  hours_each                               note  hours_total
+0  SSL runs (arms x seeds), sequential    50        0.29            26058 steps, 303 epochs        14.45
+1              random_init evaluations    10        0.00                    evaluation only         0.02
+2       supervised baseline (per seed)     0        0.10  100 epochs on ['10pct', '100pct']         0.00
+3   Phase-0 validation run (each of 2)     2        0.11     9030 steps, no test evaluation         0.21
+Projected for phase 'splitB' if run one at a time ≈ 14.5 GPU-h (parallel workers share this).
+[1/20] veg_pos_s100: starting (54.8 h left in session budget)
+  veg_pos_s100: 11116 training images | batch 128 | 86 steps/epoch x 303 epochs = 26058 steps (target 26000) | peak lr 2.50e-04 | monitors every 3 ep, k-NN every 15 ep, checkpoint every 15 ep
+  veg_pos_s100 ep    1/303 step 86 loss 0.4487 val kNN-F1 16.2% rank 33.2 std 0.0265 | 2673 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s100 ep   30/303 step 2580 loss 0.0905 val kNN-F1 31.3% | 2201 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s100 ep   60/303 step 5160 loss 0.1338 val kNN-F1 45.0% | 2257 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s100 ep   90/303 step 7740 loss 0.1531 val kNN-F1 50.7% | 2319 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s100 ep  120/303 step 10320 loss 0.1601 val kNN-F1 52.7% | 2195 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s100 ep  150/303 step 12900 loss 0.1642 val kNN-F1 53.5% | 2106 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s100 ep  180/303 step 15480 loss 0.1653 val kNN-F1 54.0% | 1827 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s100 ep  210/303 step 18060 loss 0.1659 val kNN-F1 54.3% | 2108 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s100 ep  240/303 step 20640 loss 0.1659 val kNN-F1 55.2% | 2195 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.43
+  veg_pos_s100 ep  270/303 step 23220 loss 0.1643 val kNN-F1 54.5% | 2133 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s100 ep  300/303 step 25800 loss 0.1643 val kNN-F1 55.2% | 2517 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s100 ep  303/303 step 26058 loss 0.1646 val kNN-F1 55.3% rank 73.0 std 0.0530 | 2220 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+[2/20] neg_matched_s100: starting (54.4 h left in session budget)
+  neg_matched_s100: 11116 training images | batch 128 | 86 steps/epoch x 303 epochs = 26058 steps (target 26000) | peak lr 2.50e-04 | monitors every 3 ep, k-NN every 15 ep, checkpoint every 15 ep
+  neg_matched_s100 ep    1/303 step 86 loss 0.4470 val kNN-F1 16.1% rank 33.2 std 0.0266 | 2183 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s100 ep   30/303 step 2580 loss 0.0763 val kNN-F1 30.9% | 2490 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s100 ep   60/303 step 5160 loss 0.1101 val kNN-F1 40.6% | 2404 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s100 ep   90/303 step 7740 loss 0.1386 val kNN-F1 48.6% | 2482 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s100 ep  120/303 step 10320 loss 0.1513 val kNN-F1 51.1% | 2404 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s100 ep  150/303 step 12900 loss 0.1566 val kNN-F1 52.4% | 2454 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s100 ep  180/303 step 15480 loss 0.1613 val kNN-F1 53.8% | 2476 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s100 ep  210/303 step 18060 loss 0.1635 val kNN-F1 55.0% | 2343 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s100 ep  240/303 step 20640 loss 0.1644 val kNN-F1 54.9% | 2330 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.01
+  neg_matched_s100 ep  270/303 step 23220 loss 0.1649 val kNN-F1 55.0% | 2572 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s100 ep  300/303 step 25800 loss 0.1649 val kNN-F1 55.0% | 2537 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s100 ep  303/303 step 26058 loss 0.1653 val kNN-F1 55.0% rank 66.6 std 0.0532 | 2577 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+[3/20] veg_pos_s101: starting (54.0 h left in session budget)
+  veg_pos_s101: 11116 training images | batch 128 | 86 steps/epoch x 303 epochs = 26058 steps (target 26000) | peak lr 2.50e-04 | monitors every 3 ep, k-NN every 15 ep, checkpoint every 15 ep
+  veg_pos_s101 ep    1/303 step 86 loss 0.4332 val kNN-F1 16.9% rank 34.5 std 0.0248 | 2581 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.42
+  veg_pos_s101 ep   30/303 step 2580 loss 0.0814 val kNN-F1 32.0% | 2536 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s101 ep   60/303 step 5160 loss 0.1339 val kNN-F1 45.9% | 2539 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s101 ep   90/303 step 7740 loss 0.1600 val kNN-F1 52.0% | 2546 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.43
+  veg_pos_s101 ep  120/303 step 10320 loss 0.1653 val kNN-F1 54.0% | 2530 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s101 ep  150/303 step 12900 loss 0.1688 val kNN-F1 54.5% | 2529 img/s, 0.73 GB ctx 12 tgt 72 tok, tgt ExG z +0.41
+  veg_pos_s101 ep  180/303 step 15480 loss 0.1711 val kNN-F1 55.4% | 2524 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s101 ep  210/303 step 18060 loss 0.1723 val kNN-F1 56.5% | 2536 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.42
+  veg_pos_s101 ep  240/303 step 20640 loss 0.1718 val kNN-F1 56.2% | 2513 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s101 ep  270/303 step 23220 loss 0.1714 val kNN-F1 56.2% | 2503 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.43
+  veg_pos_s101 ep  300/303 step 25800 loss 0.1717 val kNN-F1 56.2% | 2504 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s101 ep  303/303 step 26058 loss 0.1706 val kNN-F1 56.2% rank 70.7 std 0.0498 | 2412 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.43
+[4/20] neg_matched_s101: starting (53.6 h left in session budget)
+  neg_matched_s101: 11116 training images | batch 128 | 86 steps/epoch x 303 epochs = 26058 steps (target 26000) | peak lr 2.50e-04 | monitors every 3 ep, k-NN every 15 ep, checkpoint every 15 ep
+  neg_matched_s101 ep    1/303 step 86 loss 0.4328 val kNN-F1 16.9% rank 34.5 std 0.0248 | 2509 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.01
+  neg_matched_s101 ep   30/303 step 2580 loss 0.0776 val kNN-F1 31.2% | 2483 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s101 ep   60/303 step 5160 loss 0.1162 val kNN-F1 40.6% | 2542 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s101 ep   90/303 step 7740 loss 0.1328 val kNN-F1 47.7% | 2538 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s101 ep  120/303 step 10320 loss 0.1421 val kNN-F1 47.8% | 2539 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s101 ep  150/303 step 12900 loss 0.1485 val kNN-F1 49.6% | 2553 img/s, 0.73 GB ctx 12 tgt 72 tok, tgt ExG z +0.01
+  neg_matched_s101 ep  180/303 step 15480 loss 0.1520 val kNN-F1 51.1% | 2537 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s101 ep  210/303 step 18060 loss 0.1550 val kNN-F1 51.8% | 2359 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.01
+  neg_matched_s101 ep  240/303 step 20640 loss 0.1559 val kNN-F1 52.9% | 2472 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s101 ep  270/303 step 23220 loss 0.1575 val kNN-F1 53.5% | 2539 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s101 ep  300/303 step 25800 loss 0.1573 val kNN-F1 53.7% | 2485 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s101 ep  303/303 step 26058 loss 0.1571 val kNN-F1 53.7% rank 68.5 std 0.0531 | 2460 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+[5/20] veg_pos_s102: starting (53.2 h left in session budget)
+  veg_pos_s102: 11116 training images | batch 128 | 86 steps/epoch x 303 epochs = 26058 steps (target 26000) | peak lr 2.50e-04 | monitors every 3 ep, k-NN every 15 ep, checkpoint every 15 ep
+  veg_pos_s102 ep    1/303 step 86 loss 0.4448 val kNN-F1 17.3% rank 33.7 std 0.0245 | 2408 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s102 ep   30/303 step 2580 loss 0.0869 val kNN-F1 31.9% | 2528 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s102 ep   60/303 step 5160 loss 0.1301 val kNN-F1 44.9% | 2524 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s102 ep   90/303 step 7740 loss 0.1503 val kNN-F1 49.9% | 1930 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.43
+  veg_pos_s102 ep  120/303 step 10320 loss 0.1648 val kNN-F1 50.5% | 2536 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.42
+  veg_pos_s102 ep  150/303 step 12900 loss 0.1715 val kNN-F1 51.8% | 2496 img/s, 0.73 GB ctx 12 tgt 72 tok, tgt ExG z +0.42
+  veg_pos_s102 ep  180/303 step 15480 loss 0.1750 val kNN-F1 53.5% | 2531 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s102 ep  210/303 step 18060 loss 0.1761 val kNN-F1 53.2% | 2545 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s102 ep  240/303 step 20640 loss 0.1764 val kNN-F1 54.1% | 2487 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s102 ep  270/303 step 23220 loss 0.1758 val kNN-F1 53.8% | 2516 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.43
+  veg_pos_s102 ep  300/303 step 25800 loss 0.1753 val kNN-F1 53.9% | 2513 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s102 ep  303/303 step 26058 loss 0.1746 val kNN-F1 53.9% rank 68.5 std 0.0502 | 2514 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.42
+[6/20] neg_matched_s102: starting (52.8 h left in session budget)
+  neg_matched_s102: 11116 training images | batch 128 | 86 steps/epoch x 303 epochs = 26058 steps (target 26000) | peak lr 2.50e-04 | monitors every 3 ep, k-NN every 15 ep, checkpoint every 15 ep
+  neg_matched_s102 ep    1/303 step 86 loss 0.4437 val kNN-F1 17.2% rank 33.7 std 0.0245 | 2448 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s102 ep   30/303 step 2580 loss 0.0745 val kNN-F1 31.6% | 2447 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s102 ep   60/303 step 5160 loss 0.1165 val kNN-F1 42.2% | 2528 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s102 ep   90/303 step 7740 loss 0.1382 val kNN-F1 49.2% | 2520 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s102 ep  120/303 step 10320 loss 0.1484 val kNN-F1 51.6% | 2544 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.01
+  neg_matched_s102 ep  150/303 step 12900 loss 0.1540 val kNN-F1 52.5% | 2522 img/s, 0.73 GB ctx 12 tgt 72 tok, tgt ExG z +0.01
+  neg_matched_s102 ep  180/303 step 15480 loss 0.1578 val kNN-F1 53.7% | 2545 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s102 ep  210/303 step 18060 loss 0.1593 val kNN-F1 53.6% | 2524 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s102 ep  240/303 step 20640 loss 0.1602 val kNN-F1 54.5% | 2527 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s102 ep  270/303 step 23220 loss 0.1593 val kNN-F1 54.8% | 2525 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s102 ep  300/303 step 25800 loss 0.1590 val kNN-F1 54.8% | 2522 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s102 ep  303/303 step 26058 loss 0.1589 val kNN-F1 54.8% rank 71.3 std 0.0527 | 2525 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.00
+[7/20] veg_pos_s103: starting (52.4 h left in session budget)
+  veg_pos_s103: 11116 training images | batch 128 | 86 steps/epoch x 303 epochs = 26058 steps (target 26000) | peak lr 2.50e-04 | monitors every 3 ep, k-NN every 15 ep, checkpoint every 15 ep
+  veg_pos_s103 ep    1/303 step 86 loss 0.4332 val kNN-F1 16.8% rank 32.7 std 0.0264 | 2075 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s103 ep   30/303 step 2580 loss 0.0802 val kNN-F1 32.7% | 2638 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.43
+  veg_pos_s103 ep   60/303 step 5160 loss 0.1326 val kNN-F1 45.6% | 2519 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.43
+  veg_pos_s103 ep   90/303 step 7740 loss 0.1613 val kNN-F1 52.3% | 2516 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s103 ep  120/303 step 10320 loss 0.1682 val kNN-F1 53.0% | 2524 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s103 ep  150/303 step 12900 loss 0.1735 val kNN-F1 54.3% | 2419 img/s, 0.73 GB ctx 12 tgt 72 tok, tgt ExG z +0.42
+  veg_pos_s103 ep  180/303 step 15480 loss 0.1754 val kNN-F1 54.7% | 2499 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.42
+  veg_pos_s103 ep  210/303 step 18060 loss 0.1758 val kNN-F1 55.2% | 2522 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s103 ep  240/303 step 20640 loss 0.1745 val kNN-F1 55.3% | 2608 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s103 ep  270/303 step 23220 loss 0.1728 val kNN-F1 55.4% | 2524 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s103 ep  300/303 step 25800 loss 0.1727 val kNN-F1 55.6% | 2559 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s103 ep  303/303 step 26058 loss 0.1730 val kNN-F1 55.6% rank 68.5 std 0.0489 | 2488 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.43
+[8/20] neg_matched_s103: starting (52.1 h left in session budget)
+  neg_matched_s103: 11116 training images | batch 128 | 86 steps/epoch x 303 epochs = 26058 steps (target 26000) | peak lr 2.50e-04 | monitors every 3 ep, k-NN every 15 ep, checkpoint every 15 ep
+  neg_matched_s103 ep    1/303 step 86 loss 0.4331 val kNN-F1 16.9% rank 32.7 std 0.0264 | 2489 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s103 ep   30/303 step 2580 loss 0.0783 val kNN-F1 31.3% | 2508 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.01
+  neg_matched_s103 ep   60/303 step 5160 loss 0.1254 val kNN-F1 41.6% | 2515 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s103 ep   90/303 step 7740 loss 0.1481 val kNN-F1 48.5% | 2513 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s103 ep  120/303 step 10320 loss 0.1578 val kNN-F1 51.1% | 2325 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s103 ep  150/303 step 12900 loss 0.1641 val kNN-F1 52.2% | 2522 img/s, 0.73 GB ctx 12 tgt 72 tok, tgt ExG z +0.01
+  neg_matched_s103 ep  180/303 step 15480 loss 0.1671 val kNN-F1 52.5% | 2517 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.01
+  neg_matched_s103 ep  210/303 step 18060 loss 0.1686 val kNN-F1 52.1% | 2512 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s103 ep  240/303 step 20640 loss 0.1682 val kNN-F1 52.1% | 2526 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s103 ep  270/303 step 23220 loss 0.1672 val kNN-F1 52.6% | 2519 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.00
+  neg_matched_s103 ep  300/303 step 25800 loss 0.1667 val kNN-F1 52.2% | 2522 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s103 ep  303/303 step 26058 loss 0.1679 val kNN-F1 52.2% rank 70.2 std 0.0552 | 2504 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+[9/20] veg_pos_s104: starting (51.7 h left in session budget)
+  veg_pos_s104: 11116 training images | batch 128 | 86 steps/epoch x 303 epochs = 26058 steps (target 26000) | peak lr 2.50e-04 | monitors every 3 ep, k-NN every 15 ep, checkpoint every 15 ep
+  veg_pos_s104 ep    1/303 step 86 loss 0.4428 val kNN-F1 17.7% rank 34.1 std 0.0249 | 2480 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.43
+  veg_pos_s104 ep   30/303 step 2580 loss 0.0924 val kNN-F1 31.3% | 2530 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.43
+  veg_pos_s104 ep   60/303 step 5160 loss 0.1305 val kNN-F1 43.4% | 2826 img/s, 0.73 GB ctx 12 tgt 72 tok, tgt ExG z +0.42
+  veg_pos_s104 ep   90/303 step 7740 loss 0.1534 val kNN-F1 49.5% | 2515 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s104 ep  120/303 step 10320 loss 0.1630 val kNN-F1 51.8% | 2528 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.42
+  veg_pos_s104 ep  150/303 step 12900 loss 0.1659 val kNN-F1 53.3% | 2531 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.42
+  veg_pos_s104 ep  180/303 step 15480 loss 0.1691 val kNN-F1 54.3% | 2582 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.43
+  veg_pos_s104 ep  210/303 step 18060 loss 0.1703 val kNN-F1 53.4% | 2330 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.43
+  veg_pos_s104 ep  240/303 step 20640 loss 0.1696 val kNN-F1 53.7% | 2519 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.43
+  veg_pos_s104 ep  270/303 step 23220 loss 0.1685 val kNN-F1 53.7% | 2542 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s104 ep  300/303 step 25800 loss 0.1682 val kNN-F1 53.5% | 2621 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s104 ep  303/303 step 26058 loss 0.1678 val kNN-F1 53.4% rank 70.5 std 0.0522 | 2632 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+[10/20] neg_matched_s104: starting (51.3 h left in session budget)
+  neg_matched_s104: 11116 training images | batch 128 | 86 steps/epoch x 303 epochs = 26058 steps (target 26000) | peak lr 2.50e-04 | monitors every 3 ep, k-NN every 15 ep, checkpoint every 15 ep
+  neg_matched_s104 ep    1/303 step 86 loss 0.4433 val kNN-F1 17.5% rank 34.1 std 0.0250 | 2431 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.01
+  neg_matched_s104 ep   30/303 step 2580 loss 0.0757 val kNN-F1 30.2% | 2531 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.01
+  neg_matched_s104 ep   60/303 step 5160 loss 0.1191 val kNN-F1 41.9% | 2527 img/s, 0.73 GB ctx 12 tgt 72 tok, tgt ExG z +0.01
+  neg_matched_s104 ep   90/303 step 7740 loss 0.1332 val kNN-F1 48.1% | 2448 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s104 ep  120/303 step 10320 loss 0.1445 val kNN-F1 49.2% | 2531 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.01
+  neg_matched_s104 ep  150/303 step 12900 loss 0.1547 val kNN-F1 50.4% | 2522 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.01
+  neg_matched_s104 ep  180/303 step 15480 loss 0.1600 val kNN-F1 52.3% | 2532 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s104 ep  210/303 step 18060 loss 0.1619 val kNN-F1 53.7% | 2505 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s104 ep  240/303 step 20640 loss 0.1637 val kNN-F1 53.8% | 2487 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s104 ep  270/303 step 23220 loss 0.1640 val kNN-F1 54.4% | 2537 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s104 ep  300/303 step 25800 loss 0.1635 val kNN-F1 54.4% | 2357 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s104 ep  303/303 step 26058 loss 0.1636 val kNN-F1 54.4% rank 67.4 std 0.0532 | 2570 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.00
+[11/20] veg_pos_s105: starting (50.9 h left in session budget)
+  veg_pos_s105: 11116 training images | batch 128 | 86 steps/epoch x 303 epochs = 26058 steps (target 26000) | peak lr 2.50e-04 | monitors every 3 ep, k-NN every 15 ep, checkpoint every 15 ep
+  veg_pos_s105 ep    1/303 step 86 loss 0.4242 val kNN-F1 16.8% rank 33.1 std 0.0251 | 2370 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.43
+  veg_pos_s105 ep   30/303 step 2580 loss 0.0766 val kNN-F1 32.7% | 2521 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.42
+  veg_pos_s105 ep   60/303 step 5160 loss 0.1303 val kNN-F1 44.9% | 2522 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s105 ep   90/303 step 7740 loss 0.1552 val kNN-F1 50.8% | 2514 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s105 ep  120/303 step 10320 loss 0.1612 val kNN-F1 52.1% | 2707 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.43
+  veg_pos_s105 ep  150/303 step 12900 loss 0.1633 val kNN-F1 53.2% | 2706 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.43
+  veg_pos_s105 ep  180/303 step 15480 loss 0.1655 val kNN-F1 53.7% | 2705 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s105 ep  210/303 step 18060 loss 0.1680 val kNN-F1 55.2% | 3039 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.43
+  veg_pos_s105 ep  240/303 step 20640 loss 0.1684 val kNN-F1 54.8% | 3024 img/s, 0.73 GB ctx 12 tgt 72 tok, tgt ExG z +0.42
+  veg_pos_s105 ep  270/303 step 23220 loss 0.1679 val kNN-F1 54.5% | 2773 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s105 ep  300/303 step 25800 loss 0.1680 val kNN-F1 54.5% | 2936 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s105 ep  303/303 step 26058 loss 0.1677 val kNN-F1 54.5% rank 66.4 std 0.0488 | 2911 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.42
+[12/20] neg_matched_s105: starting (50.6 h left in session budget)
+  neg_matched_s105: 11116 training images | batch 128 | 86 steps/epoch x 303 epochs = 26058 steps (target 26000) | peak lr 2.50e-04 | monitors every 3 ep, k-NN every 15 ep, checkpoint every 15 ep
+  neg_matched_s105 ep    1/303 step 86 loss 0.4248 val kNN-F1 16.9% rank 33.1 std 0.0251 | 2888 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s105 ep   30/303 step 2580 loss 0.0672 val kNN-F1 30.5% | 2928 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.01
+  neg_matched_s105 ep   60/303 step 5160 loss 0.1030 val kNN-F1 39.8% | 2869 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s105 ep   90/303 step 7740 loss 0.1271 val kNN-F1 47.8% | 2874 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s105 ep  120/303 step 10320 loss 0.1453 val kNN-F1 50.1% | 2987 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.00
+  neg_matched_s105 ep  150/303 step 12900 loss 0.1548 val kNN-F1 51.6% | 2946 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.01
+  neg_matched_s105 ep  180/303 step 15480 loss 0.1607 val kNN-F1 53.7% | 2903 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s105 ep  210/303 step 18060 loss 0.1644 val kNN-F1 54.9% | 2933 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.00
+  neg_matched_s105 ep  240/303 step 20640 loss 0.1659 val kNN-F1 55.2% | 2931 img/s, 0.73 GB ctx 12 tgt 72 tok, tgt ExG z +0.01
+  neg_matched_s105 ep  270/303 step 23220 loss 0.1666 val kNN-F1 55.3% | 2920 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s105 ep  300/303 step 25800 loss 0.1670 val kNN-F1 55.5% | 2807 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s105 ep  303/303 step 26058 loss 0.1666 val kNN-F1 55.5% rank 67.2 std 0.0517 | 2900 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.01
+[13/20] veg_pos_s106: starting (50.2 h left in session budget)
+  veg_pos_s106: 11116 training images | batch 128 | 86 steps/epoch x 303 epochs = 26058 steps (target 26000) | peak lr 2.50e-04 | monitors every 3 ep, k-NN every 15 ep, checkpoint every 15 ep
+  veg_pos_s106 ep    1/303 step 86 loss 0.4359 val kNN-F1 16.8% rank 32.5 std 0.0261 | 2869 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.43
+  veg_pos_s106 ep   30/303 step 2580 loss 0.0753 val kNN-F1 32.3% | 2929 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s106 ep   60/303 step 5160 loss 0.1207 val kNN-F1 42.8% | 2920 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.43
+  veg_pos_s106 ep   90/303 step 7740 loss 0.1465 val kNN-F1 49.9% | 2966 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s106 ep  120/303 step 10320 loss 0.1580 val kNN-F1 52.0% | 2930 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s106 ep  150/303 step 12900 loss 0.1612 val kNN-F1 52.4% | 3007 img/s, 0.73 GB ctx 12 tgt 72 tok, tgt ExG z +0.42
+  veg_pos_s106 ep  180/303 step 15480 loss 0.1649 val kNN-F1 51.6% | 2994 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.43
+  veg_pos_s106 ep  210/303 step 18060 loss 0.1654 val kNN-F1 52.9% | 3006 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.42
+  veg_pos_s106 ep  240/303 step 20640 loss 0.1655 val kNN-F1 52.9% | 3052 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s106 ep  270/303 step 23220 loss 0.1639 val kNN-F1 53.4% | 3027 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.43
+  veg_pos_s106 ep  300/303 step 25800 loss 0.1636 val kNN-F1 53.9% | 2937 img/s, 0.72 GB ctx 12 tgt 70 tok, tgt ExG z +0.42
+  veg_pos_s106 ep  303/303 step 26058 loss 0.1632 val kNN-F1 53.9% rank 69.3 std 0.0513 | 2944 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+[14/20] neg_matched_s106: starting (49.9 h left in session budget)
+  neg_matched_s106: 11116 training images | batch 128 | 86 steps/epoch x 303 epochs = 26058 steps (target 26000) | peak lr 2.50e-04 | monitors every 3 ep, k-NN every 15 ep, checkpoint every 15 ep
+  neg_matched_s106 ep    1/303 step 86 loss 0.4352 val kNN-F1 16.8% rank 32.6 std 0.0261 | 2897 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s106 ep   30/303 step 2580 loss 0.0748 val kNN-F1 30.3% | 2884 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s106 ep   60/303 step 5160 loss 0.1117 val kNN-F1 40.5% | 2858 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s106 ep   90/303 step 7740 loss 0.1362 val kNN-F1 48.9% | 2817 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.00
+  neg_matched_s106 ep  120/303 step 10320 loss 0.1474 val kNN-F1 50.1% | 2812 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s106 ep  150/303 step 12900 loss 0.1537 val kNN-F1 52.1% | 2828 img/s, 0.73 GB ctx 12 tgt 72 tok, tgt ExG z +0.01
+  neg_matched_s106 ep  180/303 step 15480 loss 0.1577 val kNN-F1 52.0% | 2806 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s106 ep  210/303 step 18060 loss 0.1597 val kNN-F1 53.0% | 2844 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.01
+  neg_matched_s106 ep  240/303 step 20640 loss 0.1603 val kNN-F1 53.8% | 2841 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s106 ep  270/303 step 23220 loss 0.1598 val kNN-F1 53.9% | 2924 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.01
+  neg_matched_s106 ep  300/303 step 25800 loss 0.1604 val kNN-F1 53.9% | 2949 img/s, 0.72 GB ctx 12 tgt 70 tok, tgt ExG z +0.01
+  neg_matched_s106 ep  303/303 step 26058 loss 0.1601 val kNN-F1 53.9% rank 67.7 std 0.0527 | 2938 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+[15/20] veg_pos_s107: starting (49.6 h left in session budget)
+  veg_pos_s107: 11116 training images | batch 128 | 86 steps/epoch x 303 epochs = 26058 steps (target 26000) | peak lr 2.50e-04 | monitors every 3 ep, k-NN every 15 ep, checkpoint every 15 ep
+  veg_pos_s107 ep    1/303 step 86 loss 0.4351 val kNN-F1 16.7% rank 33.0 std 0.0261 | 2888 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.43
+  veg_pos_s107 ep   30/303 step 2580 loss 0.0710 val kNN-F1 30.6% | 2860 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.42
+  veg_pos_s107 ep   60/303 step 5160 loss 0.1211 val kNN-F1 46.8% | 2861 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.43
+  veg_pos_s107 ep   90/303 step 7740 loss 0.1528 val kNN-F1 50.5% | 3026 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.42
+  veg_pos_s107 ep  120/303 step 10320 loss 0.1608 val kNN-F1 52.9% | 2931 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s107 ep  150/303 step 12900 loss 0.1637 val kNN-F1 53.0% | 2677 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s107 ep  180/303 step 15480 loss 0.1655 val kNN-F1 53.7% | 2766 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s107 ep  210/303 step 18060 loss 0.1650 val kNN-F1 53.4% | 2946 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s107 ep  240/303 step 20640 loss 0.1650 val kNN-F1 52.8% | 2899 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s107 ep  270/303 step 23220 loss 0.1639 val kNN-F1 53.2% | 2976 img/s, 0.73 GB ctx 12 tgt 72 tok, tgt ExG z +0.42
+  veg_pos_s107 ep  300/303 step 25800 loss 0.1638 val kNN-F1 53.1% | 2901 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s107 ep  303/303 step 26058 loss 0.1637 val kNN-F1 53.2% rank 68.8 std 0.0495 | 2849 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+[16/20] neg_matched_s107: starting (49.3 h left in session budget)
+  neg_matched_s107: 11116 training images | batch 128 | 86 steps/epoch x 303 epochs = 26058 steps (target 26000) | peak lr 2.50e-04 | monitors every 3 ep, k-NN every 15 ep, checkpoint every 15 ep
+  neg_matched_s107 ep    1/303 step 86 loss 0.4360 val kNN-F1 16.8% rank 33.0 std 0.0261 | 2873 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.01
+  neg_matched_s107 ep   30/303 step 2580 loss 0.0723 val kNN-F1 29.8% | 2873 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.01
+  neg_matched_s107 ep   60/303 step 5160 loss 0.1177 val kNN-F1 41.4% | 2751 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.01
+  neg_matched_s107 ep   90/303 step 7740 loss 0.1432 val kNN-F1 50.5% | 2916 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.01
+  neg_matched_s107 ep  120/303 step 10320 loss 0.1531 val kNN-F1 53.3% | 2900 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s107 ep  150/303 step 12900 loss 0.1583 val kNN-F1 54.4% | 3023 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.00
+  neg_matched_s107 ep  180/303 step 15480 loss 0.1610 val kNN-F1 55.4% | 2993 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s107 ep  210/303 step 18060 loss 0.1624 val kNN-F1 56.2% | 2970 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s107 ep  240/303 step 20640 loss 0.1627 val kNN-F1 57.1% | 2974 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s107 ep  270/303 step 23220 loss 0.1619 val kNN-F1 57.0% | 2850 img/s, 0.73 GB ctx 12 tgt 72 tok, tgt ExG z +0.01
+  neg_matched_s107 ep  300/303 step 25800 loss 0.1622 val kNN-F1 56.8% | 2905 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.00
+  neg_matched_s107 ep  303/303 step 26058 loss 0.1616 val kNN-F1 56.8% rank 69.7 std 0.0526 | 2914 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+[17/20] veg_pos_s108: starting (48.9 h left in session budget)
+  veg_pos_s108: 11116 training images | batch 128 | 86 steps/epoch x 303 epochs = 26058 steps (target 26000) | peak lr 2.50e-04 | monitors every 3 ep, k-NN every 15 ep, checkpoint every 15 ep
+  veg_pos_s108 ep    1/303 step 86 loss 0.4370 val kNN-F1 16.9% rank 32.8 std 0.0255 | 2853 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s108 ep   30/303 step 2580 loss 0.0891 val kNN-F1 33.1% | 2904 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.43
+  veg_pos_s108 ep   60/303 step 5160 loss 0.1337 val kNN-F1 44.3% | 2907 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s108 ep   90/303 step 7740 loss 0.1537 val kNN-F1 50.0% | 2899 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.43
+  veg_pos_s108 ep  120/303 step 10320 loss 0.1627 val kNN-F1 51.6% | 2927 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.43
+  veg_pos_s108 ep  150/303 step 12900 loss 0.1657 val kNN-F1 52.9% | 2904 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.43
+  veg_pos_s108 ep  180/303 step 15480 loss 0.1682 val kNN-F1 53.2% | 2904 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s108 ep  210/303 step 18060 loss 0.1690 val kNN-F1 53.5% | 2881 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s108 ep  240/303 step 20640 loss 0.1682 val kNN-F1 54.0% | 2883 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s108 ep  270/303 step 23220 loss 0.1668 val kNN-F1 53.5% | 2985 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s108 ep  300/303 step 25800 loss 0.1670 val kNN-F1 53.6% | 2964 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s108 ep  303/303 step 26058 loss 0.1668 val kNN-F1 53.6% rank 72.4 std 0.0544 | 2963 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.43
+[18/20] neg_matched_s108: starting (48.6 h left in session budget)
+  neg_matched_s108: 11116 training images | batch 128 | 86 steps/epoch x 303 epochs = 26058 steps (target 26000) | peak lr 2.50e-04 | monitors every 3 ep, k-NN every 15 ep, checkpoint every 15 ep
+  neg_matched_s108 ep    1/303 step 86 loss 0.4372 val kNN-F1 16.9% rank 32.8 std 0.0255 | 2940 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s108 ep   30/303 step 2580 loss 0.0704 val kNN-F1 30.4% | 2870 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.00
+  neg_matched_s108 ep   60/303 step 5160 loss 0.1165 val kNN-F1 41.2% | 2919 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s108 ep   90/303 step 7740 loss 0.1405 val kNN-F1 48.1% | 2807 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.00
+  neg_matched_s108 ep  120/303 step 10320 loss 0.1510 val kNN-F1 50.8% | 2819 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.01
+  neg_matched_s108 ep  150/303 step 12900 loss 0.1569 val kNN-F1 51.9% | 2870 img/s, 0.73 GB ctx 12 tgt 70 tok, tgt ExG z +0.01
+  neg_matched_s108 ep  180/303 step 15480 loss 0.1598 val kNN-F1 52.4% | 2921 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s108 ep  210/303 step 18060 loss 0.1633 val kNN-F1 53.4% | 2831 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s108 ep  240/303 step 20640 loss 0.1636 val kNN-F1 54.1% | 2845 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s108 ep  270/303 step 23220 loss 0.1632 val kNN-F1 54.3% | 2946 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s108 ep  300/303 step 25800 loss 0.1644 val kNN-F1 54.7% | 2748 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s108 ep  303/303 step 26058 loss 0.1640 val kNN-F1 54.6% rank 69.7 std 0.0527 | 2834 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+[19/20] veg_pos_s109: starting (48.3 h left in session budget)
+  veg_pos_s109: 11116 training images | batch 128 | 86 steps/epoch x 303 epochs = 26058 steps (target 26000) | peak lr 2.50e-04 | monitors every 3 ep, k-NN every 15 ep, checkpoint every 15 ep
+  veg_pos_s109 ep    1/303 step 86 loss 0.4362 val kNN-F1 17.2% rank 34.0 std 0.0250 | 2595 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s109 ep   30/303 step 2580 loss 0.0929 val kNN-F1 32.1% | 2723 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s109 ep   60/303 step 5160 loss 0.1349 val kNN-F1 45.2% | 2830 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s109 ep   90/303 step 7740 loss 0.1534 val kNN-F1 50.3% | 2859 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s109 ep  120/303 step 10320 loss 0.1658 val kNN-F1 53.1% | 2946 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.43
+  veg_pos_s109 ep  150/303 step 12900 loss 0.1667 val kNN-F1 53.8% | 2903 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s109 ep  180/303 step 15480 loss 0.1686 val kNN-F1 55.0% | 2860 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s109 ep  210/303 step 18060 loss 0.1679 val kNN-F1 54.5% | 2936 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.42
+  veg_pos_s109 ep  240/303 step 20640 loss 0.1675 val kNN-F1 54.3% | 2926 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.43
+  veg_pos_s109 ep  270/303 step 23220 loss 0.1669 val kNN-F1 54.0% | 2999 img/s, 0.73 GB ctx 12 tgt 72 tok, tgt ExG z +0.42
+  veg_pos_s109 ep  300/303 step 25800 loss 0.1665 val kNN-F1 54.2% | 2942 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.43
+  veg_pos_s109 ep  303/303 step 26058 loss 0.1661 val kNN-F1 54.2% rank 72.6 std 0.0513 | 2942 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.43
+[20/20] neg_matched_s109: starting (47.9 h left in session budget)
+  neg_matched_s109: 11116 training images | batch 128 | 86 steps/epoch x 303 epochs = 26058 steps (target 26000) | peak lr 2.50e-04 | monitors every 3 ep, k-NN every 15 ep, checkpoint every 15 ep
+  neg_matched_s109 ep    1/303 step 86 loss 0.4371 val kNN-F1 17.2% rank 33.9 std 0.0250 | 3006 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s109 ep   30/303 step 2580 loss 0.0861 val kNN-F1 32.3% | 3030 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.00
+  neg_matched_s109 ep   60/303 step 5160 loss 0.1281 val kNN-F1 43.2% | 3014 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s109 ep   90/303 step 7740 loss 0.1494 val kNN-F1 49.0% | 3029 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s109 ep  120/303 step 10320 loss 0.1584 val kNN-F1 51.2% | 2951 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s109 ep  150/303 step 12900 loss 0.1602 val kNN-F1 51.9% | 2958 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s109 ep  180/303 step 15480 loss 0.1623 val kNN-F1 52.3% | 2948 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s109 ep  210/303 step 18060 loss 0.1644 val kNN-F1 53.1% | 2932 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s109 ep  240/303 step 20640 loss 0.1652 val kNN-F1 53.6% | 3051 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s109 ep  270/303 step 23220 loss 0.1653 val kNN-F1 53.6% | 2990 img/s, 0.73 GB ctx 12 tgt 72 tok, tgt ExG z +0.01
+  neg_matched_s109 ep  300/303 step 25800 loss 0.1652 val kNN-F1 53.9% | 2914 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+  neg_matched_s109 ep  303/303 step 26058 loss 0.1651 val kNN-F1 53.9% rank 72.5 std 0.0559 | 3132 img/s, 0.73 GB ctx 12 tgt 71 tok, tgt ExG z +0.01
+Core grid: queue pass finished in 431.8 min
+Pairing check: 60 runs compared — same seed => identical initial weights, image order and first-batch crops.
+DINOv2 reference: not run (needs "dinov2" in BASELINES, full mode, and the prep job's local checkout).
+CJ_SKIP_REPORT=1: queue pass finished; reporting cells are skipped in this process.

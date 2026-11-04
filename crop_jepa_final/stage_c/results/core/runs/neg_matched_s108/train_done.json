@@ -1,0 +1,12 @@
+{
+  "arm": "neg_matched",
+  "label": "neg_matched",
+  "seed": 108,
+  "cfg_hash": "2e73319455a3",
+  "batch": 128,
+  "steps_per_epoch": 86,
+  "epochs": 303,
+  "total_steps": 26058,
+  "target_steps": 26000,
+  "train_minutes": 23.60753723780314
+}

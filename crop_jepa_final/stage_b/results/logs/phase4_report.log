@@ -1,0 +1,369 @@
+Python 3.11.14 | PyTorch 2.8.0+cu128 | torchvision 0.23.0+cu128 | numpy 2.4.6 | pandas 3.1.0 | scikit-learn 1.9.1 | scipy 1.17.1
+Platform: Linux | Kaggle: False | Device: cuda:0
+GPU: NVIDIA RTX 6000 Ada Generation | VRAM 47.4 GB | compute capability 8.9 | bf16: True | GPUs visible: 1
+System RAM: 251.0 GiB | free disk here (/home/vishalraina23/crop_jepa_cluster): 12451.2 GiB
+Mode: full | profile: big_gpu | precision: bf16 | output: /home/vishalraina23/crop_jepa_cluster/outputs_stageB
+Encoder: ViT dim 192 x depth 12, patch 16, 160px -> 10x10 tokens | predictor dim 128 x depth 4 | batch 128
+Budget: 9000 optimizer steps per core run, 26000 for the Gate-0 pilot (epochs derived from the data size)
+Seeds: [0, 1, 2, 3, 4, 5] | arms: ['ijepa', 'veg_pos', 'veg_neg', 'pos_matched'] | baselines: ['random_init', 'supervised'] | Tier-2 seeds: [0, 1, 2] | shard 0/1
+Tier 2: attn=False tau_sweep=False size_axis=False lejepa=False (smoke mode exercises all of them)
+Utilities ready.
+Smallest attainable Holm-adjusted p with 6 seeds (greater): 0.0469 (< alpha 0.05; requires every seed to agree in sign for the strongest comparison).
+Pre-registration unchanged (registered 2026-10-27T15:23:40.994504, 0 results existed then).
+Data root: /home/vishalraina23/crop_jepa_cluster/lucas_data
+LUCASVision: 15876 images listed | 15876 already on disk | 0 to download (≈0.0 GiB at 0.70 MB/image) | free disk 12451.2 GiB (cache ≈1.6 GiB + ≈4 GiB checkpoints also needed)
+Per-class counts (listed / on disk): {'B11': '2096/2096', 'B12': '485/485', 'B13': '1873/1873', 'B14': '1151/1151', 'B15': '1032/1032', 'B16': '1393/1393', 'B21': '1222/1222', 'B22': '1067/1067', 'B31': '596/596', 'B32': '2163/2163', 'B33': '897/897', 'B55': '1901/1901'}
+Metadata written: lucas_data/metadata_stageB.csv (15876 images)
+
+First 30 file names per class (check the naming pattern the group regex relies on):
+[B11] 2096 files; first 30:
+   LUCAS2006_29361704_Cover.jpg   LUCAS2006_29821836_Cover.jpg   LUCAS2006_30142144_Cover.jpg
+   LUCAS2006_31982136_Cover.jpg   LUCAS2006_32062140_Cover.jpg   LUCAS2006_32682268_Cover.jpg
+   LUCAS2006_33002144_Cover.jpg   LUCAS2006_33162126_Cover.jpg   LUCAS2006_33162144_Cover.jpg
+   LUCAS2006_33222144_Cover.jpg   LUCAS2006_33502068_Cover.jpg   LUCAS2006_34081942_Cover.jpg
+   LUCAS2006_34282898_Cover.jpg   LUCAS2006_34582046_Cover.jpg   LUCAS2006_35202796_Cover.jpg
+   LUCAS2006_35302132_Cover.jpg   LUCAS2006_35502606_Cover.jpg   LUCAS2006_35562108_Cover.jpg
+   LUCAS2006_35882108_Cover.jpg   LUCAS2006_35902416_Cover.jpg   LUCAS2006_35922098_Cover.jpg
+   LUCAS2006_36402458_Cover.jpg   LUCAS2006_36402864_Cover.jpg   LUCAS2006_37862956_Cover.jpg
+   LUCAS2006_39202450_Cover.jpg   LUCAS2006_39262664_Cover.jpg   LUCAS2006_39482910_Cover.jpg
+   LUCAS2006_39523080_Cover.jpg   LUCAS2006_39643084_Cover.jpg   LUCAS2006_39702808_Cover.jpg
+[B12] 485 files; first 30:
+   LUCAS2006_29161706_Cover.jpg   LUCAS2006_29221682_Cover.jpg   LUCAS2006_29301672_Cover.jpg
+   LUCAS2006_29341684_Cover.jpg   LUCAS2006_29381706_Cover.jpg   LUCAS2006_29481706_Cover.jpg
+   LUCAS2006_29601756_Cover.jpg   LUCAS2006_29761718_Cover.jpg   LUCAS2006_29801730_Cover.jpg
+   LUCAS2006_29821702_Cover.jpg   LUCAS2006_29821704_Cover.jpg   LUCAS2006_29821728_Cover.jpg
+   LUCAS2006_29841720_Cover.jpg   LUCAS2006_29881712_Cover.jpg   LUCAS2006_29901710_Cover.jpg
+   LUCAS2006_29941718_Cover.jpg   LUCAS2006_29941856_Cover.jpg   LUCAS2006_29961728_Cover.jpg
+   LUCAS2006_29981724_Cover.jpg   LUCAS2006_30021850_Cover.jpg   LUCAS2006_30101732_Cover.jpg
+   LUCAS2006_30201766_Cover.jpg   LUCAS2006_30381774_Cover.jpg   LUCAS2006_30461764_Cover.jpg
+   LUCAS2006_30462228_Cover.jpg   LUCAS2006_31061998_Cover.jpg   LUCAS2006_33642082_Cover.jpg
+   LUCAS2006_34402106_Cover.jpg   LUCAS2006_34602030_Cover.jpg   LUCAS2006_34702066_Cover.jpg
+[B13] 1873 files; first 30:
+   LUCAS2006_28781614_Cover.jpg   LUCAS2006_28881660_Cover.jpg   LUCAS2006_29522090_Cover.jpg
+   LUCAS2006_30261692_Cover.jpg   LUCAS2006_30462124_Cover.jpg   LUCAS2006_30562156_Cover.jpg
+   LUCAS2006_30822012_Cover.jpg   LUCAS2006_30982194_Cover.jpg   LUCAS2006_31182196_Cover.jpg
+   LUCAS2006_31221858_Cover.jpg   LUCAS2006_31241914_Cover.jpg   LUCAS2006_31261948_Cover.jpg
+   LUCAS2006_31561862_Cover.jpg   LUCAS2006_31642166_Cover.jpg   LUCAS2006_32341990_Cover.jpg
+   LUCAS2006_32501954_Cover.jpg   LUCAS2006_32822136_Cover.jpg   LUCAS2006_32881998_Cover.jpg
+   LUCAS2006_33242092_Cover.jpg   LUCAS2006_33342220_Cover.jpg   LUCAS2006_33542064_Cover.jpg
+   LUCAS2006_33642042_Cover.jpg   LUCAS2006_33702076_Cover.jpg   LUCAS2006_34142754_Cover.jpg
+   LUCAS2006_34662678_Cover.jpg   LUCAS2006_34722784_Cover.jpg   LUCAS2006_34942610_Cover.jpg
+   LUCAS2006_35162698_Cover.jpg   LUCAS2006_35202144_Cover.jpg   LUCAS2006_35322354_Cover.jpg
+[B14] 1151 files; first 30:
+   LUCAS2006_28441748_Cover.jpg   LUCAS2006_28961628_Cover.jpg   LUCAS2006_28981840_Cover.jpg
+   LUCAS2006_29102082_Cover.jpg   LUCAS2006_29522116_Cover.jpg   LUCAS2006_29762162_Cover.jpg
+   LUCAS2006_29942258_Cover.jpg   LUCAS2006_30002260_Cover.jpg   LUCAS2006_30322152_Cover.jpg
+   LUCAS2006_30342124_Cover.jpg   LUCAS2006_30342126_Cover.jpg   LUCAS2006_30521982_Cover.jpg
+   LUCAS2006_30782290_Cover.jpg   LUCAS2006_30921958_Cover.jpg   LUCAS2006_30981956_Cover.jpg
+   LUCAS2006_31002286_Cover.jpg   LUCAS2006_31182282_Cover.jpg   LUCAS2006_31202284_Cover.jpg
+   LUCAS2006_31202288_Cover.jpg   LUCAS2006_31422118_Cover.jpg   LUCAS2006_31442136_Cover.jpg
+   LUCAS2006_31642148_Cover.jpg   LUCAS2006_31742262_Cover.jpg   LUCAS2006_31902274_Cover.jpg
+   LUCAS2006_32641874_Cover.jpg   LUCAS2006_33322068_Cover.jpg   LUCAS2006_33402192_Cover.jpg
+   LUCAS2006_33442914_Cover.jpg   LUCAS2006_33582064_Cover.jpg   LUCAS2006_33602062_Cover.jpg
+[B15] 1032 files; first 30:
+   LUCAS2006_28401850_Cover.jpg   LUCAS2006_28661886_Cover.jpg   LUCAS2006_28861618_Cover.jpg
+   LUCAS2006_29041902_Cover.jpg   LUCAS2006_29721672_Cover.jpg   LUCAS2006_30161874_Cover.jpg
+   LUCAS2006_30162080_Cover.jpg   LUCAS2006_30221682_Cover.jpg   LUCAS2006_30261916_Cover.jpg
+   LUCAS2006_30461980_Cover.jpg   LUCAS2006_30502134_Cover.jpg   LUCAS2006_30601928_Cover.jpg
+   LUCAS2006_30601972_Cover.jpg   LUCAS2006_30902002_Cover.jpg   LUCAS2006_30921870_Cover.jpg
+   LUCAS2006_30962000_Cover.jpg   LUCAS2006_31081900_Cover.jpg   LUCAS2006_31281824_Cover.jpg
+   LUCAS2006_31361828_Cover.jpg   LUCAS2006_32321866_Cover.jpg   LUCAS2006_32841756_Cover.jpg
+   LUCAS2006_32902896_Cover.jpg   LUCAS2006_33041746_Cover.jpg   LUCAS2006_33381766_Cover.jpg
+   LUCAS2006_34082074_Cover.jpg   LUCAS2006_34302080_Cover.jpg   LUCAS2006_34581952_Cover.jpg
+   LUCAS2006_35162324_Cover.jpg   LUCAS2006_35542116_Cover.jpg   LUCAS2006_35922426_Cover.jpg
+[B16] 1393 files; first 30:
+   LUCAS2006_29281758_Cover.jpg   LUCAS2006_29481756_Cover.jpg   LUCAS2006_34442104_Cover.jpg
+   LUCAS2006_34782102_Cover.jpg   LUCAS2006_39623158_Cover.jpg   LUCAS2006_39883170_Cover.jpg
+   LUCAS2006_40083190_Cover.jpg   LUCAS2006_40103196_Cover.jpg   LUCAS2006_40803250_Cover.jpg
+   LUCAS2006_41103364_Cover.jpg   LUCAS2006_41502480_Cover.jpg   LUCAS2006_42742484_Cover.jpg
+   LUCAS2006_44422444_Cover.jpg   LUCAS2006_44422446_Cover.jpg   LUCAS2006_44782472_Cover.jpg
+   LUCAS2006_44822486_Cover.jpg   LUCAS2006_44862146_Cover.jpg   LUCAS2006_48162634_Cover.jpg
+   LUCAS2006_49722634_Cover.jpg   LUCAS2009_27482038_Cover.jpg   LUCAS2009_27742226_Cover.jpg
+   LUCAS2009_27802206_Cover.jpg   LUCAS2009_27822228_Cover.jpg   LUCAS2009_28042144_Cover.jpg
+   LUCAS2009_28182138_Cover.jpg   LUCAS2009_29241756_Cover.jpg   LUCAS2009_30342234_Cover.jpg
+   LUCAS2009_32423108_Cover.jpg   LUCAS2009_32863152_Cover.jpg   LUCAS2009_33142862_Cover.jpg
+[B21] 1222 files; first 30:
+   LUCAS2006_28661684_Cover.jpg   LUCAS2006_28881658_Cover.jpg   LUCAS2006_29021656_Cover.jpg
+   LUCAS2006_29021734_Cover.jpg   LUCAS2006_29941766_Cover.jpg   LUCAS2006_30901684_Cover.jpg
+   LUCAS2006_30941776_Cover.jpg   LUCAS2006_30961684_Cover.jpg   LUCAS2006_30981772_Cover.jpg
+   LUCAS2006_31002378_Cover.jpg   LUCAS2006_31022182_Cover.jpg   LUCAS2006_31221678_Cover.jpg
+   LUCAS2006_31342122_Cover.jpg   LUCAS2006_31682008_Cover.jpg   LUCAS2006_32181760_Cover.jpg
+   LUCAS2006_32782928_Cover.jpg   LUCAS2006_32922910_Cover.jpg   LUCAS2006_33581694_Cover.jpg
+   LUCAS2006_34362106_Cover.jpg   LUCAS2006_34402064_Cover.jpg   LUCAS2006_34782070_Cover.jpg
+   LUCAS2006_35502418_Cover.jpg   LUCAS2006_35562098_Cover.jpg   LUCAS2006_37262782_Cover.jpg
+   LUCAS2006_37503032_Cover.jpg   LUCAS2006_37543002_Cover.jpg   LUCAS2006_37603036_Cover.jpg
+   LUCAS2006_37782910_Cover.jpg   LUCAS2006_37783024_Cover.jpg   LUCAS2006_37822968_Cover.jpg
+[B22] 1067 files; first 30:
+   LUCAS2006_28621676_Cover.jpg   LUCAS2006_28661666_Cover.jpg   LUCAS2006_28801616_Cover.jpg
+   LUCAS2006_28801658_Cover.jpg   LUCAS2006_28821686_Cover.jpg   LUCAS2006_28841660_Cover.jpg
+   LUCAS2006_28841688_Cover.jpg   LUCAS2006_28881694_Cover.jpg   LUCAS2006_28901686_Cover.jpg
+   LUCAS2006_28901692_Cover.jpg   LUCAS2006_28901694_Cover.jpg   LUCAS2006_28901698_Cover.jpg
+   LUCAS2006_28921702_Cover.jpg   LUCAS2006_28941694_Cover.jpg   LUCAS2006_28941698_Cover.jpg
+   LUCAS2006_29021712_Cover.jpg   LUCAS2006_29061692_Cover.jpg   LUCAS2006_29061710_Cover.jpg
+   LUCAS2006_29081694_Cover.jpg   LUCAS2006_29121708_Cover.jpg   LUCAS2006_29201674_Cover.jpg
+   LUCAS2006_29261674_Cover.jpg   LUCAS2006_29661724_Cover.jpg   LUCAS2006_29961732_Cover.jpg
+   LUCAS2006_30001738_Cover.jpg   LUCAS2006_30101728_Cover.jpg   LUCAS2006_30302132_Cover.jpg
+   LUCAS2006_38042978_Cover.jpg   LUCAS2006_38463118_Cover.jpg   LUCAS2006_39323060_Cover.jpg
+[B31] 596 files; first 30:
+   LUCAS2006_28941662_Cover.jpg   LUCAS2006_29181686_Cover.jpg   LUCAS2006_29501704_Cover.jpg
+   LUCAS2006_30481754_Cover.jpg   LUCAS2009_27641832_Cover.jpg   LUCAS2009_28421754_Cover.jpg
+   LUCAS2009_28481750_Cover.jpg   LUCAS2009_28961668_Cover.jpg   LUCAS2009_29001758_Cover.jpg
+   LUCAS2009_29361704_Cover.jpg   LUCAS2009_29381732_Cover.jpg   LUCAS2009_29681736_Cover.jpg
+   LUCAS2009_29761736_Cover.jpg   LUCAS2009_29941744_Cover.jpg   LUCAS2009_29981742_Cover.jpg
+   LUCAS2009_30001692_Cover.jpg   LUCAS2009_30101756_Cover.jpg   LUCAS2009_35442438_Cover.jpg
+   LUCAS2009_35522424_Cover.jpg   LUCAS2009_35562414_Cover.jpg   LUCAS2009_35562634_Cover.jpg
+   LUCAS2009_35622564_Cover.jpg   LUCAS2009_35842442_Cover.jpg   LUCAS2009_35882420_Cover.jpg
+   LUCAS2009_35922382_Cover.jpg   LUCAS2009_36122362_Cover.jpg   LUCAS2009_36162384_Cover.jpg
+   LUCAS2009_36242392_Cover.jpg   LUCAS2009_36302686_Cover.jpg   LUCAS2009_36442728_Cover.jpg
+[B32] 2163 files; first 30:
+   LUCAS2006_33182140_Cover.jpg   LUCAS2006_34122882_Cover.jpg   LUCAS2006_34682622_Cover.jpg
+   LUCAS2006_34882860_Cover.jpg   LUCAS2006_35162626_Cover.jpg   LUCAS2006_35282584_Cover.jpg
+   LUCAS2006_35282642_Cover.jpg   LUCAS2006_35562966_Cover.jpg   LUCAS2006_35602662_Cover.jpg
+   LUCAS2006_36622682_Cover.jpg   LUCAS2006_36622746_Cover.jpg   LUCAS2006_36642692_Cover.jpg
+   LUCAS2006_36722126_Cover.jpg   LUCAS2006_36822134_Cover.jpg   LUCAS2006_36822872_Cover.jpg
+   LUCAS2006_37102680_Cover.jpg   LUCAS2006_37102888_Cover.jpg   LUCAS2006_37142920_Cover.jpg
+   LUCAS2006_37162702_Cover.jpg   LUCAS2006_37403008_Cover.jpg   LUCAS2006_37503000_Cover.jpg
+   LUCAS2006_37602676_Cover.jpg   LUCAS2006_37602700_Cover.jpg   LUCAS2006_37602708_Cover.jpg
+   LUCAS2006_37622678_Cover.jpg   LUCAS2006_37782708_Cover.jpg   LUCAS2006_37862928_Cover.jpg
+   LUCAS2006_37902692_Cover.jpg   LUCAS2006_37902808_Cover.jpg   LUCAS2006_38022916_Cover.jpg
+[B33] 897 files; first 30:
+   LUCAS2006_35842316_Cover.jpg   LUCAS2006_35862324_Cover.jpg   LUCAS2006_35882334_Cover.jpg
+   LUCAS2006_35942304_Cover.jpg   LUCAS2006_35942340_Cover.jpg   LUCAS2006_36042326_Cover.jpg
+   LUCAS2006_36162280_Cover.jpg   LUCAS2006_36322292_Cover.jpg   LUCAS2006_36482290_Cover.jpg
+   LUCAS2006_39502872_Cover.jpg   LUCAS2006_39642696_Cover.jpg   LUCAS2006_41462416_Cover.jpg
+   LUCAS2006_42262426_Cover.jpg   LUCAS2006_42422506_Cover.jpg   LUCAS2006_42542468_Cover.jpg
+   LUCAS2006_42902442_Cover.jpg   LUCAS2006_43182474_Cover.jpg   LUCAS2006_43962448_Cover.jpg
+   LUCAS2006_44002448_Cover.jpg   LUCAS2006_44022444_Cover.jpg   LUCAS2006_44162406_Cover.jpg
+   LUCAS2006_44162442_Cover.jpg   LUCAS2006_44202424_Cover.jpg   LUCAS2006_44202442_Cover.jpg
+   LUCAS2006_44202444_Cover.jpg   LUCAS2006_44222430_Cover.jpg   LUCAS2006_44242426_Cover.jpg
+   LUCAS2006_44242446_Cover.jpg   LUCAS2006_44262442_Cover.jpg   LUCAS2006_44262448_Cover.jpg
+[B55] 1901 files; first 30:
+   LUCAS2009_26681804_Cover.jpg   LUCAS2009_27701952_Cover.jpg   LUCAS2009_27842146_Cover.jpg
+   LUCAS2009_27842160_Cover.jpg   LUCAS2009_27941882_Cover.jpg   LUCAS2009_28002238_Cover.jpg
+   LUCAS2009_28021882_Cover.jpg   LUCAS2009_28022128_Cover.jpg   LUCAS2009_28022278_Cover.jpg
+   LUCAS2009_28041960_Cover.jpg   LUCAS2009_28261864_Cover.jpg   LUCAS2009_28262386_Cover.jpg
+   LUCAS2009_28782366_Cover.jpg   LUCAS2009_28862406_Cover.jpg   LUCAS2009_28862424_Cover.jpg
+   LUCAS2009_28902342_Cover.jpg   LUCAS2009_28922362_Cover.jpg   LUCAS2009_28982368_Cover.jpg
+   LUCAS2009_29022398_Cover.jpg   LUCAS2009_29042352_Cover.jpg   LUCAS2009_29102350_Cover.jpg
+   LUCAS2009_29102386_Cover.jpg   LUCAS2009_29142402_Cover.jpg   LUCAS2009_29182366_Cover.jpg
+   LUCAS2009_29222204_Cover.jpg   LUCAS2009_29222388_Cover.jpg   LUCAS2009_29282394_Cover.jpg
+   LUCAS2009_29282404_Cover.jpg   LUCAS2009_31042164_Cover.jpg   LUCAS2009_31682318_Cover.jpg
+Group id regex '^LUCAS\\d{4}_(\\d+)_[A-Za-z0-9]+\\.jpg$' matched 15876/15876 file names (100.00 %).
+Image cache found: outputs_stageB/cache/images_192.npy (15876 images)
+Hygiene: {'images_ok': 15876, 'duplicate_clusters': 16, 'images_in_duplicate_clusters': 47, 'duplicate_clusters_with_conflicting_labels': 8, 'near_duplicate_check': True, 'groups_before': 14760, 'groups_after': 14729}
+Splits loaded from outputs_stageB/splits.csv
+PASS: zero group / survey-point overlap across train, val and test.
+Training images per class: {'B11': 1464, 'B12': 337, 'B13': 1313, 'B14': 807, 'B15': 722, 'B16': 978, 'B21': 861, 'B22': 748, 'B31': 419, 'B32': 1511, 'B33': 623, 'B55': 1332}
+Label draws loaded from outputs_stageB/label_draws.json; skipped regimes: none
+Split is grouped by `group_final` (survey point + duplicate merges): 14729 groups; max group size 9; median 1; 13.9 % of images are in groups of size > 1; groups spanning splits: 0
+Survey points: 14760 | appearing more than once: 1053 | spanning several years: 1053 | max images per point: 4 | groups with more than one crop label (rotation): 851
+
+12 classes | train 11115 | val 2380 | test 2381 | chance = 8.3%
+Label regimes (draws): {'1shot': 5, '5shot': 5, '10shot': 5, '25shot': 5, '50shot': 5, '100shot': 5, '10pct': 5, '100pct': 1}
+Images per class and split:
+split                 crop  train  val  test  total
+label                                              
+B11           Common wheat   1464  319   313   2096
+B12            Durum wheat    337   75    73    485
+B13                 Barley   1313  273   287   1873
+B14                    Rye    807  174   170   1151
+B15                   Oats    722  149   161   1032
+B16                  Maize    978  209   206   1393
+B21               Potatoes    861  188   173   1222
+B22             Sugar beet    748  156   163   1067
+B31              Sunflower    419   84    93    596
+B32               Rapeseed   1511  328   324   2163
+B33                   Soya    623  140   134    897
+B55    Temporary grassland   1332  285   284   1901
+Test set: 2381 images (Stage A had 180), per class: {'B11': 313, 'B12': 73, 'B13': 287, 'B14': 170, 'B15': 161, 'B16': 206, 'B21': 173, 'B22': 163, 'B31': 93, 'B32': 324, 'B33': 134, 'B55': 284}
+Gate -1 data checks passed (the ExG-position analysis follows).
+ExG vs row: Pearson +0.61, Spearman +0.46 | vs column: Pearson -0.03, Spearman -0.05
+Share of ExG variance explained by patch position: raw 1.1 % | within image 3.8 % | z-scored 3.9 %
+Gate -1: PASS
+Image cache: (15876, 192, 192, 3), 1.64 GiB vs 35 % of 251.0 GiB RAM = 87.86 GiB -> loaded into RAM
+Encoder parameters: 5.49 M | predictor: 0.84 M
+Position prior (target) loaded: 7 block sizes, hash b41633a1dd62
+Mask-generator unit tests:
+  [PASS] ijepa: shapes and index ranges ctx (128, 32), targets [(128, 20), (128, 20), (128, 12), (128, 20)]
+  [PASS] ijepa: context indices sorted and unique 
+  [PASS] ijepa: no context/target overlap (rows with overlap 0, degenerate all-token fallbacks 0)
+  [PASS] ijepa: deterministic for a fixed seed 
+  [PASS] veg_pos: shapes and index ranges ctx (128, 32), targets [(128, 20), (128, 20), (128, 12), (128, 20)]
+  [PASS] veg_pos: context indices sorted and unique 
+  [PASS] veg_pos: no context/target overlap (rows with overlap 0, degenerate all-token fallbacks 0)
+  [PASS] veg_pos: deterministic for a fixed seed 
+  [PASS] veg_neg: shapes and index ranges ctx (128, 28), targets [(128, 20), (128, 20), (128, 12), (128, 20)]
+  [PASS] veg_neg: context indices sorted and unique 
+  [PASS] veg_neg: no context/target overlap (rows with overlap 0, degenerate all-token fallbacks 0)
+  [PASS] veg_neg: deterministic for a fixed seed 
+  [PASS] pos_matched: shapes and index ranges ctx (128, 28), targets [(128, 20), (128, 20), (128, 12), (128, 20)]
+  [PASS] pos_matched: context indices sorted and unique 
+  [PASS] pos_matched: no context/target overlap (rows with overlap 0, degenerate all-token fallbacks 0)
+  [PASS] pos_matched: deterministic for a fixed seed 
+  [PASS] attn: shapes and index ranges ctx (128, 35), targets [(128, 20), (128, 20), (128, 12), (128, 20)]
+  [PASS] attn: context indices sorted and unique 
+  [PASS] attn: no context/target overlap (rows with overlap 0, degenerate all-token fallbacks 0)
+  [PASS] attn: deterministic for a fixed seed 
+  [PASS] placement probabilities sum to 1 (veg_pos and veg_neg) (max |sum-1| = 2.38e-07)
+  [PASS] pos_matched prior maps sum to 1 (max |sum-1| = 1.11e-16)
+  [PASS] prior covers every block size drawn in 20,000 samples (missing [])
+
+pos_matched acceptance check (200 training batches, same crops for every arm):
+               source          arm  batches  tgt_exg  tgt_exg_z  ctx_exg  all_exg  ctx_tokens  tgt_tokens  kl_centres_vs_veg_pos
+0  pre-training check        ijepa      200   0.2437     0.0277   0.2370   0.2399      28.520       70.72                 0.0485
+1  pre-training check      veg_pos      200   0.2744     0.4243   0.2163   0.2399      31.625       70.72                 0.0000
+2  pre-training check      veg_neg      200   0.2101    -0.3819   0.2615   0.2399      30.920       70.72                 0.0526
+3  pre-training check  pos_matched      200   0.2437     0.0348   0.2369   0.2399      27.180       70.72                 0.0006
+KL(centres veg_pos || pos_matched) = 0.0006 (should be ~0; threshold 0.01) | for reference KL(veg_pos || ijepa) = 0.0485
+Mean z-scored ExG under the targets: ijepa +0.028, veg_pos +0.424, veg_neg -0.382, pos_matched +0.035  (expected order veg_pos > ijepa > veg_neg: OK)
+pos_matched recovers 2 % of veg_pos's target-greenness gain over ijepa through position alone (0 % = position carries no greenness; 100 % = position and greenness are collinear).
+All hard mask-generator unit tests passed.
+Re-using the benchmark from 2026-10-27T15:25:37.790260 (set RUN_MODE = 'benchmark' to re-measure).
+Batch 128 | 3020 img/s (short benchmark; long runs are usually faster) | peak GPU memory 1.34 GB of 47.4 GB | evaluation forward 2578 img/s
+FLOPs per training image: 3.8 G | predictor share 32%
+Core run: 86 steps/epoch x 105 epochs = 9030 steps | pilot: 303 epochs = 26058 steps | evaluation ≈ 0.1 min per run (probe part is a rough estimate)
+                                         item  runs  hours_each                                    note  hours_total
+0                 Gate 0 pilot (ijepa seed 0)   1.0        0.32                 26058 steps, 303 epochs         0.32
+1                core SSL runs (arms x seeds)  24.0        0.12                  9030 steps, 105 epochs         2.87
+2                     random_init evaluations   6.0        0.00                         evaluation only         0.01
+3              supervised baseline (per seed)   6.0        0.12       100 epochs on ['10pct', '100pct']         0.71
+4                            Tier 2: attn arm   3.0        0.12                      if ENABLE_ATTN_ARM         0.36
+5                           Tier 2: tau sweep   6.0        0.12                     if ENABLE_TAU_SWEEP         0.72
+6                           Tier 2: size axis  12.0        0.12                     if ENABLE_SIZE_AXIS         1.49
+7  Tier 2: LeJEPA arms [UNMEASURED: x3 guess]  12.0        0.36  measured in section 15d before it runs         4.30
+Projected: Gate 0 ≈ 0.3 h | core grid incl. baselines on this shard ≈ 3.6 h | Tier 2 (only the sections you enable) up to ≈ 6.9 h
+Gate 0 (from outputs_stageB/stats/gate_G0.json): PASS
+[1/36] ijepa_s0: done, skipping
+[2/36] veg_pos_s0: done, skipping
+[3/36] veg_neg_s0: done, skipping
+[4/36] pos_matched_s0: done, skipping
+[5/36] random_init_s0: done, skipping
+[6/36] supervised_s0: done, skipping
+[7/36] ijepa_s1: done, skipping
+[8/36] veg_pos_s1: done, skipping
+[9/36] veg_neg_s1: done, skipping
+[10/36] pos_matched_s1: done, skipping
+[11/36] random_init_s1: done, skipping
+[12/36] supervised_s1: done, skipping
+[13/36] ijepa_s2: done, skipping
+[14/36] veg_pos_s2: done, skipping
+[15/36] veg_neg_s2: done, skipping
+[16/36] pos_matched_s2: done, skipping
+[17/36] random_init_s2: done, skipping
+[18/36] supervised_s2: done, skipping
+[19/36] ijepa_s3: done, skipping
+[20/36] veg_pos_s3: done, skipping
+[21/36] veg_neg_s3: done, skipping
+[22/36] pos_matched_s3: done, skipping
+[23/36] random_init_s3: done, skipping
+[24/36] supervised_s3: done, skipping
+[25/36] ijepa_s4: done, skipping
+[26/36] veg_pos_s4: done, skipping
+[27/36] veg_neg_s4: done, skipping
+[28/36] pos_matched_s4: done, skipping
+[29/36] random_init_s4: done, skipping
+[30/36] supervised_s4: done, skipping
+[31/36] ijepa_s5: done, skipping
+[32/36] veg_pos_s5: done, skipping
+[33/36] veg_neg_s5: done, skipping
+[34/36] pos_matched_s5: done, skipping
+[35/36] random_init_s5: done, skipping
+[36/36] supervised_s5: done, skipping
+Core grid: queue pass finished in 0.0 min
+Pairing check: 30 runs compared — same seed => identical initial weights, image order and first-batch crops.
+Tier 2 attn / tau sweep / size axis: all switched off (see the Quick configuration).
+Tier 2 SIGReg / LeJEPA: not run (ENABLE_LEJEPA = False).
+DINOv2 reference: not run (add "dinov2" to BASELINES in full mode; it needs internet access).
+Finished runs: {'ijepa': 6, 'pilot_ijepa': 1, 'pos_matched': 6, 'random_init': 6, 'supervised': 6, 'veg_neg': 6, 'veg_pos': 6}
+Primary endpoint = mean over ['10shot', '25shot', '10pct'] of the mean over label draws; cells: mean ± sd over SEEDS (n = seeds).
+
+Test macro-F1 (%), linear probe — core arms and baselines
+regime                  1shot             5shot            10shot            25shot            50shot           100shot             10pct            100pct  PRIMARY ENDPOINT
+label                                                                                                                                                                        
+ijepa        18.6 ± 0.7 (n=6)  32.3 ± 0.8 (n=6)  38.5 ± 0.6 (n=6)  44.3 ± 0.6 (n=6)  48.8 ± 0.7 (n=6)  50.4 ± 0.7 (n=6)  51.1 ± 0.6 (n=6)  58.1 ± 0.9 (n=6)  44.6 ± 0.6 (n=6)
+veg_pos      18.6 ± 0.8 (n=6)  32.8 ± 1.2 (n=6)  39.2 ± 1.0 (n=6)  45.5 ± 1.0 (n=6)  49.4 ± 1.0 (n=6)  51.8 ± 0.9 (n=6)  51.8 ± 1.0 (n=6)  58.7 ± 1.4 (n=6)  45.5 ± 1.0 (n=6)
+veg_neg      16.7 ± 0.7 (n=6)  30.9 ± 0.9 (n=6)  35.0 ± 0.6 (n=6)  41.4 ± 0.9 (n=6)  45.6 ± 0.8 (n=6)  47.4 ± 0.7 (n=6)  48.2 ± 0.7 (n=6)  55.8 ± 1.4 (n=6)  41.5 ± 0.6 (n=6)
+pos_matched  18.3 ± 0.6 (n=6)  32.5 ± 0.6 (n=6)  38.3 ± 0.2 (n=6)  44.2 ± 0.6 (n=6)  48.5 ± 0.4 (n=6)  50.6 ± 0.6 (n=6)  50.9 ± 0.6 (n=6)  57.7 ± 0.6 (n=6)  44.5 ± 0.4 (n=6)
+random_init  11.0 ± 0.2 (n=6)  16.6 ± 0.3 (n=6)  17.9 ± 0.2 (n=6)  20.4 ± 0.4 (n=6)  22.1 ± 0.2 (n=6)  22.7 ± 0.6 (n=6)  22.9 ± 0.2 (n=6)  29.9 ± 0.9 (n=6)  20.4 ± 0.2 (n=6)
+
+Test macro-F1 (%), k-NN — core arms and baselines
+regime                  1shot             5shot            10shot            25shot            50shot           100shot             10pct            100pct  PRIMARY ENDPOINT
+label                                                                                                                                                                        
+ijepa        17.7 ± 0.5 (n=6)  29.4 ± 0.9 (n=6)  34.6 ± 1.2 (n=6)  38.1 ± 1.0 (n=6)  42.7 ± 0.6 (n=6)  44.8 ± 0.7 (n=6)  45.5 ± 0.4 (n=6)  52.6 ± 0.7 (n=6)  39.4 ± 0.8 (n=6)
+veg_pos      17.2 ± 0.7 (n=6)  28.8 ± 1.2 (n=6)  34.4 ± 1.2 (n=6)  38.6 ± 1.4 (n=6)  42.7 ± 1.6 (n=6)  44.9 ± 1.6 (n=6)  45.8 ± 1.3 (n=6)  53.7 ± 1.3 (n=6)  39.6 ± 1.3 (n=6)
+veg_neg      16.2 ± 0.7 (n=6)  27.6 ± 0.4 (n=6)  31.3 ± 0.5 (n=6)  35.5 ± 0.5 (n=6)  39.7 ± 0.8 (n=6)  41.6 ± 0.6 (n=6)  42.8 ± 0.7 (n=6)  50.4 ± 1.0 (n=6)  36.5 ± 0.5 (n=6)
+pos_matched  17.5 ± 0.5 (n=6)  29.1 ± 0.8 (n=6)  34.3 ± 0.8 (n=6)  38.1 ± 1.1 (n=6)  42.6 ± 0.9 (n=6)  44.6 ± 1.0 (n=6)  45.5 ± 0.7 (n=6)  52.4 ± 0.7 (n=6)  39.3 ± 0.7 (n=6)
+random_init   9.6 ± 0.1 (n=6)  12.4 ± 0.2 (n=6)  13.4 ± 0.1 (n=6)  14.3 ± 0.2 (n=6)  15.9 ± 0.1 (n=6)  16.1 ± 0.3 (n=6)  16.0 ± 0.2 (n=6)  19.8 ± 0.7 (n=6)  14.6 ± 0.1 (n=6)
+
+Supervised ViT-Tiny from scratch (draw 0) — UPPER REFERENCE, NOT MATCHED (all weights trained with labels, augmentation, epoch chosen on validation):
+        macro_f1_mean  macro_f1_sd  seeds  best_val_epoch_mean  val_macro_f1_mean
+regime                                                                           
+100pct           74.2          0.6      6                 90.0               75.1
+10pct            55.0          0.9      6                 94.2               54.3
+
+Gate-0 pilot — linear probe macro-F1 (%)
+regime                  1shot             5shot            10shot            25shot            50shot           100shot             10pct            100pct  PRIMARY ENDPOINT
+label                                                                                                                                                                        
+pilot_ijepa  22.0 ± 0.0 (n=1)  36.4 ± 0.0 (n=1)  43.5 ± 0.0 (n=1)  49.4 ± 0.0 (n=1)  54.1 ± 0.0 (n=1)  56.4 ± 0.0 (n=1)  56.2 ± 0.0 (n=1)  64.1 ± 0.0 (n=1)  49.7 ± 0.0 (n=1)
+
+Logistic-regression convergence warnings across all runs: 0 (max_iter = 2000)
+
+Mean tokens per image (context differs across arms when targets overlap more or less; CTX_TOKENS_CAP equalises it):
+             ctx_tokens  tgt_tokens  ctx_tokens_min_epoch
+label                                                    
+ijepa              28.2        70.9                  26.1
+veg_pos            31.1        70.9                  28.9
+veg_neg            30.6        70.9                  28.4
+pos_matched        27.0        70.9                  24.7
+Manipulation check — mean ExG under the target blocks (z = relative to the image's own patches):
+                                       source          arm  tgt_exg  tgt_exg_z  ctx_exg  all_exg  batches  ctx_tokens  tgt_tokens  kl_centres_vs_veg_pos
+0  training logs (mean over epochs and seeds)        ijepa   0.2435     0.0282   0.2367   0.2397      NaN         NaN         NaN                    NaN
+1  training logs (mean over epochs and seeds)      veg_pos   0.2742     0.4240   0.2159   0.2397      NaN         NaN         NaN                    NaN
+2  training logs (mean over epochs and seeds)      veg_neg   0.2099    -0.3831   0.2614   0.2397      NaN         NaN         NaN                    NaN
+3  training logs (mean over epochs and seeds)  pos_matched   0.2437     0.0348   0.2364   0.2397      NaN         NaN         NaN                    NaN
+4                          pre-training check        ijepa   0.2437     0.0277   0.2370   0.2399    200.0      28.520       70.72                 0.0485
+5                          pre-training check      veg_pos   0.2744     0.4243   0.2163   0.2399    200.0      31.625       70.72                 0.0000
+6                          pre-training check      veg_neg   0.2101    -0.3819   0.2615   0.2399    200.0      30.920       70.72                 0.0526
+7                          pre-training check  pos_matched   0.2437     0.0348   0.2369   0.2399    200.0      27.180       70.72                 0.0006
+Exact Wilcoxon implementation agrees with scipy on a tie-free example.
+Hierarchical bootstrap (B = 2000) for the core arms + random_init:
+  bootstrap probe: 5 arms x 8 regimes x 6 seeds, B = 2000, 25s
+  bootstrap knn: 5 arms x 8 regimes x 6 seeds, B = 2000, 25s
+
+PRIMARY ANALYSIS (pre-registered): linear-probe macro-F1 averaged over ['10shot', '25shot', '10pct'], unit = seed, Holm over 3 comparisons, test = exact Wilcoxon (greater), alpha = 0.05, equivalence margin ±1.5 pp (90% CI)
+              comparison  diff_pp  ci95_lo_pp  ci95_hi_pp  ci90_lo_pp  ci90_hi_pp  n_seeds  seeds_a_better  wilcoxon_p_greater  wilcoxon_p_two_sided  holm_p  perm_p_two_sided               status
+0        veg_pos - ijepa   0.8934     -0.0078      1.9031      0.1099      1.7319        6               5              0.0312                0.0625  0.0625            0.0625         inconclusive
+1  veg_pos - pos_matched   1.0273     -0.0056      2.0048      0.1411      1.8551        6               4              0.0781                0.1562  0.0781            0.1250         inconclusive
+2      veg_pos - veg_neg   3.9660      2.9557      4.8503      3.1462      4.7124        6               6              0.0156                0.0312  0.0469            0.0312  greater (confirmed)
+
+Exploratory, primary endpoint (no claims):
+     eval                 comparison  diff_pp  ci95_lo_pp  ci95_hi_pp  ci90_lo_pp  ci90_hi_pp  n_seeds  seeds_a_better  wilcoxon_p_greater  wilcoxon_p_two_sided                        status
+3   probe            veg_neg - ijepa   -3.073      -3.789      -2.321      -3.658      -2.439        6               0               1.000                 0.031                    CI below 0
+4   probe        pos_matched - ijepa   -0.134      -0.886       0.594      -0.743       0.506        6               3               0.578                 1.000  CI includes 0, within margin
+5   probe        ijepa - random_init   24.237      22.908      25.455      23.142      25.262        6               6               0.016                 0.031                    CI above 0
+6   probe      veg_pos - random_init   25.131      23.791      26.474      23.958      26.249        6               6               0.016                 0.031                    CI above 0
+7   probe      veg_neg - random_init   21.165      19.918      22.369      20.107      22.201        6               6               0.016                 0.031                    CI above 0
+8   probe  pos_matched - random_init   24.103      22.879      25.206      23.091      25.074        6               6               0.016                 0.031                    CI above 0
+49    knn            veg_pos - ijepa    0.195      -0.958       1.468      -0.760       1.269        6               3               0.500                 1.000  CI includes 0, within margin
+50    knn      veg_pos - pos_matched    0.264      -1.002       1.426      -0.756       1.239        6               4               0.344                 0.688  CI includes 0, within margin
+51    knn          veg_pos - veg_neg    3.054       1.976       4.142       2.161       3.961        6               6               0.016                 0.031                    CI above 0
+52    knn            veg_neg - ijepa   -2.859      -3.843      -1.957      -3.682      -2.067        6               0               1.000                 0.031                    CI below 0
+53    knn        pos_matched - ijepa   -0.068      -1.015       0.826      -0.883       0.694        6               3               0.422                 0.844  CI includes 0, within margin
+54    knn        ijepa - random_init   24.786      23.584      26.024      23.741      25.769        6               6               0.016                 0.031                    CI above 0
+55    knn      veg_pos - random_init   24.981      23.556      26.438      23.760      26.202        6               6               0.016                 0.031                    CI above 0
+56    knn      veg_neg - random_init   21.927      20.782      23.032      20.925      22.874        6               6               0.016                 0.031                    CI above 0
+57    knn  pos_matched - random_init   24.717      23.479      25.911      23.666      25.700        6               6               0.016                 0.031                    CI above 0
+
+98 confidence intervals were computed in total (3 confirmatory). At 95 % about 4.9 of them are expected to exclude zero by chance alone when there is no effect; 46 do.
+
+====================================================================================================
+INTERPRETATION (pre-registered table, row 5): No row of the pre-registered table applies cleanly (mixed / inconclusive). veg_pos - ijepa: inconclusive (+0.89 pp, 95% CI [-0.01, +1.90]); veg_pos - pos_matched: inconclusive (+1.03 pp, 95% CI [-0.01, +2.00]); veg_pos - veg_neg: greater (confirmed) (+3.97 pp, 95% CI [+2.96, +4.85])
+====================================================================================================
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers). Got range [0.0005001958..1.0000001].
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers). Got range [0.0005001958..1.0000001].
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers). Got range [0.0005001958..1.0000001].
+Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers). Got range [0.0005001958..1.0000001].
+Figures saved to /home/vishalraina23/crop_jepa_cluster/outputs_stageB/figures : ['confusion_best.png', 'exg_position_heatmap.png', 'feature_spectrum.png', 'gate0_curves.png', 'label_efficiency_knn.png', 'label_efficiency_probe.png', 'manipulation_check.png', 'per_class_delta.png', 'primary_endpoint_forest.png', 'seed_level_dots.png', 'training_curves.png']
+Paper tables: ['exploratory_comparisons.csv', 'exploratory_comparisons.tex', 'main_results_knn.csv', 'main_results_knn.tex', 'main_results_probe.csv', 'main_results_probe.tex', 'manipulation_check.csv', 'manipulation_check.tex', 'primary_comparisons.csv', 'primary_comparisons.tex', 'token_budget.csv', 'token_budget.tex']
+Bundle: outputs_stageB/results_bundle.zip (13.0 MB) | finished runs in this folder: 37
+Session time used: 0.03 h | free disk: 12451.2 GiB

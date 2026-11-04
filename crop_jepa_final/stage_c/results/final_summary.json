@@ -1,0 +1,127 @@
+{
+  "created": "2026-11-04T02:48:20.669037",
+  "preregistration": "outputs_stageC/phase0/stats/preregistration_stageC.json",
+  "registration_link": "INTERNAL FREEZE - not externally registered (no OSF registration).\npre-registration ./outputs_stageC/phase0/stats/preregistration_stageC.json sha256 c6774dac49cc7f3d29036d4f7e4a8ec5f54ff4d9012adcaa6dee5b19ff539343, frozen 2026-11-02 21:04:23\nmain phases released 2026-11-02 21:04:24 by job 2146 after the Phase-0 sanity gate",
+  "core_decision": {
+    "primary": "P-B",
+    "polarity": "unresolved (see H3 / H4 rows)",
+    "spatial_prior": "E1 equivalent: a static spatial prior does not change representations",
+    "text": "veg_pos - ijepa 90% CI inside (-1.0, +1.0) pp (TOST, alpha 0.05) -> 'equivalent to uniform placement on average' | veg_pos - ijepa = -0.09 pp, 95% CI [-0.59, +0.47], Holm p = 0.8256, 8/20 seeds positive | unresolved (see H3 / H4 rows) | E1 equivalent: a static spatial prior does not change representations",
+    "primary_text": "veg_pos - ijepa 90% CI inside (-1.0, +1.0) pp (TOST, alpha 0.05) -> 'equivalent to uniform placement on average' | veg_pos - ijepa = -0.09 pp, 95% CI [-0.59, +0.47], Holm p = 0.8256, 8/20 seeds positive",
+    "moderation": "H5 not confirmed (high - low = -0.90 pp, 95% CI [-1.38, -0.36], p = 0.9979)"
+  },
+  "meta_analysis_R": {
+    "method": "DerSimonian-Laird random effects",
+    "settings": [
+      {
+        "setting": "core",
+        "n": 20,
+        "mean_pp": -0.08556817108895776,
+        "se_pp": 0.23160475846373793
+      },
+      {
+        "setting": "splitB",
+        "n": 10,
+        "mean_pp": -0.2023603214479009,
+        "se_pp": 0.3888500740867705
+      },
+      {
+        "setting": "vits",
+        "n": 10,
+        "mean_pp": -1.5405294419573623,
+        "se_pp": 0.3451556067587478
+      }
+    ],
+    "pooled_pp": -0.5968842363652649,
+    "ci95_pp": [
+      -1.5090629758614305,
+      0.3152945031309008
+    ],
+    "z": -1.2825261679767936,
+    "p_one_sided": 0.9001709343031048,
+    "tau2": 0.5443848695937807,
+    "Q": 12.848633915191705,
+    "I2": 0.8443414285751203
+  },
+  "bridge": {
+    "protocol": "Stage B (per-batch token equalisation, 9,030 steps)",
+    "stageC_bridge_seeds": [
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109
+    ],
+    "stageB_seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "n": 16,
+    "mean_pp": 0.5954042916122778,
+    "ci95_pp": [
+      0.1368703166608696,
+      1.0672805057131136
+    ],
+    "wilcoxon_p_greater": 0.0167694091796875,
+    "wilcoxon_p_two_sided": 0.033538818359375,
+    "seeds_positive": 12,
+    "note": "exploratory",
+    "length_and_cap_contrast": {
+      "description": "(veg_pos - ijepa at 26k steps, fixed token cap) - (same at 9k steps, Stage B protocol), paired by seed; confounds training length with the token protocol (exploratory)",
+      "n": 10,
+      "mean_pp": -0.3780789549169828,
+      "ci95_pp": [
+        -1.0916756157909124,
+        0.31869845412859343
+      ],
+      "wilcoxon_p_two_sided": 0.431640625
+    }
+  },
+  "split_overlap": {
+    "split_A_test": 2381,
+    "split_B_test": 2380,
+    "shared_test_images": 374,
+    "share_of_split_B_test_new": 0.8428571428571429
+  },
+  "references_core_pct": {
+    "attn|probe|100pct": 66.55,
+    "attn|probe|10pct": 58.53,
+    "dinov2|probe|100pct": 88.05,
+    "dinov2|probe|10pct": 86.15,
+    "ijepa|probe|100pct": 66.99,
+    "ijepa|probe|10pct": 58.8,
+    "neg_matched|probe|100pct": 66.95,
+    "neg_matched|probe|10pct": 58.75,
+    "pos_matched|probe|100pct": 66.74,
+    "pos_matched|probe|10pct": 58.39,
+    "random_init|probe|100pct": 29.2,
+    "random_init|probe|10pct": 22.4,
+    "veg_neg|probe|100pct": 66.61,
+    "veg_neg|probe|10pct": 58.48,
+    "veg_pos|probe|100pct": 66.88,
+    "veg_pos|probe|10pct": 58.85
+  },
+  "phases_missing": [],
+  "allowed_claims": [
+    "Vegetation-aware placement is equivalent to uniform placement on average (within \u00b11.0 pp).",
+    "Polarity mechanism: unresolved (see H3 / H4 rows).",
+    "A static spatial prior (pos_matched) is equivalent to uniform placement (replicates Stage B)."
+  ],
+  "forbidden_claims": [
+    "Never use 'significant' for exploratory rows.",
+    "Do not describe LUCAS photographs as aerial imagery (they are ground-level survey photos).",
+    "Do not claim SSL beats supervised training: supervised from scratch is an unmatched upper reference.",
+    "Do not claim ExG is the best vegetation index (only ExG was tested).",
+    "Do not claim a benefit of veg_pos over ijepa.",
+    "Do not claim the benefit depends on scene heterogeneity (H5 not confirmed)."
+  ]
+}

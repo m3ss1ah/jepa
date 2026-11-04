@@ -1,0 +1,5 @@
+label,ctx_tokens,tgt_tokens,ctx_tokens_min_epoch
+ijepa,28.2153,70.9284,26.0581
+veg_pos,31.145,70.9284,28.9419
+veg_neg,30.5679,70.9284,28.3721
+pos_matched,26.9936,70.9284,24.6512

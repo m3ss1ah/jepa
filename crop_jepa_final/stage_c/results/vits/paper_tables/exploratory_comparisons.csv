@@ -1,0 +1,6 @@
+index,eval,comparison,delta (pp),95% CI,n seeds,note
+1,probe,ijepa - random_init,33.907137050138466,"[+32.79, +35.02]",10,CI above 0
+2,probe,veg_pos - random_init,32.3666076081811,"[+31.29, +33.40]",10,CI above 0
+11,knn,veg_pos - ijepa,-1.0023788873920174,"[-1.83, -0.11]",10,CI below 0
+12,knn,ijepa - random_init,33.05549203438393,"[+31.84, +34.13]",10,CI above 0
+13,knn,veg_pos - random_init,32.05311314699192,"[+30.93, +33.14]",10,CI above 0

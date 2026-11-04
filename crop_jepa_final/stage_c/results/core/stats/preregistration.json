@@ -1,0 +1,259 @@
+{
+  "study": "Crop-JEPA Stage C: content-guided target placement in I-JEPA on LUCASVision crop photographs (final stage)",
+  "hypotheses": {
+    "H1 (P)": "veg_pos > ijepa on the primary endpoint",
+    "H2 (P)": "veg_pos > pos_matched (greenness beyond the static veg_pos position prior)",
+    "H3 (P)": "veg_pos > veg_neg (placement polarity matters; replicates Stage B)",
+    "H4 (P)": "neg_matched > veg_neg (veg_neg's deficit is content-driven, beyond its own position prior)",
+    "E1 (E)": "pos_matched ~ ijepa within +/-1.0 pp",
+    "E2 (E)": "neg_matched ~ ijepa within +/-1.0 pp",
+    "H5 (S)": "(veg_pos - ijepa) accuracy difference is larger on high-ExG-dispersion test images than on low-dispersion test images"
+  },
+  "families": {
+    "P": {
+      "pairs": [
+        "veg_pos - ijepa",
+        "veg_pos - pos_matched",
+        "veg_pos - veg_neg",
+        "neg_matched - veg_neg"
+      ],
+      "test": "exact Wilcoxon signed-rank, one-sided (greater)",
+      "multiplicity": "Holm over 4",
+      "confirmed_if": "Holm p < 0.05 AND 95% hierarchical-bootstrap CI lower bound > 0"
+    },
+    "E": {
+      "pairs": [
+        "pos_matched - ijepa",
+        "neg_matched - ijepa"
+      ],
+      "margin_pp": 1.0,
+      "equivalent_if": "95% hierarchical-bootstrap CI inside +/- margin (TOST at alpha 0.025 each = Bonferroni over 2)"
+    },
+    "S": {
+      "test": "H5: exact Wilcoxon signed-rank, one-sided (greater), on per-seed (high - low) stratum differences",
+      "confirmed_if": "p < 0.05 AND seed-bootstrap 95% CI lower bound > 0"
+    },
+    "R": {
+      "what": "replication summary: veg_pos - ijepa per setting (core, splitB, vits) pooled by DerSimonian-Laird random effects (pooled estimate, 95% CI, I^2); the bridge phase is pooled with Stage B seeds 0-5",
+      "status": "reported as a summary; no confirmatory claim beyond families P, E and S"
+    },
+    "exploratory": [
+      "every regime separately",
+      "k-NN endpoint",
+      "veg_neg - ijepa",
+      "attn - ijepa",
+      "veg_pos - attn",
+      "veg_pos - neg_matched",
+      "mid tertile and other moderation pairs",
+      "per-class F1 at 100 % labels",
+      "Stage B 160 px vs DINOv2 ViT-S/14 224 px reference",
+      "supervised from scratch"
+    ]
+  },
+  "primary_endpoint": {
+    "metric": "test macro-F1",
+    "evaluation": "logistic-regression probe on frozen target-encoder mean-pooled features, C chosen on validation macro-F1",
+    "regimes": [
+      "10shot",
+      "25shot",
+      "10pct"
+    ],
+    "label_draws": 10,
+    "aggregation": "mean over label draws, then over regimes; unit = pretraining seed"
+  },
+  "moderator": {
+    "definition": "D(x) = population std (ddof=0) of the 10x10 patch chromatic-ExG map of the evaluation view (cache resized to img_size)",
+    "strata": "tertiles; cut points from the TRAIN images of the split",
+    "core_cut_points": [
+      0.048281013650590926,
+      0.09106324679991726
+    ],
+    "statistic": "per seed: accuracy over the primary regimes and all draws, per stratum; H5 = (acc_veg_pos - acc_ijepa | high) - (acc_veg_pos - acc_ijepa | low)"
+  },
+  "token_budget": {
+    "ctx_tokens_cap": 12,
+    "protocol": "C (fixed K)",
+    "rule": "adopt the fixed budget K (protocol C) if capped online k-NN val F1 >= uncapped - 3 pp AND capped final RankMe >= 20 AND no non-finite steps; otherwise keep Stage B's per-batch equalisation (protocol B)"
+  },
+  "phases": {
+    "core": {
+      "split": "A",
+      "profile": "big_gpu",
+      "arms": [
+        "ijepa",
+        "veg_pos",
+        "veg_neg",
+        "pos_matched",
+        "neg_matched",
+        "attn"
+      ],
+      "seeds": [
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119
+      ],
+      "sup_seeds": [
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109
+      ],
+      "baselines": [
+        "random_init",
+        "supervised"
+      ],
+      "steps": 26000,
+      "ctx_cap": "auto",
+      "role": "confirmatory: families P (H1-H4), E (E1-E2), S (H5)"
+    },
+    "splitB": {
+      "split": "B",
+      "split_seed": 20261102,
+      "profile": "big_gpu",
+      "arms": [
+        "ijepa",
+        "veg_pos",
+        "veg_neg",
+        "pos_matched",
+        "neg_matched"
+      ],
+      "seeds": [
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109
+      ],
+      "sup_seeds": [],
+      "baselines": [
+        "random_init"
+      ],
+      "steps": 26000,
+      "ctx_cap": "auto",
+      "role": "replication R1: H1-H4 on a new group-aware split (Holm within phase)"
+    },
+    "vits": {
+      "split": "A",
+      "profile": "big_gpu_vits160",
+      "arms": [
+        "ijepa",
+        "veg_pos"
+      ],
+      "seeds": [
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109
+      ],
+      "sup_seeds": [],
+      "baselines": [
+        "random_init"
+      ],
+      "steps": 26000,
+      "ctx_cap": "auto",
+      "role": "replication R3: H1 with ViT-S/16 at 160 px"
+    },
+    "bridge": {
+      "split": "A",
+      "profile": "big_gpu",
+      "arms": [
+        "ijepa",
+        "veg_pos"
+      ],
+      "seeds": [
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109
+      ],
+      "sup_seeds": [],
+      "baselines": [],
+      "steps": 9000,
+      "ctx_cap": "none",
+      "role": "exploratory: Stage B protocol (no cap, 9,030 steps) on fresh seeds; pooled with Stage B seeds 0-5"
+    }
+  },
+  "decision_matrix": {
+    "P-A": "H1 Holm p < 0.05 AND 95% CI lower bound > 0 AND estimate >= +0.5 pp -> 'vegetation-aware target placement improves I-JEPA'",
+    "P-A'": "H1 Holm p < 0.05 AND 95% CI lower bound > 0 BUT estimate < +0.5 pp -> 'statistically reliable but below the SESOI'",
+    "P-B": "veg_pos - ijepa 90% CI inside (-1.0, +1.0) pp (TOST, alpha 0.05) -> 'equivalent to uniform placement on average'",
+    "P-D": "veg_pos - ijepa 95% CI upper bound < 0 AND exact Wilcoxon p (less) < 0.05 -> 'vegetation guidance is harmful'",
+    "P-C": "none of the above -> 'inconclusive; effect bounded to the reported 95% CI'",
+    "polarity": "H3 confirmed AND H4 confirmed -> veg_neg's deficit is content-driven (beyond its spatial distribution); H3 confirmed, H4 not confirmed, veg_neg - neg_matched 95% CI inside +/-1.0 pp -> the deficit is explained by where veg_neg puts its targets; otherwise -> polarity mechanism unresolved",
+    "spatial_prior": "E1 equivalent -> a static spatial prior does not change representations (replicates Stage B)",
+    "moderation": "H5 exact Wilcoxon p (greater) < 0.05 AND bootstrap 95% CI lower bound > 0 -> benefit larger on heterogeneous scenes"
+  },
+  "sesoi_pp": 0.5,
+  "equivalence_margin_pp": 1.0,
+  "alpha": 0.05,
+  "bootstrap": {
+    "B": 2000,
+    "interval": "percentile",
+    "scheme": "resample seeds -> label draws within seed -> test images (shared by arms)"
+  },
+  "exclusions": "a run that crashes twice is excluded for ALL arms of that seed in that phase (list-wise); never by results",
+  "compute_shortfall": "if compute runs out, the core is analysed at the largest number of complete seeds (>= 12), decided before any statistics are computed",
+  "placement": {
+    "tau": 0.5,
+    "eps": 0.2,
+    "num_targets": 4,
+    "target_scale": [
+      0.15,
+      0.2
+    ],
+    "target_aspect": [
+      0.75,
+      1.5
+    ],
+    "veg_index": "chromatic"
+  },
+  "code_sha256": "859588be2b085008602897f4a5d10210ce25cbaeb850846c63866fbf7870324e",
+  "power_note": {
+    "core_n_seeds": 20,
+    "min_exact_p": 9.5367431640625e-07,
+    "simulation": "stats/power_analysis.json in the Phase-0 folder"
+  },
+  "phase": "core",
+  "created": "2026-11-02T21:04:27.869378",
+  "results_existing_at_registration": 0
+}

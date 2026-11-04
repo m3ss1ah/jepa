@@ -1,0 +1,4 @@
+comparison,delta (pp),95% CI,90% CI,seeds +,Wilcoxon p (greater),Holm p,perm. p (2-sided),result
+veg_pos - ijepa,0.8934197275122022,"[-0.01, +1.90]","[+0.11, +1.73]",5/6,0.03125,0.0625,0.0625,inconclusive
+veg_pos - pos_matched,1.027302795364704,"[-0.01, +2.00]","[+0.14, +1.86]",4/6,0.078125,0.078125,0.125,inconclusive
+veg_pos - veg_neg,3.9660246192290383,"[+2.96, +4.85]","[+3.15, +4.71]",6/6,0.015625,0.046875,0.03125,greater (confirmed)

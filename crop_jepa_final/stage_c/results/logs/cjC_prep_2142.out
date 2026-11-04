@@ -1,0 +1,15 @@
+=== Stage C PREP START Mon Nov  2 03:10:42 PM IST 2026 on hpc.spit.ac.in ===
+[setup_env] installing: torch==2.8.0 torchvision==0.23.0 numpy pandas scikit-learn scipy matplotlib pillow psutil
+[setup_env] torch 2.8.0+cu128 | torchvision 0.23.0+cu128
+[setup_env] done.
+--- Stage B inputs (read only) ---
+-rw-------. 1 vishalraina23 vishalraina23 1755758720 Oct 27 15:25 /home/vishalraina23/crop_jepa_cluster/outputs_stageB/cache/images_192.npy
+-rw-------. 1 vishalraina23 vishalraina23 2095694 Oct 27 17:26 /home/vishalraina23/crop_jepa_cluster/outputs_stageB/cache/images_192.csv
+-rw-------. 1 vishalraina23 vishalraina23 2361271 Oct 27 15:25 /home/vishalraina23/crop_jepa_cluster/outputs_stageB/splits.csv
+-rw-------. 1 vishalraina23 vishalraina23 6246 Oct 27 17:27 /home/vishalraina23/crop_jepa_cluster/outputs_stageB/stats/seed_level_primary.csv
+cache (15876, 192, 192, 3) | split A {'train': 11115, 'test': 2381, 'val': 2380} | OK
+--- DINOv2 reference (optional) ---
+Downloading: "https://github.com/facebookresearch/dinov2/zipball/main" to /home/vishalraina23/crop_jepa_stageC/torch_home/hub/main.zip
+Downloading: "https://dl.fbaipublicfiles.com/dinov2/dinov2_vits14/dinov2_vits14_pretrain.pth" to /home/vishalraina23/crop_jepa_stageC/torch_home/hub/checkpoints/dinov2_vits14_pretrain.pth
+DINOv2 ready: /home/vishalraina23/crop_jepa_stageC/torch_home/hub/facebookresearch_dinov2_main
+=== Stage C PREP OK Mon Nov  2 03:11:18 PM IST 2026 ===

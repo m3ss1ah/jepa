@@ -1,0 +1,117 @@
+{
+  "rows": [
+    {
+      "n_seeds": 10,
+      "true_effect_pp": 0.3,
+      "sd_pp": 1.04,
+      "power_at_0.0125": 0.0535,
+      "power_at_0.05": 0.1865
+    },
+    {
+      "n_seeds": 10,
+      "true_effect_pp": 0.5,
+      "sd_pp": 1.04,
+      "power_at_0.0125": 0.16,
+      "power_at_0.05": 0.377
+    },
+    {
+      "n_seeds": 10,
+      "true_effect_pp": 0.7,
+      "sd_pp": 1.04,
+      "power_at_0.0125": 0.269,
+      "power_at_0.05": 0.549
+    },
+    {
+      "n_seeds": 10,
+      "true_effect_pp": 0.9,
+      "sd_pp": 1.04,
+      "power_at_0.0125": 0.4675,
+      "power_at_0.05": 0.766
+    },
+    {
+      "n_seeds": 12,
+      "true_effect_pp": 0.3,
+      "sd_pp": 1.04,
+      "power_at_0.0125": 0.0755,
+      "power_at_0.05": 0.2255
+    },
+    {
+      "n_seeds": 12,
+      "true_effect_pp": 0.5,
+      "sd_pp": 1.04,
+      "power_at_0.0125": 0.1995,
+      "power_at_0.05": 0.435
+    },
+    {
+      "n_seeds": 12,
+      "true_effect_pp": 0.7,
+      "sd_pp": 1.04,
+      "power_at_0.0125": 0.3785,
+      "power_at_0.05": 0.677
+    },
+    {
+      "n_seeds": 12,
+      "true_effect_pp": 0.9,
+      "sd_pp": 1.04,
+      "power_at_0.0125": 0.6145,
+      "power_at_0.05": 0.845
+    },
+    {
+      "n_seeds": 16,
+      "true_effect_pp": 0.3,
+      "sd_pp": 1.04,
+      "power_at_0.0125": 0.1095,
+      "power_at_0.05": 0.2735
+    },
+    {
+      "n_seeds": 16,
+      "true_effect_pp": 0.5,
+      "sd_pp": 1.04,
+      "power_at_0.0125": 0.2955,
+      "power_at_0.05": 0.5515
+    },
+    {
+      "n_seeds": 16,
+      "true_effect_pp": 0.7,
+      "sd_pp": 1.04,
+      "power_at_0.0125": 0.587,
+      "power_at_0.05": 0.8065
+    },
+    {
+      "n_seeds": 16,
+      "true_effect_pp": 0.9,
+      "sd_pp": 1.04,
+      "power_at_0.0125": 0.8065,
+      "power_at_0.05": 0.946
+    },
+    {
+      "n_seeds": 20,
+      "true_effect_pp": 0.3,
+      "sd_pp": 1.04,
+      "power_at_0.0125": 0.151,
+      "power_at_0.05": 0.3325
+    },
+    {
+      "n_seeds": 20,
+      "true_effect_pp": 0.5,
+      "sd_pp": 1.04,
+      "power_at_0.0125": 0.3835,
+      "power_at_0.05": 0.635
+    },
+    {
+      "n_seeds": 20,
+      "true_effect_pp": 0.7,
+      "sd_pp": 1.04,
+      "power_at_0.0125": 0.6955,
+      "power_at_0.05": 0.8795
+    },
+    {
+      "n_seeds": 20,
+      "true_effect_pp": 0.9,
+      "sd_pp": 1.04,
+      "power_at_0.0125": 0.9025,
+      "power_at_0.05": 0.9765
+    }
+  ],
+  "note": "exact one-sided Wilcoxon; 0.0125 = first Holm step over 4 hypotheses"
+}

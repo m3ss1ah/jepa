@@ -1,0 +1,62 @@
+{
+  "key": {
+    "kind": "target",
+    "img_size": 160,
+    "patch": 16,
+    "cache_res": 192,
+    "veg_index": "chromatic",
+    "tau": 0.5,
+    "eps": 0.2,
+    "n_images": 4000,
+    "seed": 424242,
+    "train": "b64e9ef405c9",
+    "sign": 1.0,
+    "scale": [
+      0.15,
+      0.2
+    ],
+    "aspect": [
+      0.75,
+      1.5
+    ],
+    "crop_scale": [
+      0.3,
+      1.0
+    ],
+    "hflip": true,
+    "batch": 128
+  },
+  "sizes": [
+    [
+      3,
+      4
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      4,
+      3
+    ],
+    [
+      4,
+      4
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      5,
+      3
+    ],
+    [
+      5,
+      4
+    ]
+  ],
+  "hash": "b41633a1dd62",
+  "images_used": 4000,
+  "created": "2026-11-02T21:04:38.322644"
+}

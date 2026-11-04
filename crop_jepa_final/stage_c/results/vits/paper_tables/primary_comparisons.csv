@@ -1,0 +1,2 @@
+hypothesis,comparison,delta (pp),95% CI,90% CI,seeds +,Wilcoxon p (greater),Holm p,perm. p (2-sided),result
+H1,veg_pos - ijepa,-1.5405294419573645,"[-2.26, -0.86]","[-2.15, -0.95]",0/10,1.0,1.0,0.001953125,lower

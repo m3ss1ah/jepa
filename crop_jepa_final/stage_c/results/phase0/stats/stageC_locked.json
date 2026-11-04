@@ -1,0 +1,88 @@
+{
+  "ctx_tokens_cap": 12,
+  "protocol": "C (fixed K)",
+  "protocol_rule": "adopt the fixed budget K (protocol C) if capped online k-NN val F1 >= uncapped - 3 pp AND capped final RankMe >= 20 AND no non-finite steps; otherwise keep Stage B's per-batch equalisation (protocol B)",
+  "K_candidate": 12,
+  "ctx_audit": {
+    "ijepa": {
+      "batches": 300,
+      "mean": 27.586666666666666,
+      "p1": 12.0,
+      "min": 11,
+      "max": 43
+    },
+    "veg_pos": {
+      "batches": 300,
+      "mean": 30.14,
+      "p1": 13.0,
+      "min": 10,
+      "max": 45
+    },
+    "veg_neg": {
+      "batches": 300,
+      "mean": 29.626666666666665,
+      "p1": 14.0,
+      "min": 12,
+      "max": 46
+    },
+    "pos_matched": {
+      "batches": 300,
+      "mean": 26.226666666666667,
+      "p1": 12.0,
+      "min": 11,
+      "max": 44
+    },
+    "neg_matched": {
+      "batches": 300,
+      "mean": 25.82,
+      "p1": 12.0,
+      "min": 10,
+      "max": 41
+    },
+    "attn": {
+      "batches": 300,
+      "mean": 28.186666666666667,
+      "p1": 13.99,
+      "min": 13,
+      "max": 47
+    }
+  },
+  "share_batches_below_K": {
+    "ijepa": 0.0033333333333333335,
+    "veg_pos": 0.0033333333333333335,
+    "veg_neg": 0.0,
+    "pos_matched": 0.0033333333333333335,
+    "neg_matched": 0.0033333333333333335,
+    "attn": 0.0
+  },
+  "phase0_runs": {
+    "uncapped": {
+      "run": "p0_ijepa_uncapped_s900",
+      "knn_val_f1_last": 0.46849811765456106,
+      "rankme_last": 50.77873229980469,
+      "nonfinite_steps": 0,
+      "ctx_tokens_mean": 28.15193798449612,
+      "ctx_below_cap_share": 0.0
+    },
+    "capped": {
+      "run": "p0_ijepa_cap12_s900",
+      "knn_val_f1_last": 0.4561771615263363,
+      "rankme_last": 40.99577713012695,
+      "nonfinite_steps": 0,
+      "ctx_tokens_mean": 11.998117386489481,
+      "ctx_below_cap_share": 0.0012181616832779624
+    }
+  },
+  "dispersion_cut_points": [
+    0.048281013650590926,
+    0.09106324679991726
+  ],
+  "dispersion_train_summary": {
+    "n": 11115,
+    "mean": 0.0799649832268084,
+    "sd": 0.05339309852474127
+  },
+  "split_train_tag": "b64e9ef405c9",
+  "gpu": "NVIDIA RTX 6000 Ada Generation",
+  "created": "2026-11-02T21:04:23.397962"
+}

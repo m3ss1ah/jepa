@@ -1,0 +1,17 @@
+\begin{table}[t]
+\centering
+\small
+\caption{[vits] Exploratory comparisons on the primary endpoint (no multiplicity correction; no claims).}
+\label{tab:exploratory_comparisons}
+\begin{tabular}{lrrrrrr}
+\toprule
+index & eval & comparison & delta (pp) & 95\% CI & n seeds & note \\
+\midrule
+1 & probe & ijepa - random\_init & 33.91 & [+32.79, +35.02] & 10 & CI above 0 \\
+2 & probe & veg\_pos - random\_init & 32.37 & [+31.29, +33.40] & 10 & CI above 0 \\
+11 & knn & veg\_pos - ijepa & -1.00 & [-1.83, -0.11] & 10 & CI below 0 \\
+12 & knn & ijepa - random\_init & 33.06 & [+31.84, +34.13] & 10 & CI above 0 \\
+13 & knn & veg\_pos - random\_init & 32.05 & [+30.93, +33.14] & 10 & CI above 0 \\
+\bottomrule
+\end{tabular}
+\end{table}

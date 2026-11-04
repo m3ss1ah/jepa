@@ -1,0 +1,15 @@
+# large / reproducible artifacts (not tracked)
+*.pt
+*.pth
+*.zip
+*.tmp
+**/cache/
+**/features_*.npy
+**/smoke/
+**/_smoke/
+**/selftest/
+venv/
+torch_home/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/

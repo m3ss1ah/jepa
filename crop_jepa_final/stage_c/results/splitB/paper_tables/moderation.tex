@@ -1,0 +1,16 @@
+\begin{table}[t]
+\centering
+\small
+\caption{[splitB] Accuracy differences (pp) by ExG-dispersion tertile of the test image; H5 = high - low for veg\_pos - ijepa (exact one-sided Wilcoxon over seeds, seed-bootstrap 95\% CI).}
+\label{tab:moderation}
+\begin{tabular}{lrrrrrrrrrrrr}
+\toprule
+hypothesis & comparison & n\_seeds & delta\_low\_pp & delta\_mid\_pp & delta\_high\_pp & high\_minus\_low\_pp & ci95\_lo\_pp & ci95\_hi\_pp & seeds\_positive & wilcoxon\_p\_greater & family & status \\
+\midrule
+H5 & veg\_pos - ijepa & 10 & 0.74 & -0.30 & -0.27 & -1.01 & -1.45 & -0.54 & 2 & 1.00 & moderation (splitB, replication) & not confirmed \\
+ & veg\_pos - pos\_matched & 10 & 1.12 & -0.05 & 0.31 & -0.81 & -1.41 & -0.24 & 4 & 0.97 & exploratory & CI below 0 \\
+ & veg\_neg - ijepa & 10 & -0.62 & -0.11 & -0.70 & -0.08 & -0.62 & 0.50 & 3 & 0.69 & exploratory & CI includes 0 \\
+ & neg\_matched - veg\_neg & 10 & 0.53 & 0.14 & 1.01 & 0.48 & -0.31 & 1.30 & 5 & 0.25 & exploratory & CI includes 0 \\
+\bottomrule
+\end{tabular}
+\end{table}
