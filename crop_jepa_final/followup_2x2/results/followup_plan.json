@@ -1,0 +1,73 @@
+{
+  "what": "Crop-JEPA post-hoc follow-up (2x2: token cap x training length); exploratory, planned after the Stage C results were known",
+  "plan": {
+    "cap9k": {
+      "split": "A",
+      "profile": "big_gpu",
+      "arms": [
+        "ijepa",
+        "veg_pos"
+      ],
+      "seeds": [
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109
+      ],
+      "sup_seeds": [],
+      "baselines": [],
+      "steps": 9000,
+      "ctx_cap": "auto",
+      "role": "post-hoc follow-up 2x2: Stage C token cap (K from Phase 0) at the Stage B length (9,030 steps)"
+    },
+    "uncap26k": {
+      "split": "A",
+      "profile": "big_gpu",
+      "arms": [
+        "ijepa",
+        "veg_pos"
+      ],
+      "seeds": [
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109
+      ],
+      "sup_seeds": [],
+      "baselines": [],
+      "steps": 26000,
+      "ctx_cap": "none",
+      "role": "post-hoc follow-up 2x2: Stage B token protocol (no cap) at the Stage C length (26,058 steps)"
+    }
+  },
+  "analysis": {
+    "unit": "seed (100-109); d = veg_pos - ijepa on the linear-probe primary endpoint (pp), per cell",
+    "contrasts": {
+      "cap_at_9k": "d(cap9k) - d(bridge)",
+      "cap_at_26k": "d(core) - d(uncap26k)",
+      "length_uncapped": "d(uncap26k) - d(bridge)",
+      "length_capped": "d(core) - d(cap9k)",
+      "interaction": "cap_at_26k - cap_at_9k"
+    },
+    "statistics": "mean, 95% seed-bootstrap CI (B = 10000), exact two-sided Wilcoxon; all EXPLORATORY (post hoc)",
+    "reading": "the cap explains the loss of the Stage B effect if cap_at_9k has a 95% CI below 0 and length_uncapped includes 0; training length explains it if length_uncapped has a CI below 0 and cap_at_9k includes 0; both if both are below 0; neither alone is identified otherwise"
+  },
+  "followup_code_sha256": "bc5adf39e6c3f74aa9408edb2275e6de5d91398c95ba631bf74309e5d6066ca5",
+  "stageC_code_sha256": "859588be2b085008602897f4a5d10210ce25cbaeb850846c63866fbf7870324e",
+  "stageC_preregistration_sha256": "c6774dac49cc7f3d29036d4f7e4a8ec5f54ff4d9012adcaa6dee5b19ff539343",
+  "stageC_token_cap": 12,
+  "created": "2026-11-04T13:05:36.188762",
+  "followup_runs_finished_at_freeze": 0
+}

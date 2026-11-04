@@ -1,0 +1,2 @@
+hypothesis,comparison,n_seeds,delta_low_pp,delta_mid_pp,delta_high_pp,high_minus_low_pp,ci95_lo_pp,ci95_hi_pp,seeds_positive,wilcoxon_p_greater,family,seed_high_minus_low_pp,status
+H5,veg_pos - ijepa,10,0.33913764510779487,0.31604938271604816,0.862233811386357,0.5230961662785623,-0.44343747364870323,1.4594031553445297,7,0.1875,"moderation (cap9k, replication)","[0.983, 0.105, 0.532, 1.551, 2.982, -2.355, -1.365, -0.533, 2.128, 1.204]",not confirmed

@@ -1,0 +1,376 @@
+{
+ "created": "2026-11-04T15:18:59.112824",
+ "status": "EXPLORATORY post-hoc follow-up",
+ "seeds": [
+  100,
+  101,
+  102,
+  103,
+  104,
+  105,
+  106,
+  107,
+  108,
+  109
+ ],
+ "followup_plan_sha256": "24d653d3790d60086ffbfaa5ef35b3ded1c1d959819d34af3ca47729ebebe6c9",
+ "probe": {
+  "cells": {
+   "cap/26k": {
+    "phase": "core",
+    "capped": true,
+    "steps": 26058,
+    "ijepa_pp": 52.36532285117007,
+    "veg_pos_pp": 52.403838926325406,
+    "mean_pp": 0.03851607515533786,
+    "ci95_lo_pp": -0.4642627232503963,
+    "ci95_hi_pp": 0.5656069914363637,
+    "n_seeds": 10,
+    "seeds_positive": 5,
+    "wilcoxon_p_two_sided": 1.0,
+    "ctx_tokens_ijepa": 11.9974,
+    "ctx_tokens_veg_pos": 11.9994
+   },
+   "uncap/9k": {
+    "phase": "bridge",
+    "capped": false,
+    "steps": 9030,
+    "ijepa_pp": 44.12034869006731,
+    "veg_pos_pp": 44.53694372013963,
+    "mean_pp": 0.41659503007232246,
+    "ci95_lo_pp": -0.14340392075450953,
+    "ci95_hi_pp": 1.0106698514860823,
+    "n_seeds": 10,
+    "seeds_positive": 7,
+    "wilcoxon_p_two_sided": 0.275390625,
+    "ctx_tokens_ijepa": 28.2242,
+    "ctx_tokens_veg_pos": 31.112
+   },
+   "cap/9k": {
+    "phase": "cap9k",
+    "capped": true,
+    "steps": 9030,
+    "ijepa_pp": 44.38223177377573,
+    "veg_pos_pp": 44.78444924313237,
+    "mean_pp": 0.40221746935663844,
+    "ci95_lo_pp": -0.31507614208249013,
+    "ci95_hi_pp": 1.1030853395986253,
+    "n_seeds": 10,
+    "seeds_positive": 8,
+    "wilcoxon_p_two_sided": 0.322265625,
+    "ctx_tokens_ijepa": 11.9972,
+    "ctx_tokens_veg_pos": 11.9993
+   },
+   "uncap/26k": {
+    "phase": "uncap26k",
+    "capped": false,
+    "steps": 26058,
+    "ijepa_pp": 49.491113707538716,
+    "veg_pos_pp": 49.949185131561364,
+    "mean_pp": 0.4580714240226598,
+    "ci95_lo_pp": -0.20588385329600753,
+    "ci95_hi_pp": 1.0643414253988062,
+    "n_seeds": 10,
+    "seeds_positive": 7,
+    "wilcoxon_p_two_sided": 0.130859375,
+    "ctx_tokens_ijepa": 28.2275,
+    "ctx_tokens_veg_pos": 31.1239
+   }
+  },
+  "contrasts": {
+   "cap_at_9k": {
+    "cells": "cap/9k - uncap/9k",
+    "meaning": "effect of the token cap on the veg_pos advantage, at the Stage B length",
+    "mean_pp": -0.014377560715684013,
+    "ci95_lo_pp": -0.5342612738840753,
+    "ci95_hi_pp": 0.5883865623939777,
+    "n_seeds": 10,
+    "seeds_positive": 3,
+    "wilcoxon_p_two_sided": 0.625
+   },
+   "cap_at_26k": {
+    "cells": "cap/26k - uncap/26k",
+    "meaning": "effect of the token cap on the veg_pos advantage, at the Stage C length",
+    "mean_pp": -0.41955534886732193,
+    "ci95_lo_pp": -1.2885833367599528,
+    "ci95_hi_pp": 0.4251134100949249,
+    "n_seeds": 10,
+    "seeds_positive": 4,
+    "wilcoxon_p_two_sided": 0.4921875
+   },
+   "length_uncapped": {
+    "cells": "uncap/26k - uncap/9k",
+    "meaning": "effect of longer training on the veg_pos advantage, without the cap",
+    "mean_pp": 0.04147639395033735,
+    "ci95_lo_pp": -0.6746929705209733,
+    "ci95_hi_pp": 0.7127470094854056,
+    "n_seeds": 10,
+    "seeds_positive": 5,
+    "wilcoxon_p_two_sided": 0.845703125
+   },
+   "length_capped": {
+    "cells": "cap/26k - cap/9k",
+    "meaning": "effect of longer training on the veg_pos advantage, with the cap",
+    "mean_pp": -0.3637013942013006,
+    "ci95_lo_pp": -1.003909922137674,
+    "ci95_hi_pp": 0.33156209518781116,
+    "n_seeds": 10,
+    "seeds_positive": 4,
+    "wilcoxon_p_two_sided": 0.322265625
+   },
+   "cap_main_effect": {
+    "cells": "2x2",
+    "meaning": "average effect of the cap (over both lengths)",
+    "mean_pp": -0.21696645479150298,
+    "ci95_lo_pp": -0.7978899103743617,
+    "ci95_hi_pp": 0.4429004317361976,
+    "n_seeds": 10,
+    "seeds_positive": 4,
+    "wilcoxon_p_two_sided": 0.431640625
+   },
+   "length_main_effect": {
+    "cells": "2x2",
+    "meaning": "average effect of 26k vs 9k steps (over both protocols)",
+    "mean_pp": -0.16111250012548162,
+    "ci95_lo_pp": -0.708950037147732,
+    "ci95_hi_pp": 0.4304448312375897,
+    "n_seeds": 10,
+    "seeds_positive": 3,
+    "wilcoxon_p_two_sided": 0.6953125
+   },
+   "interaction": {
+    "cells": "2x2",
+    "meaning": "does the cap act differently at 26k than at 9k",
+    "mean_pp": -0.40517778815163796,
+    "ci95_lo_pp": -1.1450845491335326,
+    "ci95_hi_pp": 0.30462221066314144,
+    "n_seeds": 10,
+    "seeds_positive": 4,
+    "wilcoxon_p_two_sided": 0.431640625
+   }
+  }
+ },
+ "knn": {
+  "cells": {
+   "cap/26k": {
+    "phase": "core",
+    "capped": true,
+    "steps": 26058,
+    "ijepa_pp": 46.459023255743055,
+    "veg_pos_pp": 46.876798044118146,
+    "mean_pp": 0.417774788375101,
+    "ci95_lo_pp": -0.18100662339383064,
+    "ci95_hi_pp": 1.0920368861818215,
+    "n_seeds": 10,
+    "seeds_positive": 7,
+    "wilcoxon_p_two_sided": 0.375,
+    "ctx_tokens_ijepa": 11.9974,
+    "ctx_tokens_veg_pos": 11.9994
+   },
+   "uncap/9k": {
+    "phase": "bridge",
+    "capped": false,
+    "steps": 9030,
+    "ijepa_pp": 39.82561997171257,
+    "veg_pos_pp": 39.431168101610815,
+    "mean_pp": -0.3944518701017614,
+    "ci95_lo_pp": -1.1385814696187502,
+    "ci95_hi_pp": 0.3329012594578564,
+    "n_seeds": 10,
+    "seeds_positive": 4,
+    "wilcoxon_p_two_sided": 0.275390625,
+    "ctx_tokens_ijepa": 28.2242,
+    "ctx_tokens_veg_pos": 31.112
+   },
+   "cap/9k": {
+    "phase": "cap9k",
+    "capped": true,
+    "steps": 9030,
+    "ijepa_pp": 38.98798145452756,
+    "veg_pos_pp": 39.697104022132585,
+    "mean_pp": 0.709122567605025,
+    "ci95_lo_pp": -0.3150955026385925,
+    "ci95_hi_pp": 1.6917370394861073,
+    "n_seeds": 10,
+    "seeds_positive": 8,
+    "wilcoxon_p_two_sided": 0.322265625,
+    "ctx_tokens_ijepa": 11.9972,
+    "ctx_tokens_veg_pos": 11.9993
+   },
+   "uncap/26k": {
+    "phase": "uncap26k",
+    "capped": false,
+    "steps": 26058,
+    "ijepa_pp": 43.47002221398305,
+    "veg_pos_pp": 44.15693561318118,
+    "mean_pp": 0.6869133991981385,
+    "ci95_lo_pp": -0.132289788207462,
+    "ci95_hi_pp": 1.4501086223887938,
+    "n_seeds": 10,
+    "seeds_positive": 6,
+    "wilcoxon_p_two_sided": 0.193359375,
+    "ctx_tokens_ijepa": 28.2275,
+    "ctx_tokens_veg_pos": 31.1239
+   }
+  },
+  "contrasts": {
+   "cap_at_9k": {
+    "cells": "cap/9k - uncap/9k",
+    "meaning": "effect of the token cap on the veg_pos advantage, at the Stage B length",
+    "mean_pp": 1.1035744377067864,
+    "ci95_lo_pp": 0.24142115724724306,
+    "ci95_hi_pp": 2.090654120671656,
+    "n_seeds": 10,
+    "seeds_positive": 8,
+    "wilcoxon_p_two_sided": 0.064453125
+   },
+   "cap_at_26k": {
+    "cells": "cap/26k - uncap/26k",
+    "meaning": "effect of the token cap on the veg_pos advantage, at the Stage C length",
+    "mean_pp": -0.2691386108230375,
+    "ci95_lo_pp": -1.3871388535524987,
+    "ci95_hi_pp": 0.8352214488192585,
+    "n_seeds": 10,
+    "seeds_positive": 6,
+    "wilcoxon_p_two_sided": 1.0
+   },
+   "length_uncapped": {
+    "cells": "uncap/26k - uncap/9k",
+    "meaning": "effect of longer training on the veg_pos advantage, without the cap",
+    "mean_pp": 1.0813652692999,
+    "ci95_lo_pp": 0.15839403145006048,
+    "ci95_hi_pp": 1.9751597651594897,
+    "n_seeds": 10,
+    "seeds_positive": 7,
+    "wilcoxon_p_two_sided": 0.064453125
+   },
+   "length_capped": {
+    "cells": "cap/26k - cap/9k",
+    "meaning": "effect of longer training on the veg_pos advantage, with the cap",
+    "mean_pp": -0.291347779229924,
+    "ci95_lo_pp": -1.1257316240479809,
+    "ci95_hi_pp": 0.6938912207041272,
+    "n_seeds": 10,
+    "seeds_positive": 2,
+    "wilcoxon_p_two_sided": 0.431640625
+   },
+   "cap_main_effect": {
+    "cells": "2x2",
+    "meaning": "average effect of the cap (over both lengths)",
+    "mean_pp": 0.4172179134418744,
+    "ci95_lo_pp": -0.35934232058154486,
+    "ci95_hi_pp": 1.3592367998417227,
+    "n_seeds": 10,
+    "seeds_positive": 6,
+    "wilcoxon_p_two_sided": 0.556640625
+   },
+   "length_main_effect": {
+    "cells": "2x2",
+    "meaning": "average effect of 26k vs 9k steps (over both protocols)",
+    "mean_pp": 0.395008745034988,
+    "ci95_lo_pp": -0.27807866666028164,
+    "ci95_hi_pp": 1.1750114723989018,
+    "n_seeds": 10,
+    "seeds_positive": 5,
+    "wilcoxon_p_two_sided": 0.625
+   },
+   "interaction": {
+    "cells": "2x2",
+    "meaning": "does the cap act differently at 26k than at 9k",
+    "mean_pp": -1.372713048529824,
+    "ci95_lo_pp": -2.4298098004146955,
+    "ci95_hi_pp": -0.2896493575999085,
+    "n_seeds": 10,
+    "seeds_positive": 3,
+    "wilcoxon_p_two_sided": 0.064453125
+   }
+  }
+ },
+ "h5_high_minus_low": {
+  "cells": {
+   "cap/26k": {
+    "low_pp": 0.6730928689883924,
+    "mid_pp": -0.21378600823045435,
+    "high_pp": -0.225119513255107,
+    "mean_pp": -1.2789999999999997,
+    "ci95_lo_pp": -1.8054025,
+    "ci95_hi_pp": -0.77,
+    "n_seeds": 10,
+    "seeds_positive": 1,
+    "wilcoxon_p_two_sided": 0.00390625
+   },
+   "uncap/9k": {
+    "low_pp": 0.1384742951907114,
+    "mid_pp": 0.4588477366255139,
+    "high_pp": 1.3885267275097768,
+    "mean_pp": 1.25,
+    "ci95_lo_pp": 0.7115825,
+    "ci95_hi_pp": 1.743005,
+    "n_seeds": 10,
+    "seeds_positive": 9,
+    "wilcoxon_p_two_sided": 0.005859375
+   },
+   "cap/9k": {
+    "low_pp": 0.33913764510779487,
+    "mid_pp": 0.31604938271604816,
+    "high_pp": 0.862233811386357,
+    "mean_pp": 0.5232,
+    "ci95_lo_pp": -0.4275075000000001,
+    "ci95_hi_pp": 1.4419274999999996,
+    "n_seeds": 10,
+    "seeds_positive": 7,
+    "wilcoxon_p_two_sided": 0.375
+   },
+   "uncap/26k": {
+    "low_pp": 1.6786898839137652,
+    "mid_pp": 1.361316872427985,
+    "high_pp": -0.06823120382442482,
+    "mean_pp": -1.7469000000000001,
+    "ci95_lo_pp": -2.4859249999999995,
+    "ci95_hi_pp": -0.9226800000000004,
+    "n_seeds": 10,
+    "seeds_positive": 2,
+    "wilcoxon_p_two_sided": 0.013671875
+   }
+  },
+  "contrasts": {
+   "cap_at_9k": {
+    "cells": "cap/9k - uncap/9k",
+    "mean_pp": -0.7267999999999999,
+    "ci95_lo_pp": -1.5283,
+    "ci95_hi_pp": -0.01988750000000007,
+    "n_seeds": 10,
+    "seeds_positive": 3,
+    "wilcoxon_p_two_sided": 0.130859375
+   },
+   "cap_at_26k": {
+    "cells": "cap/26k - uncap/26k",
+    "mean_pp": 0.4678999999999999,
+    "ci95_lo_pp": -0.41190499999999997,
+    "ci95_hi_pp": 1.3180025,
+    "n_seeds": 10,
+    "seeds_positive": 7,
+    "wilcoxon_p_two_sided": 0.322265625
+   },
+   "length_uncapped": {
+    "cells": "uncap/26k - uncap/9k",
+    "mean_pp": -2.9968999999999997,
+    "ci95_lo_pp": -3.7831049999999995,
+    "ci95_hi_pp": -2.15909,
+    "n_seeds": 10,
+    "seeds_positive": 0,
+    "wilcoxon_p_two_sided": 0.001953125
+   },
+   "length_capped": {
+    "cells": "cap/26k - cap/9k",
+    "mean_pp": -1.8022000000000002,
+    "ci95_lo_pp": -2.7784200000000006,
+    "ci95_hi_pp": -0.7858475000000008,
+    "n_seeds": 10,
+    "seeds_positive": 2,
+    "wilcoxon_p_two_sided": 0.009765625
+   }
+  }
+ },
+ "verdict": "neither factor alone is identified (both contrasts include 0, or the pattern is mixed)"
+}

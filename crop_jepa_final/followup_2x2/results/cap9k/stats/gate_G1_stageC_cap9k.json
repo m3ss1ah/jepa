@@ -1,0 +1,97 @@
+{
+  "phase": "cap9k",
+  "role": "post-hoc follow-up 2x2: Stage C token cap (K from Phase 0) at the Stage B length (9,030 steps)",
+  "decision": {
+    "primary": "P-C",
+    "polarity": "",
+    "spatial_prior": "",
+    "text": "[cap9k: post-hoc follow-up 2x2: Stage C token cap (K from Phase 0) at the Stage B length (9,030 steps)] none of the above -> 'inconclusive; effect bounded to the reported 95% CI' | veg_pos - ijepa = +0.40 pp, 95% CI [-0.40, +1.21], Holm p = 0.1611, 8/10 seeds positive",
+    "primary_text": "none of the above -> 'inconclusive; effect bounded to the reported 95% CI' | veg_pos - ijepa = +0.40 pp, 95% CI [-0.40, +1.21], Holm p = 0.1611, 8/10 seeds positive",
+    "moderation": "H5 not confirmed (high - low = +0.52 pp, 95% CI [-0.44, +1.46], p = 0.1875)"
+  },
+  "confirmatory": [
+    {
+      "eval": "probe",
+      "comparison": "veg_pos - ijepa",
+      "a": "veg_pos",
+      "b": "ijepa",
+      "regime": "PRIMARY ENDPOINT",
+      "diff_pp": 0.4022174693566416,
+      "ci95_lo_pp": -0.39905180867501583,
+      "ci95_hi_pp": 1.2096680313022703,
+      "ci90_lo_pp": -0.27239358925831014,
+      "ci90_hi_pp": 1.0708141225793135,
+      "n_seeds": 10,
+      "seeds_a_better": 8,
+      "W_plus": 38.0,
+      "wilcoxon_p_greater": 0.1611328125,
+      "wilcoxon_p_less": 0.8623046875,
+      "wilcoxon_p_two_sided": 0.322265625,
+      "perm_p_greater": 0.1708984375,
+      "perm_p_two_sided": 0.341796875,
+      "hypothesis": "H1",
+      "family": "FOLLOW-UP 2x2 (post hoc, exploratory)",
+      "holm_p": 0.1611328125,
+      "test_used": "wilcoxon_p_greater",
+      "equivalent": false,
+      "equivalent_95": false,
+      "equivalent_stageB_margin": true,
+      "lower": false,
+      "ci_excludes_0": false,
+      "greater_confirmed": false,
+      "status": "inconclusive"
+    }
+  ],
+  "equivalence": [],
+  "moderation_H5": {
+    "hypothesis": "H5",
+    "comparison": "veg_pos - ijepa",
+    "n_seeds": 10,
+    "delta_low_pp": 0.33913764510779487,
+    "delta_mid_pp": 0.31604938271604816,
+    "delta_high_pp": 0.862233811386357,
+    "high_minus_low_pp": 0.5230961662785623,
+    "ci95_lo_pp": -0.44343747364870323,
+    "ci95_hi_pp": 1.4594031553445297,
+    "seeds_positive": 7,
+    "wilcoxon_p_greater": 0.1875,
+    "family": "moderation (cap9k, replication)",
+    "seed_high_minus_low_pp": [
+      0.983,
+      0.105,
+      0.532,
+      1.551,
+      2.982,
+      -2.355,
+      -1.365,
+      -0.533,
+      2.128,
+      1.204
+    ],
+    "status": "not confirmed"
+  },
+  "confirmatory_seed_diffs_pp": {
+    "veg_pos - ijepa": [
+      0.618,
+      2.74,
+      0.382,
+      0.64,
+      0.13,
+      0.859,
+      -1.862,
+      0.647,
+      0.925,
+      -1.058
+    ]
+  },
+  "seeds_completed": {
+    "ijepa": 10,
+    "veg_pos": 10
+  },
+  "seeds_planned": 10,
+  "ctx_tokens_cap": 12,
+  "intervals_computed": 18,
+  "expected_chance_exclusions": 0.9,
+  "preregistration": "/home/vishalraina23/crop_jepa_stageC/outputs_stageC/phase0/stats/preregistration_stageC.json",
+  "computed_at": "2026-11-04T13:40:30.405522"
+}

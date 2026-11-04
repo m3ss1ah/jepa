@@ -1,0 +1,15 @@
+{
+  "profile": "big_gpu",
+  "batch_size": 128,
+  "precision": "bf16",
+  "img_size": 160,
+  "enc_dim": 192,
+  "cache_res": 192,
+  "gpu": "NVIDIA RTX 6000 Ada Generation",
+  "benchmark": {
+    "batch_size": 128,
+    "imgs_per_s": 3157.1657888527307,
+    "peak_mem_gb": 0.721024512
+  },
+  "locked_at": "2026-11-04T13:05:51.208459"
+}

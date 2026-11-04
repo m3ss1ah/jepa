@@ -1,0 +1,15 @@
+eval,contrast,cells,meaning,mean_pp,ci95_lo_pp,ci95_hi_pp,n_seeds,seeds_positive,wilcoxon_p_two_sided
+probe,cap_at_9k,cap/9k - uncap/9k,"effect of the token cap on the veg_pos advantage, at the Stage B length",-0.014377560715684013,-0.5342612738840753,0.5883865623939777,10,3,0.625
+probe,cap_at_26k,cap/26k - uncap/26k,"effect of the token cap on the veg_pos advantage, at the Stage C length",-0.41955534886732193,-1.2885833367599528,0.4251134100949249,10,4,0.4921875
+probe,length_uncapped,uncap/26k - uncap/9k,"effect of longer training on the veg_pos advantage, without the cap",0.04147639395033735,-0.6746929705209733,0.7127470094854056,10,5,0.845703125
+probe,length_capped,cap/26k - cap/9k,"effect of longer training on the veg_pos advantage, with the cap",-0.3637013942013006,-1.003909922137674,0.33156209518781116,10,4,0.322265625
+probe,cap_main_effect,2x2,average effect of the cap (over both lengths),-0.21696645479150298,-0.7978899103743617,0.4429004317361976,10,4,0.431640625
+probe,length_main_effect,2x2,average effect of 26k vs 9k steps (over both protocols),-0.16111250012548162,-0.708950037147732,0.4304448312375897,10,3,0.6953125
+probe,interaction,2x2,does the cap act differently at 26k than at 9k,-0.40517778815163796,-1.1450845491335326,0.30462221066314144,10,4,0.431640625
+knn,cap_at_9k,cap/9k - uncap/9k,"effect of the token cap on the veg_pos advantage, at the Stage B length",1.1035744377067864,0.24142115724724306,2.090654120671656,10,8,0.064453125
+knn,cap_at_26k,cap/26k - uncap/26k,"effect of the token cap on the veg_pos advantage, at the Stage C length",-0.2691386108230375,-1.3871388535524987,0.8352214488192585,10,6,1.0
+knn,length_uncapped,uncap/26k - uncap/9k,"effect of longer training on the veg_pos advantage, without the cap",1.0813652692999,0.15839403145006048,1.9751597651594897,10,7,0.064453125
+knn,length_capped,cap/26k - cap/9k,"effect of longer training on the veg_pos advantage, with the cap",-0.291347779229924,-1.1257316240479809,0.6938912207041272,10,2,0.431640625
+knn,cap_main_effect,2x2,average effect of the cap (over both lengths),0.4172179134418744,-0.35934232058154486,1.3592367998417227,10,6,0.556640625
+knn,length_main_effect,2x2,average effect of 26k vs 9k steps (over both protocols),0.395008745034988,-0.27807866666028164,1.1750114723989018,10,5,0.625
+knn,interaction,2x2,does the cap act differently at 26k than at 9k,-1.372713048529824,-2.4298098004146955,-0.2896493575999085,10,3,0.064453125

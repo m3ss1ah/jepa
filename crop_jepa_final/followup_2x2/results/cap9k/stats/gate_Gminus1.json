@@ -1,0 +1,10 @@
+{
+  "leaking_groups": 0,
+  "classes": 12,
+  "classes_without_train": [],
+  "classes_without_test": [],
+  "group_regex_match_rate": null,
+  "exg_position_done": true,
+  "position_warning": false,
+  "decision": "PASS"
+}
