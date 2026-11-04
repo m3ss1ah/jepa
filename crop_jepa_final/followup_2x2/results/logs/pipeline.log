@@ -1,0 +1,16 @@
+[2026-11-04 13:05:31] ================ FOLLOW-UP JOB 2150 START on hpc.spit.ac.in ================
+[2026-11-04 13:05:31] GPU(s): 0, NVIDIA RTX 6000 Ada Generation, 49140 MiB;1, NVIDIA RTX 6000 Ada Generation, 49140 MiB;
+[2026-11-04 13:05:33] workers: 6 (3 per GPU on GPUs 0 1), 6 CPU threads each
+[2026-11-04 13:05:33] phase cap9k: prepare pass (budget 11.499 h)
+[2026-11-04 13:05:52] phase cap9k: 6 workers (budget 11.494 h)
+[2026-11-04 13:39:05] phase cap9k workers finished: 20/20 runs
+[2026-11-04 13:39:05] phase cap9k: report pass (finishes leftovers, statistics; budget 10.941 h)
+[2026-11-04 13:40:34] phase cap9k DONE (20/20 runs)
+[2026-11-04 13:40:34] phase uncap26k: prepare pass (budget 10.916 h)
+[2026-11-04 13:40:54] phase uncap26k: 6 workers (budget 10.91 h)
+[2026-11-04 15:17:29] phase uncap26k workers finished: 20/20 runs
+[2026-11-04 15:17:29] phase uncap26k: report pass (finishes leftovers, statistics; budget 9.301 h)
+[2026-11-04 15:18:58] phase uncap26k DONE (20/20 runs)
+[2026-11-04 15:18:58] 2x2 analysis
+[2026-11-04 15:18:59] ALL DONE. Read ./outputs_followup/FOLLOWUP_2x2_REPORT.md; package with: bash package_followup.sh
+[2026-11-04 15:18:59] ================ FOLLOW-UP JOB 2150 END ================

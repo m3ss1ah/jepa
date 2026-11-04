@@ -1,0 +1,25 @@
+test,result,detail
+ijepa: shapes and index ranges,PASS,"ctx (128, 32), targets [(128, 20), (128, 20), (128, 12), (128, 20)]"
+ijepa: context indices sorted and unique,PASS,
+ijepa: no context/target overlap,PASS,"(rows with overlap 0, degenerate all-token fallbacks 0)"
+ijepa: deterministic for a fixed seed,PASS,
+ijepa: different seeds give different masks,PASS,
+veg_pos: shapes and index ranges,PASS,"ctx (128, 32), targets [(128, 20), (128, 20), (128, 12), (128, 20)]"
+veg_pos: context indices sorted and unique,PASS,
+veg_pos: no context/target overlap,PASS,"(rows with overlap 0, degenerate all-token fallbacks 0)"
+veg_pos: deterministic for a fixed seed,PASS,
+veg_pos: different seeds give different masks,PASS,
+veg_neg: shapes and index ranges,PASS,"ctx (128, 28), targets [(128, 20), (128, 20), (128, 12), (128, 20)]"
+veg_neg: context indices sorted and unique,PASS,
+veg_neg: no context/target overlap,PASS,"(rows with overlap 0, degenerate all-token fallbacks 0)"
+veg_neg: deterministic for a fixed seed,PASS,
+veg_neg: different seeds give different masks,PASS,
+attn: shapes and index ranges,PASS,"ctx (128, 35), targets [(128, 20), (128, 20), (128, 12), (128, 20)]"
+attn: context indices sorted and unique,PASS,
+attn: no context/target overlap,PASS,"(rows with overlap 0, degenerate all-token fallbacks 0)"
+attn: deterministic for a fixed seed,PASS,
+attn: different seeds give different masks,PASS,
+placement probabilities sum to 1 (veg_pos and veg_neg),PASS,(max |sum-1| = 2.38e-07)
+veg_pos target ExG z >= +0.30,PASS,
+veg_neg target ExG z <= -0.25,PASS,
+|ijepa target ExG z| <= 0.10,PASS,
